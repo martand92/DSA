@@ -1,4 +1,4 @@
-package DSA._00_bitmanipulation._01_neg_n;
+package DSA._00_bitmanipulation._01_LastSetBit;
 
 public class _11_MinBitFlips {
 
