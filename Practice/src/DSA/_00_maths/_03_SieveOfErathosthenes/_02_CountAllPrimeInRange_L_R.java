@@ -3,7 +3,7 @@ package DSA._00_maths._03_SieveOfErathosthenes;
 import java.util.Arrays;
 
 //https://www.youtube.com/watch?v=os82DjD2-MA
-public class _03_CountAllPrimeInRange_L_R {
+public class _02_CountAllPrimeInRange_L_R {
 
 	public static int[] sieveOfEratosthenes(int n) {
 		int[] prime = new int[n + 1];

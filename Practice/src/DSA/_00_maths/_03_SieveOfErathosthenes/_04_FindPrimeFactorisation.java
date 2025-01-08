@@ -3,7 +3,7 @@ package DSA._00_maths._03_SieveOfErathosthenes;
 import java.util.Arrays;
 
 //spf : smallest prime factor
-public class _01_02_FindPrimeFactorisation {
+public class _04_FindPrimeFactorisation {
 
 	public static int[] findSPF(int[] spf, int n) {
 

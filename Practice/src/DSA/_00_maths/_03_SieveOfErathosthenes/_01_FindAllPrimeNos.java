@@ -17,7 +17,7 @@ import java.util.List;
 
 /*Using SieveOfErathostenes algorithm reduce above TC to O(N * 1) = O(N)
  * i.e, find prime of each number with O(1) and not O(sqrt(N)) */
-public class _02_FindAllPrimeNos {
+public class _01_FindAllPrimeNos {
 
 	public static int[] sieveOfEratosthenes(int[] prime, int n) {
 

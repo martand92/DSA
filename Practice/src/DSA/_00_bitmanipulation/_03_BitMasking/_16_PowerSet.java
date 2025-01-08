@@ -1,4 +1,4 @@
-package DSA._00_bitmanipulation;
+package DSA._00_bitmanipulation._03_BitMasking;
 
 import java.util.ArrayList;
 

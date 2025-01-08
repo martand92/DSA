@@ -2,7 +2,7 @@ package DSA._00_maths._03_SieveOfErathosthenes;
 
 //https://www.youtube.com/watch?v=Dg5D-k1rUgY
 //https://www.hackerearth.com/problem/algorithm/monk-and-divisor-conundrum-56e0eb99/
-public class _04_CountDivisibleByPQ {
+public class _03_CountDivisibleByPQ {
 
 	public static int gcd(int p, int q) {
 

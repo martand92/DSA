@@ -1,8 +1,8 @@
-package DSA._00_maths;
+package DSA._00_maths._02_FactorsOfNumber;
 
 import java.util.ArrayList;
 
-public class _01_FindPrimeFactors {
+public class _03_FindPrimeFactors {
 
 	public static void main(String[] args) {
 		//int n = 780;

@@ -1,6 +1,6 @@
-package DSA._00_maths._02_NumberOfFactors;
+package DSA._00_maths._02_FactorsOfNumber;
 
-public class _02_02_IsDivisorPrime {
+public class _02_IsDivisorPrime {
 
 	public static void main(String[] args) {
 		int n = 11;

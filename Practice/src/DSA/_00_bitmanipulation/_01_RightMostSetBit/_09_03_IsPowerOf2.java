@@ -1,6 +1,6 @@
-package DSA._00_bitmanipulation._01_LastSetBit;
+package DSA._00_bitmanipulation._01_RightMostSetBit;
 
-public class _09_02_IsPowerOf2 {
+public class _09_03_IsPowerOf2 {
 
 	public static boolean isPowerOf2(int n) {
 		if ((n & (n - 1)) == 0)

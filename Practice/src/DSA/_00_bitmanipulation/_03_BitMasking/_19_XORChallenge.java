@@ -1,4 +1,4 @@
-package DSA._00_maths._03_SieveOfErathosthenes;
+package DSA._00_bitmanipulation._03_BitMasking;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 //https://youtu.be/0r2kXRQZ_lA?list=PLauivoElc3giVROwL-6g9hO-LlSen_NaV&t=1324
 
 //given C = A ^ B, find a & b whose product is max  
-public class _07_XORChallenge {
+public class _19_XORChallenge {
 
 	public static int findMaxProd(int a, int b, int c) {
 
