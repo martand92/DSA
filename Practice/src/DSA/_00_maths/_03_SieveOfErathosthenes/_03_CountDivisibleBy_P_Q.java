@@ -2,7 +2,7 @@ package DSA._00_maths._03_SieveOfErathosthenes;
 
 //https://www.youtube.com/watch?v=Dg5D-k1rUgY
 //https://www.hackerearth.com/problem/algorithm/monk-and-divisor-conundrum-56e0eb99/
-public class _03_CountDivisibleByPQ {
+public class _03_CountDivisibleBy_P_Q {
 
 	public static int gcd(int p, int q) {
 
@@ -51,7 +51,8 @@ public class _03_CountDivisibleByPQ {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 2, 3, 5, 7, 4, 9, 20 }; // assuming sorted array
+
+		int[] arr = { 2, 3, 5, 7, 4, 9, 20 };
 		int p = 4, q = 5; // count all nums from arr that are divisible by both 4 & 5
 							// i.e, 4,5,20 are divisible by both 4 & 5
 
