@@ -1,6 +1,6 @@
-package DSA._00_maths._03_SieveOfErathosthenes;
+package DSA._00_bitmanipulation._01_RightMostSetBit;
 
-public class _06_MonkAndHisFather {
+public class _10_02_MonkAndHisFather {
 
 	public static int countSetBits(int n) {
 		int count = 0;

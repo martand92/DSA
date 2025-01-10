@@ -1,6 +1,6 @@
 package DSA._00_bitmanipulation._01_RightMostSetBit;
 
-public class _10_CountSetBits {
+public class _10_01_CountSetBits {
 
 	public static int countSetBits(int n) {
 		int count = 0;
