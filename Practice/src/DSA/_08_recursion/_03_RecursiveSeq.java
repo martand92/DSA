@@ -3,22 +3,25 @@ package DSA._08_recursion;
 //https://practice.geeksforgeeks.org/problems/recursive-sequence1611/1
 public class _03_RecursiveSeq {
 
-	static int sum = 0, n = 5, count = 1;
+	static int mod = (int) 1e9 + 7, num = 1;
 
-	public int seq(int itr, int res) {
+	public static int seq(int count, int mul) {
 
-		if (itr == 0)
-			return res;
+		if (count < 0)
+			return mul;
 
-		res = (res * count) % 1000000007;
-		count++;
-		return seq(itr - 1, res);
+		mul *= num % mod;
+		num++;
+
+		return seq(count - 1, mul);
 	}
 
 	public static void main(String[] args) {
-		_03_RecursiveSeq sol = new _03_RecursiveSeq();
-		for (int i = 1; i <= n; i++)
-			sum = (sum + sol.seq(i, 1)) % 1000000007;
+
+		int n = 5, sum = 0;
+
+		for (int i = 0; i < n; i++)
+			sum += seq(i, 1) % mod;
 
 		System.out.println(sum);
 	}

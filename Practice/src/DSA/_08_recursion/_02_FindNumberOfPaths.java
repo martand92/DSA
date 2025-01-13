@@ -4,14 +4,14 @@ public class _02_FindNumberOfPaths {
 
 	public static int findingPath(int n, int m, int i, int j, int count) {
 
-		if (i == n - 1 && j == m - 1)
-			count++;
-
 		if (n == i || m == j)
 			return count;
 
 		count = findingPath(n, m, i, j + 1, count);
 		count = findingPath(n, m, i + 1, j, count);
+
+		if (i == n - 1 && j == m - 1)
+			count++;
 
 		return count;
 	}

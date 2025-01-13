@@ -44,7 +44,6 @@ public class _07_SortStack {
 //		s.push(3);
 
 		System.out.println(sort(s, obj.temp, obj.top));
-		System.out.println(s);
 		System.out.println("top : " + s.peek());
 
 	}
