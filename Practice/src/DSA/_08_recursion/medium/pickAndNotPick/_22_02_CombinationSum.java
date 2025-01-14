@@ -3,7 +3,12 @@ package DSA._08_recursion.medium.pickAndNotPick;
 import java.util.*;
 
 //https://www.youtube.com/watch?v=G1fRTGRxXU8
-public class _17_02_01_CombinationSum {
+
+/* Input contains duplicates that would result in duplicate subseq results whose sum=target.
+ * Avoiding duplicate subsequences using hashset   
+ */
+
+public class _22_02_CombinationSum {
 
 	public static HashSet<ArrayList<Integer>> combinationSum(int[] candidates, int target, int index, int sum,
 			ArrayList<Integer> list, HashSet<ArrayList<Integer>> result) {
@@ -22,9 +27,13 @@ public class _17_02_01_CombinationSum {
 			return result;
 
 		list.add(candidates[index]);
+
 		combinationSum(candidates, target, index + 1, sum + candidates[index], list, result);
+
 		list.remove(list.size() - 1);
-		combinationSum(candidates, target, index + 1, sum, list, result); // not adding /picking
+
+		combinationSum(candidates, target, index + 1, sum, list, result); // not picking
+
 		return result;
 
 	}

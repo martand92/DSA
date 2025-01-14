@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //https://www.geeksforgeeks.org/generating-all-possible-subsequences-using-recursion/
 //https://youtu.be/AxNNVECce8c
-public class _16_03_PrintOnly1SubSeqWithSumK {
+public class _18_PrintOnly1SubSeqWithSumK {
 
 	public static boolean getAllSubSequences(int[] arr, int index, ArrayList<Integer> list, int sum, int k) {
 

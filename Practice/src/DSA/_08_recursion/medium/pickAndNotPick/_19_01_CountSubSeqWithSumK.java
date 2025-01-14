@@ -4,23 +4,23 @@ import java.util.ArrayList;
 
 //https://www.geeksforgeeks.org/generating-all-possible-subsequences-using-recursion/
 //https://youtu.be/AxNNVECce8c
-public class _16_04_02_CountSubSeqWithSumK_WithLeftRight {
+public class _19_01_CountSubSeqWithSumK {
 
 	public static int getAllSubSequences(int[] arr, int index, ArrayList<Integer> list, int sum, int k, int count) {
 
 		if (index == arr.length) {
 			if (sum == k)
-				return 1;
+				return ++count;
 
-			return 0;
+			return count;
 		}
 
 		list.add(arr[index]);
-		int left = getAllSubSequences(arr, index + 1, list, sum + arr[index], k, count);
+		count = getAllSubSequences(arr, index + 1, list, sum + arr[index], k, count);
 		list.remove(list.size() - 1);
-		int right = getAllSubSequences(arr, index + 1, list, sum, k, count);
+		count = getAllSubSequences(arr, index + 1, list, sum, k, count);
 
-		return left + right;
+		return count;
 	}
 
 	public static void main(String[] args) {
