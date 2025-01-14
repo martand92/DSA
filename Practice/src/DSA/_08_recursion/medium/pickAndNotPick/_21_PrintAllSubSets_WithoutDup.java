@@ -34,6 +34,7 @@ public class _21_PrintAllSubSets_WithoutDup {
 	}
 
 	public static void main(String[] args) {
+		
 		int[] arr = { 1, 2, 2 };
 
 		Arrays.sort(arr); // input need to be sorted

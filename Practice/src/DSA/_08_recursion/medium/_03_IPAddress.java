@@ -8,9 +8,7 @@ public class _03_IPAddress {
 	static HashSet<String> hs = new HashSet<String>();
 
 	public static boolean isValid(String st) {
-
-		// given string is valid IP if its value is between 0-255 and doesnt start with
-		// 0
+		// Each segment of IP is valid if its 0-255 & doesn't start with 0
 		if (Integer.valueOf(st) > 255 || Integer.valueOf(st) < 0 || (st.length() > 1 && st.startsWith("0")))
 			return false;
 
@@ -22,40 +20,23 @@ public class _03_IPAddress {
 		if (k == st.length())
 			return hs;
 
-		String[] str = new String[4];
+		/*
+		 * Divide given string into 4 segments using 3 indices & get all the
+		 * permutations. Then check if all segments are valid then concatenate all
+		 * segments with dots
+		 */
 
-		// Divide given string into 4 parts with placing dots in appropriate positions
-		str[0] = st.substring(0, i);
-		str[1] = st.substring(i, j);
-		str[2] = st.substring(j, k);
-		str[3] = st.substring(k);
+		String str1 = st.substring(0, i);
+		String str2 = st.substring(i, j);
+		String str3 = st.substring(j, k);
+		String str4 = st.substring(k);
 
-		StringBuilder finalString = new StringBuilder();
-
-		// form string with x.x.x.x only if each x is valid
-		for (int l = 0; l < str.length; l++) {
-
-			if (isValid(str[l])) {
-				finalString.append(str[l]);
-
-				if (l != str.length - 1)
-					finalString.append(".");
-
-			} else {
-				finalString = new StringBuilder();
-				break;
-			}
-		}
-
-		if (finalString.length() > 0)
-			hs.add(finalString.toString());
+		if (isValid(str1) && isValid(str2) && isValid(str3) && isValid(str4))
+			hs.add(str1 + "." + str2 + "." + str3 + "." + str4);
 
 		// first increase k till end of string
 		printIPAddress(st, i, j, k + 1);
-		// k = j + 1;
 		printIPAddress(st, i, j + 1, j + 2);
-		// j = i + 1;
-		// k = j + 1;
 		printIPAddress(st, i + 1, i + 2, i + 3);
 
 		return hs;
