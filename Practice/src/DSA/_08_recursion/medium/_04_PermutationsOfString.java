@@ -16,6 +16,9 @@ public class _04_PermutationsOfString {
 		// While switching branch, j = j + 1
 		permutation(s, i, j + 1);
 
+		// Unlike array no need to revert back by swapping again as string swaps by
+		// value
+
 		// Print leaf node in tree
 		if (i == s.length() - 1)
 			System.out.println(s);

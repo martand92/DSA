@@ -11,13 +11,16 @@ public class _04_PermutationsOfArray {
 		if (i == arr.length || j == arr.length)
 			return result;
 
-		if (i == arr.length - 1 && j == arr.length - 1)
+		if (i == arr.length - 1 && j == arr.length - 1) {
 			result.add(Arrays.toString(arr));
+			return result;
+		}
 
 		swap(arr, i, j);
 		permutation(arr, i + 1, i + 1, result);
 		permutation(arr, i, j + 1, result);
-		swap(arr, i, j);// reverting array to original seq before backtracking
+		swap(arr, i, j);// reverting array to original seq before backtracking as arr updates based on
+						// reference. Hence it persists changes
 
 		return result;
 
