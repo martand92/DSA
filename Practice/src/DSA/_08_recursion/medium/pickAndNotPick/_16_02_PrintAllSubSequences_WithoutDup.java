@@ -12,7 +12,7 @@ import java.util.*;
  * Note : This works only on sorted input
  */
 
-public class _21_PrintAllSubSets_WithoutDup {
+public class _16_02_PrintAllSubSequences_WithoutDup {
 
 	public static ArrayList<ArrayList<Integer>> findSubSet(int[] arr, int index, ArrayList<Integer> list,
 			ArrayList<ArrayList<Integer>> result) {

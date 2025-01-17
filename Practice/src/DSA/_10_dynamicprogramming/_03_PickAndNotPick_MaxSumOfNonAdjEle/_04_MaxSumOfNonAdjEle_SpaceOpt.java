@@ -1,6 +1,6 @@
 package DSA._10_dynamicprogramming._03_PickAndNotPick_MaxSumOfNonAdjEle;
 
-public class _04_MaxSumOfNonAdjEle_Tabulation_SpaceOpt {
+public class _04_MaxSumOfNonAdjEle_SpaceOpt {
 
 	public static int findMaxSumOfNonAdjEle(int[] arr, int n) {
 

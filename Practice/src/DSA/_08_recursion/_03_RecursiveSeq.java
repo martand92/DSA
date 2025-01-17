@@ -7,7 +7,7 @@ public class _03_RecursiveSeq {
 
 	public static int seq(int count, int mul) {
 
-		if (count < 0)
+		if (count == 0)
 			return mul;
 
 		mul *= num % mod;
@@ -20,7 +20,7 @@ public class _03_RecursiveSeq {
 
 		int n = 5, sum = 0;
 
-		for (int i = 0; i < n; i++)
+		for (int i = 1; i <= n; i++)
 			sum += seq(i, 1) % mod;
 
 		System.out.println(sum);

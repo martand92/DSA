@@ -2,7 +2,7 @@ package DSA._10_dynamicprogramming._04_PickAndNotPick_HouseRobber;
 
 import java.util.ArrayList;
 
-public class _04_HouseRobber_Tabulation_SpaceOpt {
+public class _04_HouseRobber_SpaceOpt {
 
 	public static int getLargestSum(ArrayList<Integer> house, int n) {
 

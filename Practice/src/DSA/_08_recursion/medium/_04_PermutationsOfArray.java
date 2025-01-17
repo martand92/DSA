@@ -6,6 +6,30 @@ import java.util.Arrays;
 //https://www.youtube.com/watch?v=f2ic2Rsc9pU
 public class _04_PermutationsOfArray {
 
+//	public static int[] swap(int[] arr, int i, int j) {
+//
+//		if (i == j)
+//			return arr;
+//
+//		int temp = arr[i];
+//		arr[i] = arr[j];
+//		arr[j] = temp;
+//
+//		return arr;
+//	}
+
+	public static int[] swap(int[] arr, int i, int j) {
+
+		if (i == j)
+			return arr;
+
+		arr[i] = arr[i] ^ arr[j];
+		arr[j] = arr[i] ^ arr[j];
+		arr[i] = arr[i] ^ arr[j];
+
+		return arr;
+	}
+
 	public static ArrayList<String> permutation(int[] arr, int i, int j, ArrayList<String> result) {
 
 		if (i == arr.length || j == arr.length)
@@ -19,23 +43,12 @@ public class _04_PermutationsOfArray {
 		swap(arr, i, j);
 		permutation(arr, i + 1, i + 1, result);
 		permutation(arr, i, j + 1, result);
-		swap(arr, i, j);// reverting array to original seq before backtracking as arr updates based on
-						// reference. Hence it persists changes
+		swap(arr, i, j);// Need to revert back arr as its pass by reference and is mutable. Hence
+						// changes done persists while backtracking unlike string which is pass by value
+						// and is immutable
 
 		return result;
 
-	}
-
-	public static int[] swap(int[] arr, int i, int j) {
-
-		if (i == j)
-			return arr;
-
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-
-		return arr;
 	}
 
 	public static void main(String[] args) {

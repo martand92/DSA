@@ -12,9 +12,7 @@ public class _01_01_Fibonacci_Memoisation {
 		if (dp[n] != -1)
 			return dp[n];
 
-		sum = findFibonacci(n - 1, sum, dp) + findFibonacci(n - 2, sum, dp);
-		dp[n] = sum;
-		return sum;
+		return dp[n] = findFibonacci(n - 1, sum, dp) + findFibonacci(n - 2, sum, dp);
 	}
 
 	public static void main(String[] args) {

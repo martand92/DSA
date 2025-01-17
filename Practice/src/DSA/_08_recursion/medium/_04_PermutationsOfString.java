@@ -8,6 +8,11 @@ public class _04_PermutationsOfString {
 		if (i == s.length() || j == s.length())
 			return;
 
+		if (i == s.length() - 1 && j == s.length() - 1) {
+			System.out.println(s);
+			return;
+		}
+
 		s = swap(s, i, j);
 
 		// while doing depth traversal, i = i+1 & j = i
@@ -16,12 +21,8 @@ public class _04_PermutationsOfString {
 		// While switching branch, j = j + 1
 		permutation(s, i, j + 1);
 
-		// Unlike array no need to revert back by swapping again as string swaps by
+		// Unlike array no need to re-swap to revert back string as its swapping by
 		// value
-
-		// Print leaf node in tree
-		if (i == s.length() - 1)
-			System.out.println(s);
 
 	}
 

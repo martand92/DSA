@@ -1,6 +1,6 @@
 package DSA._10_dynamicprogramming._01_Fibonacci;
 
-public class _01_03_Fibonacci_Tabulation_SpaceOpt {
+public class _01_03_Fibonacci_SpaceOpt {
 
 	public static int findFibonacci(int n) {
 

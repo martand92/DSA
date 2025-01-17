@@ -1,6 +1,6 @@
 package DSA._10_dynamicprogramming._02_FrogJump;
 
-public class _04_FrogJump_Tabulation_SpaceOpt {
+public class _04_FrogJump_SpaceOpt {
 
 	public static int energyLost(int[] height) {
 
