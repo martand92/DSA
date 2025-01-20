@@ -2,7 +2,7 @@ package DSA._10_dynamicprogramming._12_String_LongestCommonSubSeq;
 
 import java.util.Arrays;
 
-public class _03_02_Tabulation_Print {
+public class _03_03_Tabulation_Print {
 
 	public static String reverseString(String s) {
 
@@ -56,10 +56,6 @@ public class _03_02_Tabulation_Print {
 		String s2 = "ced";
 
 		int[][] dp = new int[s1.length() + 1][s1.length() + 1];
-		for (int i = 0; i <= s1.length(); i++) {
-			for (int j = 0; j <= s2.length(); j++)
-				dp[i][j] = -1;
-		}
 
 		System.out.println(longestSubSeq(s1, s2, s1.length(), s2.length(), dp));
 	}

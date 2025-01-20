@@ -1,6 +1,6 @@
 package DSA._10_dynamicprogramming._14_String_DistinctSubSeq;
 
-public class _03_Tabulation {
+public class _03_01_Tabulation {
 
 	public static int findDistinctSubSeq(String s1, String s2, int index1, int index2, int[][] dp) {
 		// here base case order matters

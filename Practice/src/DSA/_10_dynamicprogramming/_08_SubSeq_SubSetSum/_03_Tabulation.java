@@ -1,16 +1,16 @@
 package DSA._10_dynamicprogramming._08_SubSeq_SubSetSum;
 
-import java.util.Arrays;
-
 public class _03_Tabulation {
 
-	public static boolean checkIfKSum(int[] arr, int k, boolean[][] dp) {
+	public static boolean checkIfKSum(int[] arr, int k) {
+
+		boolean[][] dp = new boolean[arr.length][k + 1];
 
 		// if (k == 0)
 		// return true;
 
-		for (int index = 0; index < arr.length; index++)
-			dp[index][0] = true;
+		for (int i = 0; i < arr.length; i++)
+			dp[i][0] = true;
 
 //		if (index == 0) {
 //			if (k == arr[index])
@@ -20,9 +20,9 @@ public class _03_Tabulation {
 //		}
 		dp[0][arr[0]] = true;
 
-		for (int index = 1; index < arr.length; index++) {
+		for (int i = 1; i < dp.length; i++) {
 
-			for (int j = 0; j <= k; j++) {
+			for (int j = 0; j < dp[0].length; j++) {
 
 //				boolean pick = false;
 //				if (k >= arr[index])
@@ -31,16 +31,15 @@ public class _03_Tabulation {
 //				boolean notPick = checkIfKSum(arr, k, index - 1, dp);
 
 				boolean pick = false;
-				if (j >= arr[index])
-					pick = dp[index - 1][j - arr[index]];
+				if (j >= arr[i])
+					pick = dp[i - 1][j - arr[i]];
 
-				boolean notPick = dp[index - 1][j];
+				boolean notPick = dp[i - 1][j];
 
 //				dp[index][k] = pick || notPick ? 1 : 0; // update dp[][] to 1 or 0 from -1 to indicate this index,k is visited
 //				return pick || notPick;
-				dp[index][j] = pick | notPick;
+				dp[i][j] = pick | notPick;
 			}
-
 		}
 
 		return dp[arr.length - 1][k];
@@ -52,10 +51,6 @@ public class _03_Tabulation {
 		int k = 6;
 
 		// directly writing dp as boolean instead of int
-		boolean[][] dp = new boolean[arr.length][k + 1];
-		for (int rows = 0; rows < arr.length; rows++)
-			Arrays.fill(dp[rows], false);
-
-		System.out.println(checkIfKSum(arr, k, dp));
+		System.out.println(checkIfKSum(arr, k));
 	}
 }

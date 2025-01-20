@@ -1,49 +1,44 @@
 package DSA._10_dynamicprogramming._07_Grid_MaxSumPath;
 
-import java.util.Arrays;
-
 public class _03_Tabulation {
 
-	public static int[][] findMaxSumPath(int[][] matrix, int[][] dp) {
+	public static int findMaxSumPath(int[][] matrix, int n, int m, int col) {
 
-		dp[0][0] = matrix[0][0];
-		dp[0][1] = matrix[0][1];
-		dp[0][2] = matrix[0][2];
-		dp[0][3] = matrix[0][3];
+		int[][] dp = new int[n][m];
 
-		for (int n = 1; n < matrix.length; n++) {
-			for (int m = 0; m < matrix[0].length; m++) {
+		for (int i = 0; i < dp[0].length; i++)
+			dp[0][i] = matrix[0][i];
 
-				int diagonallyLeft = 0;
-				int center = 0;
-				int diagonallyRight = 0;
+		for (int i = 1; i < dp.length; i++) {
 
-				if (m < matrix[0].length - 1)
-					diagonallyLeft = matrix[n][m] + dp[n - 1][m + 1];
+			for (int j = 0; j < dp[0].length; j++) {
 
-				center = matrix[n][m] + dp[n - 1][m];
+				int l = 0, c = 0, r = 0;
 
-				if (m > 0)
-					diagonallyRight = matrix[n][m] + dp[n - 1][m - 1];
+				if (j < m - 1)
+					l = dp[i - 1][j + 1] + matrix[i][j];
 
-				dp[n][m] = Math.max(Math.max(diagonallyLeft, diagonallyRight), center);
+				c = dp[i - 1][j] + matrix[i][j];
+
+				if (j > 0)
+					r = dp[i - 1][j - 1] + matrix[i][j];
+
+				dp[i][j] = Math.max(Math.max(l, r), c);
 			}
 		}
 
-		return dp;
+		return dp[n - 1][col];// as ans will be in last row & resp col of each itr
 	}
 
 	public static void main(String[] args) {
-		int n = 3, m = 3;
-		int maxSum = Integer.MIN_VALUE;
-		int[][] matrix = new int[][] { { 1, 2, 10, 4 }, { 100, 3, 2, 1 }, { 1, 1, 20, 2 }, { 1, 2, 2, 1 } };
-		int[][] dp = new int[n + 1][m + 1];
-		for (int row = 0; row < matrix.length; row++)
-			Arrays.fill(dp[row], -1);
 
-		dp = findMaxSumPath(matrix, dp);
-		for (int col = 0; col < dp.length; col++)
-			maxSum = Math.max(maxSum, dp[matrix.length - 1][col]);
+		int[][] matrix = new int[][] { { 1, 2, 10, 4 }, { 100, 3, 2, 1 }, { 1, 1, 20, 2 }, { 1, 2, 2, 1 } };
+
+		int n = matrix.length, m = matrix[0].length;
+		int maxSum = 0;
+
+		for (int col = m - 1; col >= 0; col--)
+			maxSum = Math.max(maxSum, findMaxSumPath(matrix, n, m, col));
 
 		System.out.println(maxSum);
 	}

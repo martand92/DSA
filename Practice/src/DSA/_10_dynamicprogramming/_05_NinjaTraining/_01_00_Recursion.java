@@ -30,10 +30,10 @@ public class _01_00_Recursion {
 	public static void main(String[] args) {
 
 		int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
-		int max = Integer.MIN_VALUE;
+		int max = 0;
 
-		for (int i = 2; i >= 0; i--)// iterating through number of columns in last row.
-			max = Math.max(max, maxPoints(training, training.length - 1, 2));
+		for (int col = 2; col >= 0; col--)// iterating through number of columns in last row.
+			max = Math.max(max, maxPoints(training, training.length - 1, col));
 
 		System.out.println(max);
 

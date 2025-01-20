@@ -1,7 +1,5 @@
 package DSA._10_dynamicprogramming._02_FrogJump;
 
-import java.util.Arrays;
-
 public class _03_FrogJump_Tabulation {
 
 	public static int energyLost(int[] height) {
@@ -13,7 +11,7 @@ public class _03_FrogJump_Tabulation {
 		for (int i = 1; i < height.length; i++) {
 
 			int left = dp[i - 1] + Math.abs(height[i] - height[i - 1]);
-			
+
 			int right = Integer.MAX_VALUE;
 			if (i > 1)
 				right = dp[i - 2] + Math.abs(height[i] - height[i - 2]);
@@ -27,8 +25,6 @@ public class _03_FrogJump_Tabulation {
 
 	public static void main(String[] args) {
 		int[] height = { 10, 20, 30, 10 };
-		int[] dp = new int[height.length];
-		Arrays.fill(dp, -1);
 		System.out.println(energyLost(height));
 	}
 }

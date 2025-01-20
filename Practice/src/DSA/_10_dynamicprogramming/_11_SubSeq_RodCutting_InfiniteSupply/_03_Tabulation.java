@@ -1,7 +1,5 @@
 package DSA._10_dynamicprogramming._11_SubSeq_RodCutting_InfiniteSupply;
 
-import java.util.Arrays;
-
 public class _03_Tabulation {
 
 	public static int maxRodPrice(int n, int[] price, int[][] dp) {
@@ -53,8 +51,6 @@ public class _03_Tabulation {
 		int[] price = { 2, 5, 7, 8, 10 };
 
 		int[][] dp = new int[price.length][n + 1];
-		for (int rows = 0; rows < price.length; rows++)
-			Arrays.fill(dp[rows], -1);
 
 		System.out.println(maxRodPrice(n, price, dp));
 

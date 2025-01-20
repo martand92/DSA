@@ -1,7 +1,5 @@
 package DSA._10_dynamicprogramming._03_PickAndNotPick_MaxSumOfNonAdjEle;
 
-import java.util.Arrays;
-
 public class _03_MaxSumOfNonAdjEle_Tabulation {
 
 	public static int findMaxSumOfNonAdjEle(int[] arr, int n, int[] dp) {
@@ -27,8 +25,6 @@ public class _03_MaxSumOfNonAdjEle_Tabulation {
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3 };
 		int[] dp = new int[arr.length];
-
-		Arrays.fill(dp, -1);
 
 		System.out.println(findMaxSumOfNonAdjEle(arr, 0, dp));
 	}

@@ -1,7 +1,5 @@
 package DSA._10_dynamicprogramming._10_SubSeq_CoinChange_InfiniteSupply;
 
-import java.util.Arrays;
-
 public class _03_Tabulation {
 
 	public static int countCoins(int[] arr, int target, int[][] dp) {
@@ -56,8 +54,6 @@ public class _03_Tabulation {
 		int target = 4;
 
 		int[][] dp = new int[arr.length][target + 1];
-		for (int rows = 0; rows < arr.length; rows++)
-			Arrays.fill(dp[rows], -1);
 
 		System.out.println(countCoins(arr, target, dp));
 	}

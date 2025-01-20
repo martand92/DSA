@@ -49,11 +49,6 @@ public class _03_Tabulation {
 		String s2 = "ros";
 
 		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
-		for (int i = 0; i <= s1.length(); i++) {
-			for (int j = 0; j <= s2.length(); j++)
-				dp[i][j] = -1;
-		}
-
 		System.out.println(countMinOperations(s1, s2, s1.length(), s2.length(), dp));
 	}
 }

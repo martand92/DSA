@@ -1,7 +1,5 @@
 package DSA._10_dynamicprogramming._05_NinjaTraining;
 
-import java.util.Arrays;
-
 public class _03_01_Tabulation {
 
 	public static int maxPoints(int[][] training, int[][] dp) {
@@ -35,8 +33,6 @@ public class _03_01_Tabulation {
 
 		int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
 		int[][] dp = new int[training.length][training[0].length];
-		for (int row = 0; row < dp.length; row++)
-			Arrays.fill(dp[row], -1);
 
 		System.out.println(maxPoints(training, dp));
 
