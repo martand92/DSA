@@ -13,6 +13,9 @@ public class _22_02_CombinationSum {
 	public static HashSet<ArrayList<Integer>> combinationSum(int[] candidates, int target, int index, int sum,
 			ArrayList<Integer> list, HashSet<ArrayList<Integer>> result) {
 
+		if (sum > target)
+			return result;
+
 		if (index == candidates.length) {
 
 			if (sum == target) {
@@ -23,12 +26,9 @@ public class _22_02_CombinationSum {
 			return result;
 		}
 
-		if (sum > target)
-			return result;
-
 		list.add(candidates[index]);
 
-		combinationSum(candidates, target, index + 1, sum + candidates[index], list, result);
+		combinationSum(candidates, target, index + 1, sum + candidates[index], list, result);// Non-infinite supply
 
 		list.remove(list.size() - 1);
 

@@ -3,15 +3,14 @@ package DSA._08_recursion.medium;
 //https://www.geeksforgeeks.org/problems/sum-of-subarrays2229/1
 public class _09_02_FindSumOfAllSubArrays {
 
-	public static int findSumOfAllSubArrays(int[] arr, int indx, int prefixSum, int sum) {
+	public static int findSumOfAllSubArrays(int[] arr, int i, int prefixSum, int sum) {
 
-		if (indx == arr.length)
+		if (i == arr.length)
 			return sum;
 
-		prefixSum += arr[indx];
-		sum += prefixSum;
+		prefixSum += arr[i];
 
-		return findSumOfAllSubArrays(arr, indx + 1, prefixSum, sum);
+		return findSumOfAllSubArrays(arr, i + 1, prefixSum, sum + prefixSum);
 
 	}
 

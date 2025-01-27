@@ -8,7 +8,7 @@ public class _09_01_FindAllSubArrays_Itr {
 
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
-		for (int i = 0; i < arr.length; i++) {// O(n)
+		for (int i = 0; i < arr.length; i++) { // O(n)
 
 			for (int j = i; j < arr.length; j++) { // O(n)
 

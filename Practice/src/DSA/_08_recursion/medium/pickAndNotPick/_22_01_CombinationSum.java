@@ -10,6 +10,9 @@ public class _22_01_CombinationSum {
 	public static ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target, int index, int sum,
 			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> result) {
 
+		if (sum > target)
+			return result;
+
 		if (index == candidates.length) {
 
 			// Instead of checking for every loop whether subseq sum = target, just check at
@@ -23,13 +26,10 @@ public class _22_01_CombinationSum {
 			return result;
 		}
 
-		if (sum > target)
-			return result;
-
 		list.add(candidates[index]);
 
 		// as same element can be picked multiple times, not increasing index
-		combinationSum(candidates, target, index, sum + candidates[index], list, result);
+		combinationSum(candidates, target, index, sum + candidates[index], list, result); // Infinite supply
 
 		list.remove(list.size() - 1);
 

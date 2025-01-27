@@ -29,7 +29,6 @@ public class _18_PalindromePartition {
 				list.add(strSub);
 				palindromePartition(str.substring(part), list, result);
 				list.remove(list.size() - 1);
-
 			}
 		}
 
