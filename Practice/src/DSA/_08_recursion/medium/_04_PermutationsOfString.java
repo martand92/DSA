@@ -26,19 +26,31 @@ public class _04_PermutationsOfString {
 
 	}
 
+//	public static String swap(String s, int i, int j) {
+//
+//		if (i == j)
+//			return s;
+//
+//		return s.substring(0, i) + s.charAt(j) + s.substring(i + 1, j) + s.charAt(i) + s.substring(j + 1);
+//	}
+
 	public static String swap(String s, int i, int j) {
 
-		if (i == j)
-			return s;
+		if (i != j) {
 
-		char a = s.charAt(i);
-		char b = s.charAt(j);
+			char[] chars = s.toCharArray();
 
-		return s.substring(0, i) + b + s.substring(i + 1, j) + a + s.substring(j + 1);
+			chars[i] = (char) (chars[i] ^ chars[j]);
+			chars[j] = (char) (chars[i] ^ chars[j]);
+			chars[i] = (char) (chars[i] ^ chars[j]);
+
+			return String.valueOf(chars);
+		}
+
+		return s;
 	}
 
 	public static void main(String[] args) {
 		permutation("ABC", 0, 0);
 	}
-
 }

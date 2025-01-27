@@ -12,9 +12,8 @@ public class _14_ReverseString {
 		if (str.length() == 1)
 			return str;
 
-		String a = reverseString(str.substring(1)) + str.charAt(0);
-		return a;
-		
+		return reverseString(str.substring(1)) + str.charAt(0);
+
 	}
 
 }
