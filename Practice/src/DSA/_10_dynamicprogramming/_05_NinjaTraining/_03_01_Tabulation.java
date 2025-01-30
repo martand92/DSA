@@ -31,7 +31,10 @@ public class _03_01_Tabulation {
 
 	public static void main(String[] args) {
 
-		int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+		// int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+
+		int[][] training = { { 94, 85, 49 }, { 14, 63, 1 }, { 35, 6, 80 }, { 2, 65, 11 }, { 94, 92, 47 },
+				{ 99, 97, 51 } };
 		int[][] dp = new int[training.length][training[0].length];
 
 		System.out.println(maxPoints(training, dp));

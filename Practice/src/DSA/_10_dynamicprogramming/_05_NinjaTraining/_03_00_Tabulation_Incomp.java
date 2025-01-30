@@ -2,53 +2,44 @@ package DSA._10_dynamicprogramming._05_NinjaTraining;
 
 public class _03_00_Tabulation_Incomp {
 
-	public static int maxPoints(int[][] training, int row, int col) {
+	public static int maxPoints(int[][] training, int col, int[][] dp) {
 
-		int[][] dp = new int[training.length][3];
+		for (int i = 1; i < training.length; i++) {
 
-		for (int i = 0; i < 3; i++)
-			dp[0][i] = training[0][i];
-
-		for (int i = 1; i < dp.length; i++) {
-
-			int left = 0, right = 0;
+			int path1 = 0, path2 = 0, path3 = 0;
 
 			for (int j = 0; j < 3; j++) {
 
-				if (j == col)
-					continue;
+				if (col != j)
+					path1 = dp[i - 1][j] + training[i][col];
 
-				if (j == 0) {
-					left = dp[i - 1][1] + training[i][j];
-					right = dp[i - 1][2] + training[i][j];
-				}
+				if (col != j)
+					path2 = dp[i - 1][j] + training[i][col];
 
-				if (j == 1) {
-					left = dp[i - 1][0] + training[i][j];
-					right = dp[i - 1][2] + training[i][j];
-				}
+				if (col != j)
+					path3 = dp[i - 1][j] + training[i][col];
 
-				if (j == 2) {
-					left = dp[i - 1][0] + training[i][j];
-					right = dp[i - 1][1] + training[i][j];
-				}
-
-				dp[i][j] = Math.max(left, right);
+				dp[i][j] = Math.max(path1, Math.max(path2, path3));
 			}
-
 		}
 
 		return dp[training.length - 1][col];
-
 	}
 
 	public static void main(String[] args) {
 
-		int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+		// int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+		int[][] training = { { 94, 85, 49 }, { 14, 63, 1 }, { 35, 6, 80 }, { 2, 65, 11 }, { 94, 92, 47 },
+				{ 99, 97, 51 } };
+
 		int max = 0;
 
-		for (int col = 2; col >= 0; col--)// iterating through number of columns in last row.
-			max = Math.max(max, maxPoints(training, training.length - 1, col));
+		int[][] dp = new int[training.length][3];
+		for (int j = 0; j < 3; j++)
+			dp[0][j] = training[0][j];
+
+		for (int col = 0; col < 3; col++)// As tabulation is reverse of memoisation, reversing this iteration
+			max = Math.max(max, maxPoints(training, col, dp));
 
 		System.out.println(max);
 

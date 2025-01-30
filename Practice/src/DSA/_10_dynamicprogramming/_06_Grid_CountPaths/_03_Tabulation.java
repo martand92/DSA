@@ -20,7 +20,7 @@ public class _03_Tabulation {
 					right = dp[i][j - 1];
 
 				// Don't override dp[0][0] which is set as 1
-				if (i != 0 || j != 0)
+				if (!(i == 0 && j == 0))
 					dp[i][j] = left + right;
 
 			}

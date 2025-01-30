@@ -21,7 +21,7 @@ public class _18_PalindromePartition {
 			return result;
 		}
 
-		for (int part = 1; part <= str.length(); part++) {
+		for (int part = 1; part <= str.length(); part++) {//till last cz substring(0, j-1)
 
 			String strSub = str.substring(0, part);
 

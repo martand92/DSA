@@ -20,7 +20,9 @@ public class _01_01_Recursion {
 
 	public static void main(String[] args) {
 
-		int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+		//int[][] training = { { 1, 2, 5 }, { 3, 1, 1 }, { 3, 3, 3 } };
+		int[][] training = { { 94, 85, 49 }, { 14, 63, 1 }, { 35, 6, 80 }, { 2, 65, 11 }, { 94, 92, 47 },
+				{ 99, 97, 51 } };
 
 //		int max = Integer.MIN_VALUE;
 //		for (int col = training[0].length - 1; col >= 0; col--)

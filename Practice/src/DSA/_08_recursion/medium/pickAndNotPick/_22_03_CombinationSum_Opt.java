@@ -17,24 +17,30 @@ public class _22_03_CombinationSum_Opt {
 		for (int i = index; i < candidates.length; i++) {
 
 			if (i == index || candidates[i - 1] != candidates[i]) {
+
 				list.add(candidates[i]);
 				combinationSum(candidates, target, i + 1, sum + candidates[i], list, result);
 				list.remove(list.size() - 1);
+
 			}
 		}
 
 		return result;
-
 	}
 
 	public static void main(String[] args) {
-		int[] candidates = { 1, 1, 1, 2, 2 };
-		int target = 4;
+
+//		int[] candidates = { 1, 1, 1, 2, 2 };
+//		int target = 4;
+
+		int[] candidates = { 1, 2, 2 };
+		int target = 3;
 
 		Arrays.sort(candidates); // input need to be sorted
 
 		System.out.println(combinationSum(candidates, target, 0, 0, new ArrayList<Integer>(),
 				new ArrayList<ArrayList<Integer>>()));
+
 	}
 
 }

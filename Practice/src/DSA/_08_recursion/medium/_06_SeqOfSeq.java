@@ -3,32 +3,22 @@ package DSA._08_recursion.medium;
 //https://practice.geeksforgeeks.org/problems/sequence-of-sequence1155/1
 public class _06_SeqOfSeq {
 
-	public static int numberSequence(int m, int n, int i, int count, int len, boolean proceed) {
+	public static int seqOfSeq(int n, int m, int i, int len) {
 
-		if (!proceed)
-			return count;
+		if (i > m && len == n)
+			return 1;
 
 		if (i > m)
-			return count;
+			return 0;
 
-		if (len == n) {
-			count++;
+		int left = seqOfSeq(n, m, i * 2, len + 1);
+		int right = seqOfSeq(n, m, i + 1, len);
 
-			if (i == m)
-				proceed = false;
-		}
-
-		count = numberSequence(m, n, i * 2, count, len + 1, proceed);
-		count = numberSequence(m, n, i + 1, count, len, proceed);
-
-		return count;
+		return left + right;
 	}
 
 	public static void main(String[] args) {
-
-		int count = numberSequence(10, 4, 1, 0, 1, true);
-		// numberSequence(5, 2, 1, 1);
-		System.out.println(count);
+		System.out.println(seqOfSeq(4, 10, 1, 0));
 	}
 }
 //1 2 4 8

@@ -1,7 +1,7 @@
 package DSA._08_recursion.medium;
 
 //https://www.geeksforgeeks.org/problems/sum-of-subarrays2229/1
-public class _09_02_FindSumOfAllSubArrays {
+public class _09_03_FindSumOfAllSubArrays {
 
 	public static int findSumOfAllSubArrays(int[] arr, int i, int prefixSum, int sum) {
 
