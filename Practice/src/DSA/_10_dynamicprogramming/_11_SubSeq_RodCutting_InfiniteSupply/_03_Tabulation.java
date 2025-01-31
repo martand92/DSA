@@ -4,28 +4,13 @@ public class _03_Tabulation {
 
 	public static int maxRodPrice(int n, int[] price, int[][] dp) {
 
-//		if (n == 0)
-//			return 0;
-
 		for (int index = 0; index < price.length; index++)
 			dp[index][0] = 0;
-
-//		if (index == 0) {
-//			if (n >= index + 1)
-//				return n * price[index];
-//		}
 
 		for (int i = 0; i <= n; i++) {
 			if (i >= 1)
 				dp[0][i] = i * price[0];
 		}
-
-//		int pick = Integer.MIN_VALUE;
-//		if (n >= index + 1)
-//			pick = maxRodPrice(n - (index + 1), price, index, dp) + price[index];
-//
-//		int notPick = maxRodPrice(n, price, index - 1, dp);
-//		return dp[index][n] = Math.max(pick, notPick);		
 
 		for (int index = 1; index < price.length; index++) {
 

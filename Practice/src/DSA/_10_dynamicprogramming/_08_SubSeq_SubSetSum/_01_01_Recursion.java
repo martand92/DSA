@@ -1,14 +1,15 @@
 package DSA._10_dynamicprogramming._08_SubSeq_SubSetSum;
 
-public class _01_02_Recursion_SubSeqPattern {
+public class _01_01_Recursion {
 
 	public static boolean checkIfKSum(int[] arr, int k, int index, int sum) {
 
-		if (index < 0)
-			return false;
+		if (index < 0) {
+			if (sum == k)
+				return true;
 
-		if (sum == k)
-			return true;
+			return false;
+		}
 
 		if (checkIfKSum(arr, k, index - 1, sum + arr[index]))
 			return true;

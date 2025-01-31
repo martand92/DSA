@@ -6,29 +6,14 @@ public class _03_Tabulation {
 
 		boolean[][] dp = new boolean[arr.length][k + 1];
 
-		// if (k == 0)
-		// return true;
-
 		for (int i = 0; i < arr.length; i++)
 			dp[i][0] = true;
 
-//		if (index == 0) {
-//			if (k == arr[index])
-//				return true;
-//
-//			return false;
-//		}
 		dp[0][arr[0]] = true;
 
 		for (int i = 1; i < dp.length; i++) {
 
 			for (int j = 0; j < dp[0].length; j++) {
-
-//				boolean pick = false;
-//				if (k >= arr[index])
-//					pick = checkIfKSum(arr, k - arr[index], index - 1, dp);
-
-//				boolean notPick = checkIfKSum(arr, k, index - 1, dp);
 
 				boolean pick = false;
 				if (j >= arr[i])

@@ -14,11 +14,11 @@ public class _02_Memoisation {
 			return dp[day][isBuy];
 
 		if (isBuy == 1) {
-			pickProfit = -stockPrices[day] + maxProfit(stockPrices, day + 1, 0, dp);
-			notPickProfit = 0 + maxProfit(stockPrices, day + 1, 1, dp);
+			pickProfit = maxProfit(stockPrices, day + 1, 0, dp) + (-stockPrices[day]);
+			notPickProfit = maxProfit(stockPrices, day + 1, 1, dp);
 		} else {
-			pickProfit = stockPrices[day] + maxProfit(stockPrices, day + 1, 1, dp);
-			notPickProfit = 0 + maxProfit(stockPrices, day + 1, 0, dp);
+			pickProfit = maxProfit(stockPrices, day + 1, 1, dp) + stockPrices[day];
+			notPickProfit = maxProfit(stockPrices, day + 1, 0, dp);
 		}
 
 		return dp[day][isBuy] = Math.max(pickProfit, notPickProfit);

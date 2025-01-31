@@ -10,7 +10,7 @@ public class _01_BuySellStock_OnlyOnce {
 		int maxProfit = Integer.MIN_VALUE;
 
 		for (int i = 1; i < stockPrice.length; i++) {
-			maxProfit = Math.max(maxProfit, Math.abs(stockPrice[i] - min));
+			maxProfit = Math.max(maxProfit, (stockPrice[i] - min));
 			min = Math.min(min, stockPrice[i]);
 		}
 

@@ -17,12 +17,12 @@ public class _01_Recursion {
 		int pickProfit = 0, notPickProfit = 0;
 
 		if (isBuy == 1) {
-			pickProfit = -stockPrices[day] + maxProfit(stockPrices, day + 1, 0, txCount);
+			pickProfit = maxProfit(stockPrices, day + 1, 0, txCount) + (-stockPrices[day]);
 			notPickProfit = maxProfit(stockPrices, day + 1, 1, txCount);
 
 		} else {
 			// transaction will be completed only after selling
-			pickProfit = stockPrices[day] + maxProfit(stockPrices, day + 1, 1, txCount - 1);
+			pickProfit = maxProfit(stockPrices, day + 1, 1, txCount - 1) + stockPrices[day];
 			notPickProfit = maxProfit(stockPrices, day + 1, 0, txCount);
 		}
 

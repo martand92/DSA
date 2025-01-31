@@ -20,12 +20,12 @@ public class _02_Memoisation {
 		int pickProfit = 0, notPickProfit = 0;
 
 		if (isBuy == 1) {
-			pickProfit = -stockPrices[day] + maxProfit(stockPrices, day + 1, 0, txCount, dp);
+			pickProfit = maxProfit(stockPrices, day + 1, 0, txCount, dp) + (-stockPrices[day]);
 			notPickProfit = maxProfit(stockPrices, day + 1, 1, txCount, dp);
 
 		} else {
 			// transaction will be completed only after selling
-			pickProfit = stockPrices[day] + maxProfit(stockPrices, day + 1, 1, txCount - 1, dp);
+			pickProfit = maxProfit(stockPrices, day + 1, 1, txCount - 1, dp) + stockPrices[day];
 			notPickProfit = maxProfit(stockPrices, day + 1, 0, txCount, dp);
 		}
 
@@ -37,13 +37,17 @@ public class _02_Memoisation {
 
 		// as there are 3 variables, stockPrices, to buy / sell, max 2 txcount
 		int[][][] dp = new int[stockPrices.length][2][3]; // as txCount varies between 0 <-> 2, need 3 place holders
+
 		for (int i = 0; i < stockPrices.length; i++) {
+
 			for (int j = 0; j < 2; j++) {// buy or sell
+
 				for (int k = 0; k <= 2; k++) {
 					dp[i][j][k] = -1;
 				}
 			}
 		}
+
 		System.out.println(maxProfit(stockPrices, 0, 1, 2, dp));
 	}
 

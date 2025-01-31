@@ -22,12 +22,10 @@ public class _03_Tabulation {
 				// Don't override dp[0][0] which is set as 1
 				if (!(i == 0 && j == 0))
 					dp[i][j] = left + right;
-
 			}
 		}
 
 		return dp[m - 1][n - 1];// ans will be in last row and col
-
 	}
 
 	public static void main(String[] args) {

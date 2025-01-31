@@ -6,21 +6,12 @@ public class _03_01_Tabulation {
 
 	public static int longestSubSeq(String s1, String s2, int index1, int index2, int[][] dp) {
 
-//		if (index1 == 0 || index2 == 0)
-//			return 0;
-
 		// no need to write below for loops as they are defaulted to 0
 		for (int j = 0; j <= index2; j++)
 			dp[0][j] = 0; // if (index1 == 0) return 0;
 
 		for (int i = 0; i <= index1; i++)
 			dp[i][0] = 0; // if (index2 == 0) return 0;
-
-//		if (s1.charAt(index1 - 1) == s2.charAt(index2 - 1))
-//			return 1 + longestSubSeq(s1, s2, index1 - 1, index2 - 1, dp);
-//
-//		return dp[index1][index2] = Math.max(longestSubSeq(s1, s2, index1 - 1, index2, dp),
-//				longestSubSeq(s1, s2, index1, index2 - 1, dp));
 
 		for (int i = 1; i <= index1; i++) {
 

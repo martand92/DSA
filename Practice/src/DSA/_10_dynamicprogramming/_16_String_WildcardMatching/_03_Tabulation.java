@@ -6,25 +6,10 @@ public class _03_Tabulation {
 
 		boolean[][] dp = new boolean[s1.length() + 1][s2.length() + 1];
 
-//		if (index1 == 0 && index2 == 0) // when both strings are exhausted
-//			return true;
-
 		dp[0][0] = true;
-
-//		if (index1 == 0 && index2 >= 1) // when only string1 is exhausted but not string2
-//			return false;
 
 		for (int indx2 = 1; indx2 <= index2; indx2++)
 			dp[0][indx2] = false;
-
-//		if (index2 == 0 && index1 >= 1) { // when only string2 is exhausted, need to check if remaining string1 chars
-//											// has only *, if not then return false
-//			for (int i = 1; i <= index1; i++)
-//				if (s1.charAt(i - 1) != '*')
-//					return false;
-//
-//			return true;
-//		}
 
 		for (int indx1 = 1; indx1 <= index1; indx1++) {
 

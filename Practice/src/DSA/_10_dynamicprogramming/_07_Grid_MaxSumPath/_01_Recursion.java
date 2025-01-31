@@ -26,7 +26,7 @@ public class _01_Recursion {
 
 		int[][] matrix = new int[][] { { 1, 2, 10, 4 }, { 100, 3, 2, 1 }, { 1, 1, 20, 2 }, { 1, 2, 2, 1 } };
 
-		int n = matrix[0].length - 1, m = matrix.length - 1;
+		int n = matrix.length - 1, m = matrix[0].length - 1;
 		int maxSum = 0;
 
 		for (int col = m; col >= 0; col--)

@@ -4,32 +4,13 @@ public class _03_Tabulation {
 
 	public static int countCoins(int[] arr, int target, int[][] dp) {
 
-//		if (target == 0)
-//			return 1;
-
 		for (int index = 0; index < arr.length; index++)
 			dp[index][0] = 1;
-
-//		if (index == 0) {
-//			// since coins are unlimited, target can be formed with multiple arr elements
-//			if (target % arr[index] == 0)
-//				return 1;
-//			else
-//				return 0;
-//		}
 
 		for (int i = 0; i <= target; i++) {
 			if (i % arr[0] == 0)
 				dp[0][i] = 1;
 		}
-
-//		int pick = 0;
-//		if (target >= arr[index])
-//			pick = countCoins(arr, index, target - arr[index], dp);
-//
-//		int notPick = countCoins(arr, index - 1, target, dp);
-//
-//		return dp[index][target] = pick + notPick;
 
 		for (int index = 1; index < arr.length; index++) {
 

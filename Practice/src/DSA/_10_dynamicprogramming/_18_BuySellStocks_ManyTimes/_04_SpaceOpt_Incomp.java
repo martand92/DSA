@@ -18,10 +18,10 @@ public class _04_SpaceOpt_Incomp {
 				int notPickProfit = 0;
 
 				if (j == 1) {
-					pickProfit = -stockPrices[i] + ahead;
+					pickProfit = ahead + (-stockPrices[i]);
 					notPickProfit = ahead1;
 				} else {
-					pickProfit = stockPrices[i] + ahead1;
+					pickProfit = ahead1 + stockPrices[i];
 					notPickProfit = ahead;
 				}
 				ahead1 = ahead;
@@ -37,7 +37,6 @@ public class _04_SpaceOpt_Incomp {
 		int[] stockPrices = { 7, 1, 5, 3, 6, 4 };
 		System.out.println(maxProfit(stockPrices));
 	}
-
 }
 
 //TC : O(n*2)

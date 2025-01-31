@@ -19,6 +19,7 @@ public class _01_Recursion {
 			return true;
 		}
 
+		// Below logic need to understand better
 		if (s1.charAt(index1) == '*') {
 			int count = 0;
 			while (index2 >= 0) {
@@ -49,8 +50,11 @@ public class _01_Recursion {
 //		s1 = "*abcd";
 //		s2 = "abcd";
 
-		s1 = "ab?c";
-		s2 = "abcd";
+//		s1 = "ab?c";
+//		s2 = "abcd";
+
+		s1 = "a*bbb";
+		s2 = "aaabbb";
 
 		System.out.println(isMatch(s1, s2, s1.length() - 1, s2.length() - 1));
 	}

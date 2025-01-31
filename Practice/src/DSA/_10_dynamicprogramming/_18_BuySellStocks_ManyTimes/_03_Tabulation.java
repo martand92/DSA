@@ -4,23 +4,8 @@ public class _03_Tabulation {
 
 	public static int maxProfit(int[] stockPrices, int[][] dp) {
 
-//		if (day == stockPrices.length)
-//			return 0;
-
 		for (int isBuy = 0; isBuy < 2; isBuy++)
 			dp[stockPrices.length][isBuy] = 0;
-
-//		int pickProfit = 0;
-//		int notPickProfit = 0;
-//		if (isBuy == 1) {
-//			pickProfit = -stockPrices[day] + maxProfit(stockPrices, day + 1, 0, dp);
-//			notPickProfit = 0 + maxProfit(stockPrices, day + 1, 1, dp);
-//		} else {
-//			pickProfit = stockPrices[day] + maxProfit(stockPrices, day + 1, 1, dp);
-//			notPickProfit = 0 + maxProfit(stockPrices, day + 1, 0, dp);
-//		}
-//
-//		return dp[day][isBuy] = Math.max(pickProfit, notPickProfit);
 
 		for (int i = stockPrices.length - 1; i >= 0; i--) {
 
@@ -30,10 +15,10 @@ public class _03_Tabulation {
 				int notPickProfit = 0;
 
 				if (j == 1) {
-					pickProfit = -stockPrices[i] + dp[i + 1][0];
+					pickProfit = dp[i + 1][0] + (-stockPrices[i]);
 					notPickProfit = dp[i + 1][1];
 				} else {
-					pickProfit = stockPrices[i] + dp[i + 1][1];
+					pickProfit = dp[i + 1][1] + stockPrices[i];
 					notPickProfit = dp[i + 1][0];
 				}
 				dp[i][j] = Math.max(pickProfit, notPickProfit);
@@ -49,11 +34,6 @@ public class _03_Tabulation {
 	public static void main(String[] args) {
 		int[] stockPrices = { 7, 1, 5, 3, 6, 4 };
 		int[][] dp = new int[stockPrices.length + 1][2]; // 2 cz isBuy has only 2 values 1 or 0
-
-		for (int i = 0; i < stockPrices.length; i++) {
-			for (int j = 0; j < 2; j++)
-				dp[i][j] = -1;
-		}
 
 		System.out.println(maxProfit(stockPrices, dp));
 	}
