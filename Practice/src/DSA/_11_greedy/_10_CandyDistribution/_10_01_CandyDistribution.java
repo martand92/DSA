@@ -12,21 +12,28 @@ public class _10_01_CandyDistribution {
 		// wrt left child
 		int[] left = new int[ratings.length];
 		left[0] = 1;
+
 		for (int i = 1; i < ratings.length; i++) {
+
 			if (ratings[i - 1] < ratings[i]) // do +1 to left child's candy count
 				left[i] = left[i - 1] + 1;
+
 			else // if left > current, then given minimal no of candies = 1
 				left[i] = 1;
 		}
+
 		System.out.println(Arrays.toString(left));
 
 		// right array will always have more candies given to child with higher rating
 		// wrt right child
 		int[] right = new int[ratings.length];
 		right[ratings.length - 1] = 1;
+
 		for (int i = ratings.length - 2; i >= 0; i--) {
+
 			if (ratings[i + 1] < ratings[i])
 				right[i] = right[i + 1] + 1;
+
 			else
 				right[i] = 1;
 		}
@@ -38,6 +45,7 @@ public class _10_01_CandyDistribution {
 		int[] max = new int[left.length];
 		for (int i = 0; i < left.length; i++)
 			max[i] = Math.max(left[i], right[i]);
+
 		System.out.println(Arrays.toString(max));
 
 		int sum = 0;

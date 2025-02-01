@@ -1,4 +1,4 @@
-package DSA._10_dynamicprogramming._24_BooleanEvaluation;
+package DSA._10_dynamicprogramming._25_PartitionDP_BooleanEvaluation;
 
 public class _01_Recursion {
 

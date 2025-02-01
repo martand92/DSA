@@ -2,7 +2,7 @@ package DSA._11_greedy;
 
 import java.util.*;
 
-public class _07_NonOverlappingInterval {
+public class _07_CntOverlappingIntrvl_OverlappingInterval {
 
 	public static class Interval {
 		int start;

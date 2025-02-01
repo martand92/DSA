@@ -35,6 +35,7 @@ public class _03_01_Tabulation {
 		// index and prevIndex are variables and in recursion prevIndex has -1. To
 		// accommodate this -1, need to remap prevIndex from 0 -> n+1
 		int[][] dp = new int[arr.length + 1][arr.length + 1];
+
 		System.out.println(longestIncreasingSubSeq(arr, dp));
 	}
 

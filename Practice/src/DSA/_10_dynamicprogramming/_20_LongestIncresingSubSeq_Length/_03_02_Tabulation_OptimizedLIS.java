@@ -7,7 +7,8 @@ public class _03_02_Tabulation_OptimizedLIS {
 
 	public static int longestIncreasingSubSeq(int[] arr) {
 
-		// Step 1:Declare dp of length n and initialized with 1
+		// Step 1:Declare dp of length n and initialized with 1 as all have subseq of
+		// length atleast 1
 		int[] dp = new int[arr.length];
 		Arrays.fill(dp, 1);
 

@@ -2,7 +2,7 @@ package DSA._11_greedy;
 
 import java.util.*;
 
-public class _06_MeetingRoom {
+public class _06_MeetingRoom_OverlappingInterval {
 
 	public static class Meeting {
 		int start;
@@ -21,6 +21,7 @@ public class _06_MeetingRoom {
 		for (int i = 0; i < start.length; i++)
 			meetings[i] = new Meeting(start[i], end[i]);
 
+		// Select meetings that are ending faster
 		Arrays.sort(meetings, new Comparator<Meeting>() {
 			public int compare(Meeting a, Meeting b) {
 				return a.end - b.end;
