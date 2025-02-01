@@ -7,19 +7,22 @@ public class _11_FractionalKnapsack {
 
 	static class Item {
 		int unitValue;
-		int itemNumber;
+		int value;
+		int weight;
 
-		Item(int unitValue, int itemNumber) {
+		Item(int unitValue, int value, int weight) {
 			this.unitValue = unitValue;
-			this.itemNumber = itemNumber;
+			this.value = value;
+			this.weight = weight;
 		}
 	}
 
 	public static int maxKnapsackVal(int[] values, int[] weights, int knapsackWeight) {
 
 		Item[] items = new Item[values.length];
+
 		for (int i = 0; i < items.length; i++)
-			items[i] = new Item(values[i] / weights[i], i);
+			items[i] = new Item(values[i] / weights[i], values[i], weights[i]);
 
 		Arrays.sort(items, new Comparator<Item>() {
 			public int compare(Item a, Item b) {
@@ -28,14 +31,15 @@ public class _11_FractionalKnapsack {
 		});
 
 		int totalValue = 0;
+
 		for (int i = 0; i < items.length; i++) {
 
-			if (knapsackWeight >= weights[items[i].itemNumber]) {
-				totalValue += values[items[i].itemNumber];
-				knapsackWeight -= weights[items[i].itemNumber];
+			if (knapsackWeight >= items[i].weight) {
+				totalValue += items[i].value;
+				knapsackWeight -= items[i].weight;
 
 			} else { // if(knapsackWeight < itemWeight) then fraction scenario
-				totalValue += (knapsackWeight * values[items[i].itemNumber]) / weights[items[i].itemNumber];
+				totalValue += (knapsackWeight * items[i].value) / items[i].weight;
 				break;
 			}
 		}

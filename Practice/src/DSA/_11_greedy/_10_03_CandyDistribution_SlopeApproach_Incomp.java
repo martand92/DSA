@@ -1,4 +1,4 @@
-package DSA._11_greedy._10_CandyDistribution;
+package DSA._11_greedy;
 
 public class _10_03_CandyDistribution_SlopeApproach_Incomp {
 

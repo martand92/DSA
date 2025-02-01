@@ -1,8 +1,8 @@
-package DSA._11_greedy._10_CandyDistribution;
+package DSA._11_greedy;
 
 import java.util.Arrays;
 
-public class _10_02_CandyDistribution_Optimized {
+public class _10_02_CandyDistribution_Opt {
 
 	public static int minCandies(int[] ratings) {
 
@@ -22,22 +22,24 @@ public class _10_02_CandyDistribution_Optimized {
 
 		// Here no need to maintain extra right[], just calculate right[i] based on prev
 		// and update left[i] with max
-		int rightPrev = 1; // meaning right[lastIndex]
+		int prevRight = 1; // meaning right[lastIndex]
 		int sum = left[ratings.length - 1];
 
 		for (int i = ratings.length - 2; i >= 0; i--) {
 
 			if (ratings[i + 1] < ratings[i]) {
 
-				// Need to max(prevright + 1, current left[i])
-				left[i] = Math.max(rightPrev + 1, left[i]);
-				rightPrev = rightPrev + 1;
+				// current left should only be updated if prevRight+1 > left[i]
+				prevRight++; // as current > prev right
+				left[i] = Math.max(prevRight, left[i]);
 
-			} else // if right neighbor is greater then
+			} else // if right neighbor is not greater
 				left[i] = Math.max(left[i], 1);
 
-			// sum it up here only
-			sum += left[i];
+			// above code is not required as left[i] will either contain 1 or > 1 and below
+			// statement will result in left[i] holding same value
+
+			sum += left[i]; // sum it up in this iteration only
 		}
 
 		System.out.println(Arrays.toString(left));
@@ -51,5 +53,5 @@ public class _10_02_CandyDistribution_Optimized {
 	}
 }
 
-//TC : O(2N) // for 2 for()
+//TC : O(2N) for 2 for()
 //SC : O(N) as only left[] is used now

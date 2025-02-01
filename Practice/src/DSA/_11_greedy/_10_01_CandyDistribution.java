@@ -1,4 +1,4 @@
-package DSA._11_greedy._10_CandyDistribution;
+package DSA._11_greedy;
 
 import java.util.Arrays;
 
