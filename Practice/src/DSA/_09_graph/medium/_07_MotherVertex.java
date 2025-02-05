@@ -25,13 +25,12 @@ public class _07_MotherVertex {
 		}
 
 		public int findDFSOfEachVertex(LinkedList<Integer>[] adj, int vertex, int count) {
-			
-			count++;
+
 			visited[vertex] = true;
 
 			for (int i : adj[vertex]) {
 				if (!visited[i])
-					count = findDFSOfEachVertex(adj, i, count);
+					count = findDFSOfEachVertex(adj, i, count + 1);
 			}
 
 			return count;
@@ -42,18 +41,19 @@ public class _07_MotherVertex {
 			for (int i = 0; i < V; i++) {
 
 				visited = new boolean[V];
-				int count = findDFSOfEachVertex(adj, i, 0);
+				int count = findDFSOfEachVertex(adj, i, 1);
 
 				if (count == V)
 					return i;
-
 			}
 
 			return -1;
 		}
 
 		public static void main(String[] args) {
+
 			Graph g = new Graph(6);
+
 			g.addEdge(0, 1);
 			g.addEdge(0, 2);
 			g.addEdge(0, 3);

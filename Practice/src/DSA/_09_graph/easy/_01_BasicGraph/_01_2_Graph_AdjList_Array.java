@@ -10,11 +10,12 @@ public class _01_2_Graph_AdjList_Array {
 
 		@SuppressWarnings("unchecked")
 		Graph(int v) {
+
 			adjList = new LinkedList[v]; // initializing array with v vertices
-			for (int i = 0; i < v; i++) // you cannot use Arrays.fill here because it fills every index of the array
-										// with the same instance of LinkedList. This means that all entries in adjList
-										// refer to the same list.
-				adjList[i] = new LinkedList<>(); // Create a new list for each vertex
+
+			for (int i = 0; i < v; i++)
+				adjList[i] = new LinkedList<>(); // Create a new list for each vertex and don't use Arrays.fill as same
+													// instance of LinkedList is shared with all the array indices
 		}
 
 		void addEdge(int u, int v) {

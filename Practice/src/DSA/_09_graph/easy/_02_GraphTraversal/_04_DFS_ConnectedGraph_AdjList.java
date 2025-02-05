@@ -1,9 +1,9 @@
 package DSA._09_graph.easy._02_GraphTraversal;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
-public class _04_Graph_DFS_DisConnectedGraph {
+//Applicable for both Directed and Undirected graphs
+public class _04_DFS_ConnectedGraph_AdjList {
 
 	static ArrayList<Integer> result = new ArrayList<Integer>();
 	static boolean[] visited;// create a boolean visited array to track if a given vertex is already visited
@@ -19,26 +19,24 @@ public class _04_Graph_DFS_DisConnectedGraph {
 			visited = new boolean[v];
 
 			for (int i = 0; i < v; i++)
-				adj[i] = new LinkedList(); // Initializing each adj array index with a linked list adj[linkedList,
-											// linkedList, linkedList]
+				adj[i] = new LinkedList<Integer>();
 		}
 
 		// for vth vertex add w vertex as adjacent vertex
 		public void addEdge(int v, int w) {
 			adj[v].add(w);
+			adj[w].add(v);
 		}
 
 		// Function to traverse Graph with DFS traversal
 		public static ArrayList<Integer> DFSTraversal(int root) {
 
-			if (!visited[root]) {// First Check if given root is visited
-				result.add(root); // If not visited add to result and make it as visited
-				visited[root] = true;
+			result.add(root);
+			visited[root] = true;
 
-				for (int i : adj[root]) {// Then check for its adjacent list and pick any 1 vertex which is not visited
-					if (!visited[i])
-						DFSTraversal(i);// not visited adj vertex will then follow same path
-				}
+			for (int i : adj[root]) {// Then check for its adjacent list and pick any 1 vertex which is not visited
+				if (!visited[i])
+					DFSTraversal(i);// not visited adj vertex will then follow same path
 			}
 
 			return result;
@@ -51,14 +49,10 @@ public class _04_Graph_DFS_DisConnectedGraph {
 			g.addEdge(0, 2);
 			g.addEdge(1, 2);
 			g.addEdge(2, 0);
-			//g.addEdge(2, 3);
+			g.addEdge(2, 3);
 			g.addEdge(3, 3);
 
-			for (int i = 0; i < v; i++) {
-				if (!visited[i])
-					DFSTraversal(i);// calling DFS traversal for all vertices as some vertices might not be
-									// reachable
-			}
+			System.out.println(DFSTraversal(2));// calling DFS traversal with root node as 2
 		}
 	}
 

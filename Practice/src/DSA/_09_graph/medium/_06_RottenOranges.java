@@ -39,48 +39,20 @@ public class _06_RottenOranges {
 			int[] deltaCol = { 0, 0, -1, 1 };
 
 			for (int k = 0; k < 4; k++) {
+
 				int newRow = i.u + deltaRow[k];
 				int newCol = i.v + deltaCol[k];
 
 				if (newRow < grid.length && newCol < grid.length && newRow >= 0 && newCol >= 0
 						&& grid[newRow][newCol] == 1) {
+
 					q.add(new Content(newRow, newCol, i.unitTime + 1));
 					grid[newRow][newCol] = 2;
 					minTime = Math.max(i.unitTime + 1, minTime);
+
 				}
 			}
 
-//			if (i.u != 0) {
-//				if (grid[i.u - 1][i.v] == 1) {
-//					q.add(new Content(i.u - 1, i.v, i.unitTime + 1));
-//					grid[i.u - 1][i.v] = 2;
-//					minTime = Math.max(i.unitTime + 1, minTime);
-//				}
-//			}
-//
-//			if (i.u != grid.length - 1) {
-//				if (grid[i.u + 1][i.v] == 1) {
-//					q.add(new Content(i.u + 1, i.v, i.unitTime + 1));
-//					grid[i.u + 1][i.v] = 2;
-//					minTime = Math.max(i.unitTime + 1, minTime);
-//				}
-//			}
-//
-//			if (i.v != 0) {
-//				if (grid[i.u][i.v - 1] == 1) {
-//					q.add(new Content(i.u, i.v - 1, i.unitTime + 1));
-//					grid[i.u][i.v - 1] = 2;
-//					minTime = Math.max(i.unitTime + 1, minTime);
-//				}
-//			}
-//
-//			if (i.v != grid[0].length - 1) {
-//				if (grid[i.u][i.v + 1] == 1) {
-//					q.add(new Content(i.u, i.v + 1, i.unitTime + 1));
-//					grid[i.u][i.v + 1] = 2;
-//					minTime = Math.max(i.unitTime + 1, minTime);
-//				}
-//			}
 		}
 
 		// check if all oranges are rotten
@@ -99,8 +71,6 @@ public class _06_RottenOranges {
 
 		System.out.println(findMinTime(grid));
 	}
-
 }
-
 //SC : O(N*M)
 //TC : O(N*M) + O(4) = O(N*M)

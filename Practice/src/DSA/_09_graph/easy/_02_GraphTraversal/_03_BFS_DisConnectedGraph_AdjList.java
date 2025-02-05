@@ -8,14 +8,9 @@ import java.util.*;
  * In Disconnected graph, BFS is traversed from all nodes (every nodes, adjacent vertices are considered and not just single root)
  */
 
-public class _03_Graph_BFS_DisConnectedGraph {
+public class _03_BFS_DisConnectedGraph_AdjList {
 
 	static ArrayList<Integer> result = new ArrayList<Integer>(); // to store final result of BFS traversal
-
-	/*
-	 * In BFS, Queue is used where all adjacent node values are added to queue as
-	 * they are at same level in graph
-	 */
 	static Queue<Integer> q = new LinkedList<Integer>();
 	static boolean[] visited;
 
@@ -25,31 +20,27 @@ public class _03_Graph_BFS_DisConnectedGraph {
 		static LinkedList<Integer>[] adj;
 
 		Graph(int v) {
-			adj = new LinkedList[v]; // Initializing adj array as LinkedList
+
+			adj = new LinkedList[v];
 			visited = new boolean[v];
+
 			for (int i = 0; i < v; i++)
-				/*
-				 * Initializing each adj array index with a linked list
-				 * adj[linkedList,linkedList, linkedList]
-				 */
 				adj[i] = new LinkedList<Integer>();
 		}
 
-		// for vth vertex add w vertex as adjacent vertex
 		public void addEdge(int v, int w) {
 			adj[v].add(w);
 		}
 
-		// Function to traverse Graph with BFS traversal for given vertex
 		public static ArrayList<Integer> BFS(int vertex) {
 
-			q.add(vertex); // Add given vertex to Queue
+			q.add(vertex);
 			visited[vertex] = true;
 
-			while (!q.isEmpty()) { // iterate till queue is empty, this is base condition for BFS
+			while (!q.isEmpty()) {
 
 				vertex = q.poll();
-				result.add(vertex); // Add queue top element (vertex) in final result array
+				result.add(vertex);
 
 				for (int i : adj[vertex]) {
 					if (!visited[i]) {
@@ -70,13 +61,7 @@ public class _03_Graph_BFS_DisConnectedGraph {
 			g.addEdge(2, 0);
 			g.addEdge(3, 3);
 
-			for (int i = 0; i < adj.length; i++) { // here i is vertex
-
-				/*
-				 * if given vertex is not visited during multiple BFS traversals, then there is
-				 * a node thats not connected, so this node should also be passed for BFS
-				 * traversal
-				 */
+			for (int i = 0; i < adj.length; i++) {
 				if (!visited[i])
 					result = BFS(i);// calling BFS traversal for each vertex in a graph
 

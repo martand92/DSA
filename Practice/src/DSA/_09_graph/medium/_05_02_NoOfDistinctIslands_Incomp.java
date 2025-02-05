@@ -1,8 +1,8 @@
-package DSA._09_graph.easy._02_GraphTraversal._01_NumberOfIsland;
+package DSA._09_graph.medium;
 
 import java.util.*;
 
-public class _01_02_Graph_BFS_NoOfDistinctIslands_Incomp {
+public class _05_02_NoOfDistinctIslands_Incomp {
 
 	static class Vertex {
 		int i;
@@ -75,8 +75,10 @@ public class _01_02_Graph_BFS_NoOfDistinctIslands_Incomp {
 
 		// in adjMatrix 1 rep land and 0 rep water
 		int[][] adjMatrix = { { 1, 1, 0, 1, 1 }, { 1, 0, 0, 0, 0 }, { 0, 0, 0, 1, 1 }, { 1, 1, 0, 1, 0 } };
+
 		boolean[][] visited = new boolean[adjMatrix.length][adjMatrix[0].length];
 		Queue<Vertex> q = new LinkedList<Vertex>();
+
 		HashSet<ArrayList> hs = new HashSet<ArrayList>();
 
 		// to do bfs for every index of grid with land (value = 1)

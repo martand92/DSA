@@ -27,10 +27,12 @@ public class _02_GraphOperations_AdjList {
 	}
 
 	static class Graph {
+		
 		static ArrayList<Vertex> vertices = new ArrayList<Vertex>();
 
 		// Check if Vertex is present using vertexStateID
 		public static boolean checkIfVertexIdAlreadyPresent(int vertexStateId) {
+			
 			for (Vertex v : vertices) {
 				if (v.stateId == vertexStateId)
 					return true;
@@ -41,15 +43,18 @@ public class _02_GraphOperations_AdjList {
 
 		// Check if Edge exist between source and destination vertex
 		public static boolean checkIfEdgeExistsBetweenGivenVertices(int srcVertexId, int destVertexId) {
+			
 			for (Vertex v : vertices) {
 
 				if (v.stateId == srcVertexId) {
+					
 					for (Edge e : v.edgeList) {
 						if (e.destVertexId == destVertexId)
 							return true;
 					}
 				}
 			}
+			
 			return false;
 		}
 
@@ -82,9 +87,11 @@ public class _02_GraphOperations_AdjList {
 						// adding edge between src vertex and dest vertex
 						if (v.stateId == srcVertexId)
 							v.edgeList.add(new Edge(destVertexId, weight));
+						
 						// adding edge between dest vertex and src vertex
 						else if (v.stateId == destVertexId)
 							v.edgeList.add(new Edge(srcVertexId, weight));
+						
 					}
 				}
 			}
@@ -92,6 +99,7 @@ public class _02_GraphOperations_AdjList {
 
 		// To modify weight of the Edge
 		public static void updateEdgeWeight(int srcVertexId, int destVertexId, int newWeight) {
+			
 			boolean containsSourceId = checkIfVertexIdAlreadyPresent(srcVertexId);
 			boolean containsDestId = checkIfVertexIdAlreadyPresent(srcVertexId);
 

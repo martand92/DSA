@@ -1,7 +1,7 @@
 package DSA._09_graph.easy;
 
 //https://practice.geeksforgeeks.org/problems/shortest-path-from-1-to-n0156/1
-public class _11_ShortestPath_imp {
+public class _11_02_ShortestPath_Opt {
 
 	static int minStep(int n, int count) {
 		// complete the function here
@@ -19,7 +19,7 @@ public class _11_ShortestPath_imp {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(minStep(493, 0));
+		System.out.println(minStep(15, 0));
 	}
 
 }

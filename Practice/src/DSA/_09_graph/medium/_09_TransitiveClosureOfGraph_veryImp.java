@@ -17,6 +17,7 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 		graph[u][v] = 1;
 	}
 
+	// DFS on grid / matrix
 	public boolean dfs(int srcVertex, int destVertex, boolean[] visited) {
 
 		if (srcVertex == destVertex)
@@ -25,7 +26,9 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 		visited[srcVertex] = true;
 
 		for (int i = 0; i < graph[srcVertex].length; i++) {
+
 			if (graph[srcVertex][i] == 1 && !visited[i])
+
 				if (dfs(i, destVertex, visited))
 					return true;
 		}
@@ -36,6 +39,7 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 	public static void main(String[] args) {
 
 		_09_TransitiveClosureOfGraph_veryImp g = new _09_TransitiveClosureOfGraph_veryImp(4);
+
 		g.addEdge(0, 0);
 		g.addEdge(0, 1);
 		g.addEdge(0, 3);
@@ -51,24 +55,19 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 		System.out.println("Initial array : " + Arrays.deepToString(g.graph));
 
 		for (int i = 0; i < g.graph.length; i++) {
-
 			for (int j = 0; j < g.graph[0].length; j++) {
 
 				boolean[] visited = new boolean[g.graph[0].length];
 
 				if (g.graph[i][j] == 0) {
-
 					if (g.dfs(i, j, visited))
 						g.result[i][j] = 1;
 
 				} else
 					g.result[i][j] = 1;
-
 			}
 		}
 
 		System.out.println("Resultant Array : " + Arrays.deepToString(g.result));
-
 	}
-
 }

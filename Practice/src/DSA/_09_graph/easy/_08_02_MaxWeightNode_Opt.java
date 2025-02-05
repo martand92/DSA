@@ -1,11 +1,10 @@
 package DSA._09_graph.easy;
 
 //https://practice.geeksforgeeks.org/problems/b64485d3994958cca8748991bb58668204b3e4c0/1
-public class _08_MaxWeightNode_Imp {
+public class _08_02_MaxWeightNode_Opt {
 
 	public static void main(String[] args) {
 
-		int result = Integer.MIN_VALUE, resultIndex = 0;
 		int[] Edge = { 2, 0, -1, 2 };
 		int[] weight = new int[Edge.length];
 
@@ -19,14 +18,15 @@ public class _08_MaxWeightNode_Imp {
 				weight[Edge[i]] += i;
 		}
 
-		for (int i = 0; i < weight.length; i++) {
-			if (weight[i] >= result) {
-				result = weight[i];
-				resultIndex = i;
+		int max = 0, maxi = 0;
+		for (int i = 1; i < weight.length; i++) {
+			if (weight[i] >= max) {
+				max = weight[i];
+				maxi = i;
 			}
 		}
 
-		System.out.println(resultIndex);
+		System.out.println(maxi);
 
 	}
 

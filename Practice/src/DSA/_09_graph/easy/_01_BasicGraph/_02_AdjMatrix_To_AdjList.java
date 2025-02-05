@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 //https://www.geeksforgeeks.org/convert-adjacency-matrix-to-adjacency-list-representation-of-graph/
-public class _02_Convert_AdjMatrix_AdjList {
+public class _02_AdjMatrix_To_AdjList {
 
 	int[][] adjMatrix;
 	LinkedList<Integer> adjList[];
 
-	_02_Convert_AdjMatrix_AdjList(int vertices) {
+	_02_AdjMatrix_To_AdjList(int vertices) {
 
 		adjMatrix = new int[vertices][vertices];
 		adjList = new LinkedList[vertices];
@@ -35,7 +35,7 @@ public class _02_Convert_AdjMatrix_AdjList {
 	}
 
 	public static void main(String[] args) {
-		_02_Convert_AdjMatrix_AdjList graph = new _02_Convert_AdjMatrix_AdjList(3);
+		_02_AdjMatrix_To_AdjList graph = new _02_AdjMatrix_To_AdjList(3);
 
 		graph.addEdgeToMatrix(0, 2);
 		graph.addEdgeToMatrix(1, 2);
