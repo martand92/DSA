@@ -8,7 +8,6 @@ public class _05_DFS_AdjMatrix {
 		System.out.println("Visited : " + i);
 
 		for (int j = 0; j < adjMatrix[0].length; j++) {
-
 			if (!visited[j] && adjMatrix[i][j] == 1)
 				dfs(adjMatrix, j, visited);
 		}

@@ -28,18 +28,15 @@ public class _04_DFS_AdjList {
 
 		public static ArrayList<Integer> DFSTraversal(int root) {
 
-			if (!visited[root]) {
-				result.add(root);
-				visited[root] = true;
+			result.add(root);
+			visited[root] = true;
 
-				for (int i : adj[root]) {
-					if (!visited[i])
-						DFSTraversal(i);
-				}
+			for (int i : adj[root]) {
+				if (!visited[i])
+					DFSTraversal(i);
 			}
 
 			return result;
-
 		}
 
 		public static void main(String[] args) {

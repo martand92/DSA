@@ -11,26 +11,24 @@ public class _07_MotherVertex {
 		boolean[] visited;
 
 		Graph(int v) {
-
 			adj = new LinkedList[v];
 			visited = new boolean[v];
 
 			for (int i = 0; i < v; i++)
 				adj[i] = new LinkedList<Integer>();
-
 		}
 
 		public void addEdge(int srcVertex, int destVertex) {
 			adj[srcVertex].add(destVertex);
 		}
 
-		public int findDFSOfEachVertex(LinkedList<Integer>[] adj, int vertex, int count) {
+		public int findDFSOfEachVertex(LinkedList<Integer>[] adj, int vertex, int count, boolean[] visited) {
 
 			visited[vertex] = true;
 
 			for (int i : adj[vertex]) {
 				if (!visited[i])
-					count = findDFSOfEachVertex(adj, i, count + 1);
+					count = findDFSOfEachVertex(adj, i, count + 1, visited);
 			}
 
 			return count;
@@ -39,10 +37,7 @@ public class _07_MotherVertex {
 		public int findMotherVertex(int V, LinkedList<Integer>[] adj) {
 
 			for (int i = 0; i < V; i++) {
-
-				visited = new boolean[V];
-				int count = findDFSOfEachVertex(adj, i, 1);
-
+				int count = findDFSOfEachVertex(adj, i, 1, new boolean[V]);
 				if (count == V)
 					return i;
 			}
@@ -63,9 +58,6 @@ public class _07_MotherVertex {
 			g.addEdge(2, 5);
 
 			System.out.println(g.findMotherVertex(6, g.adj));
-
 		}
-
 	}
-
 }

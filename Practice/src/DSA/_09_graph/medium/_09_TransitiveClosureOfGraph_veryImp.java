@@ -5,20 +5,8 @@ import java.util.Arrays;
 //https://practice.geeksforgeeks.org/problems/transitive-closure-of-a-graph0930/1
 public class _09_TransitiveClosureOfGraph_veryImp {
 
-	int[][] graph;
-	int[][] result;
-
-	public _09_TransitiveClosureOfGraph_veryImp(int n) {
-		graph = new int[n][n];
-		result = new int[n][n];
-	}
-
-	public void addEdge(int u, int v) {
-		graph[u][v] = 1;
-	}
-
-	// DFS on grid / matrix
-	public boolean dfs(int srcVertex, int destVertex, boolean[] visited) {
+	// DFS on adjmatrix
+	public static boolean dfs(int[][] graph, int srcVertex, int destVertex, boolean[] visited) {
 
 		if (srcVertex == destVertex)
 			return true;
@@ -26,10 +14,8 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 		visited[srcVertex] = true;
 
 		for (int i = 0; i < graph[srcVertex].length; i++) {
-
 			if (graph[srcVertex][i] == 1 && !visited[i])
-
-				if (dfs(i, destVertex, visited))
+				if (dfs(graph, i, destVertex, visited))
 					return true;
 		}
 
@@ -38,36 +24,24 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 
 	public static void main(String[] args) {
 
-		_09_TransitiveClosureOfGraph_veryImp g = new _09_TransitiveClosureOfGraph_veryImp(4);
+		int[][] graph = { { 1, 1, 0, 1 }, { 0, 1, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 } };
+		int[][] result = new int[graph.length][graph[0].length];
 
-		g.addEdge(0, 0);
-		g.addEdge(0, 1);
-		g.addEdge(0, 3);
+		System.out.println("Initial array : " + Arrays.deepToString(graph));
 
-		g.addEdge(1, 1);
-		g.addEdge(1, 2);
+		for (int i = 0; i < graph.length; i++) {
+			for (int j = 0; j < graph[0].length; j++) {
 
-		g.addEdge(2, 2);
-		g.addEdge(2, 3);
+				boolean[] visited = new boolean[graph[0].length];
 
-		g.addEdge(3, 3);
-
-		System.out.println("Initial array : " + Arrays.deepToString(g.graph));
-
-		for (int i = 0; i < g.graph.length; i++) {
-			for (int j = 0; j < g.graph[0].length; j++) {
-
-				boolean[] visited = new boolean[g.graph[0].length];
-
-				if (g.graph[i][j] == 0) {
-					if (g.dfs(i, j, visited))
-						g.result[i][j] = 1;
-
+				if (graph[i][j] == 0) {
+					if (dfs(graph, i, j, visited))
+						result[i][j] = 1;
 				} else
-					g.result[i][j] = 1;
+					result[i][j] = 1;
 			}
 		}
 
-		System.out.println("Resultant Array : " + Arrays.deepToString(g.result));
+		System.out.println("Resultant Array : " + Arrays.deepToString(result));
 	}
 }
