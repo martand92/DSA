@@ -3,6 +3,10 @@ package DSA._09_graph.easy;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/count-the-paths4332/1
+
+/* Here visited[] is not used because destination vertex would be visited through multiple paths.
+ * So shouldn't mark this dest vertex as visited
+ */
 public class _06_countThePath_imp {
 
 	static class Graph {

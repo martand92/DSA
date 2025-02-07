@@ -31,7 +31,9 @@ public class _05_BFS_AdjMatrix {
 		// 1, 0 } };
 
 		// Disconnected graph
-		int[][] adjMatrix = { { 0, 1, 0, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0, 1, 0 } };
+		// int[][] adjMatrix = { { 0, 1, 0, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0,
+		// 1, 0 } };
+		int[][] adjMatrix = { { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 } };
 
 		boolean[] visited = new boolean[adjMatrix.length];
 

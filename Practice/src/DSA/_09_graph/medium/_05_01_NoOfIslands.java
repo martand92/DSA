@@ -18,6 +18,7 @@ public class _05_01_NoOfIslands {
 	static class Graph {
 
 		public static void connectedIslands(int[][] grid, boolean[][] visited, Queue<Vertex> q, int i, int j) {
+
 			// add current indicated land to q & mark it as visited
 			q.add(new Vertex(i, j));
 			visited[i][j] = true;
@@ -37,7 +38,7 @@ public class _05_01_NoOfIslands {
 
 						if (newRow < grid.length && newRow >= 0 && newCol < grid[0].length && newCol >= 0
 								&& grid[newRow][newCol] == 1 && !visited[newRow][newCol]) {
-							
+
 							visited[newRow][newCol] = true;
 							q.add(new Vertex(newRow, newCol));
 
