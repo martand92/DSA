@@ -3,7 +3,7 @@ package DSA._09_graph.medium;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/transitive-closure-of-a-graph0930/1
-public class _09_TransitiveClosureOfGraph_veryImp {
+public class _09_TransitiveClosureOfGraph {
 
 	// DFS on adjmatrix
 	public static boolean dfs(int[][] graph, int srcVertex, int destVertex, boolean[] visited) {
@@ -30,13 +30,13 @@ public class _09_TransitiveClosureOfGraph_veryImp {
 		System.out.println("Initial array : " + Arrays.deepToString(graph));
 
 		for (int i = 0; i < graph.length; i++) {
+
 			for (int j = 0; j < graph[0].length; j++) {
 
-				boolean[] visited = new boolean[graph[0].length];
-
 				if (graph[i][j] == 0) {
-					if (dfs(graph, i, j, visited))
+					if (dfs(graph, i, j, new boolean[graph[0].length]))
 						result[i][j] = 1;
+
 				} else
 					result[i][j] = 1;
 			}
