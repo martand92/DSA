@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._03_MST_Undirected;
+package DSA._09_graph.medium._01_MST_Undirected;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -59,11 +59,10 @@ public class _10_MColoring {
 
 	public static void main(String[] args) {
 
-		int n = 5, m = 2;
-
 		List<int[]> edges = new ArrayList<int[]>();
 
 //		Success Test case :
+//		int n = 4, m = 3
 //		edges.add(new int[] { 0, 1 });
 //		edges.add(new int[] { 1, 2 });
 //		edges.add(new int[] { 2, 3 });
@@ -71,6 +70,8 @@ public class _10_MColoring {
 //		edges.add(new int[] { 0, 2 });
 
 		// Failure Test case :
+		int n = 5, m = 2;
+
 		edges.add(new int[] { 0, 3 });
 		edges.add(new int[] { 1, 2 });
 		edges.add(new int[] { 1, 4 });

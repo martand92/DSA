@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._02_DetectCycle.Undirected;
+package DSA._09_graph.medium._06_DetectCycle.Undirected;
 
 import java.util.LinkedList;
 

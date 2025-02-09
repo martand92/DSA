@@ -70,5 +70,5 @@ public class _06_RottenOranges {
 		System.out.println(findMinTime(grid));
 	}
 }
-//SC : O(N*M) // updating existing grid
+//SC : O(N*M) // for q
 //TC : O(N*M) + O(4) = O(N*M)
