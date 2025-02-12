@@ -22,33 +22,29 @@ public class _15_DisjointSet_UnionBySize {
 			return parent[node]; // when parent = current node,then this node is ultimate parent
 
 		return parent[node] = findUltimateParent(parent[node]);// path compression
-		//return parent[node];
 	}
 
-	public void findUnionBySize(int u, int v) { // Here you need to update ultimate parent and size of 2 nodes being
-												// connected as we go by
+	public void unionBySize(int u, int v) {
 
-		int ultimateParentOfU = findUltimateParent(u);// When node u -> v, find ultimate parent of u & v.
+		int ultimateParentOfU = findUltimateParent(u);
 		int ultimateParentOfV = findUltimateParent(v);
 
-		if (ultimateParentOfU == ultimateParentOfV) // If ultimate parents are same then both u & v are from same
-													// component so no need to do anything
+		// If ultimate parents are same then both u & v are from same component
+		if (ultimateParentOfU == ultimateParentOfV)
 			return;
 
-		// if ultimate parents are not same then attach node with lower size to node
-		// with higher size & size of ultimate parent is increased
+		// if ultimate parents are not same then attach lower size of ult parent node to
+		// higher sized ult parent node & increase size of this ult parent node
 		if (size[ultimateParentOfU] < size[ultimateParentOfV]) {
 			parent[ultimateParentOfU] = ultimateParentOfV;
 			size[ultimateParentOfV] += size[ultimateParentOfU];
-		}
 
-		else if (size[ultimateParentOfU] > size[ultimateParentOfV]) {
+		} else if (size[ultimateParentOfU] > size[ultimateParentOfV]) {
 			parent[ultimateParentOfV] = ultimateParentOfU;
 			size[ultimateParentOfU] += size[ultimateParentOfV];
-		}
 
-		else {// if both node's sizes are same, then attach any node to any other node and
-				// increase size of parent. This else and above else if can be merged
+		} else {// if both node's sizes are same, then attach any ult parent node to any other
+				// ult parent node and increase size of parent
 			parent[ultimateParentOfV] = ultimateParentOfU;
 			size[ultimateParentOfU] += size[ultimateParentOfV];
 		}
@@ -58,11 +54,11 @@ public class _15_DisjointSet_UnionBySize {
 
 		_15_DisjointSet_UnionBySize disJointSet = new _15_DisjointSet_UnionBySize(7);
 
-		disJointSet.findUnionBySize(1, 2);
-		disJointSet.findUnionBySize(2, 3);
-		disJointSet.findUnionBySize(4, 5);
-		disJointSet.findUnionBySize(6, 7);
-		disJointSet.findUnionBySize(5, 6);
+		disJointSet.unionBySize(1, 2);
+		disJointSet.unionBySize(2, 3);
+		disJointSet.unionBySize(4, 5);
+		disJointSet.unionBySize(6, 7);
+		disJointSet.unionBySize(5, 6);
 
 		// Check if 1, 7 belong to same component / have same ultimate parent
 		if (disJointSet.findUltimateParent(1) == disJointSet.findUltimateParent(7))
@@ -71,14 +67,12 @@ public class _15_DisjointSet_UnionBySize {
 			System.out.println("Not Same component");
 
 		// Now connect 3 and 7, this will make ultimate parent of 1 and 7 to be 4
-		disJointSet.findUnionBySize(3, 7);
+		disJointSet.unionBySize(3, 7);
 
 		// Check if 1, 7 belong to same component / have same ultimate parent
 		if (disJointSet.findUltimateParent(1) == disJointSet.findUltimateParent(7))
 			System.out.println("Same component");
 		else
 			System.out.println("Not Same component");
-
 	}
-
 }

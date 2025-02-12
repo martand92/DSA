@@ -6,111 +6,79 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 
 	static class Graph {
 
-		static class Node {
-			int key;
-			int weight;
-
-			Node(int key, int weight) {
-				this.key = key;
-				this.weight = weight;
-			}
-		}
-
-		// AdjMatrix with list of integers indicating parallel edges
-		LinkedList<Integer>[][] adjMatrix;
-
-		ArrayList<Integer> mstSet = new ArrayList<Integer>();
-
-		// PQ is majorly used to get least weighted vertex at O(1) instead of again
-		// looping through keys[]
-		PriorityQueue<Node> pq;
-
-		int[] keys;
+		static int[][] adjMatrix;
+		static int[] keys;
+		static boolean[] visited;
 
 		Graph(int v) {
-
-			adjMatrix = new LinkedList[v][v];
-
-			for (int i = 0; i < v; i++)
-				for (int j = 0; j < v; j++)
-					adjMatrix[i][j] = new LinkedList<Integer>();
-
-			// keys = new int[v];
-
-			pq = new PriorityQueue<Node>(new Comparator<Node>() {
-				public int compare(Node a, Node b) {
-					return a.weight - b.weight;
-				}
-			});
-
+			adjMatrix = new int[v][v];
+			keys = new int[v];
 			Arrays.fill(keys, Integer.MAX_VALUE);
+			visited = new boolean[v];
 		}
 
-		// Adding Undirected Edge between src & dest
+		// Adding Undirected Edge
 		public void addEdge(int srcVertex, int destVertex, int w) {
 			if (srcVertex != destVertex) {
-				adjMatrix[destVertex][srcVertex].add(w);
-				adjMatrix[srcVertex][destVertex].add(w);
+				adjMatrix[destVertex][srcVertex] = w;
+				adjMatrix[srcVertex][destVertex] = w;
 			}
 		}
 
-		// removing loops from vertices by clearing diagonal elements
+		// removing loops
 		public void removeLoops() {
 			for (int i = 0; i < adjMatrix.length; i++)
-				adjMatrix[i][i].clear();
+				adjMatrix[i][i] = 0;
 		}
+	}
 
-		// considering less weighted edge from parallel edges between same vertices
-		public void removeParallelEdges() {
+	static class Node {
 
-			for (int i = 0; i < adjMatrix.length; i++) {
+		int v;
+		int weight;
 
-				for (int j = 0; j < adjMatrix[0].length; j++) {
+		Node(int v, int w) {
+			this.v = v;
+			this.weight = w;
+		}
+	}
 
-					if (adjMatrix[i][j].size() > 1) {
+	// function to find MST of given vertex
+	public static int findMST(int vertex) {
 
-						int min = adjMatrix[i][j].get(0);
+		Queue<Node> pq = new PriorityQueue<Node>(new Comparator<Node>() {
+			public int compare(Node a, Node b) {
+				return a.weight - b.weight;
+			}
+		});
 
-						for (int k = 1; k < adjMatrix[i][j].size(); k++) {
+		pq.add(new Node(vertex, 0));
 
-							if (adjMatrix[i][j].get(k) < min)
-								min = adjMatrix[i][j].get(k);
-						}
+		while (!pq.isEmpty())
 
-						adjMatrix[i][j].clear();
-						adjMatrix[i][j].add(min);
-					}
+		{
 
+			vertex = pq.poll().v;
+			Graph.visited[vertex] = true;
+
+			for (int i = 0; i < Graph.adjMatrix.length; i++) {
+
+				if (Graph.adjMatrix[vertex][i] != 0 && !Graph.visited[i]
+						&& Graph.keys[i] > Graph.adjMatrix[vertex][i]) {
+					Graph.keys[i] = Graph.adjMatrix[vertex][i];
+					pq.add(new Node(i, Graph.keys[i]));
 				}
 			}
+
 		}
 
-		// function to find MST of given vertex
-		public ArrayList<Integer> findMST(int vertex) {
-
-			pq.add(new Node(vertex, 0));
-
-			while (mstSet.size() != adjMatrix.length) {
-
-				vertex = pq.poll().key;
-				mstSet.add(vertex);
-
-				for (int i = 0; i < adjMatrix.length; i++) {
-					// reason we have keys[] in addition to pq because access is O(1) to check
-					// current value of a vertex
-					if (!adjMatrix[vertex][i].isEmpty() && !mstSet.contains(i)
-							&& keys[i] > adjMatrix[vertex][i].get(0)) {
-
-						keys[i] = adjMatrix[vertex][i].get(0);
-
-						pq.add(new Node(i, adjMatrix[vertex][i].get(0)));
-					}
-				}
-
-			}
-
-			return mstSet;
+		int sum = 0;
+		for (int key : Graph.keys) {
+			if (key != Integer.MAX_VALUE)
+				sum += key;
 		}
+
+		return sum;
 	}
 
 	public static void main(String[] args) {
@@ -131,10 +99,7 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 		// Step 1:Remove loops from graph. In Adj Matrix, diagonal ele are loops
 		g.removeLoops();
 
-		// Step 2 : If parallel edges, then keep min weighted edge in graph
-		g.removeParallelEdges();
-
 		// Step 3 : Find MST from starting vertex as 0
-		System.out.println("Min Spanning Tree of given graph : " + g.findMST(0));
+		System.out.println("Min Spanning Tree of given graph : " + findMST(0));// starting with 0th vertex
 	}
 }

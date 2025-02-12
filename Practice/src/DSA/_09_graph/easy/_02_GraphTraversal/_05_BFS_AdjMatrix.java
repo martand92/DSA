@@ -27,13 +27,13 @@ public class _05_BFS_AdjMatrix {
 	public static void main(String[] args) {
 
 		// Connected graph
-		// int[][] adjMatrix = { { 0, 1, 1, 0 }, { 1, 0, 1, 1 }, { 1, 1, 0, 1 }, { 0, 1,
-		// 1, 0 } };
+		int[][] adjMatrix = { { 0, 1, 1, 0 }, { 1, 0, 1, 1 }, { 1, 1, 0, 1 }, { 0, 1, 1, 0 } };
 
 		// Disconnected graph
 		// int[][] adjMatrix = { { 0, 1, 0, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0,
 		// 1, 0 } };
-		int[][] adjMatrix = { { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 } };
+		// int[][] adjMatrix = { { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1,
+		// 1, 1 } };
 
 		boolean[] visited = new boolean[adjMatrix.length];
 

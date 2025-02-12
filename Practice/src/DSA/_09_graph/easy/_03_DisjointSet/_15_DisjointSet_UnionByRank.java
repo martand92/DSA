@@ -23,10 +23,9 @@ public class _15_DisjointSet_UnionByRank {
 		return parent[node];
 	}
 
-	public void findUnionByRank(int u, int v) { // Here you need to update ultimate parent and rank of 2 nodes getting
-												// connected as we go by
+	public void unionByRank(int u, int v) {
 
-		int ultimateParentOfU = findUltimateParent(u);// When node u -> v, find ultimate parent of u & v.
+		int ultimateParentOfU = findUltimateParent(u);
 		int ultimateParentOfV = findUltimateParent(v);
 
 		// If ult parents are same then u,v are from same component, so union is not
@@ -35,16 +34,15 @@ public class _15_DisjointSet_UnionByRank {
 			return;
 
 		// if ultimate parents are not same then attach node with lower rank to node
-		// with higher rank
-		// Here rank of ultimate parent doesnt change
-		if (rank[ultimateParentOfV] > rank[ultimateParentOfU])
+		// with higher rank. Here rank of ultimate parent doesnt change
+		if (rank[ultimateParentOfU] < rank[ultimateParentOfV])
 			parent[ultimateParentOfU] = ultimateParentOfV;
 
 		else if (rank[ultimateParentOfU] > rank[ultimateParentOfV])
 			parent[ultimateParentOfV] = ultimateParentOfU;
 
-		else {// if both node's ranks are same, then attach any 1 node to another node leading
-				// to addition of a node to component and increasing parent's rank
+		else {// if both node's ranks are same, then attach any 1 node to another resulting in
+				// addition of a node to component and increasing parent's rank
 			parent[ultimateParentOfV] = ultimateParentOfU;
 			rank[ultimateParentOfU]++;
 		}
@@ -54,11 +52,11 @@ public class _15_DisjointSet_UnionByRank {
 
 		_15_DisjointSet_UnionByRank disJointSet = new _15_DisjointSet_UnionByRank(7);
 
-		disJointSet.findUnionByRank(1, 2);
-		disJointSet.findUnionByRank(2, 3);
-		disJointSet.findUnionByRank(4, 5);
-		disJointSet.findUnionByRank(6, 7);
-		disJointSet.findUnionByRank(5, 6);
+		disJointSet.unionByRank(1, 2);
+		disJointSet.unionByRank(2, 3);
+		disJointSet.unionByRank(4, 5);
+		disJointSet.unionByRank(6, 7);
+		disJointSet.unionByRank(5, 6);
 
 		// Check if 1, 7 belong to same component / have same ultimate parent
 		if (disJointSet.findUltimateParent(1) == disJointSet.findUltimateParent(7))
@@ -67,7 +65,7 @@ public class _15_DisjointSet_UnionByRank {
 			System.out.println("Not Same component");
 
 		// Now connect 3 and 7, this will make ultimate parent of 1 and 7 to be 4
-		disJointSet.findUnionByRank(3, 7);
+		disJointSet.unionByRank(3, 7);
 
 		// Check if 1, 7 belong to same component / have same ultimate parent
 		if (disJointSet.findUltimateParent(1) == disJointSet.findUltimateParent(7))

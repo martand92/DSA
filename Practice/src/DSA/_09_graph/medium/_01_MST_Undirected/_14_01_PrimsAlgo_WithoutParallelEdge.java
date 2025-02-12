@@ -7,17 +7,14 @@ public class _14_01_PrimsAlgo_WithoutParallelEdge {
 	static class Graph {
 
 		int[][] adjMatrix;
-
-		// Set that are part of MST
-		ArrayList<Integer> mstSet = new ArrayList<Integer>();
-
-		// Set holds least weighted vertices
+		boolean[] visited;
 		int[] keys;
 
 		Graph(int v) {
 			adjMatrix = new int[v][v];
 			keys = new int[v];
 			Arrays.fill(keys, Integer.MAX_VALUE);
+			visited = new boolean[v];
 		}
 
 		// Adding Undirected Edge between src & dest
@@ -34,39 +31,38 @@ public class _14_01_PrimsAlgo_WithoutParallelEdge {
 				adjMatrix[i][i] = 0;
 		}
 
-		// Consider adj vertex of this vertex only if its less weighted
-		public void findAdjVertices(int vertex) {
-
-			for (int j = 0; j < adjMatrix[0].length; j++) {
-
-				if (adjMatrix[vertex][j] != 0 && !mstSet.contains(j) && adjMatrix[vertex][j] < keys[j])
-					keys[j] = adjMatrix[vertex][j];
-
-			}
-		}
-
 		// function to find MST of given vertex
-		public ArrayList<Integer> findMST(int vertex) {
+		public int findMST(int vertex) {
 
-			while (mstSet.size() != adjMatrix.length) {
+			for (int count = 0; count < adjMatrix.length; count++) {
 
-				mstSet.add(vertex);
+				visited[vertex] = true;
 
-				// find adj vertices
-				findAdjVertices(vertex);
+				// update adj vertices of current vertex with weight if its lesser
+				for (int j = 0; j < adjMatrix[0].length; j++) {
+					if (adjMatrix[vertex][j] != 0 && !visited[j] && adjMatrix[vertex][j] < keys[j])
+						keys[j] = adjMatrix[vertex][j];
+				}
 
 				// Select next least weighted vertex which is not in mstSet
 				int min = keys[0];
-
-				for (int i = 1; i < keys.length; i++)
-
-					if (!mstSet.contains(i) && keys[i] <= min) {
+				for (int i = 1; i < keys.length; i++) {
+					if (!visited[i] && keys[i] < min) {
 						min = keys[i];
 						vertex = i;
 					}
+				}
 			}
 
-			return mstSet;
+			System.out.println(Arrays.toString(keys));
+
+			int mstSum = 0;
+			for (int key : keys) {
+				if (key != Integer.MAX_VALUE)
+					mstSum += key;
+			}
+
+			return mstSum;
 		}
 	}
 

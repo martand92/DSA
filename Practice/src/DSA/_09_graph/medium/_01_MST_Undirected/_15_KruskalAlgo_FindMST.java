@@ -1,67 +1,35 @@
 package DSA._09_graph.medium._01_MST_Undirected;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class _15_KruskalAlgo_FindMST {
 
-	public static class DisjointSet {
-
-		int[] rank;
-		int[] parent;
-
-		DisjointSet(int v) {
-
-			rank = new int[v + 1];// 1 based indexing
-			parent = new int[v + 1]; // 1 based indexing
-
-			for (int i = 1; i <= v; i++)
-				parent[i] = i;
-		}
-
-		public int findUltimateParent(int node) {
-
-			if (node == parent[node])
-				return parent[node]; // when parent = current node,then this node is ultimate parent
-
-			parent[node] = findUltimateParent(parent[node]);// path compression
+	public static int findUltimateParent(int node, int[] parent) {
+		if (node == parent[node])
 			return parent[node];
-		}
 
-		public void findUnionByRank(int u, int v) { // Here you need to update ultimate parent and rank of 2 nodes
-													// getting connected as we go by
+		parent[node] = findUltimateParent(parent[node], parent);// path compression
+		return parent[node];
+	}
 
-			int ultimateParentOfU = findUltimateParent(u);// When node u -> v, find ultimate parent of u & v.
-			int ultimateParentOfV = findUltimateParent(v);
+	public static void unionByRank(int u, int v, int[] parent, int[] rank, int ultParentOfU, int ultParentOfV) {
 
-			// If ult parents are same then u,v are from same component, so union is not
-			// required as they belong to same set / component
-			if (ultimateParentOfU == ultimateParentOfV)
-				return;
+		if (rank[ultParentOfU] < rank[ultParentOfV])
+			parent[ultParentOfU] = ultParentOfV;
 
-			// if ultimate parents are not same then attach node with lower rank to node
-			// with higher rank
-			// Here rank of ultimate parent doesnt change
-			if (rank[ultimateParentOfU] < rank[ultimateParentOfV])
-				parent[ultimateParentOfU] = ultimateParentOfV;
+		else if (rank[ultParentOfU] > rank[ultParentOfV])
+			parent[ultParentOfV] = ultParentOfU;
 
-			else if (rank[ultimateParentOfU] > rank[ultimateParentOfV])
-				parent[ultimateParentOfV] = ultimateParentOfU;
-
-			else {// if both node's ranks are same, then attach any 1 node to another node leading
-					// to addition of a node to component and increasing parent's rank
-				parent[ultimateParentOfV] = ultimateParentOfU;
-				rank[ultimateParentOfU]++;
-			}
+		else {
+			parent[ultParentOfV] = ultParentOfU;
+			rank[ultParentOfU]++;
 		}
 	}
 
-	static int v;
-	static int[][] adjMatrix;
-
 	static class Edge {
+
 		int u, v, weight;
 
 		Edge(int u, int v, int weight) {
@@ -71,67 +39,48 @@ public class _15_KruskalAlgo_FindMST {
 		}
 	}
 
-	static class Graph {
+	public static void main(String[] args) {
 
-		int mstSet;
-		ArrayList<Edge> al = new ArrayList<>();
+		int v = 6;// no of vertices
+		List<Edge> al = new ArrayList<Edge>();// List of edges
+		al.add(new Edge(0, 1, 7));
+		al.add(new Edge(0, 2, 8));
+		al.add(new Edge(1, 2, 3));
+		al.add(new Edge(1, 3, 8));
+		al.add(new Edge(1, 3, 6));
+		al.add(new Edge(2, 3, 4));
+		al.add(new Edge(2, 4, 3));
+		al.add(new Edge(3, 4, 2));
+		al.add(new Edge(4, 5, 2));
+		al.add(new Edge(3, 5, 5));
+		al.add(new Edge(5, 5, 1));
 
-		Graph(int vertex) {
-			v = vertex;
-			adjMatrix = new int[v][v];
-		}
-
-		public void addEdge(int srcVertex, int destVertex, int weight) {
-			adjMatrix[srcVertex][destVertex] = weight;
-			adjMatrix[destVertex][srcVertex] = weight;
-		}
-
-		public ArrayList<Edge> getListOfEdges() {
-
-			for (int i = 0; i < adjMatrix.length; i++) {
-				for (int j = 0; j < adjMatrix[0].length; j++) {
-					if (adjMatrix[i][j] != 0)
-						al.add(new Edge(i, j, adjMatrix[i][j]));
-				}
+		// Sort Edges in ascending order of weight
+		Collections.sort(al, new Comparator<Edge>() {
+			public int compare(Edge a, Edge b) {
+				return a.weight - b.weight;
 			}
-			return al;
-		}
+		});
 
-		public static void main(String[] args) {
-			Graph g = new Graph(6);
-			g.addEdge(0, 1, 2);
-			g.addEdge(0, 3, 1);
-			g.addEdge(0, 4, 4);
-			g.addEdge(1, 2, 3);
-			g.addEdge(1, 5, 7);
-			g.addEdge(1, 3, 3);
-			g.addEdge(3, 4, 9);
-			g.addEdge(2, 3, 5);
+		int[] rank = new int[v];
+		int[] parent = new int[v];
+		for (int i = 0; i < v; i++)
+			parent[i] = i;
 
-			System.out.println(Arrays.deepToString(adjMatrix));
+		int mstSum = 0;
+		for (int i = 0; i < al.size(); i++) {
 
-			// Get list of Edges of AdjMatrix graph
-			ArrayList<Edge> al = g.getListOfEdges();
+			int ultParentOfU = findUltimateParent(al.get(i).u, parent);
+			int ultParentOfV = findUltimateParent(al.get(i).v, parent);
 
-			// Sort Edges in ascending order of weight
-			Collections.sort(al, new Comparator<Edge>() {
-				public int compare(Edge a, Edge b) {
-					return a.weight - b.weight;
-				}
-			});
+			if (ultParentOfU != ultParentOfV) {
 
-			System.out.println(al);
-
-			DisjointSet ds = new DisjointSet(6);
-
-			for (int i = 0; i < al.size(); i++) {
-				if (ds.findUltimateParent(al.get(i).u) != ds.findUltimateParent(al.get(i).v)) {
-					g.mstSet += al.get(i).weight;
-					ds.findUnionByRank(al.get(i).u, al.get(i).v);
-				}
+				// Add edge weight to final sum
+				mstSum += al.get(i).weight;
+				unionByRank(al.get(i).u, al.get(i).v, parent, rank, ultParentOfU, ultParentOfV);
 			}
-
 		}
+
+		System.out.println(mstSum);
 	}
-
 }
