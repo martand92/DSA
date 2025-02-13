@@ -6,43 +6,71 @@ import java.util.Comparator;
 
 public class _15_KruskalAlgo_FindMST {
 
-	public static int findUltimateParent(int node, int[] parent) {
+	static class Edge {
+
+		int u, v, w;
+
+		Edge(int u, int v, int w) {
+			this.u = u;
+			this.v = v;
+			this.w = w;
+		}
+	}
+
+	static List<Edge> al = new ArrayList<Edge>();
+
+	public static int findUltParent(int node, int[] parent) {
 		if (node == parent[node])
 			return parent[node];
 
-		parent[node] = findUltimateParent(parent[node], parent);// path compression
+		parent[node] = findUltParent(parent[node], parent);// path compression
 		return parent[node];
 	}
 
-	public static void unionByRank(int u, int v, int[] parent, int[] rank, int ultParentOfU, int ultParentOfV) {
+	public static int findMST(int v) {
 
-		if (rank[ultParentOfU] < rank[ultParentOfV])
-			parent[ultParentOfU] = ultParentOfV;
+		Collections.sort(al, new Comparator<Edge>() {
+			public int compare(Edge u, Edge v) {
+				return u.w - v.w;
+			}
+		});
 
-		else if (rank[ultParentOfU] > rank[ultParentOfV])
-			parent[ultParentOfV] = ultParentOfU;
+		int[] rank = new int[v];
+		int[] parent = new int[v];
+		for (int i = 0; i < v; i++)
+			parent[i] = i;
 
-		else {
-			parent[ultParentOfV] = ultParentOfU;
-			rank[ultParentOfU]++;
+		int mstSum = 0;
+		for (int i = 0; i < al.size(); i++) {
+
+			int ultParentOfU = findUltParent(al.get(i).u, parent);
+			int ultParentOfV = findUltParent(al.get(i).v, parent);
+
+			if (ultParentOfU != ultParentOfV) {
+
+				if (rank[ultParentOfU] < rank[ultParentOfV])
+					parent[ultParentOfU] = ultParentOfV;
+
+				else if (rank[ultParentOfV] < rank[ultParentOfU])
+					parent[ultParentOfV] = ultParentOfU;
+
+				else {
+					parent[ultParentOfV] = ultParentOfU;
+					rank[ultParentOfU]++;
+				}
+
+				// Add edge weight to final sum
+				mstSum += al.get(i).w;
+			}
 		}
-	}
 
-	static class Edge {
-
-		int u, v, weight;
-
-		Edge(int u, int v, int weight) {
-			this.u = u;
-			this.v = v;
-			this.weight = weight;
-		}
+		return mstSum;
 	}
 
 	public static void main(String[] args) {
 
 		int v = 6;// no of vertices
-		List<Edge> al = new ArrayList<Edge>();// List of edges
+
 		al.add(new Edge(0, 1, 7));
 		al.add(new Edge(0, 2, 8));
 		al.add(new Edge(1, 2, 3));
@@ -55,32 +83,6 @@ public class _15_KruskalAlgo_FindMST {
 		al.add(new Edge(3, 5, 5));
 		al.add(new Edge(5, 5, 1));
 
-		// Sort Edges in ascending order of weight
-		Collections.sort(al, new Comparator<Edge>() {
-			public int compare(Edge a, Edge b) {
-				return a.weight - b.weight;
-			}
-		});
-
-		int[] rank = new int[v];
-		int[] parent = new int[v];
-		for (int i = 0; i < v; i++)
-			parent[i] = i;
-
-		int mstSum = 0;
-		for (int i = 0; i < al.size(); i++) {
-
-			int ultParentOfU = findUltimateParent(al.get(i).u, parent);
-			int ultParentOfV = findUltimateParent(al.get(i).v, parent);
-
-			if (ultParentOfU != ultParentOfV) {
-
-				// Add edge weight to final sum
-				mstSum += al.get(i).weight;
-				unionByRank(al.get(i).u, al.get(i).v, parent, rank, ultParentOfU, ultParentOfV);
-			}
-		}
-
-		System.out.println(mstSum);
+		System.out.println(findMST(v));
 	}
 }
