@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 //https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
-public class _12_DetectCycleInDirectedGraph_DFS {
+public class _12_Using_DFS {
 
 	public static class Graph {
 

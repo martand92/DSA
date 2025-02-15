@@ -2,9 +2,10 @@ package DSA._09_graph.medium._03_ShortestPath;
 
 import java.util.*;
 
-public class _17_Dijkstra_ShortestPath_SingleSource {
+public class _17_01_Dijkstra_Undirected_SingleSrc {
 
 	static class Graph {
+
 		int[][] adjMatrix;
 		int[] dist;
 		boolean[] visited;
@@ -12,10 +13,8 @@ public class _17_Dijkstra_ShortestPath_SingleSource {
 		Graph(int v) {
 
 			adjMatrix = new int[v][v];
-
-			dist = new int[v];
+			dist = new int[v]; // total distance
 			Arrays.fill(dist, Integer.MAX_VALUE);
-
 			visited = new boolean[v];
 		}
 
@@ -27,11 +26,12 @@ public class _17_Dijkstra_ShortestPath_SingleSource {
 
 		// find shortest path from given root vertex
 		public int[] shortestPathFromRoot(int vertex, int count) {
-			do {
+
+			while (count < adjMatrix.length) {
+
 				// Step 1 : Add give source vertex to visited list
 				visited[vertex] = true;
 
-				//
 				for (int i = 0; i < adjMatrix.length; i++) {
 
 					// Step 2 : for all unvisited adjMatrix vertices from given src, update
@@ -52,7 +52,7 @@ public class _17_Dijkstra_ShortestPath_SingleSource {
 
 				count++;
 
-			} while (count != adjMatrix.length); // loop till all vertices become part of visited array
+			} // loop till all vertices become part of visited array
 
 			return dist;
 
@@ -83,7 +83,7 @@ public class _17_Dijkstra_ShortestPath_SingleSource {
 			g.dist[vertex] = 0;
 
 			// Find shortest path from given root vertex
-			System.out.println("Shortes path to all other vertices from given root " + vertex + " is : "
+			System.out.println("Shortest path to all other vertices from given root " + vertex + " is : "
 					+ Arrays.toString(g.shortestPathFromRoot(vertex, 0)));
 
 		}

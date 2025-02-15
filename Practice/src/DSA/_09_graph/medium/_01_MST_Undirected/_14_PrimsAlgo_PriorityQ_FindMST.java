@@ -8,13 +8,13 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 
 		static int[][] adjMatrix;
 		static int[] keys;
-		static boolean[] visited;
+		static boolean[] inMST;
 
 		Graph(int v) {
 			adjMatrix = new int[v][v];
 			keys = new int[v];
 			Arrays.fill(keys, Integer.MAX_VALUE);
-			visited = new boolean[v];
+			inMST = new boolean[v];
 		}
 
 		// Adding Undirected Edge
@@ -33,7 +33,6 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 	}
 
 	static class Node {
-
 		int v;
 		int weight;
 
@@ -54,22 +53,16 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 
 		pq.add(new Node(vertex, 0));
 
-		while (!pq.isEmpty())
-
-		{
-
+		while (!pq.isEmpty()) {
 			vertex = pq.poll().v;
-			Graph.visited[vertex] = true;
+			Graph.inMST[vertex] = true;
 
 			for (int i = 0; i < Graph.adjMatrix.length; i++) {
-
-				if (Graph.adjMatrix[vertex][i] != 0 && !Graph.visited[i]
-						&& Graph.keys[i] > Graph.adjMatrix[vertex][i]) {
+				if (Graph.adjMatrix[vertex][i] != 0 && !Graph.inMST[i] && Graph.keys[i] > Graph.adjMatrix[vertex][i]) {
 					Graph.keys[i] = Graph.adjMatrix[vertex][i];
 					pq.add(new Node(i, Graph.keys[i]));
 				}
 			}
-
 		}
 
 		int sum = 0;
@@ -99,7 +92,7 @@ public class _14_PrimsAlgo_PriorityQ_FindMST {
 		// Step 1:Remove loops from graph. In Adj Matrix, diagonal ele are loops
 		g.removeLoops();
 
-		// Step 3 : Find MST from starting vertex as 0
+		// Step 2 : Find MST from starting vertex as 0
 		System.out.println("Min Spanning Tree of given graph : " + findMST(0));// starting with 0th vertex
 	}
 }

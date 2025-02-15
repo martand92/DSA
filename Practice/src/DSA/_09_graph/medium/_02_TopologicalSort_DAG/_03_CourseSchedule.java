@@ -19,14 +19,11 @@ public class _03_CourseSchedule {
 
 		// Creating directed graph
 		public void createGraph(ArrayList<ArrayList<Integer>> prerequisites) {
-
 			for (int i = 0; i < prerequisites.size(); i++)
 				adjList[prerequisites.get(i).get(0)].add(prerequisites.get(i).get(1));
-
 		}
 
 		public boolean checkCycleUsingTopoSort() {
-
 			int[] indegree = new int[adjList.length];
 
 			for (int i = 0; i < adjList.length; i++) {
@@ -34,7 +31,7 @@ public class _03_CourseSchedule {
 					indegree[j]++;
 			}
 
-			// Now check if there is cyclic
+			// Now do BFS and
 			Queue<Integer> q = new LinkedList<Integer>();
 			ArrayList<Integer> topoSort = new ArrayList<Integer>();
 
@@ -56,7 +53,7 @@ public class _03_CourseSchedule {
 				}
 			}
 
-			// Directed graph contains cycle, hence pre-requiste conditon is not met
+			// Directed graph contains cycle, hence pre-requisite condition is not met
 			if (topoSort.size() != adjList.length)
 				return false;
 
@@ -67,8 +64,7 @@ public class _03_CourseSchedule {
 
 		public static void main(String[] args) {
 
-			ArrayList<ArrayList<Integer>> prerequisites = new ArrayList<ArrayList<Integer>>();// given lists of courses
-																								// with their pre-req
+			ArrayList<ArrayList<Integer>> prerequisites = new ArrayList<ArrayList<Integer>>();
 			ArrayList<Integer> list = new ArrayList<Integer>();
 
 			// Working pre-requisite data
@@ -111,7 +107,6 @@ public class _03_CourseSchedule {
 			list.add(1);
 			prerequisites.add(list);
 
-			// System.out.println(prerequisites);
 			int n = 5;
 			Graph g = new Graph(n);
 			g.createGraph(prerequisites); // first try to create directed graph

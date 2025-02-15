@@ -6,10 +6,9 @@ import java.util.Queue;
 
 //https://www.youtube.com/watch?v=iTBaI90lpDQ
 
-// As Topo sort is applied for DAG where final result will have all vertices ordered linearly
-// if its applied for Directed Cyclic Graph, then final result will not have all vertices & queue will empty. Basically it will not finish topological sorting if it has cycle.
+//For Directed Cyclic Graph, as bfs chooses the vertex with indegree=0, if graph has cycle then there wont be next vertex with indegree=0.
 
-public class _12_DetectCycleInDirectedGraph_BFS_KahnAlgo {
+public class _12_KahnAlgo_BFS {
 
 	public static class Graph {
 

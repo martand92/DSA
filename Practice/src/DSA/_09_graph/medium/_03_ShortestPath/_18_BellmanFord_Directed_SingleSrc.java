@@ -2,7 +2,7 @@ package DSA._09_graph.medium._03_ShortestPath;
 
 import java.util.*;
 
-public class _18_BellmanFord_Directed {
+public class _18_BellmanFord_Directed_SingleSrc {
 
 	static class Graph {
 		int[][] adj;

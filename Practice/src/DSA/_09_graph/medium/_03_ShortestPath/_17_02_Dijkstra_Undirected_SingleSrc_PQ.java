@@ -2,7 +2,7 @@ package DSA._09_graph.medium._03_ShortestPath;
 
 import java.util.*;
 
-public class _17_Dijkstra_Undirected_PQ {
+public class _17_02_Dijkstra_Undirected_SingleSrc_PQ {
 
 	static class Distance {
 		int vertex;

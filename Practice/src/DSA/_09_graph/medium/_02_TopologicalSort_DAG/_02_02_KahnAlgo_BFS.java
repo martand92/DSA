@@ -3,7 +3,7 @@ package DSA._09_graph.medium._02_TopologicalSort_DAG;
 import java.util.*;
 
 // topological sorting is applicable only for Directed Acyclic graph
-public class _02_KahnAlgo_WithQ {
+public class _02_02_KahnAlgo_BFS {
 
 	static class Graph {
 
@@ -36,7 +36,7 @@ public class _02_KahnAlgo_WithQ {
 
 			Queue<Integer> q = new LinkedList<Integer>();
 
-			// find vertices with zero degree and to Q
+			// find vertices with zero in-degree and to Q
 			for (int i = 0; i < indegree.length; i++)
 				if (indegree[i] == 0)
 					q.add(i);

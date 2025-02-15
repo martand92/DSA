@@ -3,7 +3,7 @@ package DSA._09_graph.medium._02_TopologicalSort_DAG;
 import java.util.*;
 
 // topological sorting is applicable only for Directed Acyclic graph
-public class _02_KahnAlgo_WithoutQ {
+public class _02_01_KahnAlgo {
 
 	static class Graph {
 

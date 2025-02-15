@@ -28,15 +28,17 @@ public class _04_AlienDictionary {
 				String s2 = dict[i + 1];
 
 				int j = 0;
+
 				while (j < s1.length() && j < s2.length()) {
+
 					if (s1.charAt(j) != s2.charAt(j)) {
-						// s1 char comes before s2 char. Hence respective num rep should be mapped &
-						// ordered to form directed graph
+						// s1 char comes before s2 char. Hence respective num representation should be
+						// mapped & ordered to form directed graph
 
 						// As relation between alphabets should be stored as Graph vertices i.e, u -> v
 						// in adjList, need to map alphabets to numbers
 						// i.e, a -> 0, b -> 1, c -> 2, d-> 3
-						adjList[s1.charAt(j) - 'a'].add(s2.charAt(j) - 'a');// basically substracting 'a'-'a'=0,
+						adjList[s1.charAt(j) - 'a'].add(s2.charAt(j) - 'a');// basically subtracting 'a'-'a'=0,
 																			// 'b'-'a'=1, 'c'-'a'=2 etc..
 						break;
 					}

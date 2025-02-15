@@ -2,7 +2,7 @@ package DSA._09_graph.medium._03_ShortestPath;
 
 import java.util.Arrays;
 
-public class _19_FloydWarshall {
+public class _19_FloydWarshall_Directed_MultipleSrc {
 
 	static class Graph {
 		int[][] adjMatrix;

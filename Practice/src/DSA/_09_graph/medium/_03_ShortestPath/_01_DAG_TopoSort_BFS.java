@@ -2,7 +2,7 @@ package DSA._09_graph.medium._03_ShortestPath;
 
 import java.util.*;
 
-public class _01_ShortestPath_DAG_BFS {
+public class _01_DAG_TopoSort_BFS {
 
 	static class Graph {
 
@@ -15,7 +15,6 @@ public class _01_ShortestPath_DAG_BFS {
 		}
 
 		public static Graph createGraph(int[][] edges, int n) {
-
 			Graph g = new Graph(n);
 			for (int i = 0; i < edges.length; i++) {
 				LinkedList<Integer> list = new LinkedList<Integer>();
@@ -28,6 +27,7 @@ public class _01_ShortestPath_DAG_BFS {
 		}
 
 		public static int[] findShortestPath(int[][] edges, int[] dist, int n) {
+
 			Graph g = createGraph(edges, n);
 			Queue<Integer> q = new LinkedList<Integer>();
 
