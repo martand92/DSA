@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._05_Bipartite;
+package DSA._09_graph.medium._07_Bipartite;
 
 import java.util.*;
 

@@ -1,15 +1,18 @@
-package DSA._09_graph.medium._06_DetectCycle.Undirected;
+package DSA._09_graph.medium._04_DetectCycle.Undirected;
 
 import java.util.*;
 
-//https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
-public class _12_01_DetectCycleInUndirectedGraph_BFS {
+//https://www.youtube.com/watch?v=zQ3zgFypzX4
+public class _12_02_DetectCycleInUndirectedGraph_DFS {
 
 	static class Graph {
 
 		LinkedList<Integer>[] adjList;
 		int[] flag;
 		Queue<Integer> q = new LinkedList<Integer>();
+		// As this is undirected, you need to maintain parent array to check while
+		// traversing if vertex's parent is not considered as cycle
+		int[] parent;
 
 		Graph(int v) {
 
@@ -20,6 +23,10 @@ public class _12_01_DetectCycleInUndirectedGraph_BFS {
 
 			flag = new int[v];
 			Arrays.fill(flag, -1);
+
+			parent = new int[v];
+			Arrays.fill(parent, -1);
+
 		}
 
 		public void addEdge(int u, int v) {
@@ -29,24 +36,19 @@ public class _12_01_DetectCycleInUndirectedGraph_BFS {
 
 		public boolean detectCycle(int vertex) {
 
-			q.add(vertex);
 			flag[vertex] = 0;
 
-			while (!q.isEmpty()) {
+			for (int i : adjList[vertex]) {
 
-				int v = q.poll();
-				flag[v] = 1;
+				if (i != parent[vertex] & flag[i] == 0)
+					return true;
 
-				for (int i : adjList[v]) {
-
-					if (flag[i] == 0)
+				if (i != parent[vertex]) {
+					flag[i] = 0;
+					parent[i] = vertex;
+					if (detectCycle(i))
 						return true;
-
-					else if (flag[i] == -1) {
-						q.add(i);
-						flag[i] = 0;
-					}
-
+					flag[i] = 1;
 				}
 			}
 
@@ -54,12 +56,12 @@ public class _12_01_DetectCycleInUndirectedGraph_BFS {
 		}
 
 		public static void main(String[] args) {
-			Graph g = new Graph(3);
+			Graph g = new Graph(4);
 			g.addEdge(0, 1);
 			g.addEdge(1, 2);
-			// g.addEdge(2, 0);
-			// g.addEdge(2, 3);
-			// g.addEdge(3, 3);
+			g.addEdge(2, 0);
+			g.addEdge(2, 3);
+			g.addEdge(3, 3);
 			System.out.println(g.detectCycle(0));
 
 		}

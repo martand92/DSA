@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._07_ConnectedComponents;
+package DSA._09_graph.medium._05_ConnectedComponents;
 
 import java.util.ArrayList;
 import java.util.Arrays;

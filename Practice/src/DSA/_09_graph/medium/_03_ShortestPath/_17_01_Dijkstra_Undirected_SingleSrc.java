@@ -29,7 +29,7 @@ public class _17_01_Dijkstra_Undirected_SingleSrc {
 
 			while (count < adjMatrix.length) {
 
-				// Step 1 : Add give source vertex to visited list
+				// Step 1 : Add given source vertex to visited list
 				visited[vertex] = true;
 
 				for (int i = 0; i < adjMatrix.length; i++) {

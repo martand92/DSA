@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._06_DetectCycle.Directed;
+package DSA._09_graph.medium._04_DetectCycle.Directed;
 
 import java.util.Arrays;
 import java.util.LinkedList;

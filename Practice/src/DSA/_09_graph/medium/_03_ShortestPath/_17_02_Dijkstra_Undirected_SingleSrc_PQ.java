@@ -39,7 +39,7 @@ public class _17_02_Dijkstra_Undirected_SingleSrc_PQ {
 		}
 
 		// find shortest path from given root vertex
-		public int[] shortestPathFromRoot(int vertex, int count) {
+		public int[] shortestPathFromRoot(int vertex) {
 
 			dist[vertex] = 0;
 
@@ -90,13 +90,23 @@ public class _17_02_Dijkstra_Undirected_SingleSrc_PQ {
 
 			// Find shortest path from given root vertex
 			System.out.println("Shortes path to all other vertices from given root " + vertex + " is : "
-					+ Arrays.toString(g.shortestPathFromRoot(vertex, 0)));
-
+					+ Arrays.toString(g.shortestPathFromRoot(vertex)));
 		}
-
 	}
-
 }
+
+/*
+ * Why visited[] is not used with pq implementation? As pq provides next vertex
+ * with min distance and already visited vertex gurantees least possible
+ * distance.
+ * 
+ * Hence, when same vertex is visited again for checking least distance, then it
+ * fails
+ * 
+ * But with visited[] we can avoid checking this vertex's distance again and
+ * improve tc
+ * 
+ */
 
 //TC : O(V) * O(log(heapSize)) + O(V-1) * O(log(heapSize)) -> O(log(heapSize))(O(V) + O(V-1))
 //heapSize -> V^2 as each vertex added to pq and being connected to all other vertices make them adjacent

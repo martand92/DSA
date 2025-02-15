@@ -21,32 +21,13 @@ public class _18_BellmanFord_Directed_SingleSrc {
 			adj[u][v] = w;
 		}
 
-		// visited[] is not maintained as whole purpose is to visit all vertices
-		// in every iteration as edges can be negative
-//		public boolean findShortestPath(int vertex, int count, boolean isChanged) {
-//
-//			while (count < adj.length) {
-//
-//				for (int i = 0; i < adj.length; i++) {
-//					if (adj[vertex][i] != 0 && dist[i] > dist[vertex] + adj[vertex][i]) {
-//						dist[i] = dist[vertex] + adj[vertex][i];
-//						isChanged = true;
-//					}
-//				}
-//				vertex++;
-//				count++;
-//			}
-//
-//			return isChanged;
-//		}
-
 		public int[] findShortestPath() {
 
 			boolean isChanged = false;
 			// loop through all vertices starting from vertex 0 and update distance
 			// from this src vertex and repeat for n-1 times
 
-			for (int itr = 0; itr < adj.length; itr++) {
+			for (int itr = 0; itr < adj.length - 1; itr++) {
 
 				isChanged = false;
 
@@ -63,6 +44,17 @@ public class _18_BellmanFord_Directed_SingleSrc {
 				// to further iterate further
 				if (!isChanged)
 					return dist;
+			}
+
+			// check if shortest path distance can be further updated even after completing
+			// v-1 iterations, then this graph has negative cycle
+			for (int i = 0; i < adj.length; i++) {
+				for (int j = 0; j < adj.length; j++) {
+					if (adj[i][j] != 0 && dist[j] > dist[i] + adj[i][j]) {
+						System.out.println("has negative cycle");
+						break;
+					}
+				}
 			}
 
 			return dist;
