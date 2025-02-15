@@ -41,7 +41,7 @@ public class _18_BellmanFord_Directed_SingleSrc {
 				}
 
 				// if dist[] doesn't update before completion of n-1 iterations, then no need
-				// to further iterate further
+				// to further iterate
 				if (!isChanged)
 					return dist;
 			}
