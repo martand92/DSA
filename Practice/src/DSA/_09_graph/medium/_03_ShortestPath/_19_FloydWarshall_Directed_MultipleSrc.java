@@ -26,7 +26,6 @@ public class _19_FloydWarshall_Directed_MultipleSrc {
 
 			// if there exist shorter distance between i & j via then update matrix[i][j]
 			for (int via = 0; via < adjMatrix.length; via++) {
-
 				for (int i = 0; i < adjMatrix.length; i++) {
 					for (int j = 0; j < adjMatrix[0].length; j++)
 						adjMatrix[i][j] = Math.min(adjMatrix[i][j], adjMatrix[i][via] + adjMatrix[via][j]);
