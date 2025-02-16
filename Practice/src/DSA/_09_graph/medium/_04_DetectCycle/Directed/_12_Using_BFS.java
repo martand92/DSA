@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //https://www.youtube.com/watch?v=iTBaI90lpDQ
-
+//Kahn's Algo : Topological Sort
 //For Directed Cyclic Graph, as bfs chooses the vertex with indegree=0, if graph has cycle then there wont be next vertex with indegree=0.
 
-public class _12_KahnAlgo_BFS {
+public class _12_Using_BFS {
 
 	public static class Graph {
 

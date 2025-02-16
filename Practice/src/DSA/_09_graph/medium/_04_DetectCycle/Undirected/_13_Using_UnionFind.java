@@ -3,7 +3,7 @@ package DSA._09_graph.medium._04_DetectCycle.Undirected;
 import java.util.LinkedList;
 
 //https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
-public class _13_DetectCycleInUnDirectedGraph_UnionFind {
+public class _13_Using_UnionFind {
 
 	public static class Graph {
 
@@ -51,10 +51,11 @@ public class _13_DetectCycleInUnDirectedGraph_UnionFind {
 			}
 
 			for (int i = 0; i < adjList.length; i++) {
-				for (int j = 0; j < adjList[i].size(); j++) {
-					if (i <= adjList[i].get(j)) {// as its undirected graph, shouldn't consider both i->j & j->i
+				for (int j : adjList[i]) {
+
+					if (i < j) {// Ensure each edge is checked only once as its undirected (i->j & j->i)
 						int ult_i = findUltParent(parent, i);
-						int ult_j = findUltParent(parent, adjList[i].get(j));
+						int ult_j = findUltParent(parent, j);
 
 						if (ult_i == ult_j)
 							return true;
