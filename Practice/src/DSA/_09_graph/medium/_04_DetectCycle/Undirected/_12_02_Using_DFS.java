@@ -35,7 +35,7 @@ public class _12_02_Using_DFS {
 			for (int i : adjList[vertex]) {
 
 				// Cycle detection
-				if (visited[i] == true && parent[vertex] != i)
+				if (visited[i] && parent[vertex] != i)
 					return true;
 
 				else if (!visited[i]) {

@@ -39,7 +39,7 @@ public class _12_01_Using_BFS {
 				for (int i : adjList[v]) {
 					// Here i is visited again from v but if i was already
 					// visited from different parent vertex
-					if (visited[i] == true && parent[v] != i)
+					if (visited[i] && parent[v] != i)
 						return true;
 
 					else if (!visited[i]) {
