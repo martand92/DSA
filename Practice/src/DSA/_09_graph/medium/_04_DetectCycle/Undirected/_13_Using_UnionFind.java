@@ -53,7 +53,8 @@ public class _13_Using_UnionFind {
 			for (int i = 0; i < adjList.length; i++) {
 				for (int j : adjList[i]) {
 
-					if (i < j) {// Ensure each edge is checked only once as its undirected (i->j & j->i)
+					if (i < j) {// Ensure each edge is checked only once as its undirected (i->j & j->i), as not
+								// maintaining visited[]
 						int ult_i = findUltParent(parent, i);
 						int ult_j = findUltParent(parent, j);
 

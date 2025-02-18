@@ -1,5 +1,8 @@
 package DSA._09_graph.medium._05_ConnectedComponents._01_UnDirectedGraph;
 
+/*Intuition : if dfs /bfs starting from a node traverses through all connected nodes 
+ *then number of these iterations will be no of components
+ */
 import java.util.*;
 
 //Same can be implemented using BFS
@@ -56,5 +59,4 @@ public class _01_FindNoOfCC_DFS_BFS {
 			System.out.println(findNoOfCC());
 		}
 	}
-
 }
