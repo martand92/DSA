@@ -1,25 +1,24 @@
 package DSA._09_graph.medium._05_ConnectedComponents._02_DirectedGraph;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 //https://www.geeksforgeeks.org/connectivity-in-a-directed-graph/
 public class _04_CountPrint_SCC_Directed_Kosaraju {
 
 	public static class Graph {
-
 		LinkedList<Integer> adjList[];
+		LinkedList<Integer> transposeGraph[];
 		boolean[] visited;
 
 		public Graph(int v) {
-
-			adjList = new LinkedList[v];
-
-			for (int i = 0; i < v; i++)
-				adjList[i] = new LinkedList<Integer>();
-
 			visited = new boolean[v];
+			adjList = new LinkedList[v];
+			transposeGraph = new LinkedList[v];
+
+			for (int i = 0; i < v; i++) {
+				adjList[i] = new LinkedList<Integer>();
+				transposeGraph[i] = new LinkedList<Integer>();
+			}
 		}
 
 		public void addEdge(int u, int v) {
@@ -28,55 +27,29 @@ public class _04_CountPrint_SCC_Directed_Kosaraju {
 
 		// check if all the vertices are visited
 		public ArrayList<Integer> dfs(int vertex, ArrayList<Integer> list) {
-
+			list.add(vertex);
 			visited[vertex] = true;
 
-			list.add(vertex);
-			for (int v : adjList[vertex]) {
+			for (int v : transposeGraph[vertex]) {
 				if (!visited[v])
 					dfs(v, list);
 			}
-
 			return list;
 		}
 
-		public Graph getTranspose() {
+		public List<ArrayList<Integer>> getSCC(int vertex) {
 
-			// create new transposed graph
-			Graph transposeGraph = new Graph(adjList.length);
-
-			for (int u = 0; u < adjList.length; u++) {
-				for (int v : adjList[u])
-					transposeGraph.adjList[v].add(u);
-			}
-
-			return transposeGraph;
-		}
-
-		public ArrayList<ArrayList<Integer>> getSCC(int vertex) {
-
-//			// first check if all the vertices are strongly connected in given graph
-//			dfs(vertex);
-//			for (boolean v : visited) {
-//				if (!v)
-//					return false;
-//			}
+			List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
 			// Get transpose of given graph
-			Graph transposeGraph = getTranspose();
+			for (int u = 0; u < adjList.length; u++) {
+				for (int v : adjList[u])
+					transposeGraph[v].add(u);
+			}
 
-			ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-
-			for (int i = 0; i < transposeGraph.adjList.length; i++) {
-
-				if (!transposeGraph.visited[i]) {
-
-					ArrayList<Integer> list = new ArrayList<Integer>();
-					list = transposeGraph.dfs(i, list);
-
-					if (!list.isEmpty())
-						result.add(list);
-				}
+			for (int i = 0; i < transposeGraph.length; i++) {
+				if (!visited[i])
+					result.add(dfs(i, new ArrayList<Integer>()));
 			}
 
 			return result;
