@@ -101,9 +101,7 @@ public class _05_CountPrint_SCC_Directed_Tarjan_Incomp {
 				System.out.println("Strongly connected");
 			else
 				System.out.println("Not Strongly connected");
-
 		}
-
 	}
 
 }

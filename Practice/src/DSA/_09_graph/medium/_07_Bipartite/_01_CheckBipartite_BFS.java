@@ -11,24 +11,30 @@ public class _01_CheckBipartite_BFS {
 	static class Graph {
 
 		static LinkedList<Integer>[] adjList;
+		static int[] colored;
 
 		Graph(int v) {
+
 			adjList = new LinkedList[v + 1]; // 1 based indexing
+
 			for (int i = 0; i <= v; i++)
 				adjList[i] = new LinkedList<>(); // Create a new list for each vertex
-
+			colored = new int[v + 1];
+			Arrays.fill(colored, -1);
 		}
 
-		void addEdge(int u, int v) {
+		static void addEdge(int u, int v) {
 			adjList[u].add(v);
-			adjList[v].add(u); // if undirected
+			adjList[v].add(u);
 		}
 
 		// Do BFS and check for every new vertex if its adj
-		public static boolean checkBipartite(int vertex, int[] coloured, Queue<Integer> q) {
+		public static boolean checkBipartite(int vertex) {
 
+			Queue<Integer> q = new LinkedList<Integer>();
 			q.add(vertex);
-			coloured[vertex] = 0;// after adding initial vertex to queue mark its color as 0 at start
+
+			colored[vertex] = 0;// after adding initial vertex to queue mark its color as 0 at start
 
 			while (!q.isEmpty()) {
 
@@ -36,13 +42,11 @@ public class _01_CheckBipartite_BFS {
 
 				for (int i : adjList[a]) {
 
-					if (coloured[i] == coloured[a]) // if adj vertex color is same as src vertex color then its not
-													// bipartite
+					if (colored[i] == colored[a]) // if adjacent vertices have same color then graph isn't bipartite
 						return false;
 
-					if (coloured[i] == -1) {
-						coloured[i] = coloured[a] == 0 ? 1 : 0; // color adj vertex with color not same as its src
-																// vertex
+					if (colored[i] == -1) {
+						colored[i] = colored[a] == 0 ? 1 : 0; // color adj vertex with different color than src vertex
 						q.add(i);
 					}
 				}
@@ -52,8 +56,8 @@ public class _01_CheckBipartite_BFS {
 		}
 
 		public static void main(String[] args) {
-			int noOfVertices = 8;
-			Graph g = new Graph(noOfVertices);
+
+			new Graph(8);
 
 			// Not Bipartite graph data
 //			g.addEdge(1, 2);
@@ -66,18 +70,14 @@ public class _01_CheckBipartite_BFS {
 //			g.addEdge(7, 8);
 
 			// Bipartite graph data
-			g.addEdge(1, 2);
-			g.addEdge(2, 3);
-			g.addEdge(2, 5);
-			g.addEdge(3, 4);
-			g.addEdge(5, 4);
-			g.addEdge(4, 6);
+			addEdge(1, 2);
+			addEdge(2, 3);
+			addEdge(2, 5);
+			addEdge(3, 4);
+			addEdge(5, 4);
+			addEdge(4, 6);
 
-			Queue<Integer> q = new LinkedList<Integer>();
-			int[] coloured = new int[noOfVertices];
-			Arrays.fill(coloured, -1);
-			System.out.println(checkBipartite(1, coloured, q));
+			System.out.println(checkBipartite(1));
 		}
 	}
-
 }

@@ -37,8 +37,8 @@ public class _12_01_Using_BFS {
 				int v = q.poll();
 
 				for (int i : adjList[v]) {
-					// Here i is visited again from v but if i was already
-					// visited from different parent vertex
+					// if vertex is re-visited now with other parent vertex than prev visit, meaning
+					// this vertex is visited twice from different source. Hence forms cycle
 					if (visited[i] && parent[v] != i)
 						return true;
 

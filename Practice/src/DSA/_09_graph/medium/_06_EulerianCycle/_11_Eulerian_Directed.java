@@ -4,11 +4,11 @@ import java.util.*;
 
 //https://www.geeksforgeeks.org/euler-circuit-directed-graph/
 
-//Graph is said to be eulerian if it has eulerian cycle (and not just eulerian path)
+//Graph is said to be Eulerian if it has Eulerian circuit (and not just eulerian path)
 
 /*Condition for directed graph to be Eulerian:
  * 1. All vertices with non-zero degree belongs to single strongly-connected component
- * 2. If in-degree = out-degree for every vertex the  its Eulerian cycle
+ * 2. If in-degree = out-degree for every vertex then its Eulerian circuit
  * 3. If in-degree = out-degree + 1 of a vertex and out-degree = indegree + 1 of another vertex then its Eulerian path
  * 4. Else its not Eulerain
  */
@@ -18,20 +18,26 @@ public class _11_Eulerian_Directed {
 	static class Graph {
 
 		LinkedList<Integer> adjList[];
+		LinkedList<Integer> transposeGraph[];
 		boolean[] visited;
 		int[] indegree;
 		int[] outdegree;
+		Stack<Integer> st;
 
 		Graph(int v) {
 
 			adjList = new LinkedList[v];
+			transposeGraph = new LinkedList[v];
 
-			for (int i = 0; i < v; i++)
+			for (int i = 0; i < v; i++) {
 				adjList[i] = new LinkedList<Integer>();
+				transposeGraph[i] = new LinkedList<Integer>();
+			}
 
 			indegree = new int[v];
 			outdegree = new int[v];
 			visited = new boolean[v];
+			st = new Stack<Integer>();
 		}
 
 		// directed graph
@@ -39,51 +45,50 @@ public class _11_Eulerian_Directed {
 			adjList[u].add(v);
 		}
 
-		public void dfs(int vertex, Graph g) {
-
-			g.visited[vertex] = true;
-
+		public void dfs1(int vertex) {
+			visited[vertex] = true;
 			for (int i : adjList[vertex]) {
-				if (!g.visited[i])
-					dfs(i, g);
+				if (!visited[i])
+					dfs1(i);
+			}
+			st.push(vertex);
+		}
+
+		public void dfs2(int vertex) {
+			visited[vertex] = true;
+			for (int i : transposeGraph[vertex]) {
+				if (!visited[i])
+					dfs2(i);
 			}
 		}
 
-		// find reversed or transpose of graph
-		Graph getTranspose() {
+		public boolean isStronglyConnected_Kosaraju() {
+			// do dfs on all vertices (including disconnected vertices)
+			for (int i = 0; i < adjList.length; i++) {
+				if (!visited[i])
+					dfs1(i);
+			}
 
-			Graph g = new Graph(adjList.length);
-
+			// Create transposed graph
 			for (int i = 0; i < adjList.length; i++) {
 				for (int j : adjList[i])
-					g.adjList[j].add(i);
-			}
-			return g;
-		}
-
-		// All vertices with non-zero degree belong to single strongly connected
-		// component
-		public boolean isStronglyConnected(int vertex, Graph g) {
-
-			// check if all vertices are connected starting from vertex 0
-			dfs(vertex, g);
-			for (boolean v : g.visited) {
-				if (!v)
-					return false;
+					transposeGraph[j].add(i);
 			}
 
-			// create transpose of original graph
-			Graph transposedGraph = getTranspose();
-
-			// Now check again if all vertices are connected starting from vertex 0 of
-			// reversed graph
-			// First reset visited array
-			// Arrays.fill(visited, false);
-			transposedGraph.dfs(0, transposedGraph);
-			for (boolean v : transposedGraph.visited) {
-				if (!v)
-					return false;
+			// count scc in transposed graph
+			visited = new boolean[adjList.length];
+			int connectedComponents = 0;
+			while (!st.isEmpty()) {
+				int v = st.pop();
+				if (!visited[v]) {
+					connectedComponents++;
+					dfs2(v);
+				}
 			}
+
+			// If transposed graph has more than 1 scc then graph is not scc
+			if (connectedComponents > 1)
+				return false;
 
 			return true;
 		}
@@ -91,27 +96,26 @@ public class _11_Eulerian_Directed {
 		// return 0 : if not Eulerian
 		// return 1 : if has only Eulerian path
 		// return 2 : if has Eulerian cycle
-		public int isEulerian(int vertex, Graph g) {
+		public int isEulerian() {
 
-			// Check if all non-zero degree vertices are connected
-			if (!isStronglyConnected(vertex, g))
+			// Check if graph has 1 scc, else its not eulerian
+			if (!isStronglyConnected_Kosaraju())
 				return 0;
 
-			// find out-degree of all vertices
+			// find out-degree and in-degree of all vertices
 			for (int i = 0; i < adjList.length; i++)
 				outdegree[i] = adjList[i].size();
 
-			// find in-degree of all vertices
 			for (int i = 0; i < adjList.length; i++)
-				for (int j = 0; j < adjList[i].size(); j++)
-					indegree[adjList[i].get(j)]++;
+				for (int j : adjList[i])
+					indegree[j]++;
 
 			int eulerianPathCount = 0;
 
-			// Check in-degree and out-degree of every vertex
+			// Verify if graph is eulerian path
 			for (int i = 0; i < adjList.length; i++) {
 
-				if (indegree[i] != outdegree[i]) {// if degrees are not same
+				if (indegree[i] != outdegree[i]) {
 
 					if (indegree[i] == outdegree[i] + 1)
 						eulerianPathCount++;
@@ -119,7 +123,7 @@ public class _11_Eulerian_Directed {
 					else if (outdegree[i] == indegree[i] + 1)
 						eulerianPathCount++;
 
-					else // if in-degree is not greater or lesser by 1 of out-degree, then its not
+					else // for any vertex if in-degree / out-degree differ by > 1 then graph is not
 							// Eulerian
 						return 0;
 				}
@@ -136,19 +140,6 @@ public class _11_Eulerian_Directed {
 		}
 	}
 
-	boolean[] dfs(LinkedList<Integer>[] adj, boolean[] visited, int startIndex) {
-
-		if (!visited[startIndex])
-			visited[startIndex] = true;
-
-		for (int i : adj[startIndex]) {
-			if (!visited[i])
-				visited = dfs(adj, visited, i);
-		}
-
-		return visited;
-	}
-
 	public static void main(String[] args) {
 
 		Graph g = new Graph(5);
@@ -159,15 +150,13 @@ public class _11_Eulerian_Directed {
 		g.addEdge(3, 4);
 		g.addEdge(4, 0);
 
-		int a = g.isEulerian(0, g);
+		int a = g.isEulerian();
 
 		if (a == 0)
-			System.out.println("Graph Not Eulerian");
+			System.out.println("Graph is not Eulerian");
 		else if (a == 1)
-			System.out.println("Graph has only Eulerian path");
+			System.out.println("Graph is Semi-Eulerian");
 		else if (a == 2)
-			System.out.println("Graph has Eulerian cycle");
-
+			System.out.println("Graph is Eulerian");
 	}
-
 }

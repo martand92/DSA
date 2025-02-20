@@ -17,9 +17,9 @@ public class _10_Eulerian_Undirected {
 
 	static class Graph {
 
-		LinkedList<Integer> adjList[];
-		boolean[] visited;
-		int[] degree;
+		static LinkedList<Integer> adjList[];
+		static boolean[] visited;
+		static int[] degree;
 
 		Graph(int v) {
 
@@ -33,15 +33,13 @@ public class _10_Eulerian_Undirected {
 		}
 
 		// un-directed graph
-		public void addEdge(int u, int v) {
+		public static void addEdge(int u, int v) {
 			adjList[u].add(v);
 			adjList[v].add(u);
 		}
 
-		public void dfs(int vertex) {
-
+		public static void dfs(int vertex) {
 			visited[vertex] = true;
-
 			for (int i : adjList[vertex]) {
 				if (!visited[i])
 					dfs(i);
@@ -49,7 +47,7 @@ public class _10_Eulerian_Undirected {
 		}
 
 		// 1. All vertices with non-zero degree are connected
-		public boolean isConnected() {
+		public static boolean isConnected() {
 
 			// find degree of all vertices
 			for (int i = 0; i < adjList.length; i++)
@@ -82,7 +80,7 @@ public class _10_Eulerian_Undirected {
 		// 0 --> If graph is not Eulerian
 		// 1 --> If graph has an Euler path (Semi-Eulerian)
 		// 2 --> If graph has an Euler Circuit (Eulerian)
-		public int isEulerian() {
+		public static int isEulerian() {
 
 			// Check if all non-zero degree vertices are connected
 			if (!isConnected())
@@ -108,32 +106,16 @@ public class _10_Eulerian_Undirected {
 			else
 				return 0; // eulerian
 		}
-	}
 
-	boolean[] dfs(LinkedList<Integer>[] adj, boolean[] visited, int startIndex) {
+		public static void main(String[] args) {
+			new Graph(5);
+			addEdge(1, 0);
+			addEdge(0, 2);
+			addEdge(2, 1);
+			addEdge(0, 3);
+			addEdge(3, 4);
+			System.out.println(isEulerian());
 
-		if (!visited[startIndex])
-			visited[startIndex] = true;
-
-		for (int i : adj[startIndex]) {
-			if (!visited[i])
-				visited = dfs(adj, visited, i);
 		}
-
-		return visited;
 	}
-
-	public static void main(String[] args) {
-
-		Graph g1 = new Graph(5);
-		g1.addEdge(1, 0);
-		g1.addEdge(0, 2);
-		g1.addEdge(2, 1);
-		g1.addEdge(0, 3);
-		g1.addEdge(3, 4);
-
-		System.out.println(g1.isEulerian());
-
-	}
-
 }

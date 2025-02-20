@@ -3,17 +3,19 @@ package DSA._09_graph.medium._05_ConnectedComponents._02_DirectedGraph;
 import java.util.*;
 
 //https://www.geeksforgeeks.org/connectivity-in-a-directed-graph/
-public class _04_CountPrint_SCC_Directed_Kosaraju {
+public class _04_PrintSCC_Kosaraju_Directed {
 
 	public static class Graph {
 		LinkedList<Integer> adjList[];
 		LinkedList<Integer> transposeGraph[];
 		boolean[] visited;
+		Stack<Integer> st;
 
 		public Graph(int v) {
 			visited = new boolean[v];
 			adjList = new LinkedList[v];
 			transposeGraph = new LinkedList[v];
+			st = new Stack<Integer>();
 
 			for (int i = 0; i < v; i++) {
 				adjList[i] = new LinkedList<Integer>();
@@ -25,14 +27,23 @@ public class _04_CountPrint_SCC_Directed_Kosaraju {
 			adjList[u].add(v);// Directed Graph
 		}
 
-		// check if all the vertices are visited
-		public ArrayList<Integer> dfs(int vertex, ArrayList<Integer> list) {
+		public void dfs1(int vertex) {
+			visited[vertex] = true;
+			for (int v : adjList[vertex]) {
+				if (!visited[v])
+					dfs1(v);
+			}
+
+			st.push(vertex);
+		}
+
+		public ArrayList<Integer> dfs2(int vertex, ArrayList<Integer> list) {
 			list.add(vertex);
 			visited[vertex] = true;
 
 			for (int v : transposeGraph[vertex]) {
 				if (!visited[v])
-					dfs(v, list);
+					dfs2(v, list);
 			}
 			return list;
 		}
@@ -41,15 +52,24 @@ public class _04_CountPrint_SCC_Directed_Kosaraju {
 
 			List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
+			// Step 1 : do dfs on all available components
+			visited = new boolean[adjList.length];
+			for (int i = 0; i < adjList.length; i++) { // ensures even disconnected nodes are also considered
+				if (!visited[i])
+					dfs1(i);
+			}
+
 			// Get transpose of given graph
 			for (int u = 0; u < adjList.length; u++) {
 				for (int v : adjList[u])
 					transposeGraph[v].add(u);
 			}
 
-			for (int i = 0; i < transposeGraph.length; i++) {
-				if (!visited[i])
-					result.add(dfs(i, new ArrayList<Integer>()));
+			visited = new boolean[transposeGraph.length]; // reset
+			while (!st.isEmpty()) {
+				int v = st.pop();
+				if (!visited[v])
+					result.add(dfs2(v, new ArrayList<Integer>()));
 			}
 
 			return result;

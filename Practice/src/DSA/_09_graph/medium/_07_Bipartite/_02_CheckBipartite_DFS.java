@@ -10,35 +10,38 @@ public class _02_CheckBipartite_DFS {
 	static class Graph {
 
 		static LinkedList<Integer>[] adjList;
+		static int[] colored;
 
 		Graph(int v) {
+
 			adjList = new LinkedList[v + 1]; // 1 based indexing
 			for (int i = 0; i <= v; i++)
-				adjList[i] = new LinkedList<>(); // Create a new list for each vertex
+				adjList[i] = new LinkedList<>();
+
+			colored = new int[v];
+			Arrays.fill(colored, -1);
 
 		}
 
 		void addEdge(int u, int v) {
 			adjList[u].add(v);
-			adjList[v].add(u); // if undirected
+			adjList[v].add(u);
 		}
 
 		// Do DFS and check for every new vertex if its adj
-		public static boolean checkBipartite(int vertex, int[] coloured, int lastColoured) {
+		public static boolean checkBipartite(int vertex, int lastColoured) {
 
-			coloured[vertex] = lastColoured == 0 ? 1 : 0;
+			colored[vertex] = lastColoured == 0 ? 1 : 0;
 
 			for (int i : adjList[vertex]) {
 
-				if (coloured[i] == coloured[vertex])
+				if (colored[i] == colored[vertex])
 					return false;
 
-				if (coloured[i] == -1) {
-					if (!checkBipartite(i, coloured, coloured[vertex]))
+				if (colored[i] == -1) {
+					if (!checkBipartite(i, colored[vertex]))
 						return false;
-
 				}
-
 			}
 
 			return true;
@@ -66,9 +69,7 @@ public class _02_CheckBipartite_DFS {
 //			g.addEdge(5, 4);
 //			g.addEdge(4, 6);
 
-			int[] coloured = new int[noOfVertices];
-			Arrays.fill(coloured, -1);
-			System.out.println(checkBipartite(1, coloured, 1));
+			System.out.println(checkBipartite(1, 1));
 
 		}
 	}
