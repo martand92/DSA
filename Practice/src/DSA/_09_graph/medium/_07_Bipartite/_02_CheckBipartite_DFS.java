@@ -18,7 +18,7 @@ public class _02_CheckBipartite_DFS {
 			for (int i = 0; i <= v; i++)
 				adjList[i] = new LinkedList<>();
 
-			colored = new int[v];
+			colored = new int[v + 1];
 			Arrays.fill(colored, -1);
 
 		}
@@ -28,7 +28,6 @@ public class _02_CheckBipartite_DFS {
 			adjList[v].add(u);
 		}
 
-		// Do DFS and check for every new vertex if its adj
 		public static boolean checkBipartite(int vertex, int lastColoured) {
 
 			colored[vertex] = lastColoured == 0 ? 1 : 0;
@@ -38,6 +37,7 @@ public class _02_CheckBipartite_DFS {
 				if (colored[i] == colored[vertex])
 					return false;
 
+				// consider vertex thats not colored
 				if (colored[i] == -1) {
 					if (!checkBipartite(i, colored[vertex]))
 						return false;

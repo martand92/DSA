@@ -1,4 +1,4 @@
-package DSA._09_graph.medium._06_EulerianCycle;
+package DSA._09_graph.medium._06_Eulerian;
 
 import java.util.*;
 
