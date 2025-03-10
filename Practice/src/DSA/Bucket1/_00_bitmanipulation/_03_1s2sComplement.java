@@ -31,9 +31,9 @@ public class _03_1s2sComplement {
 		}
 
 		if (i == -1) // if all the bits are set, Ex: 111 then doing +1 should result in 1000
-			binary = '1' + binary;
+			res = '1' + res;
 
-		return binary;
+		return res;
 	}
 
 	public static void main(String[] args) {

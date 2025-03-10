@@ -1,6 +1,6 @@
 package DSA.Bucket1._00_bitmanipulation._01_RightMostSetBit;
 
-public class _09_01_UnSet_RightMostNum {
+public class _09_01_UnSetRightMostSetBit {
 
 	public static int unsetBit(int n) {
 		return (n & (n - 1));
