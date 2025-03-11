@@ -23,10 +23,7 @@ public class _01_DecimalToBinary {
 	}
 
 	public static void main(String[] args) {
-
 		int n = 13;
-
 		System.out.println(getBinary(n));
 	}
-
 }

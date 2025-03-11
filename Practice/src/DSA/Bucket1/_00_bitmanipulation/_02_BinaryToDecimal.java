@@ -23,5 +23,4 @@ public class _02_BinaryToDecimal {
 
 		System.out.println(getDecimal(binary));
 	}
-
 }
