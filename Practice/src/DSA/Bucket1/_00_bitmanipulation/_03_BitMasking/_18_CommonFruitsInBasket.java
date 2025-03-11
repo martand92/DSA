@@ -2,7 +2,7 @@ package DSA.Bucket1._00_bitmanipulation._03_BitMasking;
 
 public class _18_CommonFruitsInBasket {
 
-	public static int countNumOfSetBits(int n) {
+	public static int countSetBits(int n) {
 
 		int count = 0;
 
@@ -21,21 +21,20 @@ public class _18_CommonFruitsInBasket {
 
 		int n1 = 0, n2 = 0;
 
-		for (int i = 0; i < firstbasket.length; i++)
-			n1 |= (1 << firstbasket[i]);
+		for (int i : firstbasket)
+			n1 |= (1 << i);
 
-		for (int i = 0; i < secondbasket.length; i++)
-			n2 |= (1 << secondbasket[i]);
+		for (int i : secondbasket)
+			n2 |= (1 << i);
 
-		// now do & of both baskets to check common type of fruit i.e, common set bit
+		// now do & of both baskets to check common type of fruit
 		int commonSetBits = n1 & n2;
 
-		// now count no of common fruits between given 2 baskets represented by set bits
-		return countNumOfSetBits(commonSetBits);
+		// now count no of common fruits
+		return countSetBits(commonSetBits);
 	}
 
 	public static void main(String[] args) {
-		// int[] fruits = { 0, 1, 2, 3 }; // types of fruits present
 		int[] basket1 = { 2, 3 }; // basket1 contains fruits of type 2 and 3
 		int[] basket2 = { 0, 1, 2 }; // basket2 contains fruits of type 0,1 and 2
 		int[] basket3 = { 1, 3 }; // basket3 contains fruits of type 1 and 3

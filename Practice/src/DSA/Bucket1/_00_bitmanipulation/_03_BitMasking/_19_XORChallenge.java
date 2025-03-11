@@ -12,8 +12,8 @@ public class _19_XORChallenge {
 
 		int ans = 0;
 
-		// first count no of bits in c. i.e, position of right most set bit as no need
-		// to do for all 32 bits
+		// first count no of bits in c. i.e, position of left most set bit(most
+		// significant bit) as you shouldn't fo for all 32 bits
 		int cBitCnt = (int) Math.log(c) + 1;
 		ArrayList<Integer> setBitsPos = new ArrayList<Integer>();
 
@@ -22,9 +22,9 @@ public class _19_XORChallenge {
 		// need to find max of a*b, consider 1 & 1 for a & b at this pos
 
 		// When c has set bit, a and b will either have value as 0 and 1 or 1 and 0 at
-		// that pos. so consider both combination and derive and max a*b value
+		// that pos. so consider both combination and derive max a*b value
 
-		for (int i = 0; i <= cBitCnt; i++) {
+		for (int i = 0; i <= cBitCnt; i++) { // loop upto most significant bit
 
 			if ((c & (1 << i)) == 0) {// c has unset bit at ith pos
 				a = a | (1 << i);
@@ -38,18 +38,23 @@ public class _19_XORChallenge {
 		// Next logic is similar to power set bit masking where all permutations of set
 		// bits in c should be tried with set & unset bits in a & b at that pos
 
-		// From stored count & pos of set bits in c, create bit mask with
-		// 2^len(setBitsPos) by having set & unset values
-		for (int mask = 0; mask < (1 << setBitsPos.size()); mask++) { // this is same as mask < 2^setBitsPos.size()
+		// From stored set bits in c, create bit mask with 2^setBitsCnt by having set &
+		// unset values
+		for (int i = 0; i < (1 << setBitsPos.size()); i++) { // this is same as i < 2^setBitsPos.size()
 
 			int a1 = a, b1 = b;
 
+			// as need to try both set and unset bits at pos i, below code says
+			// if mask pos is set, then set a and keep b unset at this pos
+			// else if mask pos is unset, then unset a and keep b set at this pos
 			for (int j = 0; j < setBitsPos.size(); j++) {
 
-				if ((mask & (1 << j)) != 0)
-					a1 = a1 | (1 << setBitsPos.get(j));
+				int orgPosOfSetBit = setBitsPos.get(j);// for 13 : 1101 -> 3,2,0 bit pos where its set
+
+				if ((i & (1 << j)) != 0)
+					a1 = a1 | (1 << orgPosOfSetBit);
 				else
-					b1 = b1 | (1 << setBitsPos.get(j));
+					b1 = b1 | (1 << orgPosOfSetBit);
 			}
 
 			ans = Math.max(ans, a1 * b1);
@@ -59,6 +64,7 @@ public class _19_XORChallenge {
 	}
 
 	public static void main(String[] args) {
+
 		int c = 13;
 
 		// a & b initialized to 0
@@ -67,5 +73,4 @@ public class _19_XORChallenge {
 		// a and b where ^ is c and a * b should be max
 		System.out.println(findMaxProd(a, b, c));
 	}
-
 }
