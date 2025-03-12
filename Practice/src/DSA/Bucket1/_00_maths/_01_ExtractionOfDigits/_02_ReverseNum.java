@@ -2,15 +2,15 @@ package DSA.Bucket1._00_maths._01_ExtractionOfDigits;
 
 public class _02_ReverseNum {
 
-	public static int getCount(int num, int count) {
-
-		while (num > 0) {
-			count++;
-			num = num / 10;
-		}
-
-		return count;
-	}
+//	public static int getCount(int num, int count) {
+//
+//		while (num > 0) {
+//			count++;
+//			num = num / 10;
+//		}
+//
+//		return count;
+//	}
 
 	public static void main(String[] args) {
 
@@ -21,16 +21,27 @@ public class _02_ReverseNum {
 		while (num % 10 == 0)
 			num = num / 10;
 
-		int sum = 0;
-
-		int count = getCount(num, 0);
+		// Approach 1
+		String str = "";
 
 		while (num > 0) {
-			sum += (num % 10) * Math.pow(10, count - 1);
-			num = num / 10;
-			count--;
+			str += num % 10;
+			num /= 10;
 		}
 
-		System.out.println("Reversed Number : " + sum);
+		System.out.println(Integer.valueOf(str));
+
+		// Approach 2
+//		int sum = 0;
+//
+//		int count = getCount(num, 0);
+//
+//		while (num > 0) {
+//			sum += (num % 10) * Math.pow(10, count - 1);
+//			num = num / 10;
+//			count--;
+//		}
+
+//		System.out.println("Reversed Number : " + sum);
 	}
 }

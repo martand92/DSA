@@ -1,6 +1,6 @@
 package DSA.Bucket1._00_maths._02_FactorsOfNumber;
 
-public class _02_IsDivisorPrime {
+public class _02_IsPrime {
 
 	public static void main(String[] args) {
 		int n = 11;
