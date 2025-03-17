@@ -38,21 +38,18 @@ public class _06_FindPower {
 
 			a = (a * a) % m;
 
-			b >>= 1; // right shift b by 1 to check if last bit is set and continue loop till b=0
+			b >>= 1; // right shift b by 1 to check if rightmost bit is set and continue till b=0
 		}
 
 		return res;
 	}
-	
-	
 
 	public static void main(String[] args) {
-		
-		//both recursive and iterative will only work till 1e9 and overflows
-		System.out.println(findPower_recursive(2, 31)); //overflows at 2^31
-		System.out.println(findPower_iterative(2, 31)); //overflows at 2^31
-		
-		
+
+		// both recursive and iterative will only work till 1e9 and overflows
+		System.out.println(findPower_recursive(2, 31)); // overflows at 2^31
+		System.out.println(findPower_iterative(2, 31)); // overflows at 2^31
+
 	}
 
 }
