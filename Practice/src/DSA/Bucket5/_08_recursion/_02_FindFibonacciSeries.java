@@ -1,7 +1,7 @@
 package DSA.Bucket5._08_recursion;
 
 //https://youtu.be/IJDJ0kBx2LM?t=2951
-public class _01_FindFibonacciSeries {
+public class _02_FindFibonacciSeries {
 
 	public static int fibonacci(int n) {
 

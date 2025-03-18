@@ -2,7 +2,7 @@ package DSA.Bucket5._08_recursion;
 
 //https://practice.geeksforgeeks.org/problems/power-of-numbers-1587115620/1
 //https://www.youtube.com/watch?v=hFWckDXE-K8
-public class _02_PowerOfNumbers_Imp {
+public class _09_PowerOfNumbers_Imp {
 
 	static int mod = (int) 1e9 + 7;
 

@@ -1,7 +1,7 @@
 package DSA.Bucket5._08_recursion;
 
 //https://practice.geeksforgeeks.org/problems/the-nth-fibonnaci3150/1
-public class _01_FindFibonacciSeries_Iterative {
+public class _02_FindFibonacciSeries_Iterative {
 
 	public static void main(String[] args) {
 
