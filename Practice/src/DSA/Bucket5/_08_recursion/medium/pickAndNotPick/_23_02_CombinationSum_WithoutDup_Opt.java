@@ -3,7 +3,7 @@ package DSA.Bucket5._08_recursion.medium.pickAndNotPick;
 import java.util.*;
 
 //https://www.youtube.com/watch?v=G1fRTGRxXU8
-public class _22_03_CombinationSum_Opt {
+public class _23_02_CombinationSum_WithoutDup_Opt {
 
 	public static ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target, int index, int sum,
 			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> result) {

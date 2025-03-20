@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://practice.geeksforgeeks.org/problems/last-non-zero-digit-in-factorial5846/1
 public class _05_FactorialNonZeroDigit {
@@ -25,6 +25,6 @@ public class _05_FactorialNonZeroDigit {
 	}
 
 	public static void main(String[] args) {
-		System.out.print(lastZeroDigit(factorial(4)));
+		System.out.print(lastZeroDigit(4));
 	}
 }

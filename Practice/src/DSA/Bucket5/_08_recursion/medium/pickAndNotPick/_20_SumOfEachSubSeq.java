@@ -21,11 +21,7 @@ public class _20_SumOfEachSubSeq {
 
 		int[] arr = { 3, 1, 2 };
 		System.out.println(findSubSetSum(arr, 0, 0, new ArrayList<Integer>()));
-		// Collections.sort(subsetSum);
-		// System.out.println(subsetSum);
 	}
-
 }
-
 //TC : O(2^n)
 //SC : O(n)

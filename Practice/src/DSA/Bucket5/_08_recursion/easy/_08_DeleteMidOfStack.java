@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 import java.util.*;
 
@@ -6,23 +6,22 @@ public class _08_DeleteMidOfStack {
 
 	public static Stack<Integer> deleteMidNum(Stack<Integer> s, int mid) {
 
-		if (mid == s.peek())
+		if (mid == 1) {// when mid == 1 st.top need to be removed
 			s.pop();
-
-		else {
-			int temp = s.pop();
-			deleteMidNum(s, mid);
-			s.push(temp);
+			return s;
 		}
+
+		int temp = s.pop();
+		deleteMidNum(s, mid - 1);
+		s.push(temp);
 
 		return s;
 	}
 
 	public static void main(String[] args) {
 
-		// here input is in sorted order else calculate mid element based on stack size
 		Stack<Integer> s = new Stack<Integer>();
-		s.push(1);
+		//s.push(1);
 		s.push(2);
 		s.push(3);
 		s.push(4);

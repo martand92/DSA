@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://practice.geeksforgeeks.org/problems/recursive-sequence1611/1
 public class _03_RecursiveSeq {

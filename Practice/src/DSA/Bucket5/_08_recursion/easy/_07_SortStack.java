@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 import java.util.*;
 
@@ -45,7 +45,5 @@ public class _07_SortStack {
 
 		System.out.println(sort(s, obj.temp, obj.top));
 		System.out.println("top : " + s.peek());
-
 	}
-
 }

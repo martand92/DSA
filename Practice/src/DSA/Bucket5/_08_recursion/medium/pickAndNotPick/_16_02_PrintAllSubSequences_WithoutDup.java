@@ -7,10 +7,7 @@ import java.util.*;
 
 //Brute Force : You can do pick and not pick and add all subsets to hashSet to avoid duplicates
 
-/*
- * Opt: Below sorted input data results in multiple duplicate subsets, but this algo prints only unique 
- * Note : This works only on sorted input
- */
+//Opt: Below algo prints only unique sub seq though there are duplicate subsequences in result. This works only on sorted input
 
 public class _16_02_PrintAllSubSequences_WithoutDup {
 
@@ -34,12 +31,8 @@ public class _16_02_PrintAllSubSequences_WithoutDup {
 	}
 
 	public static void main(String[] args) {
-		
 		int[] arr = { 1, 2, 2 };
-
 		Arrays.sort(arr); // input need to be sorted
-
 		System.out.println(findSubSet(arr, 0, new ArrayList<Integer>(), new ArrayList<ArrayList<Integer>>()));
 	}
-
 }

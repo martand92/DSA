@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://practice.geeksforgeeks.org/problems/power-of-numbers-1587115620/1
 //https://www.youtube.com/watch?v=hFWckDXE-K8

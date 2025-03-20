@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://youtu.be/IJDJ0kBx2LM?t=2951
 public class _02_FindFibonacciSeries {

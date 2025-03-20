@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://practice.geeksforgeeks.org/problems/finding-position2223/1
 

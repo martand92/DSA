@@ -1,4 +1,4 @@
-package DSA.Bucket5._08_recursion;
+package DSA.Bucket5._08_recursion.easy;
 
 //https://practice.geeksforgeeks.org/problems/the-nth-fibonnaci3150/1
 public class _02_FindFibonacciSeries_Iterative {

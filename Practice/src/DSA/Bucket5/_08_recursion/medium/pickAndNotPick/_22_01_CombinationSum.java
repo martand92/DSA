@@ -18,10 +18,8 @@ public class _22_01_CombinationSum {
 			// Instead of checking for every loop whether subseq sum = target, just check at
 			// the fag end of the recursion (at this place), As you will get all possible
 			// sub sequences here
-			if (sum == target) {
+			if (sum == target)
 				result.add(new ArrayList<Integer>(list));
-				return result;
-			}
 
 			return result;
 		}

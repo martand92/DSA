@@ -8,7 +8,7 @@ import java.util.*;
  * Avoiding duplicate subsequences using hashset   
  */
 
-public class _22_02_CombinationSum {
+public class _23_01_CombinationSum_WithoutDup {
 
 	public static HashSet<ArrayList<Integer>> combinationSum(int[] candidates, int target, int index, int sum,
 			ArrayList<Integer> list, HashSet<ArrayList<Integer>> result) {
@@ -18,10 +18,8 @@ public class _22_02_CombinationSum {
 
 		if (index == candidates.length) {
 
-			if (sum == target) {
+			if (sum == target)
 				result.add(new ArrayList<Integer>(list));
-				return result;
-			}
 
 			return result;
 		}

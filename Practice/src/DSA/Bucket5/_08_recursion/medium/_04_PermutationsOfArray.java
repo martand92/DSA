@@ -43,8 +43,7 @@ public class _04_PermutationsOfArray {
 		swap(arr, i, j);
 		permutation(arr, i + 1, i + 1, result);
 		permutation(arr, i, j + 1, result);
-		swap(arr, i, j);// Need to revert back arr as its pass by ref and is mutable. Hence
-						// changes done persists, so while backtracking need to revert. But if its,
+		swap(arr, i, j);// Need to revert back arr as its pass by ref and is mutable. But if its,
 						// String then reverting back is not needed as its immutable
 
 		return result;

@@ -26,5 +26,4 @@ public class _16_01_PrintAllSubSequences {
 		int[] arr = { 1, 2, 3 };
 		System.out.println(getAllSubSequences(arr, 0, new ArrayList<Integer>(), new ArrayList<ArrayList<Integer>>()));
 	}
-
 }
