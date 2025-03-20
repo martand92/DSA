@@ -1,4 +1,4 @@
-package DSA.Bucket5._10_dynamicprogramming._03_PickAndNotPick_MaxSumOfNonAdjEle;
+package DSA.Bucket5._10_dynamicprogramming._03_MaxSumOfNonAdjEle;
 
 public class _01_MaxSumOfNonAdjEle_Recursion {
 
@@ -10,6 +10,7 @@ public class _01_MaxSumOfNonAdjEle_Recursion {
 		if (n < 0)
 			return 0;
 
+		// Pick & Not pick
 		int leftSum = findMaxSumOfNonAdjEle(arr, n - 2) + arr[n];
 		int rightSum = findMaxSumOfNonAdjEle(arr, n - 1) + 0;
 

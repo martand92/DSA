@@ -1,6 +1,6 @@
-package DSA.Bucket5._10_dynamicprogramming._06_Grid_CountPaths;
+package DSA.Bucket5._10_dynamicprogramming._06_CountPaths;
 
-public class _03_Tabulation {
+public class _03_01_Tabulation {
 
 	public static int countPaths(int[][] matrix, int m, int n) {
 
@@ -9,9 +9,9 @@ public class _03_Tabulation {
 
 		for (int i = 0; i < m; i++) {
 
-			int left = 0, right = 0;
-
 			for (int j = 0; j < n; j++) {
+
+				int left = 0, right = 0;
 
 				if (i > 0)
 					left = dp[i - 1][j];

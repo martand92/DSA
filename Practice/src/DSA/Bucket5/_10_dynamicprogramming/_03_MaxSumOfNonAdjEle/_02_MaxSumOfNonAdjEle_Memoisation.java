@@ -1,4 +1,4 @@
-package DSA.Bucket5._10_dynamicprogramming._03_PickAndNotPick_MaxSumOfNonAdjEle;
+package DSA.Bucket5._10_dynamicprogramming._03_MaxSumOfNonAdjEle;
 
 import java.util.Arrays;
 

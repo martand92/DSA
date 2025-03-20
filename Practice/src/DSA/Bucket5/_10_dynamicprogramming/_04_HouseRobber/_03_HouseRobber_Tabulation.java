@@ -1,25 +1,28 @@
-package DSA.Bucket5._10_dynamicprogramming._04_PickAndNotPick_HouseRobber;
+package DSA.Bucket5._10_dynamicprogramming._04_HouseRobber;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class _02_HouseRobber_Memoisation {
+public class _03_HouseRobber_Tabulation {
 
 	public static int getLargestSum(ArrayList<Integer> house, int n, int[] dp) {
 
-		if (n == 0)
-			return house.get(0);
+		dp[0] = house.get(0);
 
-		if (n < 0)
-			return 0;
+		for (int i = 1; i <= n; i++) {
 
-		if (dp[n] != -1)
-			return dp[n];
+			int left = 0;
 
-		int left = getLargestSum(house, n - 2, dp) + house.get(n);
-		int right = getLargestSum(house, n - 1, dp) + 0;
+			if (i > 1)
+				left = dp[i - 2] + house.get(i);
+			else
+				left = house.get(i);
 
-		return dp[n] = Math.max(left, right);
+			int right = dp[i - 1] + 0;
+
+			dp[i] = Math.max(left, right);
+		}
+
+		return dp[dp.length - 1];
 	}
 
 	public static void main(String[] args) {
@@ -39,11 +42,9 @@ public class _02_HouseRobber_Memoisation {
 		}
 
 		int[] dp = new int[first.size()];
-		Arrays.fill(dp, -1);
 		int firstSum = getLargestSum(first, first.size() - 1, dp);
 
 		dp = new int[second.size()];
-		Arrays.fill(dp, -1);
 		int secondSum = getLargestSum(second, second.size() - 1, dp);
 
 		System.out.println(Math.max(firstSum, secondSum));

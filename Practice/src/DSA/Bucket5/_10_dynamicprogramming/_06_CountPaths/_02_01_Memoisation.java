@@ -1,8 +1,8 @@
-package DSA.Bucket5._10_dynamicprogramming._06_Grid_CountPaths;
+package DSA.Bucket5._10_dynamicprogramming._06_CountPaths;
 
 import java.util.Arrays;
 
-public class _02_Memoisation {
+public class _02_01_Memoisation {
 
 	public static int countPaths(int[][] matrix, int m, int n, int[][] dp) {
 

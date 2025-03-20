@@ -1,29 +1,24 @@
-package DSA.Bucket5._10_dynamicprogramming._04_PickAndNotPick_HouseRobber;
+package DSA.Bucket5._10_dynamicprogramming._04_HouseRobber;
 
 import java.util.ArrayList;
 
-public class _04_HouseRobber_SpaceOpt {
+public class _01_HouseRobber_Recursion {
 
 	public static int getLargestSum(ArrayList<Integer> house, int n) {
 
-		int prev2 = 0;
-		int prev1 = house.get(0);
+		if (n == 0)
+			return house.get(0);
 
-		for (int i = 1; i <= n; i++) {
+		if (n < 0)
+			return 0;
+		//Pick & NotPick
+		int left = getLargestSum(house, n - 2) + house.get(n);
+		int right = getLargestSum(house, n - 1) + 0;
 
-			int left = prev2 + house.get(i);
-
-			int right = prev1 + 0;
-
-			prev2 = prev1;
-			prev1 = Math.max(left, right);
-		}
-
-		return prev1;
+		return Math.max(left, right);
 	}
 
 	public static void main(String[] args) {
-
 		int[] house = { 1, 2, 3, 1 };
 
 		ArrayList<Integer> first = new ArrayList<Integer>();
@@ -31,11 +26,12 @@ public class _04_HouseRobber_SpaceOpt {
 
 		for (int i = 0; i < house.length; i++) {
 
-			if (i != 0)
+			if (i != house.length - 1)
 				first.add(house[i]);
 
-			if (i != house.length - 1)
+			if (i != 0)
 				second.add(house[i]);
+
 		}
 
 		int firstSum = getLargestSum(first, first.size() - 1);

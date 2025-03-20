@@ -1,4 +1,4 @@
-package DSA.Bucket5._10_dynamicprogramming._03_PickAndNotPick_MaxSumOfNonAdjEle;
+package DSA.Bucket5._10_dynamicprogramming._03_MaxSumOfNonAdjEle;
 
 public class _04_MaxSumOfNonAdjEle_SpaceOpt {
 

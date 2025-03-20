@@ -14,7 +14,7 @@ public class _16_02_PrintAllSubArrays {
 		result.add(new ArrayList<Integer>(list));
 		findAllSubArrays(arr, i + 1, list, result);
 		list.remove(list.size() - 1);
-		findAllSubArrays(arr, i + 1, new ArrayList<Integer>(), result);
+		findAllSubArrays(arr, i + 1, list, result);
 		return result;
 	}
 

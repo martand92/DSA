@@ -1,8 +1,8 @@
-package DSA.Bucket5._10_dynamicprogramming._06_Grid_CountPaths;
+package DSA.Bucket5._10_dynamicprogramming._06_CountPaths;
 
 import java.util.Arrays;
 
-public class _04_Tabulation_SpaceOpt {
+public class _04_01_Tabulation_SpaceOpt {
 
 	public static int countPaths(int[][] matrix, int m, int n, int[] dp) {
 

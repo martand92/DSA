@@ -1,4 +1,4 @@
-package DSA.Bucket5._10_dynamicprogramming._07_Grid_MaxSumPath;
+package DSA.Bucket5._10_dynamicprogramming._07_MaxSumPath;
 
 public class _03_Tabulation {
 
