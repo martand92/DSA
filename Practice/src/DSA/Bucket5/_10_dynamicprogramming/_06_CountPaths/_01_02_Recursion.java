@@ -13,13 +13,14 @@ public class _01_02_Recursion {
 		int left = countPaths(matrix, m + 1, n);
 		int right = countPaths(matrix, m, n + 1);
 		return left + right;
+
+		// return countPaths(matrix, m + 1, n) + countPaths(matrix, m, n + 1);
 	}
 
 	public static void main(String[] args) {
 		int[][] matrix = { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };
 		System.out.println(countPaths(matrix, 0, 0));
 	}
-
 }
 
 //TC : As at every cell there is need to explore 2 routes, either up or left hence 2 choices.

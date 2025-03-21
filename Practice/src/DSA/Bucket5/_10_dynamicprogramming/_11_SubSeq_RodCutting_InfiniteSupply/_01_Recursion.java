@@ -3,14 +3,13 @@ package DSA.Bucket5._10_dynamicprogramming._11_SubSeq_RodCutting_InfiniteSupply;
 public class _01_Recursion {
 
 	public static int maxRodPrice(int n, int[] price, int index) {
-		
-		if(n == 0)
+
+		if (n == 0)
 			return 0;
 
 		if (index == 0) {
-			if (n >= index + 1) {
-				return n * price[index];
-			}
+			if (n >= index + 1)
+				return n * price[index];// need to return n times of price
 		}
 
 		int pick = Integer.MIN_VALUE;
@@ -25,7 +24,5 @@ public class _01_Recursion {
 		int n = 5;
 		int[] price = { 2, 5, 7, 8, 10 };
 		System.out.println(maxRodPrice(n, price, price.length - 1));
-
 	}
-
 }

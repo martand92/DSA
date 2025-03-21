@@ -13,7 +13,7 @@ public class _03_Tabulation {
 
 		for (int i = 1; i < dp.length; i++) {
 
-			for (int j = 0; j < dp[0].length; j++) {
+			for (int j = 1; j < dp[0].length; j++) {// for j=0 its already set in line#10
 
 				boolean pick = false;
 				if (j >= arr[i])

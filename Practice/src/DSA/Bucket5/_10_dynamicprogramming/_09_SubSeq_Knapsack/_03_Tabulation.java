@@ -14,7 +14,7 @@ public class _03_Tabulation {
 
 		for (int index = 1; index < itemWeights.length; index++) {
 
-			for (int weight = 0; weight <= bagWeight; weight++) {
+			for (int weight = 1; weight <= bagWeight; weight++) {// starting with 1 as 0 is already calculated in line#8
 
 				int pick = Integer.MIN_VALUE;
 				if (weight >= itemWeights[index])

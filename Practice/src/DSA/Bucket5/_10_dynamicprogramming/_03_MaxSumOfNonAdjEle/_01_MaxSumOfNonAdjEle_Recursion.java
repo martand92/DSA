@@ -15,6 +15,8 @@ public class _01_MaxSumOfNonAdjEle_Recursion {
 		int rightSum = findMaxSumOfNonAdjEle(arr, n - 1) + 0;
 
 		return Math.max(leftSum, rightSum);
+		// return Math.max(findMaxSumOfNonAdjEle(arr, n - 2) + arr[n],
+		// findMaxSumOfNonAdjEle(arr, n - 1));
 	}
 
 	public static void main(String[] args) {

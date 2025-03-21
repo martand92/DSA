@@ -27,7 +27,5 @@ public class _01_01_Recursion {
 		int n = 5;
 		int[] price = { 2, 5, 7, 8, 10 };
 		System.out.println(maxRodPrice(n, price, price.length - 1));
-
 	}
-
 }

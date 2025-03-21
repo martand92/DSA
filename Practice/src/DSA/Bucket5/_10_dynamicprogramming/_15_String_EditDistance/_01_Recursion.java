@@ -17,8 +17,7 @@ public class _01_Recursion {
 			int deleteCount = 1 + countMinOperations(s1, s2, index1 - 1, index2);
 			int replaceCount = 1 + countMinOperations(s1, s2, index1 - 1, index2 - 1);
 
-			int minTemp = Math.min(insertCount, deleteCount);
-			return Math.min(minTemp, replaceCount);
+			return Math.min(insertCount, Math.min(deleteCount, replaceCount));
 		}
 	}
 

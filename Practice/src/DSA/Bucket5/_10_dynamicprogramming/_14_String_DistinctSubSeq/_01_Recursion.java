@@ -16,6 +16,11 @@ public class _01_Recursion {
 			return countForConsider + countForNotConsider;
 		} else
 			return findDistinctSubSeq(s1, s2, index1 - 1, index2);
+
+//		if (s1.charAt(index1) == s2.charAt(index2))
+//			return findDistinctSubSeq(s1, s2, index1 - 1, index2 - 1) + findDistinctSubSeq(s1, s2, index1 - 1, index2);
+//
+//		return findDistinctSubSeq(s1, s2, index1 - 1, index2);
 	}
 
 	public static void main(String[] args) {

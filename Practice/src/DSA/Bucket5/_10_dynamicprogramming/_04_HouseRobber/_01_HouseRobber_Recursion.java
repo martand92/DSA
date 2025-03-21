@@ -11,11 +11,13 @@ public class _01_HouseRobber_Recursion {
 
 		if (n < 0)
 			return 0;
-		//Pick & NotPick
+		// Pick & NotPick
 		int left = getLargestSum(house, n - 2) + house.get(n);
 		int right = getLargestSum(house, n - 1) + 0;
 
 		return Math.max(left, right);
+		// return Math.max(getLargestSum(house, n - 2) + house.get(n),
+		// getLargestSum(house, n - 1));
 	}
 
 	public static void main(String[] args) {

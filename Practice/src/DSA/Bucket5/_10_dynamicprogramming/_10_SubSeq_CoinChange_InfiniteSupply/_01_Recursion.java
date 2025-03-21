@@ -8,8 +8,7 @@ public class _01_Recursion {
 			return 1;
 
 		if (index == 0) {
-			// since coins are unlimited, target can be formed with multiple arr elements
-			if (target % arr[index] == 0)
+			if (target % arr[index] == 0)// since coins are unlimited, target can be formed with multiple arr elements
 				return 1;
 			else
 				return 0;

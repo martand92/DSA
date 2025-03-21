@@ -7,9 +7,7 @@ public class _01_Recursion {
 		if (n == 0)
 			return matrix[n][m];
 
-		int left = 0;
-		int right = 0;
-		int center = 0;
+		int left = 0, right = 0, center = 0;
 
 		if (m < matrix[0].length - 1)
 			left = findMaxSumPath(matrix, n - 1, m + 1) + matrix[n][m];
