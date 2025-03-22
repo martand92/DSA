@@ -27,33 +27,16 @@ public class _03_Tabulation {
 
 			for (int j = 1; j <= index2; j++) {
 
-				if (s1.charAt(i - 1) == '*') {
+				if (s1.charAt(i - 1) == '*')
+					dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
 
-					int count = 0;
-
-					while (j >= count) {
-
-//						if (isMatch(s1, s2, index1 - 1, index2 - count, dp)) {
-//							dp[index1][index2] = 1;
-//							return true;
-//						}
-
-						if (dp[i - 1][j - count])
-							dp[i][j] = true;
-
-						count++;
-					}
-
-					// if chars are matching or has ? then just move ahead
-				} else if (s1.charAt(i - 1) == '?' || s1.charAt(i - 1) == s2.charAt(j - 1))
+				else if (s1.charAt(i - 1) == '?' || s1.charAt(i - 1) == s2.charAt(j - 1))
 					dp[i][j] = dp[i - 1][j - 1];
-				// return isMatch(s1, s2, index1 - 1, index2 - 1, dp);
 
-				else if (s1.charAt(i - 1) != s2.charAt(j - 1)) { // if char doesn't match at any given pos
-																	// then return false
+				else if (s1.charAt(i - 1) != s2.charAt(j - 1))
 					dp[i][j] = false;
 
-				} else
+				else
 					dp[i][j] = false;
 			}
 		}
@@ -66,8 +49,8 @@ public class _03_Tabulation {
 		String s1;
 		String s2;
 
-		s1 = "ab?d";
-		s2 = "abcd";
+//		s1 = "ab?d";
+//		s2 = "abcd";
 //
 //		s1 = "ab*cd";
 //		s2 = "abdefcd";
@@ -77,6 +60,9 @@ public class _03_Tabulation {
 
 //		s1 = "ab?c";
 //		s2 = "abcd";
+
+		s1 = "a*b*c";
+		s2 = "abc";
 
 		System.out.println(isMatch(s1, s2, s1.length(), s2.length()));
 	}

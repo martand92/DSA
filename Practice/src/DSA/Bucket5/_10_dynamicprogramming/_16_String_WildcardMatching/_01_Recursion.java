@@ -19,19 +19,16 @@ public class _01_Recursion {
 			return true;
 		}
 
-		// Below logic need to understand better
-		if (s1.charAt(index1) == '*') {
-			int count = 0;
-			while (index2 >= 0) {
-				if (isMatch(s1, s2, index1 - 1, index2 - count))
-					return true;
-				count++;
-			}
-			// if chars are matching or has ? then just move ahead
-		} else if (s1.charAt(index1) == '?' || s1.charAt(index1) == s2.charAt(index2))
+		if (s1.charAt(index1) == '*')
+			// '*' can match zero (move left in s1) or one/more characters (move left in s2)
+			return isMatch(s1, s2, index1 - 1, index2) || isMatch(s1, s2, index1, index2 - 1);
+
+		// if chars are matching or has ? then just move ahead
+		else if (s1.charAt(index1) == '?' || s1.charAt(index1) == s2.charAt(index2))
 			return isMatch(s1, s2, index1 - 1, index2 - 1);
 
-		else if (s1.charAt(index1) != s2.charAt(index2)) // if char doesn't match at any given pos then return false
+		// if char doesn't match at any given pos then return false
+		else if (s1.charAt(index1) != s2.charAt(index2))
 			return false;
 
 		return false;
@@ -41,20 +38,23 @@ public class _01_Recursion {
 		String s1;
 		String s2;
 
-//		s1 = "ab?d";
-//		s2 = "abcd";
-//
+		s1 = "ab?d";
+		s2 = "abcd";
+
 //		s1 = "ab*cd";
 //		s2 = "abdefcd";
-//
+
 //		s1 = "*abcd";
 //		s2 = "abcd";
 
 //		s1 = "ab?c";
 //		s2 = "abcd";
 
-		s1 = "a*bbb";
-		s2 = "aaabbb";
+//		s1 = "a*bbb";
+//		s2 = "aaabbb";
+
+//		s1 = "a*b*c";
+//		s2 = "abc";
 
 		System.out.println(isMatch(s1, s2, s1.length() - 1, s2.length() - 1));
 	}
