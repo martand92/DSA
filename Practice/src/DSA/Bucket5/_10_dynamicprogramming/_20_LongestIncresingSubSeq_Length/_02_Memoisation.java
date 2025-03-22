@@ -11,7 +11,7 @@ public class _02_Memoisation {
 			return dp[index][prevIndex + 1];
 
 		int pick = 0;
-		if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0)) {
+		if (prevIndex == -1 || (arr[prevIndex] < arr[index])) {
 			pick = 1 + longestIncreasingSubSeq(arr, index + 1, index, dp);
 		}
 

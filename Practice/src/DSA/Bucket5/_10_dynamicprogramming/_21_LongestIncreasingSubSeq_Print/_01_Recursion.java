@@ -13,7 +13,7 @@ public class _01_Recursion {
 			return maxList;
 		}
 
-		if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0)) {
+		if (prevIndex == -1 || (arr[prevIndex] < arr[index])) {
 			list.add(arr[index]);
 			maxList = longestIncreasingSubSeq(arr, index + 1, index, list, maxList);
 			list.remove(list.size() - 1);

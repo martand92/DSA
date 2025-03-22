@@ -8,7 +8,7 @@ public class _01_Recursion {
 			return 0;
 
 		int pick = 0;
-		if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0))
+		if (prevIndex == -1 || (arr[prevIndex] < arr[index]))
 			pick = 1 + longestIncreasingSubSeq(arr, index + 1, index);
 
 		int notPick = longestIncreasingSubSeq(arr, index + 1, prevIndex);
@@ -26,7 +26,7 @@ public class _01_Recursion {
 		}
 
 		int pick = 0;
-		if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0))
+		if (prevIndex == -1 || (arr[prevIndex] < arr[index]))
 			pick = countLongestSubSeq(arr, index + 1, index, currLength + 1, longestSubSeq);
 
 		int notPick = countLongestSubSeq(arr, index + 1, prevIndex, currLength, longestSubSeq);
@@ -38,6 +38,7 @@ public class _01_Recursion {
 	public static void main(String[] args) {
 		int[] arr = { 5, 4, 6, 7 };
 		int longestSubSeq = longestIncreasingSubSeq(arr, 0, -1);
+		//System.out.println(longestSubSeq);
 		System.out.println(countLongestSubSeq(arr, 0, -1, 0, longestSubSeq));
 	}
 }

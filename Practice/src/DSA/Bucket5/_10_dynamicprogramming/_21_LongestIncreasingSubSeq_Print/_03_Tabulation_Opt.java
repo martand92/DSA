@@ -2,33 +2,34 @@ package DSA.Bucket5._10_dynamicprogramming._21_LongestIncreasingSubSeq_Print;
 
 import java.util.Arrays;
 
-//https://youtu.be/IFfYfonAFGc?list=PLgUwDviBIf0pwFf-BnpkXxs0Ra0eU2sJY&t=1046
+//https://youtu.be/IFfYfonAFGc
 public class _03_Tabulation_Opt {
 
 	public static int[] longestIncreasingSubSeq(int[] arr) {
 
-		// Step 1:Declare dp[] of length n and initialized with 1
+		// Step 1:Declare dp[] to store LIS
 		int[] dp = new int[arr.length];
 		Arrays.fill(dp, 1);
 
-		// Step 2 : Declare index[] of length n and initialize with its own index
+		// Step 2 : Declare index[] to hold chain of all prev indices that form LIS
 		int[] index = new int[arr.length];
 		for (int i = 0; i < arr.length; i++)
 			index[i] = i;
 
-		// Step 3:for every current index, check if there exists previous array element
-		// whose value is < current array element
-		for (int ind = 1; ind < arr.length; ind++) {
+		// Step 3:for every curr arr ele check if prev array elements are less than
+		// current array element then update dp[curr]
+		for (int curr = 1; curr < arr.length; curr++) {
 
-			for (int prev = 0; prev < ind; prev++) {
+			for (int prev = 0; prev < curr; prev++) {
 
 				// should update current LIS by 1 only if previous array ele < curr array ele
-				if (arr[prev] < arr[ind]) {
+				if (arr[prev] < arr[curr]) {
 
-					// update only if LIS of curr < LIS of prev+1
-					if (dp[ind] < (dp[prev] + 1)) {
-						dp[ind] = dp[prev] + 1;
-						index[ind] = prev;
+					// update only if LIS of curr < LIS of prev+1. Here this step is important to
+					// get exact prev index
+					if (dp[curr] < dp[prev] + 1) {
+						dp[curr] = dp[prev] + 1;
+						index[curr] = prev;
 					}
 				}
 			}
@@ -61,5 +62,4 @@ public class _03_Tabulation_Opt {
 		int[] arr = { 5, 4, 11, 1, 16, 8 };
 		System.out.println(Arrays.toString(longestIncreasingSubSeq(arr)));
 	}
-
 }

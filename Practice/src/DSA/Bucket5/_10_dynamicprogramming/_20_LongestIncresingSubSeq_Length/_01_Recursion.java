@@ -8,7 +8,7 @@ public class _01_Recursion {
 			return 0;
 
 		int pick = 0;
-		if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0)) {
+		if (prevIndex == -1 || (arr[prevIndex] < arr[index])) {
 			pick = 1 + longestIncreasingSubSeq(arr, index + 1, index);
 		}
 

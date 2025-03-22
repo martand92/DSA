@@ -15,7 +15,7 @@ public class _03_01_Tabulation {
 
 				int pick = 0;
 
-				if (prevIndex == -1 || (arr[prevIndex] - arr[index] < 0))
+				if (prevIndex == -1 || (arr[prevIndex] < arr[index]))
 					pick = 1 + dp[index + 1][index + 1]; // second param is +1 as prevIndex would have -1
 
 				int notPick = dp[index + 1][prevIndex + 1]; // second param is +1 as prevIndex will loop upto -1
