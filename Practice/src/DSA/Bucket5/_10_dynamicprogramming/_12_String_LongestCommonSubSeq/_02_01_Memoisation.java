@@ -11,7 +11,7 @@ public class _02_01_Memoisation {
 			return dp[index1][index2];
 
 		if (s1.charAt(index1) == s2.charAt(index2))
-			return 1 + longestComnSubSeq(s1, s2, index1 - 1, index2 - 1, dp);
+			return dp[index1][index2] = 1 + longestComnSubSeq(s1, s2, index1 - 1, index2 - 1, dp);
 
 		return dp[index1][index2] = Math.max(longestComnSubSeq(s1, s2, index1 - 1, index2, dp),
 				longestComnSubSeq(s1, s2, index1, index2 - 1, dp));

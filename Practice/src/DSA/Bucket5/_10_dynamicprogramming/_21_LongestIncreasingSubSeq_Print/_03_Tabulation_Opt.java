@@ -3,7 +3,7 @@ package DSA.Bucket5._10_dynamicprogramming._21_LongestIncreasingSubSeq_Print;
 import java.util.Arrays;
 
 //https://youtu.be/IFfYfonAFGc?list=PLgUwDviBIf0pwFf-BnpkXxs0Ra0eU2sJY&t=1046
-public class _03_Tabulation_From_OptimizedLIS {
+public class _03_Tabulation_Opt {
 
 	public static int[] longestIncreasingSubSeq(int[] arr) {
 
