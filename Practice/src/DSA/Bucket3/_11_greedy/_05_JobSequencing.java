@@ -30,10 +30,12 @@ public class _05_JobSequencing {
 		int maxDeadline = Integer.MIN_VALUE;
 		for (int i = 0; i < jobs.length; i++)
 			maxDeadline = Math.max(maxDeadline, jobs[i].deadline);
-		int[] schedulingDays = new int[maxDeadline + 1];
+		int[] schedulingDays = new int[maxDeadline + 1];// to store value as index
 
 		// Step 3 : Pick jobs by their max profit & Schedule on their resp last deadline
 		// day.If already occupied then previous days
+
+		int totalProfit = 0;
 		for (int i = 0; i < jobs.length; i++) {
 
 			// first check if this job's deadline is not occupied, if occupied then keep
@@ -42,25 +44,22 @@ public class _05_JobSequencing {
 			while (k >= 1 && schedulingDays[k] != 0)
 				k--;
 
-			if (k >= 1)
+			if (k >= 1) {
 				schedulingDays[k] = jobs[i].profit;
-
+				totalProfit += jobs[i].profit;
+			}
 		}
-
-		int totalProfit = 0;
 
 		// below loop can be avoided if you sum up total Profit in previous step
 		// directly and hold jobId instead of profit in schedulingDays[]
-		for (int i = 0; i < schedulingDays.length; i++)
-			totalProfit += schedulingDays[i];
-
+//		for (int i = 1; i < schedulingDays.length; i++)
+//			totalProfit += schedulingDays[i];
+//
 		return totalProfit;
 	}
 
 	public static void main(String[] args) {
 		Job[] jobs = { new Job(1, 4, 20), new Job(2, 1, 1), new Job(3, 1, 40), new Job(4, 1, 30) };
 		System.out.println(maxProfit(jobs));
-
 	}
-
 }

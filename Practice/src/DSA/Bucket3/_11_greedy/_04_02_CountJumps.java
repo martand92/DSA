@@ -1,6 +1,6 @@
 package DSA.Bucket3._11_greedy;
 
-public class _04_02_JumpGame_CountJumps {
+public class _04_02_CountJumps {
 
 	public static int getMinJumps(int[] nums, int index) {
 

@@ -11,7 +11,7 @@ public class _08_MinimumPlatform {
 
 		int arrPointer = 0;
 		int depPointer = 0;
-		int count = 0, max = Integer.MIN_VALUE;
+		int count = 0, max = 0;
 
 		while (arrPointer < arrival.length) {
 

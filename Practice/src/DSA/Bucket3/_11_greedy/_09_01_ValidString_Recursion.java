@@ -22,25 +22,16 @@ public class _09_01_ValidString_Recursion {
 		else if (s.charAt(i) == ')')
 			return isValid(s, i + 1, sum - 1);
 
-		else {
-			if (isValid(s, i + 1, sum + 1))
-				return true;
+		else
+			return isValid(s, i + 1, sum + 1) | isValid(s, i + 1, sum) | isValid(s, i + 1, sum - 1);
 
-			if (isValid(s, i + 1, sum))
-				return true;
-
-			if (isValid(s, i + 1, sum - 1))
-				return true;
-		}
-
-		return false;
 	}
 
 	public static void main(String[] args) {
 
 		// String s = "()*)*()";
-		String s = "(**(";
-		// String s = "(*)";
+		// String s = "(**(";
+		String s = "(*)";
 		System.out.println(isValid(s, 0, 0));
 	}
 }

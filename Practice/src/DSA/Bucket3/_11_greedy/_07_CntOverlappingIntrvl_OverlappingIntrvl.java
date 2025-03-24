@@ -2,7 +2,7 @@ package DSA.Bucket3._11_greedy;
 
 import java.util.*;
 
-public class _07_CntOverlappingIntrvl_OverlappingInterval {
+public class _07_CntOverlappingIntrvl_OverlappingIntrvl {
 
 	public static class Interval {
 		int start;
@@ -14,7 +14,7 @@ public class _07_CntOverlappingIntrvl_OverlappingInterval {
 		}
 	}
 
-	public static int countNonOverlappingIntervals(int[][] interval) {
+	public static int countOverlappingIntervals(int[][] interval) {
 
 		Interval[] intervals = new Interval[interval.length];
 
@@ -44,7 +44,7 @@ public class _07_CntOverlappingIntrvl_OverlappingInterval {
 //		int[][] interval = { { 1, 2 }, { 2, 3 }, { 3, 4 }, { 1, 3 } };
 		int[][] interval = { { 1, 2 }, { 1, 2 }, { 1, 2 } };
 
-		System.out.println(countNonOverlappingIntervals(interval));
+		System.out.println(countOverlappingIntervals(interval));
 	}
 
 }

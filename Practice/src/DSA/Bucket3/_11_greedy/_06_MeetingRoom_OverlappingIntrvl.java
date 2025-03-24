@@ -2,7 +2,7 @@ package DSA.Bucket3._11_greedy;
 
 import java.util.*;
 
-public class _06_MeetingRoom_OverlappingInterval {
+public class _06_MeetingRoom_OverlappingIntrvl {
 
 	public static class Meeting {
 		int start;
