@@ -14,17 +14,18 @@ public class _08_MinimumPlatform {
 		int count = 0, max = 0;
 
 		while (arrPointer < arrival.length) {
-
+			// if multiple trains arrive before current train departs then more platforms
+			// are needed
 			if (arrival[arrPointer] <= dep[depPointer]) {
 				arrPointer++;
 				count++;
+
 			} else if (arrival[arrPointer] > dep[depPointer]) {
 				depPointer++;
 				count--;
 			}
 
-			max = Math.max(max, count);
-
+			max = Math.max(max, count); // for current scenario, if no of required platforms are more than current max
 		}
 
 		return max;
