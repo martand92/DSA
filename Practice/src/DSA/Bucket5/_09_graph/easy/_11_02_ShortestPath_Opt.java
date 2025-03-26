@@ -21,5 +21,4 @@ public class _11_02_ShortestPath_Opt {
 	public static void main(String[] args) {
 		System.out.println(minStep(15, 0));
 	}
-
 }

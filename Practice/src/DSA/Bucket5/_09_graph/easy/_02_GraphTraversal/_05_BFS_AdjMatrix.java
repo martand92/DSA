@@ -37,6 +37,7 @@ public class _05_BFS_AdjMatrix {
 
 		boolean[] visited = new boolean[adjMatrix.length];
 
+		// if a row is visited then traverse to next vertex in another row of a matrix
 		for (int i = 0; i < adjMatrix.length; i++) {
 			if (!visited[i])
 				bfs(adjMatrix, i, visited);

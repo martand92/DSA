@@ -15,11 +15,9 @@ public class _11_01_ShortestPath_imp {
 		int right = minStep(n, i * 3, length + 1);
 
 		return Math.min(left, right);
-
 	}
 
 	public static void main(String[] args) {
 		System.out.println(minStep(493, 1, 0));
 	}
-
 }

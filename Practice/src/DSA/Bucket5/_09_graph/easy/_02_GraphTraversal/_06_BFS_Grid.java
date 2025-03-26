@@ -52,6 +52,10 @@ public class _06_BFS_Grid {
 		int[][] grid = { { 1, 1, 0, 0 }, { 0, 1, 0, 1 }, { 1, 0, 1, 1 }, { 0, 0, 1, 1 } };
 		boolean[][] visited = new boolean[grid.length][grid[0].length];
 
+		// Unlike adjMatrix where entire row is considered for traversal, here a grid is
+		// considered
+		// If a grid is traversed, then look for connected grids around this in all 4
+		// directions
 		for (int i = 0; i < grid.length; i++) {
 
 			for (int j = 0; j < grid[0].length; j++) {
