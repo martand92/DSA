@@ -51,7 +51,7 @@ public class _10_Eulerian_Undirected {
 
 			// find degree of all vertices
 			for (int i = 0; i < adjList.length; i++)
-				degree[i] = adjList[i].size();
+				degree[i] = adjList[i].size(); // just consider out going edges
 
 			// find first non-zero degree vertex
 			// and do DFS to check if all non-zero degree vertices are connected
@@ -64,8 +64,8 @@ public class _10_Eulerian_Undirected {
 				}
 			}
 
-			// Now do DFS from first non-zero degree vertex and check if all non-zero degree
-			// vertices are connected
+			// Now do DFS from first non-zero degree vertex and check for vertices that are
+			// connected
 			dfs(firstNonZeroDegreeVertex);
 
 			// Checking if all non-zero degree vertices are connected

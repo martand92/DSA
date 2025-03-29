@@ -22,7 +22,6 @@ public class _03_IsSCC_Kosaraju_Directed {
 				adjList[i] = new LinkedList<Integer>();
 				transposeGraph[i] = new LinkedList<Integer>();
 			}
-
 		}
 
 		public void addEdge(int u, int v) {
@@ -37,6 +36,7 @@ public class _03_IsSCC_Kosaraju_Directed {
 				if (!visited[v])
 					dfs1(v);
 			}
+
 			st.push(vertex);
 		}
 
@@ -68,8 +68,11 @@ public class _03_IsSCC_Kosaraju_Directed {
 			// Step 3 : Process nodes in stack order and count components
 			visited = new boolean[transposeGraph.length]; // reset
 			int components = 0;
+
 			while (!st.isEmpty()) {
+
 				int v = st.pop();
+
 				if (!visited[v]) {
 					components++;
 					dfs2(v);

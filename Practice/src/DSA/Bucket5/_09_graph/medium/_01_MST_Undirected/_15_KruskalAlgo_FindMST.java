@@ -46,7 +46,8 @@ public class _15_KruskalAlgo_FindMST {
 			int ultParentOfU = findUltParent(al.get(i).u, parent);
 			int ultParentOfV = findUltParent(al.get(i).v, parent);
 
-			if (ultParentOfU != ultParentOfV) {
+			if (ultParentOfU != ultParentOfV) {// this is how Kruskal prevents adding vertex that belongs to same
+												// component. Basically prevents unnecessary nodes
 
 				if (rank[ultParentOfU] < rank[ultParentOfV])
 					parent[ultParentOfU] = ultParentOfV;

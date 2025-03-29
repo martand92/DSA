@@ -6,7 +6,8 @@ import java.util.*;
 public class _02_02_KahnAlgo_BFS {
 
 	static class Graph {
-
+		// no need to maintain visited[] cz for DAG in topo sort, instead you have
+		// indegree[]
 		LinkedList<Integer>[] adjList;
 		static int[] indegree;
 		ArrayList<Integer> topoSort;
@@ -44,13 +45,13 @@ public class _02_02_KahnAlgo_BFS {
 			while (!q.isEmpty()) {
 
 				int v = q.poll();
-				
+
 				// dequeue to result
 				topoSort.add(v);
 
 				// loop through all adj vertices & -1 in-degree
 				for (int i : adjList[v]) {
-					indegree[i] --;
+					indegree[i]--;
 
 					// if their indegree = 0 then add to Q
 					if (indegree[i] == 0)

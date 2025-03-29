@@ -49,13 +49,15 @@ public class _01_DAG_TopoSort_BFS {
 
 				for (LinkedList<Integer> i : g.adjList[v]) {
 
-					if (dist[i.get(0)] > (dist[v] + i.get(1)))
+					if (dist[i.get(0)] > (dist[v] + i.get(1))) {
 						dist[i.get(0)] = dist[v] + i.get(1);
 
-					indegree[i.get(0)]--;
+						indegree[i.get(0)]--;
 
-					if (indegree[i.get(0)] == 0)
-						q.add(i.get(0));
+						if (indegree[i.get(0)] == 0) // Avoiding looking for next vertex with shortest dist by directly
+														// considering vertex with indegree = 0
+							q.add(i.get(0));
+					}
 
 				}
 

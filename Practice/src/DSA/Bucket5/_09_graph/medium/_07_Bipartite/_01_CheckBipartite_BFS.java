@@ -16,9 +16,9 @@ public class _01_CheckBipartite_BFS {
 		Graph(int v) {
 
 			adjList = new LinkedList[v + 1]; // 1 based indexing
-
 			for (int i = 0; i <= v; i++)
-				adjList[i] = new LinkedList<>(); // Create a new list for each vertex
+				adjList[i] = new LinkedList<>();
+
 			colored = new int[v + 1];
 			Arrays.fill(colored, -1);
 		}
@@ -46,9 +46,8 @@ public class _01_CheckBipartite_BFS {
 					if (colored[i] == colored[v]) // if adjacent vertices have same color then graph isn't bipartite
 						return false;
 
-					if (colored[i] == -1) { // only consider not colored vertices
-						colored[i] = colored[v] == 0 ? 1 : 0; // if src vertex is already colored(0) then color adj
-																// vertex with 1 else with 0 (starting color)
+					if (colored[i] == -1) { // only consider non-colored adj vertices
+						colored[i] = colored[v] == 0 ? 1 : 0;
 						q.add(i);
 					}
 				}
@@ -59,7 +58,7 @@ public class _01_CheckBipartite_BFS {
 
 		public static void main(String[] args) {
 
-			new Graph(8);
+			new Graph(8); // Where 1 vertex is disconnected
 
 			// Not Bipartite graph data
 //			g.addEdge(1, 2);
@@ -81,14 +80,14 @@ public class _01_CheckBipartite_BFS {
 
 			for (int i = 1; i <= 8; i++) {// 1 based indexing + handling disconnected graph
 				if (colored[i] == -1) {
-					if (!checkBipartite(i)) { // if any connected component of graph is not bipartite then break
+					if (!checkBipartite(i)) {
 						System.out.println(false);
 						return;
 					}
 				}
 			}
 
-			System.out.println(true); // if entire graph is bipartite
+			System.out.println(true); // Entire graph is bipartite
 		}
 	}
 }

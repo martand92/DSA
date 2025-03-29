@@ -7,7 +7,7 @@ import java.util.*;
 //Graph is said to be Eulerian if it has Eulerian circuit (and not just eulerian path)
 
 /*Condition for directed graph to be Eulerian:
- * 1. All vertices with non-zero degree belongs to single strongly-connected component
+ * 1. Check if given graph is strongly-connected component i.e it has 1 SCC
  * 2. If in-degree = out-degree for every vertex then its Eulerian circuit
  * 3. If in-degree = out-degree + 1 of a vertex and out-degree = indegree + 1 of another vertex then its Eulerian path
  * 4. Else its not Eulerain
@@ -63,7 +63,10 @@ public class _11_Eulerian_Directed {
 		}
 
 		public boolean isStronglyConnected_Kosaraju() {
-			// do dfs on all vertices (including disconnected vertices)
+
+			// do dfs on all the vertices starting from any vertex even if its disconnected.
+			// Unlike Undirected graph where you had to start from vertex with non-zero
+			// degree
 			for (int i = 0; i < adjList.length; i++) {
 				if (!visited[i])
 					dfs1(i);
@@ -77,17 +80,20 @@ public class _11_Eulerian_Directed {
 
 			// count scc in transposed graph
 			visited = new boolean[adjList.length];
-			int connectedComponents = 0;
+			int scc = 0;
+
 			while (!st.isEmpty()) {
+
 				int v = st.pop();
+
 				if (!visited[v]) {
-					connectedComponents++;
+					scc++;
 					dfs2(v);
 				}
 			}
 
 			// If transposed graph has more than 1 scc then graph is not scc
-			if (connectedComponents > 1)
+			if (scc > 1)
 				return false;
 
 			return true;
@@ -123,7 +129,7 @@ public class _11_Eulerian_Directed {
 					else if (outdegree[i] == indegree[i] + 1)
 						eulerianPathCount++;
 
-					else // for any vertex if in-degree / out-degree differ by > 1 then graph is not
+					else // if for any vertex if in-degree / out-degree differ by > 1 then graph is not
 							// Eulerian
 						return 0;
 				}
@@ -143,6 +149,7 @@ public class _11_Eulerian_Directed {
 	public static void main(String[] args) {
 
 		Graph g = new Graph(5);
+
 		g.addEdge(1, 0);
 		g.addEdge(0, 2);
 		g.addEdge(2, 1);
@@ -154,9 +161,12 @@ public class _11_Eulerian_Directed {
 
 		if (a == 0)
 			System.out.println("Graph is not Eulerian");
+
 		else if (a == 1)
 			System.out.println("Graph is Semi-Eulerian");
+
 		else if (a == 2)
 			System.out.println("Graph is Eulerian");
+
 	}
 }
