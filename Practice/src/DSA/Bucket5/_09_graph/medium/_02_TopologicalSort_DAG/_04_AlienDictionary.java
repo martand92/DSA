@@ -37,10 +37,10 @@ public class _04_AlienDictionary {
 
 						// As relation between alphabets should be stored as Graph vertices i.e, u -> v
 						// in adjList, need to map alphabets to numbers
-						// i.e, a -> 0, b -> 1, c -> 2, d-> 3
-						adjList[s1.charAt(j) - 'a'].add(s2.charAt(j) - 'a');// basically subtracting 'a'-'a'=0,
-																			// 'b'-'a'=1, 'c'-'a'=2 etc..
-						break;
+						// i.e, a = 0, b = 1, c = 2, d = 3
+						adjList[s1.charAt(j) - 'a'].add(s2.charAt(j) - 'a');// basically subtracting 'a'-'a'=0
+
+						break; // Once found 1st differing char in 2 strings, stop further iterations on them
 					}
 					j++;
 				}
@@ -57,7 +57,7 @@ public class _04_AlienDictionary {
 					indegree[j]++;
 			}
 
-			// Now check if there is cyclic
+			// Now check if there is cycle
 			Queue<Integer> q = new LinkedList<Integer>();
 			ArrayList<Character> topoSort = new ArrayList<Character>();
 
@@ -70,7 +70,7 @@ public class _04_AlienDictionary {
 
 				int i = q.poll();
 
-				topoSort.add((char) (i + 'a'));// while getting order, get sorted vertex's char rep
+				topoSort.add((char) (i + 'a'));// add vertex back as character
 
 				for (int j : adjList[i]) {
 					indegree[j]--;

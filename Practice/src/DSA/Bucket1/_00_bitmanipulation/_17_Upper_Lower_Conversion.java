@@ -1,7 +1,7 @@
 package DSA.Bucket1._00_bitmanipulation;
 
 /*ASCII of 'A' in binary is 00001000001 and ASCII of 'a' in binary is 00001100001 
- * Hence the difference lies in 5th bit i.e, for 'A' 5th bit is set and for 'a' 5th bit is unset*/
+ * Hence the difference lies in 5th bit i.e, for 'A' 5th bit is unset and for 'a' 5th bit is set*/
 public class _17_Upper_Lower_Conversion {
 
 	public static char toLowerCase(char upperCaseChar) {
@@ -33,8 +33,9 @@ public class _17_Upper_Lower_Conversion {
 
 	public static void main(String[] args) {
 
-		char lowerCaseChar = 'b';
 		char upperCaseChar = 'A';
+		char lowerCaseChar = 'b';
+
 		System.out.println(upperCaseChar + "->" + toLowerCase(upperCaseChar));
 		System.out.println(lowerCaseChar + "->" + toUpperCase(lowerCaseChar));
 
