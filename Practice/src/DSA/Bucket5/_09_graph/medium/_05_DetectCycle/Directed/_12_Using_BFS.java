@@ -1,4 +1,4 @@
-package DSA.Bucket5._09_graph.medium._04_DetectCycle.Directed;
+package DSA.Bucket5._09_graph.medium._05_DetectCycle.Directed;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

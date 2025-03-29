@@ -1,4 +1,4 @@
-package DSA.Bucket5._09_graph.medium._05_ConnectedComponents._01_UnDirectedGraph;
+package DSA.Bucket5._09_graph.medium._04_ConnectedComponents._01_UnDirectedGraph;
 
 import java.util.*;
 

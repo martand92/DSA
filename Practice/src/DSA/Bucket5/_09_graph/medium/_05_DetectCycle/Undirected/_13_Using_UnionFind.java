@@ -1,4 +1,4 @@
-package DSA.Bucket5._09_graph.medium._04_DetectCycle.Undirected;
+package DSA.Bucket5._09_graph.medium._05_DetectCycle.Undirected;
 
 import java.util.LinkedList;
 

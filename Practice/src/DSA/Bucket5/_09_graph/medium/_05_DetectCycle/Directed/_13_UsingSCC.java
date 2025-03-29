@@ -1,4 +1,4 @@
-package DSA.Bucket5._09_graph.medium._04_DetectCycle.Directed;
+package DSA.Bucket5._09_graph.medium._05_DetectCycle.Directed;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
 //So above DAG has no cycle cz each SCC contains only 1 node
 
 //If any of the SCC contains more than 1 node, then by definition of SCC from every node all other nodes can be reached. i,e, u->v & v->u. Hence contains cycle
-public class _13_UsingKosaraju_SCC {
+public class _13_UsingSCC {
 
 	static class Graph {
 		private final int V;
@@ -16,9 +16,8 @@ public class _13_UsingKosaraju_SCC {
 		public Graph(int V) {
 			this.V = V;
 			adj = new ArrayList<>();
-			for (int i = 0; i < V; i++) {
+			for (int i = 0; i < V; i++)
 				adj.add(new ArrayList<>());
-			}
 		}
 
 		public void addEdge(int v, int w) {
@@ -38,9 +37,8 @@ public class _13_UsingKosaraju_SCC {
 		private Graph getTranspose() {
 			Graph g = new Graph(V);
 			for (int v = 0; v < V; v++) {
-				for (int n : adj.get(v)) {
+				for (int n : adj.get(v))
 					g.addEdge(n, v);
-				}
 			}
 			return g;
 		}
@@ -98,7 +96,7 @@ public class _13_UsingKosaraju_SCC {
 
 		if (graph.hasCycle())
 			System.out.println("Graph contains a cycle");
-		
+
 		else
 			System.out.println("Graph does not contain a cycle");
 

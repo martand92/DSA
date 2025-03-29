@@ -1,4 +1,4 @@
-package DSA.Bucket5._09_graph.medium._05_ConnectedComponents._02_DirectedGraph;
+package DSA.Bucket5._09_graph.medium._04_ConnectedComponents._02_DirectedGraph;
 
 import java.util.Arrays;
 import java.util.LinkedList;
