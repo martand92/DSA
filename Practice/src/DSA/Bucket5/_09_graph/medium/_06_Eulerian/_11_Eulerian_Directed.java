@@ -92,7 +92,7 @@ public class _11_Eulerian_Directed {
 				}
 			}
 
-			// If transposed graph has more than 1 scc then graph is not scc
+			// If transposed graph has more than 1 scc then graph is not Eulerian
 			if (scc > 1)
 				return false;
 
