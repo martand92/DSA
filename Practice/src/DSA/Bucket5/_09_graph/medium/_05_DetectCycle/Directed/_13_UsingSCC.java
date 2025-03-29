@@ -77,7 +77,6 @@ public class _13_UsingSCC {
 					transposedGraph.dfs2(v, visited, nodesList);
 					if (nodesList.size() > 1)
 						return true;
-
 				}
 			}
 
@@ -96,7 +95,6 @@ public class _13_UsingSCC {
 
 		if (graph.hasCycle())
 			System.out.println("Graph contains a cycle");
-
 		else
 			System.out.println("Graph does not contain a cycle");
 
