@@ -17,7 +17,8 @@ public class _17_02_Dijkstra_Undirected_SingleSrc_PQ {
 	static class Graph {
 		int[][] adjMatrix;
 		int[] dist;
-		PriorityQueue<Distance> pq;
+		PriorityQueue<Distance> pq; // Here node with min dist tops q always, so no need to check for visited as
+									// always shortest path is explored
 
 		Graph(int v) {
 

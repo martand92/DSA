@@ -54,8 +54,8 @@ public class _01_DAG_TopoSort_BFS {
 
 						indegree[i.get(0)]--;
 
-						if (indegree[i.get(0)] == 0) // Avoiding looking for next vertex with shortest dist by directly
-														// considering vertex with indegree = 0
+						if (indegree[i.get(0)] == 0) // Instead of checking for next vertex with min dist, picking next
+														// vertex with indegree=0
 							q.add(i.get(0));
 					}
 

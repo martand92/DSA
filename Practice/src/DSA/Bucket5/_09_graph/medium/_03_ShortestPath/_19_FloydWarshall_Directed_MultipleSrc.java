@@ -12,7 +12,7 @@ public class _19_FloydWarshall_Directed_MultipleSrc {
 			adjMatrix = new int[v][v];
 			// Initialize adjacency matrix with Integer.MAX_VALUE
 			for (int i = 0; i < v; i++) {
-				Arrays.fill(adjMatrix[i], (int) 1e9);
+				Arrays.fill(adjMatrix[i], (int) 1e8);//instead of 1e9 to avoid overflow
 				adjMatrix[i][i] = 0; // Distance from node to itself is 0
 			}
 		}
