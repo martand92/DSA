@@ -34,7 +34,7 @@ public class _09_TransitiveClosureOfGraph {
 			for (int j = 0; j < graph[0].length; j++) {
 
 				if (graph[i][j] == 0) {
-					if (dfs(graph, i, j, new boolean[graph[0].length]))
+					if (dfs(graph, i, j, new boolean[graph.length]))
 						result[i][j] = 1;
 
 				} else

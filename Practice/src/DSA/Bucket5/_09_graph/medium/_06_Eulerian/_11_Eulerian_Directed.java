@@ -142,7 +142,7 @@ public class _11_Eulerian_Directed {
 				return 0; // If more than 2 vertices have in-degree > & < by 1 of out-degree, its
 							// not-Eulerian
 
-			return 2; // Eulerian cycle where all in-degree = out-degree
+			return 2; // Eulerian cycle where for all vertices in-degree = out-degree
 		}
 	}
 

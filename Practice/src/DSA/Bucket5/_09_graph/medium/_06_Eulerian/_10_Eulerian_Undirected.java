@@ -108,12 +108,15 @@ public class _10_Eulerian_Undirected {
 		}
 
 		public static void main(String[] args) {
+
 			new Graph(5);
+
 			addEdge(1, 0);
 			addEdge(0, 2);
 			addEdge(2, 1);
 			addEdge(0, 3);
 			addEdge(3, 4);
+
 			System.out.println(isEulerian());
 
 		}
