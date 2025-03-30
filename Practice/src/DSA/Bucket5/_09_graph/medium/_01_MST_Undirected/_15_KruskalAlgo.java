@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class _15_KruskalAlgo_FindMST {
+public class _15_KruskalAlgo {
 
 	static class Edge {
 
@@ -46,8 +46,8 @@ public class _15_KruskalAlgo_FindMST {
 			int ultParentOfU = findUltParent(al.get(i).u, parent);
 			int ultParentOfV = findUltParent(al.get(i).v, parent);
 
-			if (ultParentOfU != ultParentOfV) {// this is how Kruskal prevents adding vertex that belongs to same
-												// component. Basically prevents unnecessary nodes
+			if (ultParentOfU != ultParentOfV) {// only consider vertices that are not part of current component being
+												// built
 
 				if (rank[ultParentOfU] < rank[ultParentOfV])
 					parent[ultParentOfU] = ultParentOfV;

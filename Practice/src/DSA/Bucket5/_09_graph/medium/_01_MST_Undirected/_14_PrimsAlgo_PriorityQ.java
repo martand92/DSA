@@ -2,7 +2,7 @@ package DSA.Bucket5._09_graph.medium._01_MST_Undirected;
 
 import java.util.*;
 
-public class _14_PrimsAlgo_PriorityQ_FindMST {
+public class _14_PrimsAlgo_PriorityQ {
 
 	static class Node {
 		int v;
