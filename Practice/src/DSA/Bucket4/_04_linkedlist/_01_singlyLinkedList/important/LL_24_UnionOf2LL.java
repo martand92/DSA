@@ -1,4 +1,4 @@
-package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.easy;
+package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 import java.util.*;
 

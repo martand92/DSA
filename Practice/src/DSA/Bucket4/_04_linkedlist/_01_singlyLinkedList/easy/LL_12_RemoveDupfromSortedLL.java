@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.easy;
 
 //https://www.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
-public class LL_12_RemoveDupfromSortedLL_O_1 { // Without HashSet
+public class LL_12_RemoveDupfromSortedLL {
 	Node head;
 
 	static class Node {
@@ -32,7 +32,7 @@ public class LL_12_RemoveDupfromSortedLL_O_1 { // Without HashSet
 
 	public static void main(String[] args) {
 
-		LL_12_RemoveDupfromSortedLL_O_1 lList = new LL_12_RemoveDupfromSortedLL_O_1();
+		LL_12_RemoveDupfromSortedLL lList = new LL_12_RemoveDupfromSortedLL();
 
 		lList.push(1);
 		lList.push(2);

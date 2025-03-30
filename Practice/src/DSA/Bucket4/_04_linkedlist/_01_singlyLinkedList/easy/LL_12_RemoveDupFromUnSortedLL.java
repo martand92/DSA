@@ -3,7 +3,8 @@ package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.easy;
 import java.util.HashSet;
 
 //https://www.geeksforgeeks.org/problems/remove-duplicates-from-an-unsorted-linked-list/1
-public class LL_12_RemoveDupFromUnSortedLL_O_N {
+//This requires O(N) space
+public class LL_12_RemoveDupFromUnSortedLL {
 	Node head;
 
 	static class Node {
@@ -25,7 +26,7 @@ public class LL_12_RemoveDupFromUnSortedLL_O_N {
 
 	public static void main(String[] args) {
 
-		LL_12_RemoveDupFromUnSortedLL_O_N lList = new LL_12_RemoveDupFromUnSortedLL_O_N();
+		LL_12_RemoveDupFromUnSortedLL lList = new LL_12_RemoveDupFromUnSortedLL();
 
 		lList.push(1);
 		lList.push(2);

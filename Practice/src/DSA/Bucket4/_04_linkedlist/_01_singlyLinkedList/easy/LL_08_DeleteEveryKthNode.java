@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.easy;
 
 //https://practice.geeksforgeeks.org/problems/remove-every-kth-node/1
-public class LL_08_DeleteNodeEvery_Kth_Node {
+public class LL_08_DeleteEveryKthNode {
 	Node head;
 
 	static class Node {
@@ -29,7 +29,8 @@ public class LL_08_DeleteNodeEvery_Kth_Node {
 	}
 
 	public static void main(String[] args) {
-		LL_08_DeleteNodeEvery_Kth_Node lList = new LL_08_DeleteNodeEvery_Kth_Node();
+
+		LL_08_DeleteEveryKthNode lList = new LL_08_DeleteEveryKthNode();
 		lList.push(10);
 		lList.push(9);
 		lList.push(8);
@@ -41,34 +42,30 @@ public class LL_08_DeleteNodeEvery_Kth_Node {
 		lList.push(2);
 		lList.push(1);
 
-		int k = 3; // delete every 3rd node
+		int k = 2;
 
 		lList.deleteNode(k);
 	}
 
 	void deleteNode(int k) {
 
+		if (k == 1) { // all nodes should be deleted
+			head = null;
+			return;
+		}
+
 		Node n = head;
-		int ptr = k - 1;
 		Node prev = n;
+		int count = 1;
 
 		while (n != null) {
 
-			if (k == 1) { // all nodes should be deleted
-				head = null;
-				return;
-			}
-
-			if (ptr == 0) {
+			if (count % k == 0)
 				prev.next = n.next;
-				ptr = k;
-				n = prev;
 
-			} else {
-				ptr--;
-				prev = n;
-				n = n.next;
-			}
+			count++;
+			prev = n;
+			n = n.next;
 		}
 
 		printList();

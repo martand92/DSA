@@ -1,7 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.easy;
 
-//Its not quick sort but bubble sort
-public class LL_18_BubbleSort {
+public class LL_18_BubbleSort_Data {
 
 	Node head;
 	int listLength;
@@ -35,7 +34,7 @@ public class LL_18_BubbleSort {
 
 	public static void main(String[] args) {
 
-		LL_18_BubbleSort lList = new LL_18_BubbleSort();
+		LL_18_BubbleSort_Data lList = new LL_18_BubbleSort_Data();
 		lList.push(5);
 		lList.push(3);
 		lList.push(6);
