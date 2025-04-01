@@ -2,6 +2,7 @@ package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 import java.util.HashMap;
 
+//https://leetcode.com/problems/copy-list-with-random-pointer/
 public class _11_01_DeepCopyLinkedList {
 
 	Node head;
@@ -59,7 +60,6 @@ public class _11_01_DeepCopyLinkedList {
 	}
 
 	public Node deepCopy_hashMap() {
-		Node headCopy = null;
 		HashMap<Node, Node> hm = new HashMap<Node, Node>();
 
 		// Step 1:create copy of each node and store both original and copied nodes in
@@ -72,26 +72,26 @@ public class _11_01_DeepCopyLinkedList {
 		}
 
 		n = head;
-
+		Node n1 = null;
+		Node head1 = null;
 		// Step 2 : start pointing next and random pointers of copied nodes while
 		// referring to original ll
 		while (n != null) {
 
 			// Get copied node of current node from hm and establish connections
-			Node copiedNode = hm.get(n);
-			Node copiedNext = hm.get(n.next);
-			Node copiedRandom = hm.get(n.random);
+
+			n1 = hm.get(n);
+			n1.next = hm.get(n.next);
+			n1.random = hm.get(n.random);
 
 			if (n == head)
-				headCopy = copiedNode;
-
-			copiedNode.next = copiedNext;
-			copiedNode.random = copiedRandom;
+				head1 = n1;
 
 			n = n.next;
+			n1 = n1.next;
 		}
 
-		return headCopy;
+		return head1;
 	}
 
 	public static void main(String[] args) {

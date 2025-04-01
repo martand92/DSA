@@ -23,8 +23,8 @@ public class _09_FlatteningLL {
 		Node n1 = null;
 
 		head = new Node(5);
-		n1 = head;
 		n = head;
+		n1 = head;
 		n1.bottom = new Node(7);
 		n1 = n1.bottom;
 		n1.bottom = new Node(8);
@@ -62,17 +62,16 @@ public class _09_FlatteningLL {
 	}
 
 	// here you merge last and last second ll and return. Recursion
-	public Node merge(Node currLLRoot, Node rightLLRoot) {
+	public Node merge(Node n, Node prev) {
 
 		// follow previous merge sorted LL in place to merge both LLs
-		Node n1 = currLLRoot;
-		Node n2 = rightLLRoot;
+		Node n1 = prev;
+		Node n2 = n;
 		Node prev1 = null, prev2 = null;
 
 		while (n1 != null && n2 != null) {
 
 			if (n1.data < n2.data) {
-
 				while (n1 != null && (n1.data < n2.data)) {
 					prev1 = n1;
 					n1 = n1.bottom;// instead of merging next, merge bottom
@@ -80,36 +79,34 @@ public class _09_FlatteningLL {
 				prev1.bottom = n2;
 
 			} else {
-
 				while (n2 != null && (n2.data < n1.data)) {
 					prev2 = n2;
 					n2 = n2.bottom;
 				}
-
 				prev2.bottom = n1;
 			}
 		}
 
-		return currLLRoot.data < rightLLRoot.data ? currLLRoot : rightLLRoot;
+		return prev.data < n.data ? prev : n;
 	}
 
 	// first goto end of all vertical lls by traversing to right most using
 	// recursion, then merge last second & last ll with their root ref
-	public Node flattenLL(Node root) {
+	public Node flattenLL(Node n, Node prev) {
 
-		if (root.next == null)
-			return root;
+		if (n == null)
+			return null;
 
-		Node rightLL = flattenLL(root.next);
-		Node mergedLLRoot = merge(root, rightLL);// merged 2 LLs are returned as 1 to merge again with its left ll
-		mergedLLRoot.next = null;
-		return mergedLLRoot;
+		flattenLL(n.next, n);
+		n = merge(n, prev);// merged 2 LLs are returned as 1 to merge again with its left ll
+		n.next = null;
+		return n;
 	}
 
 	public static void main(String[] args) {
 		_09_FlatteningLL ll = new _09_FlatteningLL();
 		ll.addNode();
-		Node res = ll.flattenLL(ll.head);
+		Node res = ll.flattenLL(ll.head.next, ll.head);
 		ll.printlist(res);
 	}
 }

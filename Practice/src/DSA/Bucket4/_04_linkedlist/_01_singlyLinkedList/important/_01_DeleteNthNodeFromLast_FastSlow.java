@@ -1,6 +1,8 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 //https://www.youtube.com/watch?v=Lhu3MsXZy-Q
+
+//Fast & Slow Algo is also know as Tortoise & Hare algo as Hare moves twice as fast as Tortoise
 public class _01_DeleteNthNodeFromLast_FastSlow {
 
 	Node head;
@@ -13,6 +15,12 @@ public class _01_DeleteNthNodeFromLast_FastSlow {
 		Node(int data) {
 			this.data = data;
 		}
+	}
+
+	public void addNode(int data) {
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
 	}
 
 	public void printList() {
@@ -46,12 +54,6 @@ public class _01_DeleteNthNodeFromLast_FastSlow {
 		else
 			slow.next = slow.next.next;
 
-	}
-
-	public void addNode(int data) {
-		Node newNode = new Node(data);
-		newNode.next = head;
-		head = newNode;
 	}
 
 	public static void main(String[] args) {

@@ -170,7 +170,7 @@ public class _12_FindIntersectionPoint {
 		ll.addNode2(8);
 		ll.addNode2(2);
 
-		// ll.intersect();
+		ll.intersect();
 
 		ll.printList(1);
 		ll.printList(2);

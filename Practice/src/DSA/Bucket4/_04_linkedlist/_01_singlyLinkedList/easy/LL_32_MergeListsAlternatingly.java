@@ -63,18 +63,30 @@ public class LL_32_MergeListsAlternatingly {
 
 		LL_32_MergeListsAlternatingly lList = new LL_32_MergeListsAlternatingly();
 
-		lList.push1(99);
-		lList.push1(88);
-		lList.push1(77);
-		lList.push1(66);
-		lList.push1(55);
+//		lList.push1(99);
+//		lList.push1(88);
+//		lList.push1(77);
+//		lList.push1(66);
+//		lList.push1(55);
+//		lList.printList(head1);
+//
+//		lList.push2(55);
+//		lList.push2(44);
+//		lList.push2(33);
+//		lList.push2(22);
+//		lList.push2(11);
+//		lList.printList(head2);
+		
+		lList.push1(9);
+		lList.push1(10);
 		lList.printList(head1);
-
-		lList.push2(55);
-		lList.push2(44);
-		lList.push2(33);
-		lList.push2(22);
-		lList.push2(11);
+		
+		lList.push2(5);
+		lList.push2(4);
+		lList.push2(3);
+		lList.push2(2);
+		lList.push2(1);
+		lList.push2(6);
 		lList.printList(head2);
 
 		lList.mergeAlt();
