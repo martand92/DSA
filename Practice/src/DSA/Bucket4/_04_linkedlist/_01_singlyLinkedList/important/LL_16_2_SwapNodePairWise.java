@@ -48,41 +48,23 @@ public class LL_16_2_SwapNodePairWise {
 	void swapNodesPairWise() {
 
 		Node n = head;
-		int i = 1;
 		Node prev = null;
-		
-
-		Node prevSwappedNode = null; // to hold previously swapped node (1, 3, etc as
-		// for next iteration after
-		// swapping 1 should point to 4
 
 		while (n != null) {
 
-			// every second node should be swapped with previous node
-			if (i % 2 == 0) {
+			Node temp = n.next;
+			n.next = n.next.next;
+			temp.next = n;
 
-				if (i == 2)
-					head = n;
+			if (n == head)
+				head = temp;
 
-				prev.next = n.next;
-				n.next = prev;
+			if (prev != null)
+				prev.next = temp;
 
-				if (prevSwappedNode != null)
-					prevSwappedNode.next = n; // 1-> 4 etc..
-				
-				n = prev;
-				prevSwappedNode = prev; // Storing 1, 3, 5 etc..
-
-			} else
-				prev = n;
-
+			prev = n;
 			n = n.next;
-			i++;
-
 		}
-
-
-		printList();
 
 	}
 

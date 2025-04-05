@@ -34,7 +34,7 @@ public class LL_13_02_CheckPalindrome_O1 {
 		}
 		Node right = slow.next;// right side of middle node
 
-		// Step 2 : Reverse right side linkedList as a sepearate linkedlist
+		// Step 2 : Reverse right side linkedList as a separate linkedlist
 		Node prev = null;
 		Node next = right;
 		Node n = right;

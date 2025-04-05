@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class _02_MiddleNode_FastSlow {
+public class _02_MiddleNode {
 
 	Node head;
 	int count = 0;
@@ -45,7 +45,7 @@ public class _02_MiddleNode_FastSlow {
 	}
 
 	public static void main(String[] args) {
-		_02_MiddleNode_FastSlow ll = new _02_MiddleNode_FastSlow();
+		_02_MiddleNode ll = new _02_MiddleNode();
 		ll.addNode(6);
 		ll.addNode(5);
 		ll.addNode(4);

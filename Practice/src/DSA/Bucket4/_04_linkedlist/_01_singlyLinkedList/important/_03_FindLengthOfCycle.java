@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class _03_DetectCycle_FastSlow {
+public class _03_FindLengthOfCycle {
 
 	Node head;
 
@@ -33,25 +33,30 @@ public class _03_DetectCycle_FastSlow {
 		n.next = head;
 	}
 
-	// Move fast by 2 and slow by 1.
-	// Why? : You need to keep distance between fast and slow to reduce by 1 in
-	// every iteration so that they can meet if there is cycle
-	// More : https://youtu.be/wiOo4DC5GGA?t=1090
-	public boolean hasCycle() {
+	public int findLengthOfCycle() {
 		Node fast = head;
 		Node slow = head;
 		fast = fast.next.next;
 
 		while (fast != null && fast.next != null) {
 
-			if (fast == slow)
-				return true;
+			if (fast == slow) {
+
+				int count = 1;
+				fast = fast.next;
+				while (fast != slow) {
+					fast = fast.next;
+					count++;
+				}
+
+				return count;
+			}
 
 			fast = fast.next.next;
 			slow = slow.next;
 
 		}
-		return false;
+		return -1;// LL has no loop
 	}
 
 	public void addNode(int data) {
@@ -61,7 +66,7 @@ public class _03_DetectCycle_FastSlow {
 	}
 
 	public static void main(String[] args) {
-		_03_DetectCycle_FastSlow ll = new _03_DetectCycle_FastSlow();
+		_03_FindLengthOfCycle ll = new _03_FindLengthOfCycle();
 		ll.addNode(5);
 		ll.addNode(4);
 		ll.addNode(3);
@@ -72,7 +77,7 @@ public class _03_DetectCycle_FastSlow {
 
 		// ll.printList();
 
-		System.out.println(ll.hasCycle());
+		System.out.println(ll.findLengthOfCycle());
 	}
 
 }

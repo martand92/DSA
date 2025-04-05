@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 //https://practice.geeksforgeeks.org/problems/intersection-of-two-sorted-linked-lists/1
-public class LL_21_CommonEleInSortedLL_With2Pointer_Optimized {
+public class LL_21_IntersectionOf2SortedLL {
 	Node head1;
 	Node head2;
 
@@ -69,7 +69,7 @@ public class LL_21_CommonEleInSortedLL_With2Pointer_Optimized {
 
 	public static void main(String[] args) {
 
-		LL_21_CommonEleInSortedLL_With2Pointer_Optimized lList = new LL_21_CommonEleInSortedLL_With2Pointer_Optimized();
+		LL_21_IntersectionOf2SortedLL lList = new LL_21_IntersectionOf2SortedLL();
 		lList.push1(50);
 		lList.push1(40);
 		lList.push1(40);

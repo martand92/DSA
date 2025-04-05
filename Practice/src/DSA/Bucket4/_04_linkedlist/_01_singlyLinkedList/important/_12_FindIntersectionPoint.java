@@ -84,7 +84,7 @@ public class _12_FindIntersectionPoint {
 
 		// first find length of both LL and find their differences. This says how much
 		// pointer should move in lenghtier ll to align with shorter ll.
-		// then again start moving by 1 till both pointers meet at a point
+		// then again start moving both pointers by 1 till they meet
 
 		Node n1 = head1;
 		Node n2 = head2;

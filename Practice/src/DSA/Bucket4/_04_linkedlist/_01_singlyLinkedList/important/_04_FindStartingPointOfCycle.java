@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 //https://youtu.be/2Kd0KKmmHFc?t=943
-public class _04_FindStartingPointOfCycle_FastSlow {
+public class _04_FindStartingPointOfCycle {
 
 	Node head;
 
@@ -63,7 +63,7 @@ public class _04_FindStartingPointOfCycle_FastSlow {
 	}
 
 	public static void main(String[] args) {
-		_04_FindStartingPointOfCycle_FastSlow ll = new _04_FindStartingPointOfCycle_FastSlow();
+		_04_FindStartingPointOfCycle ll = new _04_FindStartingPointOfCycle();
 		ll.addNode(5);
 		ll.addNode(4);
 		ll.addNode(3);

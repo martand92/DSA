@@ -1,11 +1,10 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-import java.util.*;
-
 //https://practice.geeksforgeeks.org/problems/modify-linked-list-1/1
 public class LL_34_ModifyLL {
 
 	static Node head;
+	int len;
 
 	static class Node {
 		int data;
@@ -29,38 +28,38 @@ public class LL_34_ModifyLL {
 			System.out.print(n.data + " ");
 			n = n.next;
 		}
+		System.out.println();
+	}
+
+	// creating new reversed linkedlist & counting total nodes
+	public Node reverseLL(Node head) {
+
+		Node n = head, prev = null, next = n.next, newNode = null;
+
+		while (n != null) {
+			next = n.next;
+			newNode = new Node(n.data);
+			newNode.next = prev;
+			prev = newNode;
+			n = next;
+			len++;
+		}
+
+		return newNode;
 	}
 
 	public void modify() {
 
+		Node newHead = reverseLL(head);// expectation was to do it with O(1) space but here O(N).
+
 		Node n = head;
-
-		ArrayList<Integer> al = new ArrayList<Integer>();
-		ArrayList<Integer> al1 = new ArrayList<Integer>();
-
-		while (n != null) {
-			al.add(n.data);
+		Node n1 = newHead;
+		len /= 2;
+		while (len > 0) {
+			n.data = n1.data - n.data;
 			n = n.next;
-		}
-
-		int size = al.size();
-
-		for (int i = 0; i < size / 2; i++)
-			al1.add(al.get(i) - al.get(size - 1 - i));
-
-		for (int i = size / 2; i < size; i++)
-			al1.add(al.get(i));
-
-		head = null;
-		Node current = null;
-		for (int i = 0; i < al1.size(); i++) {
-			Node newNode = new Node(al1.get(i));
-			if (head == null)
-				head = newNode;
-			else
-				current.next = newNode;
-
-			current = newNode;
+			n1 = n1.next;
+			len--;
 		}
 
 	}
@@ -69,11 +68,13 @@ public class LL_34_ModifyLL {
 
 		LL_34_ModifyLL lList = new LL_34_ModifyLL();
 
-		lList.push(10);
-		lList.push(4);
-		lList.push(5);
-		lList.push(3);
 		lList.push(6);
+		lList.push(3);
+		lList.push(5);
+		lList.push(4);
+		lList.push(10);
+
+		lList.printList(head);
 
 		lList.modify();
 

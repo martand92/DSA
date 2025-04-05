@@ -1,10 +1,9 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class _08_Merge_SortedLL_InPlace {
+public class _08_01_MergeSortedLL_NotInPlace {
 
 	Node head1;
 	Node head2;
-	Node head3;
 
 	static class Node {
 		int data;
@@ -25,34 +24,44 @@ public class _08_Merge_SortedLL_InPlace {
 
 	public Node mergeLL() {
 
-		Node n1 = head1;
-		Node n2 = head2;
-		Node prev1 = null, prev2 = null;
+		if (head1 == null)
+			return head2;
+		if (head2 == null)
+			return head1;
 
-		while (n1 != null && n2 != null) {
+		// Initialize the merged list's head
+		Node mergedHead = null;
 
-			if (n1.data < n2.data) {
-
-				while (n1 != null && (n1.data < n2.data)) {
-					prev1 = n1;
-					n1 = n1.next;
-				}
-
-				prev1.next = n2;
-
-			} else {
-
-				while (n2 != null && (n2.data < n1.data)) {
-					prev2 = n2;
-					n2 = n2.next;
-				}
-
-				prev2.next = n1;
-
-			}
+		// add head to merged list
+		if (head1.data < head2.data) {
+			mergedHead = head1;
+			head1 = head1.next;
+		} else {
+			mergedHead = head2;
+			head2 = head2.next;
 		}
 
-		return head1.data < head2.data ? head1 : head2;
+		Node current = mergedHead;
+
+		while (head1 != null && head2 != null) {
+			if (head1.data < head2.data) {
+				current.next = head1;
+				head1 = head1.next;
+			} else {
+				current.next = head2;
+				head2 = head2.next;
+			}
+
+			current = current.next;
+		}
+
+		// Attach the remaining part of the list if any
+		if (head1 != null)
+			current.next = head1;
+		else
+			current.next = head2;
+
+		return mergedHead;
 
 	}
 
@@ -71,7 +80,7 @@ public class _08_Merge_SortedLL_InPlace {
 
 	public static void main(String[] args) {
 
-		_08_Merge_SortedLL_InPlace ll = new _08_Merge_SortedLL_InPlace();
+		_08_01_MergeSortedLL_NotInPlace ll = new _08_01_MergeSortedLL_NotInPlace();
 
 		ll.addNode(1, 9);
 		ll.addNode(1, 7);

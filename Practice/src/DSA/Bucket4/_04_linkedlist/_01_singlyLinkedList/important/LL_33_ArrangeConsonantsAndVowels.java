@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 //https://practice.geeksforgeeks.org/problems/arrange-consonants-and-vowels/1
-public class LL_33_ArrangeConstantsVowels {
+public class LL_33_ArrangeConsonantsAndVowels {
 
 	static Node head;
 
@@ -27,47 +27,51 @@ public class LL_33_ArrangeConstantsVowels {
 			System.out.print(n.data + " ");
 			n = n.next;
 		}
+
+		System.out.println();
 	}
 
 	public Node arrangeVowel() {
 		Node n = head;
-		Node vowelHead = null;
-		Node prev = null;
+		Node vowelHead = null, consonantHead = null, vowelPtr = null, consonantPtr = null;
 
 		while (n != null) {
 
 			if (n.data == 'a' || n.data == 'e' || n.data == 'i' || n.data == 'o' || n.data == 'u') {
 
-				if (prev != null) {
-					prev.next = n.next;
-
-					if (vowelHead == null) {
-						n.next = head;
-						head = n;
-					} else {
-						n.next = vowelHead.next;
-						vowelHead.next = n;
-					}
+				if (vowelHead == null)
 					vowelHead = n;
-					n = prev;
+				else
+					vowelPtr.next = n;
 
-				} else {
-					vowelHead = n;
-				}
+				vowelPtr = n;
 
-			} else
-				prev = n;
+			} else {
+
+				if (consonantHead == null)
+					consonantHead = n;
+				else
+					consonantPtr.next = n;
+
+				consonantPtr = n;
+
+			}
 
 			n = n.next;
 		}
 
-		return head;
+		// Making sure no unnecessary tail exist
+		vowelPtr.next = null;
+		consonantPtr.next = null;
+
+		vowelPtr.next = consonantHead;
+		return vowelHead;
 
 	}
 
 	public static void main(String[] args) {
 
-		LL_33_ArrangeConstantsVowels lList = new LL_33_ArrangeConstantsVowels();
+		LL_33_ArrangeConsonantsAndVowels lList = new LL_33_ArrangeConsonantsAndVowels();
 
 //		lList.push('m');
 //		lList.push('i');
@@ -105,9 +109,8 @@ public class LL_33_ArrangeConstantsVowels {
 //		lList.push('g');
 
 		head = lList.arrangeVowel();
-		System.out.println();
-
 		lList.printList(head);
+
 	}
 
 }

@@ -3,7 +3,7 @@ package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/union-of-two-linked-list/1
-public class LL_24_UnionOf2LL {
+public class LL_24_01_UnionOf2LL {
 	Node head1;
 	Node head2;
 
@@ -73,7 +73,7 @@ public class LL_24_UnionOf2LL {
 
 	public static void main(String[] args) {
 
-		LL_24_UnionOf2LL lList = new LL_24_UnionOf2LL();
+		LL_24_01_UnionOf2LL lList = new LL_24_01_UnionOf2LL();
 		lList.push1(6);
 		lList.push1(4);
 		lList.push1(3);

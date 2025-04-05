@@ -1,7 +1,7 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
 //https://practice.geeksforgeeks.org/problems/linked-list-in-zig-zag-fashion/1
-// here zig zag pattern to be followed is a < b > c < d > e ... 
+// here zig zag pattern to be followed is a <= b >= c <= d >= e ... 
 public class LL_29_1_ZigZag {
 
 	Node head;
@@ -41,28 +41,21 @@ public class LL_29_1_ZigZag {
 
 		while (n != null) {
 
-			if (i % 2 == 0) {
-				// invalid condition
-				if (prev.data > n.data) {
-					temp = n.data;
-					n.data = prev.data;
-					prev.data = temp;
-
-				}
-
+			if (i % 2 == 0 && prev.data > n.data) { // invalid condition
+				temp = n.data;
+				n.data = prev.data;
+				prev.data = temp;
 			} else {
-				// invalid condition
-				if (prev.data < n.data) {
-					temp = n.data;
-					n.data = prev.data;
-					prev.data = temp;
-				}
+				// if (prev.data < n.data) { // invalid condition
+				temp = n.data;
+				n.data = prev.data;
+				prev.data = temp;
+				// }
 			}
 			i++;
 			prev = n;
 			n = n.next;
 		}
-
 	}
 
 	public static void main(String[] args) {

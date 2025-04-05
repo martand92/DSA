@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class LL_09_Delete_NNodes_After_MNodes_Imp {
+public class LL_09_DeleteNNodes_AfterMNodes_Imp {
 
 	Node head;
 
@@ -59,7 +59,7 @@ public class LL_09_Delete_NNodes_After_MNodes_Imp {
 
 	public static void main(String[] args) {
 
-		LL_09_Delete_NNodes_After_MNodes_Imp lList = new LL_09_Delete_NNodes_After_MNodes_Imp();
+		LL_09_DeleteNNodes_AfterMNodes_Imp lList = new LL_09_DeleteNNodes_AfterMNodes_Imp();
 
 		int M = 2;
 		int N = 2; // After every 2 nodes, delete 2 node

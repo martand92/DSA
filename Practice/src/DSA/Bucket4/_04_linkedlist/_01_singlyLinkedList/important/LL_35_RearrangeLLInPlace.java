@@ -4,6 +4,7 @@ package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 public class LL_35_RearrangeLLInPlace {
 
 	static Node head;
+	int count = 0;
 
 	static class Node {
 		int data;
@@ -29,6 +30,7 @@ public class LL_35_RearrangeLLInPlace {
 		}
 	}
 
+	// creating new reversed linkedlist
 	public Node reverse(Node head) {
 		Node n = head;
 		Node next = null;
@@ -41,6 +43,7 @@ public class LL_35_RearrangeLLInPlace {
 			newNode.next = prev;
 			prev = newNode;
 			n = next;
+			count++;
 		}
 
 		head = newNode;
@@ -49,52 +52,39 @@ public class LL_35_RearrangeLLInPlace {
 
 	public void rearrange() {
 
-		Node head1 = head;
-		Node head2 = reverse(head1);
+		Node head1 = head, head2 = reverse(head1);
+		Node head1Next = null, head2Next = null;
+		boolean even = (count & 1) == 0 ? true : false;
+		count /= 2;
 
-		Node head1Next = null;
-		Node head2Next = null;
-
-		Node n = head;
-		int count = 0;
-
-		while (n != null) {
-			count++;
-			n = n.next;
-		}
-
-		int i = 0;
-		head = head1;
-
-		while (i < (count / 2)) {
-
-			if (i != 0) {
-				head2.next = head1Next;
-				head2 = head2Next;
-			}
+		while (count > 0) {
 
 			head1Next = head1.next;
 			head2Next = head2.next;
-
 			head1.next = head2;
 
-			head1 = head1Next;
+			if (count == 1 & even)
+				head2.next = null;
 
-			i++;
+			else if (count == 1 & !even) {
+				head2.next = head1Next;
+				head1Next.next = null;
+
+			} else {
+				head2.next = head1Next;
+				head1 = head1Next;
+				head2 = head2Next;
+			}
+
+			count--;
 		}
 
-		if (count % 2 == 0)
-			head2.next = null;
-		else {
-			head2.next = head1;
-			head1.next = null;
-		}
 	}
 
 	public static void main(String[] args) {
 
 		LL_35_RearrangeLLInPlace lList = new LL_35_RearrangeLLInPlace();
-		// lList.push(6);
+		lList.push(6);
 		lList.push(5);
 		lList.push(4);
 		lList.push(3);
