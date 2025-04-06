@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class LL_18_0_MergeSort {
+public class LL_18_02_MergeSort {
 
 	Node head;
 
@@ -44,7 +44,7 @@ public class LL_18_0_MergeSort {
 	}
 
 	public Node mergeSort(Node left, Node right) {
-
+		//creation of dummy linkedlist
 		Node sortedList = null;
 
 		if (left == null)
@@ -96,7 +96,7 @@ public class LL_18_0_MergeSort {
 	}
 
 	public static void main(String[] args) {
-		LL_18_0_MergeSort ll = new LL_18_0_MergeSort();
+		LL_18_02_MergeSort ll = new LL_18_02_MergeSort();
 		ll.push(2);
 		ll.push(1);
 		ll.push(5);

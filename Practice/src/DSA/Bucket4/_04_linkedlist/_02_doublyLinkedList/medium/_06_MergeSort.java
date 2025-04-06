@@ -85,7 +85,7 @@ public class _06_MergeSort {
 		Node mid = findMid(head, len);
 		Node nextToMid = mid.next;
 
-		mid.next.prev = null; /**/
+		nextToMid.prev = null; /**/
 		mid.next = null;
 
 		Node left = divide(head);

@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._02_doublyLinkedList;
 
-public class _11_RotateByNNodes {
+public class _11_RotateByKNodes {
 
 	Node head;
 	Node tailNode;
@@ -59,7 +59,7 @@ public class _11_RotateByNNodes {
 	}
 
 	public static void main(String[] args) {
-		_11_RotateByNNodes lList = new _11_RotateByNNodes();
+		_11_RotateByKNodes lList = new _11_RotateByKNodes();
 		lList.push(-2);
 		lList.push(-1);
 		lList.push(5);

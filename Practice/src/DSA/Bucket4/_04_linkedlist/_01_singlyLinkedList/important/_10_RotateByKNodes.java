@@ -1,6 +1,6 @@
 package DSA.Bucket4._04_linkedlist._01_singlyLinkedList.important;
 
-public class _10_RotateLLByK {
+public class _10_RotateByKNodes {
 
 	Node head;
 	Node tailNode;
@@ -71,7 +71,7 @@ public class _10_RotateLLByK {
 
 	public static void main(String[] args) {
 
-		_10_RotateLLByK ll = new _10_RotateLLByK();
+		_10_RotateByKNodes ll = new _10_RotateByKNodes();
 		ll.addNode(5);
 		ll.addNode(4);
 		ll.addNode(3);

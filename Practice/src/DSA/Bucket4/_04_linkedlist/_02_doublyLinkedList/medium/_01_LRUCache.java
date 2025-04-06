@@ -2,13 +2,34 @@ package DSA.Bucket4._04_linkedlist._02_doublyLinkedList.medium;
 
 import java.util.HashMap;
 
+/* LRU Cache :
+ *  
+ *  At start LinkedList is initialized with 2 Dummy nodes -> Head & Tail
+ *  Addition of new node will be after head
+ *  Deletion of a given node results in repointing prev node to next node
+ *  
+ *  All above operations are internal / private and are not exposed for client to interact
+ *  
+ *  At LRU cache only 2 methods are exposed : get() , put()
+ *  
+ *  get() : This first checks if data is available in LL using hm in O(1). 
+ *          If available then moves this node to the head as it becomes recently used
+ *          If data is not present then return -1
+ *          
+ *  put() : This first checks if data is already in LL, if yes then remove this node & move it to head
+ *          If data is not in LL then check for capacity, if capacity breaches threshold then remove tail node(as its least recently used) and add data to head
+ *          else directly add data to head
+ *          
+ */
+
 public class _01_LRUCache {
 
-	//using head and tail and initializing them to avoid writing null checks
+	// head and tail nodes are initialized to eliminate checks for null / first /
+	// last nodes while inserting or removing edge nodes
 	Node head;
 	Node tail;
 	int capacity;
-	HashMap<Integer, Node> hm = new HashMap<Integer, Node>();
+	HashMap<Integer, Node> hm = new HashMap<Integer, Node>(5);
 
 	static class Node {
 		int key;
@@ -77,13 +98,14 @@ public class _01_LRUCache {
 	public int get(int key) {
 
 		if (hm.containsKey(key)) {
-			
+
 			Node llNode = hm.get(key);
-			
-			// move this node next to head as it becomes recently used by removing and inserting
+
+			// move this node next to head as it becomes recently used by removing and
+			// inserting
 			remove(llNode);
 			insert(llNode);
-			
+
 			return llNode.value;
 		} else
 			return -1;
@@ -98,7 +120,9 @@ public class _01_LRUCache {
 
 		// if capacity is full then remove tail's prev
 		if (hm.size() == capacity)
-			remove(tail.prev);
+			remove(tail.prev);// In this step we are saying to remove last node which requires hm entry also
+								// to be removed. To know the key for removing hm entry, we store both key and
+								// value in node
 
 		// then insert/update new node at the head
 		insert(new Node(key, value));
