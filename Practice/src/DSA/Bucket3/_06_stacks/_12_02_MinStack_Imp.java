@@ -17,11 +17,14 @@ public class _12_02_MinStack_Imp {
 		}
 	}
 
+	// Stack holds pair<Integer, Integer> where first value is the data thats
+	// getting added and second value tracks min until now
 	public static void push(Stack<Data> st, int d) {
 		if (st.isEmpty())
 			st.push(new Data(d, d));
 
-		st.push(new Data(d, Math.min(d, st.peek().val))); // check if current val is min or already existing val in st
+		st.push(new Data(d, Math.min(d, st.peek().val))); // add <val,min> as pair where min is carryforwarded if curr
+															// data > st.peek()'s min else new min is added
 	}
 
 	public static int getMin(Stack<Data> st) {

@@ -26,7 +26,7 @@ public class _08_CreateStackUsingPQ_Imp {
 			return pq.remove().data;
 		}
 	}
-	
+
 	static class StackModel {
 		Integer count;
 		int data;

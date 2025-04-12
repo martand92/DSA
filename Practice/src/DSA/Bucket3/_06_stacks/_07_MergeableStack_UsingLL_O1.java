@@ -1,7 +1,7 @@
 package DSA.Bucket3._06_stacks;
 
 //Using LinkedList
-public class _07_MergeableStack_O_1 {
+public class _07_MergeableStack_UsingLL_O1 {
 
 	Node head1;
 	Node head2;
@@ -48,7 +48,7 @@ public class _07_MergeableStack_O_1 {
 		}
 	}
 
-	public void merge(_07_MergeableStack_O_1 s2) {
+	public void merge(_07_MergeableStack_UsingLL_O1 s2) {
 		Node n = head1;
 		while (n.next != null) {
 			n = n.next;
@@ -60,14 +60,15 @@ public class _07_MergeableStack_O_1 {
 		Node n = head1;
 
 		while (n != null) {
-			System.out.println(n.data);
+			System.out.print(n.data + "->");
 			n = n.next;
 		}
+		System.out.print("null");
 	}
 
 	public static void main(String[] args) {
-		_07_MergeableStack_O_1 s1 = new _07_MergeableStack_O_1();
-		_07_MergeableStack_O_1 s2 = new _07_MergeableStack_O_1();
+		_07_MergeableStack_UsingLL_O1 s1 = new _07_MergeableStack_UsingLL_O1();
+		_07_MergeableStack_UsingLL_O1 s2 = new _07_MergeableStack_UsingLL_O1();
 
 		s1.push(1, 0);
 		s1.push(1, 1);

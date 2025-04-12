@@ -2,7 +2,7 @@ package DSA.Bucket3._05_Create_Stack_Queue._03_Create_Queue_UsingStack;
 
 import java.util.*;
 
-public class _03_3_Q_Using1Stack_Recursion {
+public class _03_3_Q_Using1Stack {
 
 	static class Queue {
 		static Stack<Integer> s = new Stack<Integer>();

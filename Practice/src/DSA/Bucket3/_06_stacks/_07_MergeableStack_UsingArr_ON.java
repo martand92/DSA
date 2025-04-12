@@ -2,7 +2,7 @@ package DSA.Bucket3._06_stacks;
 
 import java.util.Arrays;
 
-public class _07_MergeableStack_O_N {
+public class _07_MergeableStack_UsingArr_ON {
 
 //	static Stack<Integer> s1 = new Stack<>();
 //	static Stack<Integer> s2 = new Stack<>();
@@ -62,7 +62,7 @@ public class _07_MergeableStack_O_N {
 
 	public static void main(String[] args) {
 
-		_07_MergeableStack_O_N s = new _07_MergeableStack_O_N();
+		_07_MergeableStack_UsingArr_ON s = new _07_MergeableStack_UsingArr_ON();
 
 		s.push(1, 1);
 		s.push(1, 2);

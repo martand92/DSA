@@ -1,9 +1,6 @@
 package DSA.Bucket3._05_Create_Stack_Queue;
 
-import java.util.ArrayDeque;
-import java.util.*;
-
-public class _06_Stack_Queue_UsingDeque {
+public class _06_Create_Deque_UsingLL {
 	Node front;
 	Node rear;
 	Node prev;
@@ -18,7 +15,7 @@ public class _06_Stack_Queue_UsingDeque {
 		}
 	}
 
-	public void addFirst(_06_Stack_Queue_UsingDeque q, int data) { // to add Node n to
+	public void addFirst(_06_Create_Deque_UsingLL q, int data) { // to add Node n to
 																	// deque q
 		Node newNode = new Node(data);
 		if (q.front == null)
@@ -30,7 +27,7 @@ public class _06_Stack_Queue_UsingDeque {
 
 	}
 
-	public _06_Stack_Queue_UsingDeque addLast(_06_Stack_Queue_UsingDeque q, int data) {
+	public _06_Create_Deque_UsingLL addLast(_06_Create_Deque_UsingLL q, int data) {
 		Node newNode = new Node(data);
 		if (q.front == null)
 			q.front = q.rear = newNode;
@@ -41,13 +38,13 @@ public class _06_Stack_Queue_UsingDeque {
 		return q;
 	}
 
-	public void removeFirst(_06_Stack_Queue_UsingDeque q) {
+	public void removeFirst(_06_Create_Deque_UsingLL q) {
 		System.out.println("Removing first : " + q.front.data);
 		q.front = q.front.next;
 
 	}
 
-	public void removeLast(_06_Stack_Queue_UsingDeque q) {
+	public void removeLast(_06_Create_Deque_UsingLL q) {
 		Node n = q.front;
 		while (n.next != null) {
 			q.prev = n;
@@ -58,15 +55,15 @@ public class _06_Stack_Queue_UsingDeque {
 		q.prev.next = null;
 	}
 
-	public void front(_06_Stack_Queue_UsingDeque q) {
+	public void front(_06_Create_Deque_UsingLL q) {
 		System.out.println("front : " + q.front.data);
 	}
 
-	public void rear(_06_Stack_Queue_UsingDeque q) {
+	public void rear(_06_Create_Deque_UsingLL q) {
 		System.out.println("rear : " + q.rear.data);
 	}
 
-	public void printQueue(_06_Stack_Queue_UsingDeque q) {
+	public void printQueue(_06_Create_Deque_UsingLL q) {
 		Node n = q.front;
 		while (n != null) {
 			System.out.print(n.data + " ");
@@ -98,7 +95,7 @@ public class _06_Stack_Queue_UsingDeque {
 }
 
 class Stack {
-	_06_Stack_Queue_UsingDeque stackDeq = new _06_Stack_Queue_UsingDeque();
+	_06_Create_Deque_UsingLL stackDeq = new _06_Create_Deque_UsingLL();
 
 	public void push(int d) {
 		stackDeq.addFirst(stackDeq, d);
@@ -119,7 +116,7 @@ class Stack {
 }
 
 class Queue {
-	_06_Stack_Queue_UsingDeque queueDeq = new _06_Stack_Queue_UsingDeque();
+	_06_Create_Deque_UsingLL queueDeq = new _06_Create_Deque_UsingLL();
 
 	public void enqueue(int d) {
 		queueDeq.addLast(queueDeq, d);

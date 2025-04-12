@@ -1,6 +1,6 @@
 package DSA.Bucket3._05_Create_Stack_Queue;
 
-public class _09_DequeUsingDoublyLinkedList {
+public class _06_Create_Deque_UsingDLL {
 
 	Node front;
 	Node rear;
@@ -119,7 +119,7 @@ public class _09_DequeUsingDoublyLinkedList {
 	}
 
 	public static void main(String[] args) {
-		_09_DequeUsingDoublyLinkedList queue = new _09_DequeUsingDoublyLinkedList();
+		_06_Create_Deque_UsingDLL queue = new _06_Create_Deque_UsingDLL();
 		queue.insertFront(1);
 		queue.insertFront(0);
 		queue.insertRear(2);

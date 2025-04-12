@@ -24,7 +24,7 @@ public class _12_PrintBinaryNumber_Nice {
 			q.add(a + "1");
 			i++;
 		}
-		System.out.println(q);
+		//System.out.println(q);
 		System.out.println(al);
 
 	}

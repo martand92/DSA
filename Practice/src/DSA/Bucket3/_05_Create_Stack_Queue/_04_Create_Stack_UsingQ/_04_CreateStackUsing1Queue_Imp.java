@@ -3,7 +3,7 @@ package DSA.Bucket3._05_Create_Stack_Queue._04_Create_Stack_UsingQ;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class _04_CreateStackUsing1Queue {
+public class _04_CreateStackUsing1Queue_Imp {
 
 	Queue<Integer> q = new LinkedList<>();
 	int x;
@@ -29,7 +29,7 @@ public class _04_CreateStackUsing1Queue {
 	}
 
 	public static void main(String[] args) {
-		_04_CreateStackUsing1Queue stack = new _04_CreateStackUsing1Queue();
+		_04_CreateStackUsing1Queue_Imp stack = new _04_CreateStackUsing1Queue_Imp();
 		stack.push(0);
 		stack.push(1);
 		stack.push(2);
