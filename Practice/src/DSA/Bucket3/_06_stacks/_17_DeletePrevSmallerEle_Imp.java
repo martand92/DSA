@@ -9,31 +9,27 @@ public class _17_DeletePrevSmallerEle_Imp {
 		int[] arr = { 12, 7, 11, 5, 20, 15, 15, 7, 10 };
 		int k = 5;
 
+//		int[] arr = { 20, 10, 25, 30, 40 };
+//		int k = 2;
+
 		Stack<Integer> st = new Stack<Integer>();
-		ArrayList<Integer> al = new ArrayList<Integer>();
+		int i = 0;
 
-		for (int a : arr)
-			al.add(a);
+		while (i < arr.length) {
 
-		for (int i = 0; i < arr.length; i++) {
-
-			if (st.isEmpty() || st.peek() > arr[i])
+			if (k == 0 || st.isEmpty() || st.peek() >= arr[i]) {
 				st.push(arr[i]);
-
-			else {
-				while (!st.isEmpty() && k != 0 && st.peek() < arr[i]) {
-					al.remove(st.pop());
-					k--;
-				}
-				st.push(arr[i]);
+				i++;
 			}
 
-			if (k == 0)
-				break;
+			else if (k > 0 || st.peek() < arr[i]) {
+				st.pop();
+				k--;
+			}
+
 		}
 
-		System.out.println(al);
+		System.out.println(st);
 
 	}
-
 }
