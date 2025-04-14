@@ -17,20 +17,21 @@ public class _18_02_NGE_MonotonicStack_CircularArr {
 		int[] nge = new int[arr.length];
 		Stack<Integer> st = new Stack<Integer>();
 
-		// Instead of running loop from n-1 -> 0 , run it from 2n-1 -> 0 such that
-		// anything above n-1 is hypothetical and lies of left side
-		// and to find real index of hypothetical index use curr_index(i) % n
+		// Instead of running loop from n-1 -> 0 , run it from 2n-1 -> 0 where anything
+		// above n-1 is hypothetical and lies to left side & to find real index use
+		// curr_index % n
 		int n = arr.length;
 
-		for (int i = (2 * n) - 1; i >= 0; i--) { // need to loop till double array end where 2nd array is hypothetical
+		for (int i = (2 * n) - 1; i >= 0; i--) {
 
-			while (!st.isEmpty() && arr[i % n] >= st.peek()) // need to make sure if curr index > real arr length then
-																// we need to circle back index to real arr index by
-																// taking %N
+			// if curr _index > arr.len then re-point to real arr index by taking %N which
+			// is on left side
+			while (!st.isEmpty() && arr[i % n] >= st.peek())
 				st.pop();
 
-			if (i < n) {
-				if (st.empty())
+			if (i < n) {// once i is in real arr range
+
+				if (st.isEmpty())
 					nge[i] = -1;
 				else
 					nge[i] = st.peek();

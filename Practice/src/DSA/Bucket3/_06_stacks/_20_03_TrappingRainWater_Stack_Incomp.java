@@ -5,12 +5,12 @@ package DSA.Bucket3._06_stacks;
 
 //Intuition : to trap water between buildings, both left and right side buildings should be taller than current building height
 
-//Algo:
+//Algo: 
 
 public class _20_03_TrappingRainWater_Stack_Incomp {
 
 	public static int maxWaterTrapped(int[] arr) {
-
+		
 		return 0;
 
 	}
@@ -19,5 +19,4 @@ public class _20_03_TrappingRainWater_Stack_Incomp {
 		int[] arr = { 2, 1, 5, 3, 1, 0, 4 }; // given height of buildings
 		System.out.println(maxWaterTrapped(arr));
 	}
-
 }
