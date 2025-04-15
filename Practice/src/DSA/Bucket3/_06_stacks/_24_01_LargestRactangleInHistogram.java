@@ -3,7 +3,7 @@ package DSA.Bucket3._06_stacks;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class _24_01_LongestRactangleInHistogram {
+public class _24_01_LargestRactangleInHistogram {
 
 	public static int[] findPrevSmallerEle(int[] arr) {
 

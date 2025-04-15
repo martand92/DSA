@@ -10,25 +10,22 @@ public class _09_01_FindAllSubArrays_Itr {
 
 		for (int i = 0; i < arr.length; i++) { // O(n)
 
-			for (int j = i; j < arr.length; j++) { // O(n)
+			List<Integer> list = new ArrayList<Integer>();
 
-				List<Integer> list = new ArrayList<Integer>();
-
-				for (int k = i; k <= j; k++) // O(n)
-					list.add(arr[k]);
-
-				result.add(list);
+			for (int j = i; j < arr.length; j++) { // O(n){
+				list.add(arr[j]);
+				result.add(new ArrayList<Integer>(list));
 			}
 
 		}
 
 		return result;
+
 	}
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3 };
 		System.out.println(findSubArrays(arr));
 	}
-
 }
-//TC : O(n^3)
+//TC : O(n^2)

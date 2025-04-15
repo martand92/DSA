@@ -14,10 +14,7 @@ public class _15_01_PrintAllSubSeq_WithoutPickAndNotPick {
 		result.add(new ArrayList<Integer>(list));
 
 		for (int j = i; j < arr.length; j++) {
-
-			if (j == i || j - i < 2)
-				list.add(arr[j]);
-
+			list.add(arr[j]);
 			findAllSubArrays(arr, j + 1, list, result);
 			list.remove(list.size() - 1);
 		}

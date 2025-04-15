@@ -34,7 +34,7 @@ public class _23_AestroidCollision {
 				if (!st.isEmpty() && Math.abs(arr[i]) == st.peek())
 					st.pop();
 
-				// if st.peek() < 0 then push current arr[i]
+				// if st.peek() & arr[i] are in same neg direction
 				if (st.isEmpty() || st.peek() < 0)
 					st.push(arr[i]);
 

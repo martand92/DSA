@@ -11,6 +11,7 @@ public class _21_01_SumOfSubArrMin {
 
 		int sum = 0;
 		int mod = (int) 1e9 + 7;
+
 		for (int i = 0; i < arr.length; i++) {
 
 			int min = Integer.MAX_VALUE;
@@ -19,11 +20,9 @@ public class _21_01_SumOfSubArrMin {
 				min = Math.min(min, arr[j]);
 				sum += min % mod;
 			}
-
 		}
 
-		return sum;
-		// TC: O(N^2), SC: O(1)
+		return sum; // TC: O(N^2), SC: O(1)
 	}
 
 	// TC : O(N), SC : O(N)
@@ -58,23 +57,20 @@ public class _21_01_SumOfSubArrMin {
 
 		for (int i = 0; i < arr.length; i++) {
 
-			// Below for pse of given arr[i] check only for greater element to be popped out
-			// Not just smaller but also equal elements will be considered cz of below edge
-			// case :
+			// For given subarray : {3,1,1,4}, If there are adjacent duplicates in array
+			// then subarrays will repeat & you need to consider only 1 of them
 
-			// Edge case : when adjacent elements in array are duplicates . Ex: {3,1,1,4}
-			// Now for 1st occurence of 1 at index 1,
-			// nse is none so nse[i]=arr.length=4, pse is none so pse[i]=-1. so
-			// left:1-(-1)=2, right:4-1=3
-			// so total consideration : 2 * 3 * 1 = 6 times 1 occurs as min
-			// left : {3,1} {1}
-			// right : {1,1,4} {1,1} {1,4}
-			// Now for 2nd 1, you should consider previous 1 which is equal as well and not
-			// just previous small
-			// Hence need to pop out only if previous added element to stack is greater and
-			// not if its equal -> didn't understand
+			// subarrays formed with 1 at index 1: {1}, {3,1}, {1,1}, {1,1,4}
+			// subarrays formed with 1 at index 2: {1}, {1,1}, {1,1,3}, {1,4}
+			// as {1} and {1,1} are repeated in both sub arrays, need to consider only 1
+			// occurrence
+			// Hence final subarrays : {1}, {3,1}, {1,1}, {1,1,4}, {1,1,3}, {1,4}.Totally 6
 
-			while (!st.isEmpty() && arr[st.peek()] > arr[i]) // as st.peek() contains index of the previous element
+			// Now for 1st occurence of 1 at index 1, nse is none so nse[i]=arr.length=4,
+			// pse is none so pse[i]=-1. So left:1-(-1)=2, right:4-1=3 So total
+			// consideration : 2 * 3 * 1 = 6
+
+			while (!st.isEmpty() && arr[st.peek()] > arr[i]) // as st.peek() contains index of the prev smaller ele
 				st.pop();
 
 			if (st.isEmpty())
@@ -98,6 +94,8 @@ public class _21_01_SumOfSubArrMin {
 
 		for (int i = arr.length - 1; i >= 0; i--) {
 
+			// This pops out equal elements. Because we already counted first occurrence of
+			// a duplicate subarrays in pse else overlapping subarrays will also be counted
 			while (!st.isEmpty() && arr[st.peek()] >= arr[i])
 				st.pop();
 
@@ -115,7 +113,8 @@ public class _21_01_SumOfSubArrMin {
 	public static void main(String[] args) {
 		// int[] arr = { 3, 1, 1, 4 }; //data with duplicates need to be explicitly
 		// handled. Edge case
-		int[] arr = { 3, 1, 2, 4 };
+		// int[] arr = { 3, 1, 2, 4 };
+		int[] arr = { 1, 2, 3 };
 		System.out.println("Min Sum using Brute Force : " + minElementInSubArrSum_BruteForce(arr));
 		System.out.println("Min Sum using Monotonic Stack : " + minElementInSubArrSum_Stack(arr));
 	}

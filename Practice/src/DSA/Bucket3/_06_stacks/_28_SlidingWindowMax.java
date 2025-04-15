@@ -48,11 +48,11 @@ public class _28_SlidingWindowMax {
 	}
 
 	public static void main(String[] args) {
-//		int[] num = { 1, 3, -1, -3, 5, 3, 6, 7 };
-//		int k = 3;
+		int[] num = { 1, 3, -1, -3, 5, 3, 6, 7 };
+		int k = 3;
 
-		int[] num = { 1 };
-		int k = 1;
+//		int[] num = { 1 };
+//		int k = 1;
 
 		System.out.println(findMaxElementsInGivenWindow(num, k));
 	}

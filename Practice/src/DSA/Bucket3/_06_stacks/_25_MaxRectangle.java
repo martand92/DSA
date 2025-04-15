@@ -16,7 +16,7 @@ public class _25_MaxRectangle {
 											// area for current histogram
 		}
 
-		maxArea = Math.max(maxArea, _24_01_LongestRactangleInHistogram.findLongestRectangleArea(arr));
+		maxArea = Math.max(maxArea, _24_01_LargestRactangleInHistogram.findLongestRectangleArea(arr));
 
 		for (int i = 1; i < mat.length; i++) {
 
@@ -33,7 +33,7 @@ public class _25_MaxRectangle {
 
 			// for each prefixSum of matrix that represents histogram at this level,
 			// calculate max area
-			maxArea = Math.max(maxArea, _24_01_LongestRactangleInHistogram.findLongestRectangleArea(arr));
+			maxArea = Math.max(maxArea, _24_01_LargestRactangleInHistogram.findLongestRectangleArea(arr));
 
 		}
 
