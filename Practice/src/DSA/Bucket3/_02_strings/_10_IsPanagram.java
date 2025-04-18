@@ -4,7 +4,7 @@ import java.util.*;
 
 
 //https://practice.geeksforgeeks.org/problems/pangram-checking-1587115620/1
-public class _10_PanagramChecking {
+public class _10_IsPanagram {
 	public static void main(String[] args) {
 
 		String str = "Bbawds jog, flick quartz, vex nymphh9";

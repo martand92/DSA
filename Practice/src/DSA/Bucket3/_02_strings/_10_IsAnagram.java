@@ -3,7 +3,7 @@ package DSA.Bucket3._02_strings;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/anagram-palindrome4720/1
-public class _10_AnagramChecking_Hash_O_S {
+public class _10_IsAnagram {
 	public static void main(String[] args) {
 
 		String S = "geeksogeeks";

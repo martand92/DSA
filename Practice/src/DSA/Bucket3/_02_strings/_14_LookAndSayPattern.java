@@ -4,27 +4,13 @@ package DSA.Bucket3._02_strings;
 public class _14_LookAndSayPattern {
 
 	public static void main(String[] args) {
-		int n = 6;
-
-		String s = "1";
-
-		s = lookAndSayPattern(n, s);
-		System.out.println(s);
-
+		int n = 15;
+		System.out.println(lookAndSayPattern(n, "1", "", 0, 0, 0));
 	}
 
-	public static String lookAndSayPattern(int n, String s) {
-		if (n == 1) {
+	public static String lookAndSayPattern(int n, String s, String newStr, int i, int j, int count) {
+		if (n == 1)
 			return s;
-		}
-
-		s = generatePattern(s, "");
-		return lookAndSayPattern(n - 1, s);
-	}
-
-	public static String generatePattern(String s, String newStr) {
-
-		int count = 0, i = 0, j = 0;
 
 		while (j < s.length()) {
 
@@ -37,12 +23,11 @@ public class _14_LookAndSayPattern {
 				count = 1;
 			}
 
-			if (j == s.length() - 1)
-				newStr += String.valueOf(count) + s.charAt(i);
-
 			j++;
 		}
 
-		return newStr;
+		newStr += String.valueOf(count) + s.charAt(i);// last scenario
+
+		return lookAndSayPattern(n - 1, newStr, "", 0, 0, 0);// reset count, i, j
 	}
 }

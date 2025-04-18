@@ -45,9 +45,8 @@ public class _05_LongestCommonPrefix {
 //		else
 //			System.out.println("-1");
 
-		// 2nd Approach : Sorting String sorts lexiographically making first element
-		// least
-		// different and last element most different
+		// 2nd Approach : Sorting String lexiographically making first element
+		// least different and last element most different
 		Arrays.sort(arr);
 		System.out.println(Arrays.toString(arr));
 
@@ -58,7 +57,7 @@ public class _05_LongestCommonPrefix {
 
 		while (i < arr1.length && j < arr2.length) {
 
-			if (arr1[i] == arr2[j])
+			if ((arr1[i] ^ arr2[j]) == 0)
 				count++;
 			else
 				break;

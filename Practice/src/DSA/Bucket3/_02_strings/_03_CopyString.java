@@ -8,24 +8,19 @@ public class _03_CopyString {
 		char[] s1Char = s1.toCharArray();
 		char[] s2Char = new char[s1Char.length];
 
-		// Using Iterative method
-//		for (int i = 0; i < s1Char.length; i++) {
-//			s2Char[i] = s1Char[i];
-//		}
+		// Shallow copy
+		String s2 = s1;
+		System.out.println("Shallow copy");
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
 
-		// Using recursive method
-		copyOfString(s1Char, s2Char, 0);
-
-		System.out.println(String.valueOf(s2Char));
-	}
-
-	public static void copyOfString(char[] s1Char, char[] s2Char, int i) {
-
-		if (i == s1Char.length)
-			return;
-
-		s2Char[i] = s1Char[i];
-		copyOfString(s1Char, s2Char, i+1);
+		// Deep copy
+		for (int i = 0; i < s1Char.length; i++)
+			s2Char[i] = s1Char[i];
+		System.out.println();
+		System.out.println("Deep copy");
+		System.out.println(s1Char.hashCode());
+		System.out.println(s2Char.hashCode());
 
 	}
 }
