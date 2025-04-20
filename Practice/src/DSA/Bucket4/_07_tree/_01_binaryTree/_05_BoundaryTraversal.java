@@ -1,6 +1,6 @@
 package DSA.Bucket4._07_tree._01_binaryTree;
 
-public class _05_02_BoundaryTraversal {
+public class _05_BoundaryTraversal {
 
 	Node root;
 	static class Node {
@@ -122,7 +122,7 @@ public class _05_02_BoundaryTraversal {
 	}
 
 	public static void main(String[] args) {
-		_05_02_BoundaryTraversal tree = new _05_02_BoundaryTraversal();
+		_05_BoundaryTraversal tree = new _05_BoundaryTraversal();
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

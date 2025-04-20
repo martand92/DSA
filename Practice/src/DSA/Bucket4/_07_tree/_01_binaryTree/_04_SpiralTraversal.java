@@ -3,7 +3,7 @@ package DSA.Bucket4._07_tree._01_binaryTree;
 import java.util.ArrayList;
 
 //https://practice.geeksforgeeks.org/problems/level-order-traversal-in-spiral-form/1
-public class _04_LevelOrder_SpiralTraversal {
+public class _04_SpiralTraversal {
 
 	Node root;
 
@@ -39,38 +39,15 @@ public class _04_LevelOrder_SpiralTraversal {
 
 	}
 
-	static int height = 0, currHeight = 0;
-	static ArrayList<Integer> al = new ArrayList<Integer>();
-
 	public int findHeight(Node root) {
 
-		if (root == null) {
-			if (currHeight > height)
-				height = currHeight;
+		if (root == null)
+			return 0;
 
-			return height;
-		}
-
-		currHeight++;
-		findHeight(root.left);
-		findHeight(root.right);
-		currHeight--;
-
-		return height;
+		return Math.max(findHeight(root.left) + 1, findHeight(root.right) + 1);
 	}
 
-	ArrayList<Integer> findSpiral(Node root) {
-		// Your code here
-		height = findHeight(root);
-		// System.out.println(height);
-
-		for (int i = 0; i < height; i++)
-			al = traversal(root, i, i);
-
-		return al;
-	}
-
-	public static ArrayList<Integer> traversal(Node root, int level, int height) {
+	public static ArrayList<Integer> traversal(Node root, int level, int height, ArrayList<Integer> al) {
 
 		if (root == null)
 			return al;
@@ -81,22 +58,31 @@ public class _04_LevelOrder_SpiralTraversal {
 		}
 
 		if (height % 2 != 0) {
-			
-			traversal(root.left, level - 1, height);
-			traversal(root.right, level - 1, height);
-			
+			traversal(root.left, level - 1, height, al);
+			traversal(root.right, level - 1, height, al);
 		} else {
-			
-			traversal(root.right, level - 1, height);
-			traversal(root.left, level - 1, height);
-			
+			traversal(root.right, level - 1, height, al);
+			traversal(root.left, level - 1, height, al);
 		}
 
 		return al;
 	}
 
+	ArrayList<Integer> findSpiral(Node root) {
+
+		int height = findHeight(root);
+		ArrayList<Integer> al = new ArrayList<Integer>();
+
+		for (int i = 0; i < height; i++)
+			al = traversal(root, i, i, al);
+
+		return al;
+	}
+
 	public static void main(String[] args) {
-		_04_LevelOrder_SpiralTraversal tree = new _04_LevelOrder_SpiralTraversal();
+
+		_04_SpiralTraversal tree = new _04_SpiralTraversal();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

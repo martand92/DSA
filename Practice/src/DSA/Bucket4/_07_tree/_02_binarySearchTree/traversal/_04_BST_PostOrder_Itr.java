@@ -58,14 +58,14 @@ public class _04_BST_PostOrder_Itr {
 		postorder(root);
 	}
 
-	// Iterative
-
-	// As post-order is left right and root. So need to store root at last and then
-	// right and then left in stack as answer
+	// Iterative : As post-order is left right and root. So need to store root at
+	// last and then right and then left in stack as answer
 	public void postorder(Node node) {
 
 		st1.push(node);
+
 		while (!st1.isEmpty()) {
+
 			Node n = st1.pop();
 			st2.push(n);
 
@@ -81,7 +81,9 @@ public class _04_BST_PostOrder_Itr {
 	}
 
 	public static void main(String[] args) {
+
 		_04_BST_PostOrder_Itr tree = new _04_BST_PostOrder_Itr();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

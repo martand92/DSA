@@ -1,9 +1,11 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree.traversal;
 
-public class _06_BST_HeightOfTree {
+import java.util.*;
+
+public class _05_BST_LevelOrder_Itr {
 
 	Node root;
-	int currHeight = -1, maxHeight = -1;
+	Queue<Node> q = new ArrayDeque<Node>();
 
 	static class Node {
 		int key;
@@ -36,24 +38,24 @@ public class _06_BST_HeightOfTree {
 		return root;
 	}
 
-	public int findHeight() {
-		return findHeight(root, -1); // send 0 if height of root = 1, else send -1 if height of root = 0
-	}
+	public void levelOrderTraversal(Node node) {
 
-	// Overloaded method
-	public int findHeight(Node root, int height) {
+		q.add(node);
 
-		if (root == null)
-			return height;
+		while (!q.isEmpty()) {
 
-		int left = findHeight(root.left, height + 1);
-		int right = findHeight(root.right, height + 1);
+			Node a = q.poll();
+			System.out.println(a.key);
+			if (a.left != null)
+				q.add(a.left);
 
-		return Math.max(left, right);
+			if (a.right != null)
+				q.add(a.right);
+		}
 	}
 
 	public static void main(String[] args) {
-		_06_BST_HeightOfTree tree = new _06_BST_HeightOfTree();
+		_05_BST_LevelOrder_Itr tree = new _05_BST_LevelOrder_Itr();
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -62,7 +64,7 @@ public class _06_BST_HeightOfTree {
 		tree.insert(60);
 		tree.insert(80);
 
-		System.out.println(tree.findHeight());
+		tree.levelOrderTraversal(tree.root);
 	}
 
 }

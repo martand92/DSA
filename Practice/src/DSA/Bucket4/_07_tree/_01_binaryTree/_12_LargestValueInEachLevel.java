@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class _12_LargestValueInEachLevel {
 
 	Node root;
-	int currHeight = -1, height = -1;
 
 	static class Node {
 		int data;
@@ -14,8 +13,7 @@ public class _12_LargestValueInEachLevel {
 
 		Node(int d) {
 			data = d;
-			left = null;
-			right = null;
+			left = right = null;
 		}
 	}
 
@@ -41,19 +39,10 @@ public class _12_LargestValueInEachLevel {
 
 	public int findHeight(Node root) {
 
-		if (root == null) {
-			if (currHeight > height)
-				height = currHeight;
+		if (root == null)
+			return 0;
 
-			return height;
-		}
-
-		currHeight++;
-		findHeight(root.left);
-		findHeight(root.right);
-		currHeight--;
-
-		return height;
+		return Math.max(findHeight(root.left) + 1, findHeight(root.right) + 1);
 	}
 
 	public int levelOrder(Node root, int level, int largeVal) {
@@ -71,20 +60,20 @@ public class _12_LargestValueInEachLevel {
 	}
 
 	public ArrayList<Integer> largestValues(Node root) {
-		// code here
+
 		int height = findHeight(root);
 		ArrayList<Integer> al = new ArrayList<Integer>();
 
-		for (int i = 0; i <= height; i++) {
-
+		for (int i = 0; i < height; i++)
 			al.add(levelOrder(root, i, Integer.MIN_VALUE));
-		}
 
 		return al;
 	}
 
 	public static void main(String[] args) {
+
 		_12_LargestValueInEachLevel tree = new _12_LargestValueInEachLevel();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -94,6 +83,5 @@ public class _12_LargestValueInEachLevel {
 		tree.insert(80);
 
 		System.out.println(tree.largestValues(tree.root));
-
 	}
 }

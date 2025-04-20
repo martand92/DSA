@@ -35,13 +35,13 @@ public class _04_FindHeight {
 
 	}
 
-	public int findHeight(Node root, int height) {
+	public int findHeight(Node root) {
 
 		if (root == null)
-			return height;
+			return 0; // return 0 if root's height=1, return -1 if root's height=0
 
-		int left = findHeight(root.left, height + 1);
-		int right = findHeight(root.right, height + 1);
+		int left = findHeight(root.left) + 1;
+		int right = findHeight(root.right) + 1;
 
 		return Math.max(left, right);
 	}
@@ -54,7 +54,7 @@ public class _04_FindHeight {
 		for (int i = 0; i < arr.length; i++)
 			tree.insert(arr[i]);
 
-		System.out.println(tree.findHeight(tree.root, 0));
+		System.out.println(tree.findHeight(tree.root));
 	}
 
 }

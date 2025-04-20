@@ -47,7 +47,7 @@ public class _04_BST_PostOrder {
 
 		postorder(root.left);
 		postorder(root.right);
-		System.out.println(root.key);
+		System.out.print(root.key + " ");
 
 	}
 

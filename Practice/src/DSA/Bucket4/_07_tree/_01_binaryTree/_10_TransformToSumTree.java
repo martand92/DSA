@@ -46,29 +46,27 @@ public class _10_TransformToSumTree {
 		print(root.right);
 	}
 
-	public int sumOfST(Node initRoot, Node root, int sum) {
+	public int sumOfST(Node root) {
+
 		if (root == null)
-			return sum;
+			return 0;
 
-		sum += root.data;
-
-		sum = sumOfST(initRoot, root.left, sum);
-		sum = sumOfST(initRoot, root.right, sum);
-
-		return sum;
+		return root.data + sumOfST(root.left) + sumOfST(root.right);
 	}
 
 	public void toSumTree(Node root) {
-		// add code here.
+
 		if (root == null)
 			return;
 
-		root.data = sumOfST(root, root.left, 0) + sumOfST(root, root.right, 0);
+		root.data = sumOfST(root.left) + sumOfST(root.right);
+
 		toSumTree(root.left);
 		toSumTree(root.right);
 	}
 
 	public static void main(String[] args) {
+
 		_10_TransformToSumTree tree = new _10_TransformToSumTree();
 
 		tree.insert(50);
@@ -79,12 +77,7 @@ public class _10_TransformToSumTree {
 		tree.insert(60);
 		tree.insert(80);
 
-		tree.print(tree.root);
-
 		tree.toSumTree(tree.root);
-
-		System.out.println();
-
 		tree.print(tree.root);
 
 	}

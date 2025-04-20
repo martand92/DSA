@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class _09_ReverseLevelOrder {
 
 	Node root;
-	int currHeight = -1, height = -1;
 	ArrayList<Integer> al = new ArrayList<Integer>();
 
 	static class Node {
@@ -41,24 +40,16 @@ public class _09_ReverseLevelOrder {
 	}
 
 	public int findHeight(Node node) {
-		if (node == null) {
-			if (currHeight > height)
-				height = currHeight;
 
-			return height;
-		}
+		if (node == null)
+			return 0;
 
-		currHeight++;
-		findHeight(node.left);
-		findHeight(node.right);
-		currHeight--;
-
-		return height;
+		return Math.max(findHeight(node.left) + 1, findHeight(node.right) + 1);
 	}
 
 	public ArrayList<Integer> reverseLevelOrder(Node node) {
 		// code here
-		height = findHeight(node);
+		int height = findHeight(node);
 		for (int i = height; i >= 0; i--)
 			reverseLevelOrder(node, i);
 

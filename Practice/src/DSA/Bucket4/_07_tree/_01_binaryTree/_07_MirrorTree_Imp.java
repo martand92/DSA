@@ -36,7 +36,6 @@ public class _07_MirrorTree_Imp {
 		return root;
 	}
 
-	// Mirror original tree
 	void mirror(Node root) {
 		if (root == null)
 			return;
@@ -74,7 +73,7 @@ public class _07_MirrorTree_Imp {
 		tree.inorder(tree.root);
 
 		tree.mirror(tree.root);
-		
+
 		System.out.println();
 		tree.inorder(tree.root);
 	}

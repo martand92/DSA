@@ -4,8 +4,7 @@ package DSA.Bucket4._07_tree._01_binaryTree;
 public class _08_LeafNodesAtSameLevel {
 
 	Node root;
-	int height = Integer.MIN_VALUE, currHeight = -1;
-	boolean isLevel = true;
+	int height = -1;
 
 	static class Node {
 		int data;
@@ -13,8 +12,7 @@ public class _08_LeafNodesAtSameLevel {
 
 		Node(int d) {
 			data = d;
-			left = null;
-			right = null;
+			left = right = null;
 		}
 	}
 
@@ -38,37 +36,28 @@ public class _08_LeafNodesAtSameLevel {
 		return root;
 	}
 
-	public boolean findHeight(Node node) {
-
-		if (!isLevel)
-			return isLevel;
+	public boolean findHeight(Node node, int currHeight) {
 
 		if (node == null)
-			return isLevel;
-		
-		//Nodes where both left & right children are null are leaf nodes and verify if these are at same level
+			return true;
+
 		if (node.left == null && node.right == null) {
 
-			if (height == Integer.MIN_VALUE)
+			// store first leaf height
+			if (height == -1)
 				height = currHeight;
 
 			else if (height != currHeight)
 				return false;
-
-			return isLevel;
-
 		}
 
-		currHeight++;
-		isLevel = findHeight(node.left);
-		isLevel = findHeight(node.right);
-		currHeight--;
-
-		return isLevel;
+		return findHeight(node.left, currHeight + 1) && findHeight(node.right, currHeight + 1);
 	}
 
 	public static void main(String[] args) {
+
 		_08_LeafNodesAtSameLevel tree = new _08_LeafNodesAtSameLevel();
+
 		tree.insert(50);
 		tree.insert(30);
 		// tree.insert(20);
@@ -77,7 +66,8 @@ public class _08_LeafNodesAtSameLevel {
 		tree.insert(60);
 		tree.insert(80);
 
-		System.out.println(tree.findHeight(tree.root));
+		System.out.println(tree.findHeight(tree.root, 0));
 
 	}
+
 }

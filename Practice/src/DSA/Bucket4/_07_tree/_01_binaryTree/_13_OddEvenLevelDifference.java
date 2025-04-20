@@ -39,19 +39,10 @@ public class _13_OddEvenLevelDifference {
 
 	public int findHeight(Node root) {
 
-		if (root == null) {
-			if (currHeight > height)
-				height = currHeight;
+		if (root == null)
+			return 0;
 
-			return height;
-		}
-
-		currHeight++;
-		findHeight(root.left);
-		findHeight(root.right);
-		currHeight--;
-
-		return height;
+		return Math.max(findHeight(root.left) + 1, findHeight(root.right) + 1);
 	}
 
 	public int levelOrder(Node root, int level, int sum) {
@@ -59,10 +50,8 @@ public class _13_OddEvenLevelDifference {
 		if (root == null)
 			return sum;
 
-		if (level == 0) {
-			sum += root.data;
-			return sum;
-		}
+		if (level == 0)
+			return sum += root.data;
 
 		sum = levelOrder(root.left, level - 1, sum);
 		sum = levelOrder(root.right, level - 1, sum);
@@ -70,11 +59,11 @@ public class _13_OddEvenLevelDifference {
 	}
 
 	int getLevelDiff(Node root) {
-		// code here
+
 		int height = findHeight(root);
 		int sum = 0;
 
-		for (int i = 0; i <= height; i++) {
+		for (int i = 0; i < height; i++) {
 
 			if (i % 2 == 0)
 				sum += levelOrder(root, i, 0);

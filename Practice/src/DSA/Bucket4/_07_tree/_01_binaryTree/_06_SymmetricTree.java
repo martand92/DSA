@@ -48,29 +48,19 @@ public class _06_SymmetricTree {
 	}
 
 	public boolean isSymmetric(Node root) {
-
 		return isMirror(root.left, root.right);
 	}
 
 	public boolean isMirror(Node root1, Node root2) {
 
-		if (root1 == null && root2 == null) // Checking if both left & right traversals have reached end together
+		if (root1 == null && root2 == null)
 			return true;
 
 		// Checking if either left or right traversals have reached end alone
-		if (root1 == null && root2 != null || root1 != null && root2 == null)
+		if (root1 == null && root2 != null || root1 != null && root2 == null || root1.data != root2.data)
 			return false;
 
-		if (root1.data != root2.data)
-			return false;
-
-		if (!isMirror(root1.left, root2.right))
-			return false;
-
-		if (!isMirror(root1.right, root2.left))
-			return false;
-
-		return true;
+		return isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
 	}
 
 	public static void main(String[] args) {

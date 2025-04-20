@@ -1,11 +1,8 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree.traversal;
 
-import java.util.*;
-
-public class _05_BST_LevelOrder_BFS_UsingQ {
+public class _05_BST_LevelOrder_Recursion {
 
 	Node root;
-	Queue<Node> q = new ArrayDeque<Node>();
 
 	static class Node {
 		int key;
@@ -13,8 +10,7 @@ public class _05_BST_LevelOrder_BFS_UsingQ {
 
 		Node(int d) {
 			key = d;
-			left = null;
-			right = null;
+			left = right = null;
 		}
 	}
 
@@ -22,7 +18,6 @@ public class _05_BST_LevelOrder_BFS_UsingQ {
 		root = insert(root, key);
 	}
 
-	// Overloaded method
 	public Node insert(Node root, int key) {
 		if (root == null) {
 			root = new Node(key);
@@ -38,24 +33,40 @@ public class _05_BST_LevelOrder_BFS_UsingQ {
 		return root;
 	}
 
+	public static int findHeight(Node node) {
+
+		if (node == null)
+			return 0;
+
+		return Math.max(findHeight(node.left) + 1, findHeight(node.right) + 1);
+	}
+
+	public static void traverse(Node node, int height) {
+
+		if (node == null)
+			return;
+
+		if (height == 0) {
+			System.out.print(node.key + " ");
+			return;
+		}
+
+		traverse(node.left, height - 1);
+		traverse(node.right, height - 1);
+	}
+
 	public void levelOrderTraversal(Node node) {
 
-		q.add(node);
+		int height = findHeight(node);
 
-		while (!q.isEmpty()) {
-
-			Node a = q.poll();
-			System.out.println(a.key);
-			if (a.left != null)
-				q.add(a.left);
-
-			if (a.right != null)
-				q.add(a.right);
+		for (int i = 0; i <= height; i++) {
+			traverse(node, i);
 		}
+
 	}
 
 	public static void main(String[] args) {
-		_05_BST_LevelOrder_BFS_UsingQ tree = new _05_BST_LevelOrder_BFS_UsingQ();
+		_05_BST_LevelOrder_Recursion tree = new _05_BST_LevelOrder_Recursion();
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

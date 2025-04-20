@@ -3,8 +3,7 @@ package DSA.Bucket4._07_tree._01_binaryTree;
 import java.util.ArrayList;
 
 //https://practice.geeksforgeeks.org/problems/ancestors-in-binary-tree/1
-//check for this solution in above link as its complicated because of static method
-public class _11_AncestorInBinaryTree_static {
+public class _11_AncestorInBinaryTree {
 
 	Node root;
 	ArrayList<Integer> al = new ArrayList<Integer>();
@@ -43,7 +42,6 @@ public class _11_AncestorInBinaryTree_static {
 
 	public ArrayList<Integer> ancestors(Node root, int target) {
 
-		// to stop proceedings when target is found
 		if (found)
 			return al;
 
@@ -56,12 +54,8 @@ public class _11_AncestorInBinaryTree_static {
 		}
 
 		ancestors(root.left, target);
-
-		//System.out.println(root.data);
-
 		ancestors(root.right, target);
 
-		// when target found, while backtracking add all elements
 		if (found)
 			al.add(root.data);
 
@@ -69,7 +63,9 @@ public class _11_AncestorInBinaryTree_static {
 	}
 
 	public static void main(String[] args) {
-		_11_AncestorInBinaryTree_static tree = new _11_AncestorInBinaryTree_static();
+
+		_11_AncestorInBinaryTree tree = new _11_AncestorInBinaryTree();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

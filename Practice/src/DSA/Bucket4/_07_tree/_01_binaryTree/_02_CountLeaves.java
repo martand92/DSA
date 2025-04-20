@@ -20,19 +20,17 @@ public class _02_CountLeaves {
 		}
 	}
 
-	public int countLeaves(Node root, int count) {
+	public int countLeaves(Node root) {
 
 		if (root == null)
-			return count;
+			return 0;
 
-		if (root.left == null && root.right == null) {
-			count++;
-			return count;
-		}
+		if (root.left == null && root.right == null)
+			return 1;
 
-		count = countLeaves(root.left, count);
-		count = countLeaves(root.right, count);
-		return count;
+		int left = countLeaves(root.left);
+		int right = countLeaves(root.right);
+		return left + right;
 	}
 
 	public static void main(String[] args) {
@@ -44,7 +42,7 @@ public class _02_CountLeaves {
 		tree.root.right = new Node(3);
 		tree.root.left.left = new Node(4);
 
-		System.out.println(tree.countLeaves(tree.root, 0));
+		System.out.println(tree.countLeaves(tree.root));
 
 	}
 }

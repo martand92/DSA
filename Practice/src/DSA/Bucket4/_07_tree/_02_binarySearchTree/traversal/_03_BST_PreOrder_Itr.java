@@ -56,8 +56,8 @@ public class _03_BST_PreOrder_Itr {
 		preorder(root);
 	}
 
-	// Iterative. First insert root, then pop root -> print & then right and left
-	// nodes to stack to first access left and then right for preorder print
+	// Iterative. First insert root, then pop root -> print & then push right and
+	// left nodes to stack to first access left and then right for preorder print
 	public void preorder(Node node) {
 
 		Stack<Node> st = new Stack<Node>();
