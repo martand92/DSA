@@ -3,6 +3,7 @@ package DSA.Bucket4._07_tree._01_binaryTree;
 public class _05_BoundaryTraversal {
 
 	Node root;
+
 	static class Node {
 		int data;
 		Node left, right;
@@ -34,32 +35,12 @@ public class _05_BoundaryTraversal {
 		return root;
 	}
 
-	public int findHeight(Node root, int height) {
+	public int findHeight(Node root) {
 
 		if (root == null)
-			return height;
+			return 0;
 
-		int left = findHeight(root.left, height + 1);
-		int right = findHeight(root.right, height + 1);
-
-		return Math.max(left, right);
-	}
-
-	public void levelOrder(Node root) {
-		// Your code here
-		int height = findHeight(root, -1); // consider root as height 0
-
-		// not go upto height value as leaf nodes should not be considered
-		for (int i = 0; i < height; i++) // left side nodes except leaf boundary nodes
-			leftView(root, i);
-
-		printLeafNodes(root);// just print nodes with both left and right = null
-
-		for (int i = height - 1; i >= 1; i--) // from bottom to up fro right boundary nodes
-			rightView(root, i);
-
-		return;
-
+		return Math.max(findHeight(root.left) + 1, findHeight(root.right) + 1);
 	}
 
 	public boolean leftView(Node root, int level) {
@@ -72,29 +53,24 @@ public class _05_BoundaryTraversal {
 			return true;
 		}
 
-		if (root.left != null) {
-			if (leftView(root.left, level - 1))
-				return true;
-		} else {
-			if (leftView(root.right, level - 1))
-				return true;
-		}
+		if (leftView(root.left, level - 1))
+			return true;
 
-		// for right view, reverse above order -> first root.right then root.left
+		if (leftView(root.right, level - 1))
+			return true;
 
 		return false;
-
 	}
 
-	public void printLeafNodes(Node node) {
+	public void printLeafNodes(Node node, int level) {
 		if (node == null)
 			return;
 
-		if (node.left == null && node.right == null)
+		if (level == 0)
 			System.out.print(node.data + " ");
 
-		printLeafNodes(node.left);
-		printLeafNodes(node.right);
+		printLeafNodes(node.left, level - 1);
+		printLeafNodes(node.right, level - 1);
 	}
 
 	public boolean rightView(Node root, int level) {
@@ -107,22 +83,37 @@ public class _05_BoundaryTraversal {
 			return true;
 		}
 
-		if (root.right != null) {
-			if (rightView(root.right, level - 1))
-				return true;
-		} else {
-			if (rightView(root.left, level - 1))
-				return true;
-		}
+		if (rightView(root.right, level - 1))
+			return true;
 
-		// for right view, reverse above order -> first root.right then root.left
+		if (rightView(root.left, level - 1))
+			return true;
 
 		return false;
+	}
+
+	public void levelOrder(Node root) {
+
+		int height = findHeight(root) - 1; // consider root as height 0
+
+		// left side nodes except leaf boundary nodes
+		for (int i = 0; i < height; i++)
+			leftView(root, i);
+
+		// goto last level
+		printLeafNodes(root, height);
+
+		for (int i = height - 1; i > 0; i--)
+			rightView(root, i);
+
+		return;
 
 	}
 
 	public static void main(String[] args) {
+
 		_05_BoundaryTraversal tree = new _05_BoundaryTraversal();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

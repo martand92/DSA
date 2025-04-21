@@ -23,9 +23,16 @@ public class _03_MaxGCD {
 		});
 
 		// arr.sort((n, m) -> n.get(0) - m.get(0));
+		int i = 1;
 
-		for (int i = 1; i < arr.size(); i = i + 2)
-			maxGCD = Math.max(maxGCD, calculategcd(arr.get(i).get(1), arr.get(i - 1).get(1)));
+		while (i < arr.size()) {
+
+			if (arr.get(i).get(0) == arr.get(i - 1).get(0)) {
+				maxGCD = Math.max(maxGCD, calculategcd(arr.get(i).get(1), arr.get(i - 1).get(1)));
+				i = i + 2;
+			} else
+				i = i + 1;
+		}
 
 		if (maxGCD != Integer.MIN_VALUE)
 			return maxGCD;
@@ -36,18 +43,15 @@ public class _03_MaxGCD {
 
 	static int calculategcd(int a, int b) {
 
-		// Find Minimum of a and b
-		int result = Math.min(a, b);
+		int gcd = Math.min(a, b);
 
-		while (result > 0) {
-
-			if (a % result == 0 && b % result == 0)
-				break;
-
-			result--;
+		while (gcd > 0) {
+			if (a % gcd == 0 && b % gcd == 0)
+				return gcd;
+			gcd--;
 		}
-		
-		return result;
+
+		return gcd;
 	}
 
 	public static void main(String[] args) {

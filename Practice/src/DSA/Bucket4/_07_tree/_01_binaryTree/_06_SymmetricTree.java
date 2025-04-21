@@ -64,7 +64,9 @@ public class _06_SymmetricTree {
 	}
 
 	public static void main(String[] args) {
+		
 		_06_SymmetricTree tree = new _06_SymmetricTree();
+		
 		tree.insert();
 //		tree.insert(50);
 //		tree.insert(30);

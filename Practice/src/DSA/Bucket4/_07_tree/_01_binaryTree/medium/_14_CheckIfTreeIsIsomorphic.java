@@ -17,6 +17,8 @@ public class _14_CheckIfTreeIsIsomorphic {
 		}
 	}
 
+	// Two trees are isomorphic if they have the same structure or can be made
+	// identical by swapping left and right children at any number of nodes
 	public boolean isIsomorphic(Node root1, Node root2) {
 
 		if (root1 == null && root2 == null)

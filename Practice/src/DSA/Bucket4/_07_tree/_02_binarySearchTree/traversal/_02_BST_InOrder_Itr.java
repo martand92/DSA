@@ -2,7 +2,7 @@ package DSA.Bucket4._07_tree._02_binarySearchTree.traversal;
 
 import java.util.Stack;
 
-public class _02_BST_InOrder_Itr_Imp_Notunderstood {
+public class _02_BST_InOrder_Itr {
 
 	Node root;
 
@@ -80,7 +80,9 @@ public class _02_BST_InOrder_Itr_Imp_Notunderstood {
 	}
 
 	public static void main(String[] args) {
-		_02_BST_InOrder_Itr_Imp_Notunderstood tree = new _02_BST_InOrder_Itr_Imp_Notunderstood();
+
+		_02_BST_InOrder_Itr tree = new _02_BST_InOrder_Itr();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -91,5 +93,4 @@ public class _02_BST_InOrder_Itr_Imp_Notunderstood {
 
 		tree.inorder();
 	}
-
 }

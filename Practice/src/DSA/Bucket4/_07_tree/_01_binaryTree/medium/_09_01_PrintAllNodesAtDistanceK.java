@@ -95,8 +95,6 @@ public class _09_01_PrintAllNodesAtDistanceK {
 		// store all the nodes and its parents
 		HashMap<Node, Node> parentMap = new HashMap<Node, Node>();// current node - its parent node
 		parentMap = storeAllNodesParent(node, parentMap);
-//		for (Map.Entry<Node, Node> e : parentMap.entrySet())
-//			System.out.println("current:" + e.getKey().data + " parent:" + e.getValue().data);
 
 		// now from target node, queue up left, right and its parent nodes and reduce
 		// distance(k) by 1. Repeat above step for all the q elements till distance(k)
@@ -106,8 +104,6 @@ public class _09_01_PrintAllNodesAtDistanceK {
 		// previously calculated
 		HashMap<Node, Boolean> visitedMap = new HashMap<Node, Boolean>();
 		visitedMap = visitedMap(node, visitedMap);
-//		for (Map.Entry<Node, Boolean> e : visitedMap.entrySet())
-//			System.out.println("Node:" + e.getKey().data + " isVisited:" + e.getValue());
 
 		Queue<NodeDist> nodeDist = new LinkedList<NodeDist>();
 		nodeDist.add(new NodeDist(targetNode, k));// current node is at original distance k
@@ -153,6 +149,8 @@ public class _09_01_PrintAllNodesAtDistanceK {
 //		tree.insert(60);
 //		tree.insert(80);
 		tree.insert();
-		System.out.println(tree.printAllNodesAtDistanceK(tree.root, 5, 2));
+
+		int targetNodeVal = 5, k = 2;
+		System.out.println(tree.printAllNodesAtDistanceK(tree.root, targetNodeVal, k));
 	}
 }

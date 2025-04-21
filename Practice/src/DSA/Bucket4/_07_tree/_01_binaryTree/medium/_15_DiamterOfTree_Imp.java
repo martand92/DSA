@@ -36,7 +36,8 @@ public class _15_DiamterOfTree_Imp {
 		return root;
 	}
 
-	// longest path on tree which need not pass through root
+	// diameter : longest path between any 2 nodes in the tree which need not pass
+	// through root
 
 	// bruteforce:find height of leftsubtree and height of rightsubtree & find max.
 	// O(N^2)

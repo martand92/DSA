@@ -3,7 +3,7 @@ package DSA.Bucket4._07_tree._01_binaryTree.medium;
 import java.util.ArrayList;
 
 //https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1
-public class _04_ZigZagPattern {
+public class _04_ZigZagPattern { // Also known as Spiral traversal
 
 	Node root;
 	ArrayList<Integer> al = new ArrayList<Integer>();
@@ -14,8 +14,7 @@ public class _04_ZigZagPattern {
 
 		Node(int d) {
 			data = d;
-			left = null;
-			right = null;
+			left = right = null;
 		}
 	}
 
@@ -39,24 +38,15 @@ public class _04_ZigZagPattern {
 		return root;
 	}
 
-	int findHeight(Node root, int currHeight, int height) {
-		if (root == null) {
-			if (currHeight > height)
-				height = currHeight;
+	int findHeight(Node root) {
+		if (root == null)
+			return 0;
 
-			return height;
-		}
-
-		currHeight++;
-		height = findHeight(root.left, currHeight, height);
-		height = findHeight(root.right, currHeight, height);
-		currHeight--;
-
-		return height;
-
+		return Math.max(findHeight(root.left) + 1, findHeight(root.right) + 1);
 	}
 
 	ArrayList<Integer> levelOrder(Node root, int level, int i) {
+
 		if (root == null)
 			return al;
 
@@ -74,20 +64,21 @@ public class _04_ZigZagPattern {
 		}
 
 		return al;
-
 	}
 
 	ArrayList<Integer> zigZagTraversal(Node root) {
-		int height = findHeight(root, -1, -1);
+		int height = findHeight(root);
 
-		for (int i = 0; i <= height; i++)
+		for (int i = 0; i < height; i++)
 			levelOrder(root, i, i);
 
 		return al;
 	}
 
 	public static void main(String[] args) {
+
 		_04_ZigZagPattern tree = new _04_ZigZagPattern();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -97,6 +88,7 @@ public class _04_ZigZagPattern {
 		tree.insert(80);
 
 		tree.zigZagTraversal(tree.root);
+
 		System.out.println(tree.al);
 	}
 }

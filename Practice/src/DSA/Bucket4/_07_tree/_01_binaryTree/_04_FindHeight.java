@@ -54,7 +54,9 @@ public class _04_FindHeight {
 		for (int i = 0; i < arr.length; i++)
 			tree.insert(arr[i]);
 
-		System.out.println(tree.findHeight(tree.root));
+		int height = tree.findHeight(tree.root);
+		System.out.println("If root is at level 1 : " + height);
+		System.out.println("If root is at level 0 : " + (height - 1));
 	}
 
 }

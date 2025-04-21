@@ -40,51 +40,28 @@ public class _08_ChildrenSum {
 		}
 		if (d < root.data)
 			root.left = insert(root.left, d);
+
 		else if (d > root.data)
 			root.right = insert(root.right, d);
+
 		return root;
 	}
 
-	public void childrenSum(Node node) {
+	public void findChildrenSum(Node node) {
 
-		if (node == null)
+		if (node == null || (node.left == null && node.right == null))
 			return;
 
-		if (node.left == null && node.right == null)
-			return;
+		findChildrenSum(node.left);
+		findChildrenSum(node.right);
 
-		int sum = 0;
-
-		if (node.left != null)
-			sum += node.left.data;
-
-		if (node.right != null)
-			sum += node.right.data;
-
-//		if (node.data < sum)
-//			node.data = sum;
-		if (sum < node.data) {
-			if (node.left != null)
-				node.left.data = node.data;
-			if (node.right != null)
-				node.right.data = node.data;
-		}
-
-		childrenSum(node.left);
-		childrenSum(node.right);
-
-		sum = 0;
-		if (node.left != null)
-			sum += node.left.data;
-
-		if (node.right != null)
-			sum += node.right.data;
-
-		node.data = sum;
-		return;
+		int leftData = node.left != null ? node.left.data : 0;
+		int rightData = node.right != null ? node.right.data : 0;
+		node.data = leftData + rightData;
 	}
 
 	public void printTraversal(Node node) {
+
 		if (node == null)
 			return;
 
@@ -94,16 +71,18 @@ public class _08_ChildrenSum {
 	}
 
 	public static void main(String[] args) {
+
 		_08_ChildrenSum tree = new _08_ChildrenSum();
-//		tree.insert(50);
-//		tree.insert(30);
-//		tree.insert(20);
-//		tree.insert(40);
-//		tree.insert(70);
-//		tree.insert(60);
-//		tree.insert(80);
-		tree.insert();
-		tree.childrenSum(tree.root);
+
+		tree.insert(50);
+		tree.insert(30);
+		tree.insert(20);
+		tree.insert(40);
+		tree.insert(70);
+		tree.insert(60);
+		tree.insert(80);
+		// tree.insert();
+		tree.findChildrenSum(tree.root);
 		tree.printTraversal(tree.root);
 	}
 }

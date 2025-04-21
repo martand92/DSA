@@ -18,9 +18,9 @@ public class _20_FlattenBT_Recursion {
 
 	public void insert() {
 		root = new Node(50);
-		root.left = new Node(20);
+		root.left = new Node(30);
 		root.right = new Node(70);
-		root.left.left = new Node(30);
+		root.left.left = new Node(20);
 		root.left.right = new Node(40);
 		root.right.left = new Node(60);
 		root.right.right = new Node(80);
@@ -35,8 +35,7 @@ public class _20_FlattenBT_Recursion {
 		printTree(node.right);
 	}
 
-	// Intuition : goto right side first & to last element and start aligning any
-	// left node to right by pointing its parent's right to this node and making
+	// Intuition : goto last right element and aligning any left node to right by pointing its parent's right to this node and making
 	// parent's left as null
 	public void flattenBT(Node node) {
 

@@ -14,8 +14,7 @@ public class _05_LeftViewOfBinaryTree {
 
 		Node(int d) {
 			data = d;
-			left = null;
-			right = null;
+			left = right = null;
 		}
 	}
 
@@ -44,17 +43,13 @@ public class _05_LeftViewOfBinaryTree {
 		if (root == null)
 			return height;
 
-		int left = findHeight(root.left, height + 1);
-		int right = findHeight(root.right, height + 1);
-
-		return Math.max(left, right);
+		return Math.max(findHeight(root.left, height + 1), findHeight(root.right, height + 1));
 	}
 
 	ArrayList<Integer> leftView(Node root) {
-		// Your code here
-		int height = findHeight(root, 0);
 
-		for (int i = 0; i <= height; i++)
+		int height = findHeight(root, 0);
+		for (int i = 0; i < height; i++)
 			levelOrder(root, i);
 
 		return al;
@@ -83,7 +78,9 @@ public class _05_LeftViewOfBinaryTree {
 	}
 
 	public static void main(String[] args) {
+		
 		_05_LeftViewOfBinaryTree tree = new _05_LeftViewOfBinaryTree();
+		
 		tree.insert(50);
 		tree.insert(30);
 		// tree.insert(20);
