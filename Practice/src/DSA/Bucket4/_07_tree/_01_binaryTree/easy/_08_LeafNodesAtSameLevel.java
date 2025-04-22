@@ -1,4 +1,4 @@
-package DSA.Bucket4._07_tree._01_binaryTree;
+package DSA.Bucket4._07_tree._01_binaryTree.easy;
 
 //https://practice.geeksforgeeks.org/problems/leaf-at-same-level/1
 public class _08_LeafNodesAtSameLevel {

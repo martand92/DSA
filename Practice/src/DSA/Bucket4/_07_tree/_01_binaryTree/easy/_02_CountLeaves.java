@@ -1,4 +1,4 @@
-package DSA.Bucket4._07_tree._01_binaryTree;
+package DSA.Bucket4._07_tree._01_binaryTree.easy;
 
 /* For below tree, count leaves (OP: 2)
   	  1    

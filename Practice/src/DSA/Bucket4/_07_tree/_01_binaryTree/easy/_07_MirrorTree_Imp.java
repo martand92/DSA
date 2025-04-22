@@ -1,7 +1,7 @@
-package DSA.Bucket4._07_tree._01_binaryTree;
+package DSA.Bucket4._07_tree._01_binaryTree.easy;
 
-//https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1
-public class _10_TransformToSumTree {
+//https://practice.geeksforgeeks.org/problems/mirror-tree/1
+public class _07_MirrorTree_Imp {
 
 	Node root;
 
@@ -36,39 +36,32 @@ public class _10_TransformToSumTree {
 		return root;
 	}
 
-	public void print(Node root) {
+	void mirror(Node root) {
+		if (root == null)
+			return;
+
+		Node temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+
+		mirror(root.left);
+		mirror(root.right);
+	}
+
+	void inorder(Node root) {
 
 		if (root == null)
 			return;
 
+		inorder(root.left);
 		System.out.print(root.data + " ");
-		print(root.left);
-		print(root.right);
-	}
+		inorder(root.right);
 
-	public int sumOfST(Node root) {
-
-		if (root == null)
-			return 0;
-
-		return root.data + sumOfST(root.left) + sumOfST(root.right);
-	}
-
-	public void toSumTree(Node root) {
-
-		if (root == null)
-			return;
-
-		root.data = sumOfST(root.left) + sumOfST(root.right);
-
-		toSumTree(root.left);
-		toSumTree(root.right);
+		return;
 	}
 
 	public static void main(String[] args) {
-
-		_10_TransformToSumTree tree = new _10_TransformToSumTree();
-
+		_07_MirrorTree_Imp tree = new _07_MirrorTree_Imp();
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -77,8 +70,11 @@ public class _10_TransformToSumTree {
 		tree.insert(60);
 		tree.insert(80);
 
-		tree.toSumTree(tree.root);
-		tree.print(tree.root);
+		tree.inorder(tree.root);
 
+		tree.mirror(tree.root);
+
+		System.out.println();
+		tree.inorder(tree.root);
 	}
 }
