@@ -35,7 +35,8 @@ public class _20_FlattenBT_Recursion {
 		printTree(node.right);
 	}
 
-	// Intuition : goto last right element and aligning any left node to right by pointing its parent's right to this node and making
+	// Intuition : goto last right element and aligning any left node to right by
+	// pointing its parent's right to this node and making
 	// parent's left as null
 	public void flattenBT(Node node) {
 
@@ -47,8 +48,7 @@ public class _20_FlattenBT_Recursion {
 
 		node.right = prev;// point current node's right to prev node
 		node.left = null; // point current node's left to null
-
-		prev = node;// point last aliigned node on right side as prev before backtracking
+		prev = node;// point last aligned node on right side as prev before backtracking
 	}
 
 	public static void main(String[] args) {

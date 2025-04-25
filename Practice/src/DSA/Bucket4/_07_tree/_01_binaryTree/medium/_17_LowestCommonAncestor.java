@@ -16,7 +16,7 @@ import java.util.ArrayList;
 //Scenario 1:if null is returned from 1 subtree(say left) and num is returned from another subtree then return num further
 //Scenario 2:if null is returned at both choices then return null
 //Scenario 3:if both sides return num, meaning found both nums on either side then return this root's val as its LCA
-//Scnario 4 : if both nums are on the same path ex: 70 and 80. When you find 70 then you will directly return 70 and no need to check further for 80 as it will be in same path
+//Scenario 4:if both nums are on the same path ex: 70 and 80. When you find 70 then you will directly return 70 and no need to check further for 80 as it will be in same path
 public class _17_LowestCommonAncestor {
 
 	Node root;

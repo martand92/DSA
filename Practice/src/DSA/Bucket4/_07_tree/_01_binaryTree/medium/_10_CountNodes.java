@@ -37,8 +37,8 @@ public class _10_CountNodes {
 		root.right.right = new Node(7);
 	}
 
-	// here left height is found by traversing only left children. Its not same as
-	// finding height of tree where max of left and right subtrees are considered
+	// here left height is found by traversing only left children. Its not finding
+	// height of left / right subtree
 	public int findLeftHeight(Node node) {
 		if (node == null)
 			return 0;
@@ -55,17 +55,19 @@ public class _10_CountNodes {
 
 	public int countNodes(Node node) {
 
-		int lh = findLeftHeight(node.left);
-		int rh = findRightHeight(node.right);
+		int lh = findLeftHeight(node);
+		int rh = findRightHeight(node);
 
 		if (lh == rh)
-			return (2 << lh) - 1; // 2^n - 1
+			return (1 << lh) - 1; // 2^n - 1
 		else
 			return 1 + countNodes(node.left) + countNodes(node.right);
 	}
 
 	public static void main(String[] args) {
+
 		_10_CountNodes tree = new _10_CountNodes();
+
 //		tree.insert(50);
 //		tree.insert(30);
 //		tree.insert(20);
@@ -73,7 +75,9 @@ public class _10_CountNodes {
 //		tree.insert(70);
 //		tree.insert(60);
 //		tree.insert(80);
+
 		tree.insert();
+
 		System.out.println(tree.countNodes(tree.root));
 	}
 }

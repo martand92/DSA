@@ -86,54 +86,46 @@ public class _09_02_MinTimeToBurnBTFromNode {
 
 	public int minTimeToBurn(Node node, int givenNodeData) {
 
-		// find target node from which all other nodes should be found at distance k
 		Node targetNode = findTargetNode(node, givenNodeData, null);
 
 		// store all the nodes and its parents
 		HashMap<Node, Node> parentMap = new HashMap<Node, Node>();// current node > its parent node
 		parentMap = storeAllNodesParent(node, parentMap);
-//		for (Map.Entry<Node, Node> e : parentMap.entrySet())
-//			System.out.println("current:" + e.getKey().data + " parent:" + e.getValue().data);
 
-		// now from target node, queue up left, right and its parent nodes with time
-		// unit as 1. Get next node from q and add it's neighbors with time unit +1
+		// now from target node, queue up left, right and its parent nodes (neighbors)
+		// with unit time +1
 
 		// should also hold visited list to not consider node whose time unit is already
 		// calculated
 		HashMap<Node, Boolean> visitedMap = new HashMap<Node, Boolean>();
 		visitedMap = visitedMap(node, visitedMap);
-//		for (Map.Entry<Node, Boolean> e : visitedMap.entrySet())
-//			System.out.println("Node:" + e.getKey().data + " isVisited:" + e.getValue());
 
 		Queue<NodeTime> nodeTime = new LinkedList<NodeTime>();
-		nodeTime.add(new NodeTime(targetNode, 0));// current node is at original distance k
+		nodeTime.add(new NodeTime(targetNode, 0));// current node is at distance k
 		int maxTime = 0;
+
 		while (!nodeTime.isEmpty()) {
 
 			// start finding all neighboring nodes of current node
 			NodeTime currentNodeTime = nodeTime.poll();
 			Node currentNode = currentNodeTime.node;
+			maxTime = Math.max(maxTime, currentNodeTime.time);
 
 			// marking current node as visited as it shouldn't be considered as neighbor if
 			// its distance is already calculated
 			visitedMap.put(currentNode, true);
 
-			if (currentNode.left != null && !visitedMap.get(currentNode.left)) {
+			if (currentNode.left != null && !visitedMap.get(currentNode.left))
 				nodeTime.add(new NodeTime(currentNode.left, currentNodeTime.time + 1));
-				maxTime = Math.max(maxTime, currentNodeTime.time + 1);
-			}
 
-			if (currentNode.right != null && !visitedMap.get(currentNode.right)) {
+			if (currentNode.right != null && !visitedMap.get(currentNode.right))
 				nodeTime.add(new NodeTime(currentNode.right, currentNodeTime.time + 1));
-				maxTime = Math.max(maxTime, currentNodeTime.time + 1);
-			}
 
 			Node parentNode = parentMap.get(currentNode);
-			if (parentNode != null && !visitedMap.get(parentNode)) {
+			if (parentNode != null && !visitedMap.get(parentNode))
 				nodeTime.add(new NodeTime(parentNode, currentNodeTime.time + 1));
-				maxTime = Math.max(maxTime, currentNodeTime.time + 1);
-			}
 		}
+
 		return maxTime;
 	}
 

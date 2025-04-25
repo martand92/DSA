@@ -1,5 +1,6 @@
 package DSA.Bucket4._07_tree._01_binaryTree.medium;
 
+//https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
 public class _16_MaximumPathSum_Imp {
 
 	Node root;
@@ -45,16 +46,17 @@ public class _16_MaximumPathSum_Imp {
 		int right = maxPathSum(node.right);
 
 		// for given node you sum up left and right path and current node
-		max = Math.max(max, left + right + node.data);//this stores the max sum path
+		max = Math.max(max, left + right + node.data);
 
-		// but while backtracking you need to select either max of left or right path
-		// and then sum it up with its parent
+		// while backtracking consider path with max weight and add current root's val
 		return node.data + Math.max(left, right);
 
 	}
 
 	public static void main(String[] args) {
+
 		_16_MaximumPathSum_Imp tree = new _16_MaximumPathSum_Imp();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

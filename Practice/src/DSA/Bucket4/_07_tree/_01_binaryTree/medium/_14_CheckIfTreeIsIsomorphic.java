@@ -36,6 +36,7 @@ public class _14_CheckIfTreeIsIsomorphic {
 	}
 
 	public static void main(String[] args) {
+
 		_14_CheckIfTreeIsIsomorphic tree = new _14_CheckIfTreeIsIsomorphic();
 
 		tree.root1 = new Node(1);
@@ -56,6 +57,5 @@ public class _14_CheckIfTreeIsIsomorphic {
 		tree.root2.right.right.right = new Node(7);
 
 		System.out.println(tree.isIsomorphic(tree.root1, tree.root2));
-
 	}
 }

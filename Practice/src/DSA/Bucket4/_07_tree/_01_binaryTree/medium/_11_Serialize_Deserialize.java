@@ -60,6 +60,7 @@ public class _11_Serialize_Deserialize {
 			} else
 				serializedStr += "N";
 		}
+
 		System.out.println(serializedStr);
 		return serializedStr;
 	}
@@ -69,18 +70,19 @@ public class _11_Serialize_Deserialize {
 		Queue<Node> q = new LinkedList<Node>();
 		Node root = new Node(Character.getNumericValue(str.charAt(0)));
 		q.add(root);
+		int i = 0;
 
-		for (int i = 1; i < str.length(); i++) {
+		while (!q.isEmpty()) {
 
 			Node n = q.poll();
 
+			i++;
 			if (str.charAt(i) != 'N') {
 				n.left = new Node(Character.getNumericValue(str.charAt(i)));
 				q.add(n.left);
 			}
 
 			i++;
-
 			if (str.charAt(i) != 'N') {
 				n.right = new Node(Character.getNumericValue(str.charAt(i)));
 				q.add(n.right);
