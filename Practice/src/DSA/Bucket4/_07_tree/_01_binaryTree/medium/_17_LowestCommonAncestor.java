@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 //this is different than lowest common ancestor in bst
 
-//Bruteforce :
+// Bruteforce :
 // Find ancestors of both numbers using algo and then check for its lowest common ancestor
-//TC : O(2N) -> to find ancestor of both the nums. SC : O(2N) to find store ancestors of both nums
+// TC : O(2N) -> to find ancestor of both the nums. SC : O(2N) to find store ancestors of both nums
 
 //Optimized:
 //Start DFS from root and keep traversing, if you find null return null else if found num then return num

@@ -57,16 +57,16 @@ public class _06_SymmetricTree {
 			return true;
 
 		// Checking if either left or right traversals have reached end alone
-		if (root1 == null && root2 != null || root1 != null && root2 == null || root1.data != root2.data)
+		if (root1 == null || root2 == null || root1.data != root2.data)
 			return false;
 
 		return isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
 	}
 
 	public static void main(String[] args) {
-		
+
 		_06_SymmetricTree tree = new _06_SymmetricTree();
-		
+
 		tree.insert();
 //		tree.insert(50);
 //		tree.insert(30);

@@ -38,10 +38,8 @@ public class _09_02_MinTimeToBurnBTFromNode {
 		root.right.right = new Node(6);
 	}
 
-	public Node findTargetNode(Node node, int target, Node targetNode) {
-
-		if (targetNode != null)
-			return targetNode;
+	// Without target node
+	public Node findTargetNode(Node node, int target) {
 
 		if (node == null)
 			return null;
@@ -49,10 +47,12 @@ public class _09_02_MinTimeToBurnBTFromNode {
 		if (node.data == target)
 			return node;
 
-		targetNode = findTargetNode(node.left, target, targetNode);
-		targetNode = findTargetNode(node.right, target, targetNode);
+		Node left = findTargetNode(node.left, target);
 
-		return targetNode;
+		if (left != null)
+			return left;
+
+		return findTargetNode(node.right, target);
 	}
 
 	public HashMap<Node, Node> storeAllNodesParent(Node node, HashMap<Node, Node> parentMap) {
@@ -86,7 +86,7 @@ public class _09_02_MinTimeToBurnBTFromNode {
 
 	public int minTimeToBurn(Node node, int givenNodeData) {
 
-		Node targetNode = findTargetNode(node, givenNodeData, null);
+		Node targetNode = findTargetNode(node, givenNodeData);
 
 		// store all the nodes and its parents
 		HashMap<Node, Node> parentMap = new HashMap<Node, Node>();// current node > its parent node

@@ -62,6 +62,23 @@ public class _11_AncestorInBinaryTree {
 		return al;
 	}
 
+	public boolean ancestors_cleaner(Node root, int target) {
+
+		if (root == null)
+			return false;
+
+		if (root.data == target)
+			return true;
+
+		if (ancestors_cleaner(root.left, target) || ancestors_cleaner(root.right, target)) {
+			al.add(root.data);
+			return true;
+		}
+
+		return false;
+
+	}
+
 	public static void main(String[] args) {
 
 		_11_AncestorInBinaryTree tree = new _11_AncestorInBinaryTree();
@@ -75,6 +92,9 @@ public class _11_AncestorInBinaryTree {
 		tree.insert(80);
 
 		System.out.println(tree.ancestors(tree.root, 80));
+		tree.al.clear();
+		tree.ancestors_cleaner(tree.root, 80);
+		System.out.println(tree.al);
 
 	}
 }

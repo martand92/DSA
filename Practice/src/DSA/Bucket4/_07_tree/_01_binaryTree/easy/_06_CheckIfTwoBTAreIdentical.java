@@ -48,7 +48,7 @@ public class _06_CheckIfTwoBTAreIdentical {
 		if (root1 == null && root2 == null)
 			return true;
 
-		if (root1 == null && root2 != null || root1 != null && root2 == null)
+		if (root1 == null || root2 == null) // same as root1 == null && root2 != null || root1 != null && root2 == null
 			return false;
 
 		if (root1.data != root2.data)

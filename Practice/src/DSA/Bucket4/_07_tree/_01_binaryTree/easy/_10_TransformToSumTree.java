@@ -46,23 +46,19 @@ public class _10_TransformToSumTree {
 		print(root.right);
 	}
 
-	public int sumOfST(Node root) {
+	public int toSumTree(Node node) {
 
-		if (root == null)
+		if (node == null)
 			return 0;
 
-		return root.data + sumOfST(root.left) + sumOfST(root.right);
-	}
+		int nodeVal = node.data;
 
-	public void toSumTree(Node root) {
+		int leftSum = toSumTree(node.left);
+		int rightSum = toSumTree(node.right);
 
-		if (root == null)
-			return;
+		node.data = leftSum + rightSum;
 
-		root.data = sumOfST(root.left) + sumOfST(root.right);
-
-		toSumTree(root.left);
-		toSumTree(root.right);
+		return node.data + nodeVal;
 	}
 
 	public static void main(String[] args) {

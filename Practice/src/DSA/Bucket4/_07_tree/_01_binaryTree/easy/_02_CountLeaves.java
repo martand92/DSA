@@ -28,9 +28,7 @@ public class _02_CountLeaves {
 		if (root.left == null && root.right == null)
 			return 1;
 
-		int left = countLeaves(root.left);
-		int right = countLeaves(root.right);
-		return left + right;
+		return countLeaves(root.left) + countLeaves(root.right);
 	}
 
 	public static void main(String[] args) {
