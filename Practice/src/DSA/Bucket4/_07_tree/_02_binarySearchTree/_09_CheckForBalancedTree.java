@@ -4,8 +4,6 @@ package DSA.Bucket4._07_tree._02_binarySearchTree;
 public class _09_CheckForBalancedTree {
 
 	Node root;
-	boolean sol = true;
-	int bf = 0;
 
 	static class Node {
 		int data;
@@ -38,47 +36,23 @@ public class _09_CheckForBalancedTree {
 		return root;
 	}
 
-	int height(Node root, int currHeight, int height) {
-
-		if (root == null) {
-
-			if (currHeight > height)
-				height = currHeight;
-
-			return height;
-		}
-
-		currHeight++;
-		height = height(root.left, currHeight, height);// must update height value for every recursion call
-		height = height(root.right, currHeight, height);
-		currHeight--;
-
-		return height;
-	}
-
-	boolean checkBalanceFactor(Node root1, Node root2) {
-
-		if (Math.abs(height(root1, -1, -1) - height(root2, -1, -1)) < 2)
-			return true;
-
-		return false;
-
-	}
-
-	// Check bf of each node and if Math.abs(bf) > 1 for any node, tree is not
-	// balanced
-	public boolean isBalanced(Node root) {
-
-		if (!sol)
-			return sol;
+	int height(Node root) {
 
 		if (root == null)
-			return sol;
+			return 0;
 
-		sol = isBalanced(root.left);
-		sol = isBalanced(root.right);
+		return Math.max(height(root.left) + 1, height(root.right) + 1);
+	}
 
-		return checkBalanceFactor(root.left, root.right);
+	public boolean isBalanced(Node root) {
+
+		if (root == null)
+			return true;
+
+		if (Math.abs(height(root.left) - height(root.right)) > 1)
+			return false;
+
+		return isBalanced(root.left) && isBalanced(root.right);
 	}
 
 	public static void main(String[] args) {

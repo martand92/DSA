@@ -61,6 +61,23 @@ public class _17_InorderSuccessorInBST {
 		return nextNode;
 	}
 
+	public Node inorderSuccessor2(Node root, int x) {
+
+		Node successor = null;
+
+		while (root != null) {
+
+			if (x < root.data) { // Go left, and update possible successor
+				successor = root;
+				root = root.left;
+			} else // Go right (because successor must be bigger)
+				root = root.right;
+		}
+
+		return successor;
+
+	}
+
 	public static void main(String[] args) {
 
 		_17_InorderSuccessorInBST tree = new _17_InorderSuccessorInBST();

@@ -76,10 +76,11 @@ public class _15_DiamterOfTree_Imp {
 		int leftHeight = findDiameter(node.left);
 		int rightHeight = findDiameter(node.right);
 
-		// Update the diameter if the path through the current node is longer
+		// max contains diameter i.e leftSubTree's height + rightSubTree's height
 		max = Math.max(max, leftHeight + rightHeight);
 
-		// Return the height of the current subtree
+		// while returning consider max(left,right) subtree & edge between current root
+		// to subtree(+1)
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
 

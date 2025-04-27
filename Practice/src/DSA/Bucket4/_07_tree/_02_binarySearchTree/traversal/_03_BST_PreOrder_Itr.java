@@ -75,11 +75,12 @@ public class _03_BST_PreOrder_Itr {
 			if (node.left != null)
 				st.push(node.left);
 		}
-
 	}
 
 	public static void main(String[] args) {
+
 		_03_BST_PreOrder_Itr tree = new _03_BST_PreOrder_Itr();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

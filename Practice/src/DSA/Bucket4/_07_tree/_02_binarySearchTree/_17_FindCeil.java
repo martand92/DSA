@@ -1,6 +1,6 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree;
 
-public class _23_FindCeil {
+public class _17_FindCeil {
 	Node root;
 
 	static class Node {
@@ -52,9 +52,30 @@ public class _23_FindCeil {
 		return ceil;
 	}
 
+	public int findCeil1(Node node, int x) {
+		
+		int ceil = -1;
+
+		while (node != null) {
+			if (node.key == x) {
+				ceil = node.key;
+				return ceil;
+			}
+
+			if (node.key < x)
+				node = node.right;
+			else {
+				ceil = node.key;
+				node = node.left;
+			}
+		}
+
+		return ceil;
+	}
+
 	public static void main(String[] args) {
 
-		_23_FindCeil tree = new _23_FindCeil();
+		_17_FindCeil tree = new _17_FindCeil();
 
 		tree.insert(50);
 		tree.insert(30);

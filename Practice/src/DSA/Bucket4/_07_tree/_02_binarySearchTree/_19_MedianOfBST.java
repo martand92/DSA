@@ -39,7 +39,7 @@ public class _19_MedianOfBST {
 	}
 
 	public static float findMedian(Node root) {
-		// code here.
+
 		ArrayList<Float> al = new ArrayList<Float>();
 
 		al = getInOrderTraversal(root, al);
@@ -48,7 +48,7 @@ public class _19_MedianOfBST {
 		if (size % 2 != 0)
 			return al.get(size / 2);
 		else
-			return (al.get(size / 2) + al.get(size / 2 - 1)) / 2;
+			return (al.get(size / 2) + al.get((size / 2) - 1)) / 2;
 	}
 
 	public static ArrayList<Float> getInOrderTraversal(Node root, ArrayList<Float> al) {

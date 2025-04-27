@@ -38,28 +38,28 @@ public class _13_LowestCommonAncestor_BST_Nice {
 	}
 
 	// As its BST, check if given numbers lie on left or right side
-	Node LCA(Node root, int n1, int n2) {
-		// code here.
+	Node lowestCommonAncestor(Node root, int n1, int n2) {
+
 		if (root == null)
 			return root;
 
-		// While traversing if root.data = any of the value then return this root
 		if (root.data == n1 || root.data == n2)
 			return root;
 
 		else if (root.data < n1 && root.data < n2)
-			return LCA(root.right, n1, n2);
+			return lowestCommonAncestor(root.right, n1, n2);
 
 		else if (root.data > n1 && root.data > n2)
-			return LCA(root.left, n1, n2);
+			return lowestCommonAncestor(root.left, n1, n2);
 
-		else // if n1 & n2 are found on left & right subtree of current node, then return
-				// this node
+		else
 			return root;
 	}
 
 	public static void main(String[] args) {
+
 		_13_LowestCommonAncestor_BST_Nice tree = new _13_LowestCommonAncestor_BST_Nice();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);
@@ -68,6 +68,6 @@ public class _13_LowestCommonAncestor_BST_Nice {
 		tree.insert(60);
 		tree.insert(80);
 
-		System.out.println(tree.LCA(tree.root, 20, 40).data);
+		System.out.println(tree.lowestCommonAncestor(tree.root, 20, 40).data);
 	}
 }

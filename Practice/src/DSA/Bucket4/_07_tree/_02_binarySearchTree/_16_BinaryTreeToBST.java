@@ -8,7 +8,6 @@ public class _16_BinaryTreeToBST {
 
 	Node root;
 	ArrayList<Integer> al = new ArrayList<Integer>();
-	int i = 0;
 
 	static class Node {
 		int data;
@@ -58,7 +57,7 @@ public class _16_BinaryTreeToBST {
 			return root;
 
 		updateCurrentTree(root.left);
-		root.data = al.get(i++);
+		root.data = al.remove(0);
 		updateCurrentTree(root.right);
 
 		return root;
@@ -66,14 +65,13 @@ public class _16_BinaryTreeToBST {
 
 	Node binaryTreeToBST(Node root) {
 
-		// Your code here
-		root = loadArrayListForSorting(root);
+		loadArrayListForSorting(root);
 		Collections.sort(al);
-		root = updateCurrentTree(root);
-		return root;
+		return updateCurrentTree(root);
 	}
 
 	public static void main(String[] args) {
+
 		_16_BinaryTreeToBST tree = new _16_BinaryTreeToBST();
 
 		tree.insert(50);

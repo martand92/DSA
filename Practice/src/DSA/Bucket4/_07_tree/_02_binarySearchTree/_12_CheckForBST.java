@@ -4,7 +4,6 @@ package DSA.Bucket4._07_tree._02_binarySearchTree;
 public class _12_CheckForBST {
 
 	Node root;
-	boolean sol = true;
 	int val = Integer.MIN_VALUE;
 
 	static class Node {
@@ -41,17 +40,13 @@ public class _12_CheckForBST {
 
 	// Inorder traversal of BST is always sorted
 	boolean isBST(Node root) {
-		// code here.
-
-		if (!sol)
-			return false;
 
 		if (root == null)
-			return sol;
+			return true;
 
-		sol = isBST(root.left);
+		if (!isBST(root.left))
+			return false;
 
-		// if current node val > prev node val then its not sorted, hence not BST
 		if (val > root.data)
 			return false;
 
@@ -61,7 +56,9 @@ public class _12_CheckForBST {
 	}
 
 	public static void main(String[] args) {
+
 		_12_CheckForBST tree = new _12_CheckForBST();
+
 		tree.insert(50);
 		tree.insert(30);
 		tree.insert(20);

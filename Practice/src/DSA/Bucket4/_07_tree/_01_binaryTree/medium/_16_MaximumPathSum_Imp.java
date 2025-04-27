@@ -45,10 +45,10 @@ public class _16_MaximumPathSum_Imp {
 		int left = maxPathSum(node.left);
 		int right = maxPathSum(node.right);
 
-		// for given node you sum up left and right path and current node
+		// for current maxPath sum up left and right path and current node
 		max = Math.max(max, left + right + node.data);
 
-		// while backtracking consider path with max weight and add current root's val
+		// while backtracking consider path with max weight and add current node's val
 		return node.data + Math.max(left, right);
 
 	}

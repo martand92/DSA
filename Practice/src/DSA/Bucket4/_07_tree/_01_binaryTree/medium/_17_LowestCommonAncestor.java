@@ -13,10 +13,9 @@ import java.util.ArrayList;
 //Optimized:
 //Start DFS from root and keep traversing, if you find null return null else if found num then return num
 
-//Scenario 1:if null is returned from 1 subtree(say left) and num is returned from another subtree then return num further
-//Scenario 2:if null is returned at both choices then return null
-//Scenario 3:if both sides return num, meaning found both nums on either side then return this root's val as its LCA
-//Scenario 4:if both nums are on the same path ex: 70 and 80. When you find 70 then you will directly return 70 and no need to check further for 80 as it will be in same path
+// if first num / second num is seen on 1 path, then it would be the num from this path. Now search for other num in 2nd path
+// if another num is not seen on 2nd path then current obtained num will be the result as another num will be on same 1st path
+// if another num is obtained on 2nd path then root that produces 2 paths (left & right) will be the result
 public class _17_LowestCommonAncestor {
 
 	Node root;
@@ -86,7 +85,7 @@ public class _17_LowestCommonAncestor {
 		tree.insert(60);
 		tree.insert(80);
 
-		System.out.println(tree.lca(tree.root, 70, 80).data);
+		System.out.println(tree.lca(tree.root, 30, 20).data);
 
 	}
 
