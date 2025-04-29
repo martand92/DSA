@@ -1,9 +1,10 @@
-package DSA.Bucket4._07_tree._02_binarySearchTree;
+package DSA.Bucket4._07_tree._02_binarySearchTree.medium;
 
 //https://practice.geeksforgeeks.org/problems/array-to-bst4443/1
 
 /* Below implementation can also be used to balance BST (without AVL / Red black) 
  * where inorder of BST results in sorted list using which balanced BST can be created
+ * _15_NormalBSTToBalancedBST
  */
 public class _15_ArrayToBST_Imp {
 

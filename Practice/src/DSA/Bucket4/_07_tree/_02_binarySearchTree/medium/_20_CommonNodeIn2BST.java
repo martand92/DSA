@@ -7,9 +7,8 @@ public class _20_CommonNodeIn2BST {
 
 	Node root1;
 	Node root2;
-
-	static ArrayList<Integer> al = new ArrayList<Integer>();
-	static ArrayList<Integer> finalAl = new ArrayList<Integer>();
+	static HashSet<Integer> hs = new HashSet<Integer>();
+	static ArrayList<Integer> result = new ArrayList<Integer>();
 
 	static class Node {
 		int data;
@@ -47,28 +46,23 @@ public class _20_CommonNodeIn2BST {
 
 	public static ArrayList<Integer> findCommon(Node root1, Node root2) {
 
-		// code here
 		getInorderTraversal(root1, true);
 		getInorderTraversal(root2, false);
 
-		return finalAl;
+		return result;
 	}
 
 	public static ArrayList<Integer> getInorderTraversal(Node root, boolean first) {
 
 		if (root == null)
-			return al;
+			return result;
 
-		getInorderTraversal(root.left, first);
+		result = getInorderTraversal(root.left, first);
 
-		if (first)
-			al.add(root.data);
+		if (!hs.add(root.data))
+			result.add(root.data);
 
-		else if (al.contains(root.data))
-			finalAl.add(root.data);
-
-		getInorderTraversal(root.right, first);
-		return al;
+		return getInorderTraversal(root.right, first);
 	}
 
 	public static void main(String[] args) {

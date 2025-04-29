@@ -1,7 +1,7 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree;
 
 //https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
-public class _09_CheckForBalancedTree {
+public class _09_02_CheckForBalancedTree_ON_NotUnderstood {
 
 	Node root;
 
@@ -36,28 +36,36 @@ public class _09_CheckForBalancedTree {
 		return root;
 	}
 
-	int height(Node root) {
+	int checkHeight(Node root) { // O(N)
 
 		if (root == null)
 			return 0;
 
-		return Math.max(height(root.left) + 1, height(root.right) + 1);
+		int leftHeight = checkHeight(root.left);
+		if (leftHeight == -1)
+			return -1; // left subtree not balanced
+
+		int rightHeight = checkHeight(root.right);
+		if (rightHeight == -1)
+			return -1; // right subtree not balanced
+
+		if (Math.abs(leftHeight - rightHeight) > 1)
+			return -1; // current node not balanced
+
+		return Math.max(leftHeight, rightHeight) + 1; // return height
 	}
 
 	public boolean isBalanced(Node root) {
 
-		if (root == null)
+		if (checkHeight(root) != -1)
 			return true;
 
-		if (Math.abs(height(root.left) - height(root.right)) > 1)
-			return false;
-
-		return isBalanced(root.left) && isBalanced(root.right);
+		return false;
 	}
 
 	public static void main(String[] args) {
 
-		_09_CheckForBalancedTree tree = new _09_CheckForBalancedTree();
+		_09_02_CheckForBalancedTree_ON_NotUnderstood tree = new _09_02_CheckForBalancedTree_ON_NotUnderstood();
 
 		tree.insert(50);
 		tree.insert(30);
@@ -67,7 +75,7 @@ public class _09_CheckForBalancedTree {
 		tree.insert(60);
 		tree.insert(80);
 		tree.insert(90);
-		// tree.insert(100);
+		tree.insert(100);
 
 		System.out.println(tree.isBalanced(tree.root));
 	}

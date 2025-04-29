@@ -90,7 +90,7 @@ public class _17_InorderSuccessorInBST {
 		tree.insert(60);
 		tree.insert(80);
 
-		Node n = tree.inorderSuccessor(tree.root, 80);
+		Node n = tree.inorderSuccessor2(tree.root, 30);
 
 		if (n != null)
 			System.out.println(n.data);

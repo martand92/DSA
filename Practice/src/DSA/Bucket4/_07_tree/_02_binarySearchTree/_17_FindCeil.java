@@ -53,10 +53,11 @@ public class _17_FindCeil {
 	}
 
 	public int findCeil1(Node node, int x) {
-		
+
 		int ceil = -1;
 
 		while (node != null) {
+
 			if (node.key == x) {
 				ceil = node.key;
 				return ceil;
@@ -64,10 +65,12 @@ public class _17_FindCeil {
 
 			if (node.key < x)
 				node = node.right;
+
 			else {
 				ceil = node.key;
 				node = node.left;
 			}
+
 		}
 
 		return ceil;

@@ -1,10 +1,9 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree;
 
 //https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
-public class _09_CheckForBalancedTree2 {
+public class _09_01_CheckForBalancedTree_ON2 {
 
 	Node root;
-	int bf = 0;
 
 	static class Node {
 		int data;
@@ -37,36 +36,37 @@ public class _09_CheckForBalancedTree2 {
 		return root;
 	}
 
-	int height(Node root, int height) {
+	int height(Node root) {
 
 		if (root == null)
-			return height;
+			return 0;
 
-		int left = height(root.left, height + 1);
-		int right = height(root.right, height + 1);
-
-		return Math.max(left, right);
+		return Math.max(height(root.left) + 1, height(root.right) + 1);
 	}
 
-	// Check bf of each node and if Math.abs(bf) > 1 for any node, tree is not
-	// balanced
-	public boolean isBalanced(Node root) {
+	public boolean isBalanced(Node root) { //O(N2)
 
 		if (root == null)
 			return true;
 
-		if (!isBalanced(root.left))
+		if (Math.abs(height(root.left) - height(root.right)) > 1)
 			return false;
 
-		if (!isBalanced(root.right))
-			return false;
-
-		return (Math.abs(height(root.left, -1) - height(root.right, -1)) < 2);
+		return isBalanced(root.left) && isBalanced(root.right);
 	}
+
+	/*
+	 * height(root.left) calls height() for entire left subtree.
+	 * 
+	 * height(root.right) calls height() for entire right subtree.
+	 * 
+	 * Then inside isBalanced(root.left), again it recalculates height of left
+	 * subtree from scratch
+	 */
 
 	public static void main(String[] args) {
 
-		_09_CheckForBalancedTree2 tree = new _09_CheckForBalancedTree2();
+		_09_01_CheckForBalancedTree_ON2 tree = new _09_01_CheckForBalancedTree_ON2();
 
 		tree.insert(50);
 		tree.insert(30);
