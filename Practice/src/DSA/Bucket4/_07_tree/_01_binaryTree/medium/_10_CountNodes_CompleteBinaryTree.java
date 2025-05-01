@@ -3,7 +3,7 @@ package DSA.Bucket4._07_tree._01_binaryTree.medium;
 //https://www.youtube.com/watch?v=u-yWemKGWO0
 
 //Given is a complete tree (last node is left aligned) and you need to count no of nodes in less than O(N)
-public class _10_CountNodes {
+public class _10_CountNodes_CompleteBinaryTree {
 
 	Node root;
 
@@ -66,7 +66,7 @@ public class _10_CountNodes {
 
 	public static void main(String[] args) {
 
-		_10_CountNodes tree = new _10_CountNodes();
+		_10_CountNodes_CompleteBinaryTree tree = new _10_CountNodes_CompleteBinaryTree();
 
 //		tree.insert(50);
 //		tree.insert(30);

@@ -39,7 +39,7 @@ public class _21_01_01_BSTIterator_Next {
 		return root;
 	}
 
-	// first add all the ele on left to stack as inorder is left->root->right
+	// first add all left elements to stack as inorder is left->root->right
 	public void initialization(Node root) {
 		while (root != null) {
 			st.add(root);
@@ -47,8 +47,8 @@ public class _21_01_01_BSTIterator_Next {
 		}
 	}
 
-	// then pop out left most element, check if it has right
-	// if yes then add it to stack and add all its left nodes to stack
+	// When next() is called, pop out st top = left most element, check if it has
+	// right. if yes then add it to st & add all its left nodes to st
 	public int next() {
 
 		Node a = st.pop();
@@ -79,6 +79,7 @@ public class _21_01_01_BSTIterator_Next {
 		tree.insert(30);
 		tree.insert(20);
 		tree.insert(40);
+		tree.insert(35);
 		tree.insert(70);
 		tree.insert(60);
 		tree.insert(80);

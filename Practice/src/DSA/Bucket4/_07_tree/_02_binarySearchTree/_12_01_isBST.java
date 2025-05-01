@@ -1,7 +1,7 @@
 package DSA.Bucket4._07_tree._02_binarySearchTree;
 
 //https://practice.geeksforgeeks.org/problems/check-for-bst/1
-public class _12_CheckForBST {
+public class _12_01_isBST {
 
 	Node root;
 	int val = Integer.MIN_VALUE;
@@ -57,7 +57,7 @@ public class _12_CheckForBST {
 
 	public static void main(String[] args) {
 
-		_12_CheckForBST tree = new _12_CheckForBST();
+		_12_01_isBST tree = new _12_01_isBST();
 
 		tree.insert(50);
 		tree.insert(30);

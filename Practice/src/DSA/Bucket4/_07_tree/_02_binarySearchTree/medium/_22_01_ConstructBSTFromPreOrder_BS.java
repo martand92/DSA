@@ -2,10 +2,10 @@ package DSA.Bucket4._07_tree._02_binarySearchTree.medium;
 
 import java.util.Arrays;
 
-//As binary tree here you need inorder of given tree only to construct BT. 
+//Sort given pre-order & then construct BST 
 public class _22_01_ConstructBSTFromPreOrder_BS {
 
-	Node root;
+	static Node root;
 
 	static class Node {
 		int data;
@@ -18,7 +18,8 @@ public class _22_01_ConstructBSTFromPreOrder_BS {
 		}
 	}
 
-	public void print(Node node) {
+	public static void print(Node node) {
+
 		if (node == null)
 			return;
 
@@ -27,7 +28,7 @@ public class _22_01_ConstructBSTFromPreOrder_BS {
 		print(node.right);
 	}
 
-	public Node constructTree(int preorder[], int l, int r) {
+	public static Node constructTree(int preorder[], int l, int r) {
 
 		if (l > r)
 			return root;
@@ -44,10 +45,11 @@ public class _22_01_ConstructBSTFromPreOrder_BS {
 	public static void main(String[] args) {
 
 		int[] preorder = { 8, 5, 1, 7, 10, 12 };
+
 		Arrays.sort(preorder); // O(NlogN)
-		_22_01_ConstructBSTFromPreOrder_BS tree = new _22_01_ConstructBSTFromPreOrder_BS();
-		tree.root = tree.constructTree(preorder, 0, preorder.length - 1); // O(N)
-		tree.print(tree.root);
+
+		root = constructTree(preorder, 0, preorder.length - 1); // O(N)
+		print(root);
 	}
 }
 
