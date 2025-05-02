@@ -5,13 +5,11 @@ public class _13_CreateBT_PostInOrder {
 
 	static class Node {
 		int data;
-		Node left;
-		Node right;
+		Node left, right;
 
 		Node(int data) {
 			this.data = data;
-			this.left = null;
-			this.right = null;
+			this.left = this.right = null;
 		}
 	}
 
@@ -24,17 +22,17 @@ public class _13_CreateBT_PostInOrder {
 		printList(node.right);
 	}
 
-	public Node constructBT(int[] inorder, int[] postorder, int postorderIndex) {
+	public Node constructBT(int[] inorder, int[] postorder) {
 
 		if (inorder.length == 0)
 			return null;
 
 		if (inorder.length == 1)
-			return new Node(postorder[0]);
+			return new Node(inorder[0]);
 
 		int rootIndex = 0;
 		for (int i = 0; i < inorder.length; i++) {
-			if (inorder[i] == postorder[postorderIndex]) {
+			if (inorder[i] == postorder[postorder.length - 1]) {// always last element of postorder will be root
 				rootIndex = i;
 				break;
 			}
@@ -63,8 +61,8 @@ public class _13_CreateBT_PostInOrder {
 
 		Node root = new Node(inorder[rootIndex]);
 
-		root.left = constructBT(inOrderLeft, postOrderLeft, postOrderLeft.length - 1);
-		root.right = constructBT(inOrderRight, postOrderRight, postOrderRight.length - 1);
+		root.left = constructBT(inOrderLeft, postOrderLeft);
+		root.right = constructBT(inOrderRight, postOrderRight);
 
 		return root;
 	}
@@ -76,7 +74,7 @@ public class _13_CreateBT_PostInOrder {
 		int[] inorder = { 40, 20, 50, 10, 60, 30 };
 		int[] postorder = { 40, 50, 20, 60, 30, 10 };
 
-		Node root = tree.constructBT(inorder, postorder, postorder.length - 1);
+		Node root = tree.constructBT(inorder, postorder);
 		tree.printList(root);
 	}
 

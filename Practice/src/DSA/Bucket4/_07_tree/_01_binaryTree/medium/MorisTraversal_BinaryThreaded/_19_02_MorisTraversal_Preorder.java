@@ -24,27 +24,27 @@ public class _19_02_MorisTraversal_Preorder {
 		root.left.right.right = new Node(6);
 	}
 
-	public void morisTraversal(Node node) {
+	public void morisTraversal(Node root) {
 
-		Node curr = node;
+		Node curr = root;
 
 		while (curr != null) {
 
 			// if left subtree is available
 			if (curr.left != null) {
 
-				Node prev = curr.left;
+				Node node = curr.left;
 
-				while (prev.right != null && prev.right != curr)
-					prev = prev.right;
+				while (node.right != null && node.right != curr)
+					node = node.right;
 
-				if (prev.right == null) {
-					prev.right = curr;
+				if (node.right == null) {
+					node.right = curr;
 					System.out.print(curr.data + " "); // for pre order before moving curr to curr.left print it
 					curr = curr.left;
 
 				} else {
-					prev.right = null;
+					node.right = null;
 					curr = curr.right;
 				}
 			} else {

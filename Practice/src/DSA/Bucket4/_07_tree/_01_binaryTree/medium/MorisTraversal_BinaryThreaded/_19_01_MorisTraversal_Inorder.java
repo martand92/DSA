@@ -38,32 +38,34 @@ public class _19_01_MorisTraversal_Inorder {
 	// if node.left!=null, point right most node of this node's left subtree to root
 	// if you reach node.left == null then point this node's right to root.
 	// print node's value whose
-	public void morisTraversal(Node node) {
+	public void morisTraversal(Node root) {
 
-		Node curr = node;
+		Node curr = root;
 
 		while (curr != null) {
 
-			// if left subtree is available
-			if (curr.left != null) {
+			if (curr.left != null) { // if left subtree is available
 
-				Node prev = curr.left;
+				Node node = curr.left;
 
-				while (prev.right != null && prev.right != curr)
-					prev = prev.right;
+				while (node.right != null && node.right != curr)
+					node = node.right;
 
-				if (prev.right == null) {
-					prev.right = curr;
+				if (node.right == null) {
+					node.right = curr;
 					curr = curr.left;
+
 				} else { // if prev.right == curr
-					prev.right = null;
-					// as you are transitioning to right via this root, it will be part of inorder
-					System.out.print(curr.data + " ");
+					node.right = null;
+					System.out.print(curr.data + " "); // as you are transitioning to right via this root, it will be
+														// part of inorder
 					curr = curr.right;
 				}
+
 			} else { // if curr.left == null
+
 				System.out.print(curr.data + " ");// as inorder is left -> root -> right, if you reach node whose left
-													// is null print it. this node can be left or right of its parent
+													// is null print root
 				curr = curr.right;
 			}
 		}

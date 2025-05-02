@@ -20,36 +20,35 @@ public class _19_03_MorisTraversal_Postorder {
 	}
 
 	public void insert() {
-		root = new Node(50);
-		root.left = new Node(20);
-		root.right = new Node(70);
-		root.left.left = new Node(30);
-		root.left.right = new Node(40);
-		root.right.left = new Node(60);
-		root.right.right = new Node(80);
+		root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.left.right.right = new Node(6);
 	}
 
-	public ArrayList<Integer> morisTraversal(Node node) {
+	public ArrayList<Integer> morisTraversal(Node root) {
 
-		Node curr = node;
+		Node curr = root;
 
 		while (curr != null) {
 
 			// if right subtree is available
 			if (curr.right != null) {
 
-				Node prev = curr.right;
+				Node node = curr.right;
 
-				while (prev.left != null && prev.left != curr)
-					prev = prev.left;
+				while (node.left != null && node.left != curr)
+					node = node.left;
 
-				if (prev.left == null) {
-					prev.left = curr;
+				if (node.left == null) {
+					node.left = curr;
 					al.add(curr.data);
 					curr = curr.right;
 
 				} else {
-					prev.left = null;
+					node.left = null;
 					curr = curr.left;
 				}
 			} else {

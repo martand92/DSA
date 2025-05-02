@@ -25,18 +25,18 @@ public class _12_CreateBT_PreInOrder {
 		printList(node.right);
 	}
 
-	public Node constructBT(int[] inorder, int[] preorder, int preorderIndex) {
+	public Node constructBT(int[] inorder, int[] preorder) {
 
 		if (inorder.length == 0)
 			return null;
 
 		if (inorder.length == 1)
-			return new Node(preorder[0]);
+			return new Node(inorder[0]);
 
 		// need to find index of root to be in inorder as preorder start element = root
 		int rootIndex = 0;
 		for (int i = 0; i < inorder.length; i++) {
-			if (inorder[i] == preorder[preorderIndex]) {
+			if (inorder[i] == preorder[0]) {
 				rootIndex = i;
 				break;
 			}
@@ -59,15 +59,15 @@ public class _12_CreateBT_PreInOrder {
 
 		// fill preorder left and right
 		for (int i = 0; i < preOrderLeft.length; i++)
-			preOrderLeft[i] = preorder[preorderIndex + 1 + i];
+			preOrderLeft[i] = preorder[1 + i];// start from index=1 as 0th index already considered for current root
 
 		for (int i = 0; i < preOrderRight.length; i++)
 			preOrderRight[i] = preorder[rootIndex + 1 + i];
 
 		Node root = new Node(inorder[rootIndex]);
 
-		root.left = constructBT(inOrderLeft, preOrderLeft, preorderIndex);
-		root.right = constructBT(inOrderRight, preOrderRight, preorderIndex);
+		root.left = constructBT(inOrderLeft, preOrderLeft);
+		root.right = constructBT(inOrderRight, preOrderRight);
 
 		return root;
 	}
@@ -79,7 +79,7 @@ public class _12_CreateBT_PreInOrder {
 		int[] inorder = { 40, 20, 50, 10, 60, 30 };
 		int[] preorder = { 10, 20, 40, 50, 30, 60 };
 
-		Node root = tree.constructBT(inorder, preorder, 0);
+		Node root = tree.constructBT(inorder, preorder);
 		tree.printList(root);
 	}
 
