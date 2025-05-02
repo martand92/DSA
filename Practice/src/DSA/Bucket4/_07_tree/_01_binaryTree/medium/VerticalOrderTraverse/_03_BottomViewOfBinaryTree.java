@@ -1,7 +1,9 @@
 package DSA.Bucket4._07_tree._01_binaryTree.medium.VerticalOrderTraverse;
 
 //https://www.youtube.com/watch?v=Et9OCDNvJ78
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.TreeMap;
 
 public class _03_BottomViewOfBinaryTree {
 
@@ -33,52 +35,41 @@ public class _03_BottomViewOfBinaryTree {
 	}
 
 	public Node insert(Node root, int d) {
-		
+
 		if (root == null) {
 			root = new Node(d);
 			return root;
 		}
-		
+
 		if (d < root.data)
 			root.left = insert(root.left, d);
 		else if (d > root.data)
 			root.right = insert(root.right, d);
-		
+
 		return root;
 	}
 
-	// using postorder, storing last nodes from a tree
-	public void bottomView(Node node) {
+	public TreeMap<Integer, Integer> bottomView() {
 
-		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		hm = bottomView(node, 0, hm);
+		TreeMap<Integer, Integer> bottomViewMap = new TreeMap<>();
+		Queue<Data> q = new LinkedList<Data>();
+		q.add(new Data(root, 0));
 
-		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>>(hm.entrySet());
-		Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
-			public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-				return o1.getValue() - o2.getValue();
-			}
-		});
+		while (!q.isEmpty()) {
 
-		HashMap<Integer, Integer> temp = new LinkedHashMap<Integer, Integer>();
-		for (Map.Entry<Integer, Integer> aa : list)
-			temp.put(aa.getKey(), aa.getValue());
+			Data d = q.poll();
 
-		System.out.println(temp);
-	}
+			bottomViewMap.put(d.vertical, d.node.data);// Overwrite always: the last node at each vertical seen during
+														// level-order is the bottom view
 
-	public HashMap<Integer, Integer> bottomView(Node node, int vertical, HashMap<Integer, Integer> hm) {
+			if (d.node.left != null)
+				q.add(new Data(d.node.left, d.vertical - 1));
 
-		if (node == null)
-			return hm;
+			if (d.node.right != null)
+				q.add(new Data(d.node.right, d.vertical + 1));
+		}
 
-		hm = bottomView(node.left, vertical - 1, hm);
-		hm = bottomView(node.right, vertical + 1, hm);
-
-		if (!hm.containsKey(vertical))
-			hm.put(vertical, node.data);
-
-		return hm;
+		return bottomViewMap;
 	}
 
 	public static void main(String[] args) {
@@ -93,6 +84,9 @@ public class _03_BottomViewOfBinaryTree {
 		tree.insert(60);
 		tree.insert(80);
 
-		tree.bottomView(tree.root);
+		TreeMap<Integer, Integer> bottomViewMap = tree.bottomView();
+		for (int val : bottomViewMap.values())
+			System.out.print(val + " ");
+
 	}
 }
