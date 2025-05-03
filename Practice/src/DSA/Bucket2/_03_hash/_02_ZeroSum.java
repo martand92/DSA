@@ -13,7 +13,7 @@ public class _02_ZeroSum {
 		HashSet<Integer> hs = new HashSet<Integer>();
 
 		for (int i = 0; i < arr.length; i++) {
-			
+
 			sum += arr[i]; // prefix sum
 
 			if (arr[i] == 0 || sum == 0 || hs.contains(sum)) {

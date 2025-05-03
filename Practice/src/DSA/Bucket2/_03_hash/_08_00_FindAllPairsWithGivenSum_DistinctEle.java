@@ -7,10 +7,8 @@ public class _08_00_FindAllPairsWithGivenSum_DistinctEle {
 
 	public static void main(String[] args) {
 
-		int[] a = { 1, 2, 4, 5, 7 };
-
+		int[] a = { 1, 5, 4, 2, 7 };
 		int[] b = { 5, 6, 3, 4, 8 };
-
 		int givenSum = 9;
 
 		HashSet<Integer> hs = new HashSet<Integer>();
@@ -19,7 +17,7 @@ public class _08_00_FindAllPairsWithGivenSum_DistinctEle {
 		for (int i = 0; i < b.length; i++)
 			hs.add(b[i]);
 
-		Arrays.sort(a);
+		Arrays.sort(a);// cz question demands u1 to be less than u2
 
 		for (int i = 0; i < a.length; i++) {
 			if (hs.contains(givenSum - a[i]))

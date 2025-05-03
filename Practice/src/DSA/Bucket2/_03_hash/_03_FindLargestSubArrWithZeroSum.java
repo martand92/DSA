@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://www.geeksforgeeks.org/find-the-largest-subarray-with-0-sum/
 //https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
-public class _03_01_FindLargestSubArrWithZeroSum {
+public class _03_FindLargestSubArrWithZeroSum {
 
 	public static void main(String[] args) {
 		// int[] arr = { 15, -2, 2, -8, 1, 7 };
@@ -21,11 +21,11 @@ public class _03_01_FindLargestSubArrWithZeroSum {
 				maxLength = i + 1;
 
 			if (hm.containsKey(sum)) { // if true, found sub array with sum zero. O(logn)
-				len = i - hm.get(sum); // calculate length of found sub array with sum = 0
-				maxLength = Math.max(len, maxLength); // check if found length of subarray is > current maxLen
+				len = i - hm.get(sum);
+				maxLength = Math.max(len, maxLength);
 
 			} else
-				hm.put(sum, i); // Storing index of each found sum to check for largest window. O(logn)
+				hm.put(sum, i); // O(logn)
 
 		}
 

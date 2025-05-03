@@ -10,7 +10,7 @@ import java.util.*;
 // if resultant xor = target then increase count by 1 and add it to hm 
 // if resultant xor != target then add it to hm
 // if resultant xor exists already in hashmap with freq, then increase count by hm freq and add it to hm
-public class _03_02_CountSubArrayWithXorK {
+public class _04_CountSubArrayWithXorK {
 
 	public static void main(String[] args) {
 

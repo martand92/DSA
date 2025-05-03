@@ -13,7 +13,7 @@ public class _15_MatchSpecificPattern_O_NK {
 		dict.add("xyz");
 		dict.add("xyyx");
 
-		String pattern = "ffoof";
+		String pattern = "foof";
 		String givenPattern = getPattern(pattern);
 		ArrayList<String> al = new ArrayList<String>();
 
@@ -23,22 +23,18 @@ public class _15_MatchSpecificPattern_O_NK {
 		}
 
 		System.out.println(al);
-
 	}
 
 	public static String getPattern(String pattern) {
 
 		String patternStr = "";
-		int count = 0;
 
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
 
 		// Assign 0 -> n for different variables
 		for (int i = 0; i < pattern.length(); i++) {
-			if (!hm.containsKey(pattern.charAt(i))) {
-				hm.put(pattern.charAt(i), count);
-				count++;
-			}
+			if (!hm.containsKey(pattern.charAt(i)))
+				hm.put(pattern.charAt(i), i);
 		}
 
 		// based on above digit reference form pattern

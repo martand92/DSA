@@ -5,10 +5,11 @@ import java.util.HashMap;
 public class _08_01_CountPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
+
 		int[] arr = { 1, 1, 1, 1 };
 		int sum = 2;
-		HashMap<Integer, Integer> hm = new HashMap<>();
 
+		HashMap<Integer, Integer> hm = new HashMap<>();
 		int count = 0;
 
 		for (int i = 0; i < arr.length; i++) {

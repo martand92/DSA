@@ -19,31 +19,18 @@ public class _09_GadgetsOfDoraLand_Hash {
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 		ArrayList<Integer> al = new ArrayList<Integer>();
 
-		for (int i = 0; i < a.length; i++) {
-
-			if (hm.containsKey(a[i]))
-				hm.put(a[i], hm.get(a[i]) + 1);
-
-			else
-				hm.put(a[i], 1);
-		}
+		for (int i = 0; i < a.length; i++)
+			hm.put(a[i], hm.getOrDefault(a[i], 0) + 1);
 
 		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>>(hm.entrySet());
 
 		Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
-
 			public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-
-				// Sort by values, if values are same then sort by keys
-				int cmp1 = o2.getValue().compareTo(o1.getValue());
-
-				if (cmp1 != 0)
-					return cmp1;
-
+				if (o2.getValue() != o1.getValue())
+					return o2.getValue() - o1.getValue();
 				else
-					return o2.getKey().compareTo(o1.getKey());
+					return o2.getKey() - o1.getKey();
 			}
-
 		});
 
 		HashMap<Integer, Integer> temp = new LinkedHashMap<Integer, Integer>();

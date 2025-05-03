@@ -11,20 +11,18 @@ public class _05_FreqOfArrayElements_NonOptimised {
 		// int[] arr = { 3, 3, 3, 3 };
 		int[] arr = { 2, 3, 2, 3, 5 };
 
-
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 
 		for (int i = 0; i < arr.length; i++)
 			hm.put(arr[i], hm.getOrDefault(arr[i], 0) + 1);
 
-		for (int i = 0; i < arr.length; i++) {
-
-			if (hm.get(i + 1) != null)
-				arr[i] = hm.get(i + 1);
+		for (int i = 1; i <= arr.length; i++) {
+			if (hm.get(i) != null)
+				arr[i - 1] = hm.get(i);
 			else
-				arr[i] = 0;
+				arr[i - 1] = 0;
 		}
-		
+
 		System.out.println(Arrays.toString(arr));
 
 	}

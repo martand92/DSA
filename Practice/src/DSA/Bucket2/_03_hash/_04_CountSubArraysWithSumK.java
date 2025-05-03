@@ -2,32 +2,36 @@ package DSA.Bucket2._03_hash;
 
 import java.util.HashMap;
 
-public class _04_NumOfSubArrWithSumK {
+public class _04_CountSubArraysWithSumK {
 
 	public static int numOfSubArrWithSumK(int[] arr, int k) {
 
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		int prefixSum = 0, count = 0;
+		int sum = 0, count = 0;
 
 		for (int i = 0; i < arr.length; i++) {
 
-			prefixSum += arr[i];
+			sum += arr[i];
 
-			if (prefixSum == k)
+			if (sum == k)
 				count++;
 
-			else if (hm.containsKey(prefixSum - k))
-				count += hm.get(prefixSum - k);
+			else if (hm.containsKey(sum - k))
+				count += hm.get(sum - k);
 
-			hm.put(prefixSum, hm.getOrDefault(prefixSum, 0) + 1);
+			hm.put(sum, hm.getOrDefault(sum, 0) + 1);
 		}
 
 		return count;
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3, -3, 1, 1, 1 };
-		int k = 3;
+
+		int[] arr = { 4, 2, 2, 6, 4 };
+		int k = 6;
+
+//		int[] arr = { 1, 2, 3, -3, 1, 1, 1 };
+//		int k = 3;
 
 		System.out.println(numOfSubArrWithSumK(arr, k));
 	}
