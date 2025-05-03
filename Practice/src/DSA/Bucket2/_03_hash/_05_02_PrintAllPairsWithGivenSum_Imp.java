@@ -2,7 +2,7 @@ package DSA.Bucket2._03_hash;
 
 import java.util.*;
 
-public class _08_02_PrintAllPairsWithGivenSum_Imp {
+public class _05_02_PrintAllPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
 

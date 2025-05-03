@@ -2,7 +2,7 @@ package DSA.Bucket2._03_hash;
 
 import java.util.HashMap;
 
-public class _08_01_CountPairsWithGivenSum_Imp {
+public class _05_01_CountPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
 

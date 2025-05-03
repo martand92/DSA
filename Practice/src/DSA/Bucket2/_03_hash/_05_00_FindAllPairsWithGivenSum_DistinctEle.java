@@ -3,7 +3,7 @@ package DSA.Bucket2._03_hash;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/find-all-pairs-whose-sum-is-x5808/1
-public class _08_00_FindAllPairsWithGivenSum_DistinctEle {
+public class _05_00_FindAllPairsWithGivenSum_DistinctEle {
 
 	public static void main(String[] args) {
 
