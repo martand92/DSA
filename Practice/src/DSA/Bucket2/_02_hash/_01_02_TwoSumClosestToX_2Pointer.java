@@ -1,5 +1,7 @@
 package DSA.Bucket2._02_hash;
 
+import java.util.Arrays;
+
 //https://practice.geeksforgeeks.org/problems/pair-in-array-whose-sum-is-closest-to-x1124/1
 public class _01_02_TwoSumClosestToX_2Pointer {
 
@@ -10,11 +12,12 @@ public class _01_02_TwoSumClosestToX_2Pointer {
 		int[] arr = { 1, 3, 4, 7, 10 };
 		int x = 15;
 
+		Arrays.sort(arr);
 		int i = 0, j = arr.length - 1;
 		int diff = 0, mindiff = Integer.MAX_VALUE;
 		int res_l = 0, res_r = 0;
 
-		while (i < arr.length && j >= 0 && i < j) {
+		while (i < j) {
 
 			diff = Math.abs(x - (arr[i] + arr[j]));
 

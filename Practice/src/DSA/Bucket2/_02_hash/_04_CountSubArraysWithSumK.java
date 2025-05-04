@@ -16,7 +16,7 @@ public class _04_CountSubArraysWithSumK {
 			if (sum == k)
 				count++;
 
-			else if (hm.containsKey(sum - k))
+			if (hm.containsKey(sum - k))
 				count += hm.get(sum - k);
 
 			hm.put(sum, hm.getOrDefault(sum, 0) + 1);
