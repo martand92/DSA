@@ -11,20 +11,8 @@ public class _13_CheckIfArrayIsContiguous {
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 		boolean isContiguous = true;
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++)
 			ts.add(arr[i]);
-		}
-
-//		for (int i : ts) {
-//			if (ts.first() == i)
-//				prev = i;
-//			else if (i - prev == 1)
-//				prev = i;
-//			else {
-//				isContiguous = false;
-//				break;
-//			}
-//		}
 
 		Iterator<Integer> itr = ts.iterator();
 		int prev = 0;

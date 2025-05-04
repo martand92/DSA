@@ -3,7 +3,7 @@ package DSA.Bucket2._02_hash;
 import java.util.HashSet;
 
 //https://practice.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621/1
-public class _02_SubaArrayWithZeroSum {
+public class _02_SubArrayWithZeroSum {
 
 	public static void main(String[] args) {
 

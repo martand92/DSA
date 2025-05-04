@@ -35,8 +35,8 @@ public class _09_GadgetsOfDoraLand_Hash {
 
 		HashMap<Integer, Integer> temp = new LinkedHashMap<Integer, Integer>();
 
-		for (Map.Entry<Integer, Integer> aa : list)
-			temp.put(aa.getKey(), aa.getValue());
+		for (Map.Entry<Integer, Integer> e : list)
+			temp.put(e.getKey(), e.getValue());
 
 		for (Map.Entry<Integer, Integer> e : temp.entrySet()) {
 			if (k == 0)
