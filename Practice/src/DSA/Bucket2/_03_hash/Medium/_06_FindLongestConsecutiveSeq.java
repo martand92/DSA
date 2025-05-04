@@ -1,7 +1,6 @@
 package DSA.Bucket2._03_hash.Medium;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.TreeSet;
 
 public class _06_FindLongestConsecutiveSeq {
@@ -68,27 +67,20 @@ public class _06_FindLongestConsecutiveSeq {
 		for (int i = 0; i < arr.length; i++)// O(nlogn)
 			ts.add(arr[i]);
 
-		int maxLength = 0, prev = Integer.MIN_VALUE, next = 0, count = 0;
-		Iterator<Integer> itr = ts.iterator();
+		int maxLength = 0, prev = Integer.MIN_VALUE, currLength = 0;
 
-		while (itr.hasNext()) { // O(n)
+		for (int num : ts) { // O(n)
 
-			if (prev == Integer.MIN_VALUE)
-				prev = itr.next();
+			if (prev == Integer.MIN_VALUE || num != prev + 1)
+				currLength = 1;
+			else
+				currLength++;
 
-			else {
-				next = itr.next();
+			maxLength = Math.max(maxLength, currLength);
+			prev = num;
 
-				if (Math.abs(next - prev) == 1) {
-					count++;
-					maxLength = Math.max(maxLength, count);
-				} else
-					count = 0;
-
-				prev = next;
-			}
 		}
-		return maxLength + 1;
+		return maxLength;
 
 		// TC : O(nlogn + n)
 		// SC : O(n)
@@ -96,11 +88,11 @@ public class _06_FindLongestConsecutiveSeq {
 
 	public static void main(String[] args) {
 
-		// int[] arr = { 102, 4, 100, 1, 101, 3, 2 };
+		int[] arr = { 102, 4, 100, 1, 101, 3, 2 };
 		// int[] arr = { 100, 102, 100, 101, 101, 4, 3, 2, 3, 2, 1, 1, 1, 2 };
 		// int[] arr = { 15, 6, 2, 1, 16, 4, 2, 29, 9, 12, 8, 5, 14, 21, 8, 12, 17, 16,
 		// 6, 26, 3 };
-		int[] arr = { 1, 3, 5, 7 };
+		// int[] arr = { 1, 3, 5, 7 };
 
 		System.out.println(longestConsecutiveSeq_Better(arr));
 		System.out.println(longestConsecutiveSeq_Opt(arr));

@@ -2,6 +2,16 @@ package DSA.Bucket2._03_hash.Medium;
 
 import java.util.*;
 
+/*  Algo : 
+ * 
+ *  a - b = k, then a = k + b
+ *  Now only unique pair are needed, remove duplicates by hashing
+ *  
+ *  Why hashmap? : 
+ *  1. to remove duolicates (but we can use hashset as well)
+ *  2. to handle k=0, where you need to check if same element appears more than 1 as its difference results in 0 
+ */
+
 //https://practice.geeksforgeeks.org/problems/count-distinct-pairs-with-difference-k1233/1
 public class _09_CountDistinctPairsWithGivenDifference {
 
@@ -20,13 +30,12 @@ public class _09_CountDistinctPairsWithGivenDifference {
 
 		for (Map.Entry<Integer, Integer> e : hm.entrySet()) {
 
-			if (k == 0) { // handle 0 difference differently 
-				
+			if (k == 0) { // handling k=0
 				if (e.getValue() > 1)
 					hs.add(String.valueOf(e.getKey() + "," + e.getKey()));
-				
-			} else if (hm.containsKey(e.getKey() + k)) // for each entry, check if element + givenDifference is already present 
-				hs.add(e.getKey() + "," + (e.getKey() + k)); // only unique pairs should be added, if 
+
+			} else if (hm.containsKey(k + e.getKey()))
+				hs.add(e.getKey() + "," + (k + e.getKey())); // only unique pairs should be considered
 		}
 
 		System.out.println(hs.size());

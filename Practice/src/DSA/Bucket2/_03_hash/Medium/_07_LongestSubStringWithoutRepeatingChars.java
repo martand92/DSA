@@ -7,38 +7,30 @@ import java.util.*;
 // Intuition : while moving char by char, check if curr char is already present in current substring using hashset in O(1).
 // if not present then add it to hashset to indicate it forms part of substring
 // if already present then this char's previous instance should be removed to consider current char
-public class _07_CountLongestSubString {
+public class _07_LongestSubStringWithoutRepeatingChars {
 
-	public static int countLongestSubString(String str) {
+	public static int findLongestSubString(String str) {
 
 		HashSet<Character> hs = new HashSet<Character>();
-		int maxSubStrLen = 0, l = 0;
+		int maxLen = 0, l = 0;
 
 		for (int r = 0; r < str.length(); r++) { // O(N)
 
-			// if (!hs.contains(str.charAt(r)))
-			// hs.add(str.charAt(r));
-
-			// else {
-			while (hs.contains(str.charAt(r))) { // O(N). This will only be executed if condition is met. Hence this
-													// doesn't act as nested loop
+			while (hs.contains(str.charAt(r))) { // O(N)
 				hs.remove(str.charAt(l));
 				l++;
 			}
 
 			hs.add(str.charAt(r));
-			// }
-
-			maxSubStrLen = Math.max(maxSubStrLen, (r - l + 1));
+			maxLen = Math.max(maxLen, (r - l + 1));
 		}
 
-		return maxSubStrLen;
-
+		return maxLen;
 	}
 
 	public static void main(String[] args) {
 		String str = "abcaabcdba";
-		System.out.println(countLongestSubString(str));
+		System.out.println(findLongestSubString(str));
 	}
 }
 
