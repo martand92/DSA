@@ -16,6 +16,7 @@ public class _06_NonRepeatingChar {
 			hm.put(s.charAt(i), hm.getOrDefault(s.charAt(i), 0) + 1);
 
 		for (Map.Entry<Character, Integer> e : hm.entrySet()) {
+
 			if (e.getValue() == 1) {
 				nonRepeatingFirstChar = e.getKey();
 				break;

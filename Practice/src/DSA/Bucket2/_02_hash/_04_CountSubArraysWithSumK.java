@@ -35,5 +35,4 @@ public class _04_CountSubArraysWithSumK {
 
 		System.out.println(numOfSubArrWithSumK(arr, k));
 	}
-
 }

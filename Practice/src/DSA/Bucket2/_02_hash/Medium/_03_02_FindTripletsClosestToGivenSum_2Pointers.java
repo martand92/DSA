@@ -26,7 +26,7 @@ public class _03_02_FindTripletsClosestToGivenSum_2Pointers {
 			while (l < r) {
 
 				sum = arr[i] + arr[l] + arr[r];
-				diff = Math.abs(sum - target);
+				diff = Math.abs(target - sum);
 
 				// if new diff is closer then consider their elements
 				// if new diff is same as current min diff then consider max one

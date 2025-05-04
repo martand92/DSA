@@ -7,6 +7,7 @@ import java.util.*;
 public class _03_FindLargestSubArrWithZeroSum {
 
 	public static void main(String[] args) {
+
 		// int[] arr = { 15, -2, 2, -8, 1, 7 };
 		int[] arr = { -42, 12, 20, 15, 31, -4, 0, 15 };
 		// int[] arr = { -1, 1, -1, 1 };
@@ -15,18 +16,19 @@ public class _03_FindLargestSubArrWithZeroSum {
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>(); // O(n)
 
 		for (int i = 0; i < arr.length; i++) { // O(n)
+
 			sum += arr[i];
 
 			if (sum == 0)
 				maxLength = i + 1;
 
-			if (hm.containsKey(sum)) { // if true, found sub array with sum zero. O(logn)
+			else if (hm.containsKey(sum)) { // if true, found sub array with sum zero. O(logn)
 				len = i - hm.get(sum);
 				maxLength = Math.max(len, maxLength);
+			}
 
-			} else
+			if (!hm.containsKey(sum))
 				hm.put(sum, i); // O(logn)
-
 		}
 
 		System.out.println(maxLength);

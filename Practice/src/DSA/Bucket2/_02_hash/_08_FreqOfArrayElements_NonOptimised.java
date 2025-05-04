@@ -17,6 +17,7 @@ public class _08_FreqOfArrayElements_NonOptimised {
 			hm.put(arr[i], hm.getOrDefault(arr[i], 0) + 1);
 
 		for (int i = 1; i <= arr.length; i++) {
+			
 			if (hm.get(i) != null)
 				arr[i - 1] = hm.get(i);
 			else

@@ -6,11 +6,14 @@ import java.util.*;
 public class _11_PosNegPair_ON_Hash {
 
 	public static void main(String[] args) {
+		
 		int[] arr = { 1, 3, 6, -2, -1, -3, 2, 7 };
+		
 		ArrayList<Integer> al = new ArrayList<Integer>();
-
 		HashSet<Integer> hs = new HashSet<Integer>();
+		
 		for (int i = 0; i < arr.length; i++) {
+			
 			if (hs.contains(Math.abs(arr[i]))) {
 				al.add(-Math.abs(arr[i]));
 				al.add(Math.abs(arr[i]));
