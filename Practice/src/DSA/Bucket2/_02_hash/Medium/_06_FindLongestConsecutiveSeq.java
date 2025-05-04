@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash.Medium;
+package DSA.Bucket2._02_hash.Medium;
 
 import java.util.HashSet;
 import java.util.TreeSet;

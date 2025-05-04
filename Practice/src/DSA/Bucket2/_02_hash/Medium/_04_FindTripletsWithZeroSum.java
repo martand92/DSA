@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash.Medium;
+package DSA.Bucket2._02_hash.Medium;
 
 //https://www.naukri.com/code360/problems/three-sum_6922132
 //https://www.youtube.com/watch?v=DhFh8Kw7ymk

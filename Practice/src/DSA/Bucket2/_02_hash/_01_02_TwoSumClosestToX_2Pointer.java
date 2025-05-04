@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash;
+package DSA.Bucket2._02_hash;
 
 //https://practice.geeksforgeeks.org/problems/pair-in-array-whose-sum-is-closest-to-x1124/1
 public class _01_02_TwoSumClosestToX_2Pointer {

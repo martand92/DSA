@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash;
+package DSA.Bucket2._02_hash;
 
 //https://practice.geeksforgeeks.org/problems/find-the-closest-pair-from-two-arrays4215/1
 public class _01_03_TwoSumClosestToX_2Arrays {

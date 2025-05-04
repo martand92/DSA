@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash.Medium;
+package DSA.Bucket2._02_hash.Medium;
 
 /* Algo : a + b + c = k -> c = k - (a + b)
  * 

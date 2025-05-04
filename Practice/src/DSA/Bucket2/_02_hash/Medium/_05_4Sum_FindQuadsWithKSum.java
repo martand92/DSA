@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_hash.Medium;
+package DSA.Bucket2._02_hash.Medium;
 
 //https://www.youtube.com/watch?v=eD95WRfh81c
 //https://www.naukri.com/code360/problems/4sum_5713771
