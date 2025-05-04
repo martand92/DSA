@@ -9,7 +9,7 @@ package DSA.Bucket2._03_hash.Medium;
 
 import java.util.*;
 
-public class _04_01_3Sum_FindTripletsWithZeroSum {
+public class _04_02_3Sum_FindTripletsWithZeroSum {
 
 	public static List<List<Integer>> findTripletsWithZeroSum_Better(int[] arr) {
 
@@ -36,7 +36,7 @@ public class _04_01_3Sum_FindTripletsWithZeroSum {
 				}
 
 				else
-					hs.add(arr[j]); // Carefully add elements to hs to avoid considering elements at i and j
+					hs.add(arr[j]);
 			}
 		}
 

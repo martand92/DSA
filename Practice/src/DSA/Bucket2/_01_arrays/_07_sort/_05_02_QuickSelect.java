@@ -1,6 +1,6 @@
-package DSA.Bucket2._01_arrays._08_divideAndConquer;
+package DSA.Bucket2._01_arrays._07_sort;
 
-public class _03_QuickSelect { // https://www.youtube.com/watch?v=BP7GCALO2v8
+public class _05_02_QuickSelect { // https://www.youtube.com/watch?v=BP7GCALO2v8
 
 	int[] arr = { 3, 7, 1, 8, 2, 5, 9, 4, 6 };
 	int temp;
@@ -86,7 +86,7 @@ public class _03_QuickSelect { // https://www.youtube.com/watch?v=BP7GCALO2v8
 	//
 	//
 	public static void main(String[] args) {
-		_03_QuickSelect select = new _03_QuickSelect();
+		_05_02_QuickSelect select = new _05_02_QuickSelect();
 
 		select.keythSmallestElement = select.quickSelect(select.arr, 0, select.arr.length - 1);
 

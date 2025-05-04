@@ -1,9 +1,9 @@
-package DSA.Bucket2._01_arrays._08_divideAndConquer;
+package DSA.Bucket2._01_arrays._07_sort;
 
 import java.util.Arrays;
 
 //https://www.happycoders.eu/algorithms/quicksort/
-public class _02_QuickSort { // https://www.youtube.com/watch?v=h8eyY7dIiN4
+public class _05_01_QuickSort { // https://www.youtube.com/watch?v=h8eyY7dIiN4
 
 	int[] arr = { 3, 7, 1, 8, 2, 5, 9, 4, 6 };
 	int temp;
@@ -66,7 +66,7 @@ public class _02_QuickSort { // https://www.youtube.com/watch?v=h8eyY7dIiN4
 	//
 	//
 	public static void main(String[] args) {
-		_02_QuickSort sort = new _02_QuickSort();
+		_05_01_QuickSort sort = new _05_01_QuickSort();
 		sort.quickSort(sort.arr, 0, sort.arr.length - 1);
 		System.out.println(Arrays.toString(sort.arr));
 	}

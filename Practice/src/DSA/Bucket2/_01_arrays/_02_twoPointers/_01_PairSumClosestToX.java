@@ -1,7 +1,7 @@
 package DSA.Bucket2._01_arrays._02_twoPointers;
 
 //https://practice.geeksforgeeks.org/problems/find-the-closest-pair-from-two-arrays4215/1
-public class _01_FindClosestPairFromTwoSortedArr {
+public class _01_PairSumClosestToX {
 
 	public static void main(String[] args) {
 //		int[] arr = { 1, 4, 5, 7 };
@@ -15,26 +15,24 @@ public class _01_FindClosestPairFromTwoSortedArr {
 
 		int i = 0, j = brr.length - 1;
 		int res_l = 0, res_r = 0;
-		int min = Integer.MAX_VALUE;
-		int cal = 0;
+		int diff = 0, mindiff = Integer.MAX_VALUE;
 
 		while (i < arr.length && j >= 0) {
-			cal = Math.abs(arr[i] + brr[j] - x);
 
-			if (cal < min) {
-				min = cal;
+			diff = Math.abs(x - (arr[i] + arr[j]));
+
+			if (diff < mindiff) {
+				mindiff = diff;
 				res_l = i;
 				res_r = j;
 			}
 
-			if (arr[i] + brr[j] == x) {
+			if (arr[i] + brr[j] == x) {// if diff of elements = x then those elements are the closest
 				res_l = i;
 				res_r = j;
 				break;
-
 			} else if (arr[i] + brr[j] < x)
 				i++;
-
 			else
 				j--;
 

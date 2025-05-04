@@ -3,7 +3,7 @@ package DSA.Bucket2._01_arrays._02_twoPointers;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/three-sum-closest/1
-public class _04_FindTripletsWithNearestToGivenSum_ON2_Imp {
+public class _03_TripletsSumClosestToX {
 
 	public static void main(String[] args) {
 
@@ -13,13 +13,12 @@ public class _04_FindTripletsWithNearestToGivenSum_ON2_Imp {
 //		int[] arr = { 5, 2, 7, 5 };
 //		int target = 13;
 
-		int finalSum = Integer.MAX_VALUE;
-
-		// int res1 = 0, res2 = 0, res3 = 0;
+		int diff = 0, minDiff = Integer.MAX_VALUE, finalSum = 0;
+		String triplets = new String();
 
 		Arrays.sort(arr);
 
-		outerloop: for (int i = 0; i < arr.length; i++) {
+		outerloop: for (int i = 0; i < arr.length - 2; i++) {
 
 			int l = i + 1, r = arr.length - 1;
 			int sum = 0;
@@ -27,24 +26,27 @@ public class _04_FindTripletsWithNearestToGivenSum_ON2_Imp {
 			while (l < r) {
 
 				sum = arr[i] + arr[l] + arr[r];
+				diff = Math.abs(sum - target);
 
-				if (Math.abs(sum - target) < finalSum)
+				// if new diff is closer then consider their elements
+				// if new diff is same as current min diff then consider max one
+				if (diff < minDiff || (diff == minDiff && sum > finalSum)) {
+					minDiff = diff;
+					triplets = arr[i] + "," + arr[l] + "," + arr[r];
 					finalSum = sum;
+				}
 
 				if (sum < target)
 					l++;
-
 				else if (sum > target)
 					r--;
-
 				else
 					break outerloop;
 
 			}
 		}
 
-		System.out.println(finalSum);
-
+		System.out.println(triplets);
 	}
 
 }

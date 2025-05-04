@@ -1,9 +1,14 @@
 package DSA.Bucket2._03_hash.Medium;
 
+/* Algo : a + b + c = k -> c = k - (a + b)
+ * 
+ * As you loop through arr[j], you try to find c in hashset else store current arr[j] as 'c' into hashset  
+ */
+
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/three-sum-closest/1
-public class _04_02_3Sum_FindTripletsWithGivenSum {
+public class _04_01_3Sum_FindTripletsWithGivenSum {
 
 	public static void main(String[] args) {
 
@@ -12,15 +17,15 @@ public class _04_02_3Sum_FindTripletsWithGivenSum {
 
 		for (int i = 0; i < arr.length - 1; i++) {
 
-			HashSet<Integer> s = new HashSet<Integer>();
+			HashSet<Integer> hs = new HashSet<Integer>();
 
 			for (int j = i + 1; j < arr.length; j++) {
 
-				if (s.contains(givenSum - (arr[i] + arr[j]))) {
+				if (hs.contains(givenSum - (arr[i] + arr[j]))) {
 					System.out.println(arr[i] + "," + arr[j] + "," + (givenSum - (arr[i] + arr[j])));
 					return;
 				} else
-					s.add(arr[j]);
+					hs.add(arr[j]);
 			}
 		}
 

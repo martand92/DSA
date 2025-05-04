@@ -1,9 +1,9 @@
-package DSA.Bucket2._01_arrays._08_divideAndConquer;
+package DSA.Bucket2._01_arrays._07_sort;
 
 import java.util.Arrays;
 
 //https://www.happycoders.eu/algorithms/merge-sort/
-public class _01_MergeSort { // https://www.youtube.com/watch?v=bOk35XmHPKs
+public class _04_MergeSort { // https://www.youtube.com/watch?v=bOk35XmHPKs
 
 	static int[] arr = { 64, 25, 12, 22, 11 };
 

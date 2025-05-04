@@ -3,7 +3,7 @@ package DSA.Bucket2._01_arrays._02_twoPointers;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/find-triplets-with-zero-sum/1
-public class _04_CheckIfTripletsExistWith0Sum_ON2_Imp {
+public class _04_CheckIfTripletsExistWith0Sum_Imp {
 
 	public static boolean has3Sum(int[] arr) {
 
