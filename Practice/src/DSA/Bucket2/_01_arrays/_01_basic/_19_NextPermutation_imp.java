@@ -13,7 +13,7 @@ import java.util.Arrays;
 //Above step will result in 2,3,5,4,1,0,0
 //Now to get next permutation, sort all nums after swapped index -> 2,3,0,0,1,4,5
 
-public class _19_NextPermutation {
+public class _19_NextPermutation_imp {
 
 //  Find all permutations using recursion in arrange in ascending order and then check for next of given num from seq
 //	public static int[] nextPermutationNum_Brute(int[] arr) {

@@ -1,6 +1,6 @@
-package DSA.Bucket5._10_dynamicprogramming._17_BuySellStocks;
+package DSA.Bucket2._01_arrays._01_basic;
 
-public class _01_BuySellStock_OnlyOnce {
+public class _22_01_BuySellStock_OnlyOnce {
 
 	public static void main(String[] args) {
 

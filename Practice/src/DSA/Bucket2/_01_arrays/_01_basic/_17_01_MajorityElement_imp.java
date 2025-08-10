@@ -7,7 +7,7 @@ import java.util.Map;
 //https://www.youtube.com/watch?v=nP_ns3uSh80
 
 //Majority element is an element that occurs more than n/2
-public class _17_01_MajorityElement {
+public class _17_01_MajorityElement_imp {
 
 	public static int majorityElement_Brute(int[] arr) {
 
@@ -55,7 +55,7 @@ public class _17_01_MajorityElement {
 
 	// Step 2 : If count reaches 0, this means currently considered majority
 	// element's occurrences is less than or equal to current length as all other
-	// elements takes another half of current length. Hence this element canoot be
+	// elements takes another half of current length. Hence this element cannot be
 	// majority
 
 	// Step 3 : So whenever count becomes 0, then replace current majority element

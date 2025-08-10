@@ -20,15 +20,14 @@ public class _14_ChocolateDistribution {
 		al.add(12);
 		Collections.sort(al);
 
-		int l = 0, r = m - 1;
-		int diff = Integer.MAX_VALUE;
+		int l = 0;
+		int min = Integer.MAX_VALUE;
 
-		while (r < al.size()) {
-			diff = Math.min(diff, al.get(r) - al.get(l));
+		for (int r = m - 1; r < al.size(); r++) { // Fixed sliding window
+			min = Math.min(min, al.get(r) - al.get(l));
 			l++;
-			r++;
 		}
 
-		System.out.println(diff);
+		System.out.println(min);
 	}
 }

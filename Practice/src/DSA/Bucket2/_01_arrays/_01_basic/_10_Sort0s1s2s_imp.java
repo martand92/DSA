@@ -3,7 +3,7 @@ package DSA.Bucket2._01_arrays._01_basic;
 //https://www.youtube.com/watch?v=tp8JIuCXBaU
 import java.util.Arrays;
 
-public class _10_Sort0s1s2s {
+public class _10_Sort0s1s2s_imp {
 
 	public static void sort_brute(int[] a) {
 		Arrays.sort(a);
@@ -28,14 +28,21 @@ public class _10_Sort0s1s2s {
 				count2++;
 		}
 
-		for (int i = 0; i < count0; i++) // O(0 -> count0)
-			a[i] = 0;
+		int i = 0;
+		while (count0 > 0) {
+			a[i++] = 0;
+			count0--;
+		}
 
-		for (int i = count0; i < count0 + count1; i++) // O(count0 -> count1)
-			a[i] = 1;
+		while (count1 > 0) {
+			a[i++] = 1;
+			count1--;
+		}
 
-		for (int i = count0 + count1; i < count0 + count1 + count2; i++) // O(count1 -> count2)
-			a[i] = 2;
+		while (count2 > 0) {
+			a[i++] = 2;
+			count2--;
+		}
 
 		System.out.println(Arrays.toString(a));
 

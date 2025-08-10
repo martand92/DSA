@@ -2,7 +2,7 @@ package DSA.Bucket2._01_arrays._01_basic;
 
 import java.util.*;
 
-public class _07_02_UnionOf2SortedArrays {
+public class _07_02_UnionOf2SortedArrays_Imp {
 
 	public static void main(String[] args) {
 
@@ -15,11 +15,14 @@ public class _07_02_UnionOf2SortedArrays {
 		int i = 0, j = 0;
 		List<Integer> list = new ArrayList<Integer>();// SC : O(n + m)
 
-		while (i < a.length && j < b.length) {// TC : O(n+m)
+		while (i < a.length && j < b.length) {// TC : O(n + m)
 
 			// if both elements are same then add any 1 of it to the ans
 			if (a[i] == b[j]) {
-				list.add(a[i]);
+
+				if (list.isEmpty() || list.get(list.size() - 1) != a[i])
+					list.add(a[i]);
+
 				i++;
 				j++;
 
@@ -31,12 +34,12 @@ public class _07_02_UnionOf2SortedArrays {
 
 				// so to check if its not present in result, need to only check previous element
 				// of result as its sorted
-				if (list.size() == 0 || (list.size() > 0 && list.get(list.size() - 1) != a[i]))
+				if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != a[i]))
 					list.add(a[i]);
 				i++;
 
 			} else {
-				if (list.size() == 0 || (list.size() > 0 && list.get(list.size() - 1) != b[j]))
+				if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != b[j]))
 					list.add(b[j]);
 				j++;
 
@@ -44,13 +47,13 @@ public class _07_02_UnionOf2SortedArrays {
 		}
 
 		while (i < a.length) {
-			if (!list.contains(a[i]))
+			if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != a[i]))
 				list.add(a[i]);
 			i++;
 		}
 
 		while (j < b.length) {
-			if (!list.contains(b[j]))
+			if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != b[j]))
 				list.add(b[j]);
 			j++;
 		}

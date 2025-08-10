@@ -2,7 +2,7 @@ package DSA.Bucket1._00_bitmanipulation._02_FindSingleNumber;
 
 import java.util.Arrays;
 
-public class _15_FindSingleNum_2DistinctElements {
+public class _15_Find2DistinctNums_OtherAppearTwice {
 
 	public static int[] findSingleNum(int[] nums) {
 

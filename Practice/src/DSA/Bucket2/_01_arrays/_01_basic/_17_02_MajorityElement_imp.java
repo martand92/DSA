@@ -5,7 +5,7 @@ package DSA.Bucket2._01_arrays._01_basic;
 
 //Majority element is an element that occurs more than n/3
 //Note : At max only 2 elements could be more than n/3 times
-public class _17_02_MajorityElement {
+public class _17_02_MajorityElement_imp {
 
 	// Moore's Voting Algo
 	// Step 1 : Have 2 elements element1, element2 and have count1 and count2 to

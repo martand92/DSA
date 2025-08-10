@@ -6,7 +6,7 @@ package DSA.Bucket2._01_arrays._02_slidingWindow;
 //Here the problem is to count all sub arrays satisfying window condition. If you follow traditional way of increasing / shrinking window based on condition then all sub arrays cannot be considered.
 //Hence this problem should be re-written as count all subarray satisfying sum <= goal (x) and satisfying sum <= goal - 1 (y)
 //Now to get all subarray count satisfying sum=goal, do x - y
-public class _12_CountBinarySubArrWithGivenSum {
+public class _12_CountSubArrWithGivenSum {
 
 	// finding all sub arrays with sum = given goal
 	public static int countBinarySubArraysWithSumAsGoal(int[] nums, int goal) {

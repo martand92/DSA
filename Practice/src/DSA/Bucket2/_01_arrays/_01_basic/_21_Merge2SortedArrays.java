@@ -2,7 +2,6 @@ package DSA.Bucket2._01_arrays._01_basic;
 
 //https://www.youtube.com/watch?v=n7uwj04E0I4
 //https://www.naukri.com/code360/problems/merge-two-sorted-arrays-without-extra-space_6898839
-
 import java.util.*;
 
 public class _21_Merge2SortedArrays {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _13_02_MoveNegElementsToLast {
+public class _13_02_MoveNegElementsToLast_imp {
 
 	private static int[] moveNegElements_Brute(int[] arr) {
 

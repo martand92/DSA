@@ -1,7 +1,7 @@
-package DSA.Bucket2._01_arrays._01_basic;
+package DSA.Bucket2._01_arrays._02_prefixSum;
 import java.util.Arrays;
 
-public class _01_01_PrefixSum {
+public class _01_PrefixSum {
 
 	public static void main(String[] args) {
 		int[] arr = { 10, 4, 16, 20 };

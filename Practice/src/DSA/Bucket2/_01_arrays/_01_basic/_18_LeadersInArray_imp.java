@@ -7,7 +7,7 @@ import java.util.*;
 
 //Algo : start tracing from right, last element is always leader and store it as max element.
 //Continue to trace to left and check if current element is greater than max, if yes then its leader and update max as current
-public class _18_LeadersInArray { // or Superior element
+public class _18_LeadersInArray_imp { // or Superior element
 
 	public static List<Integer> leaderElements(int[] arr) {
 

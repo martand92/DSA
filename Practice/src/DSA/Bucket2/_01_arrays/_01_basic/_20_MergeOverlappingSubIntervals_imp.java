@@ -5,7 +5,7 @@ package DSA.Bucket2._01_arrays._01_basic;
 
 import java.util.*;
 
-public class _20_MergeOverlappingSubIntervals {
+public class _20_MergeOverlappingSubIntervals_imp {
 
 	public static int countOverlappingIntervals(int[][] arr) {
 

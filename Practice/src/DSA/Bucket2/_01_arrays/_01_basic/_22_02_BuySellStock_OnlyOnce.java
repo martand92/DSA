@@ -1,6 +1,6 @@
-package DSA.Bucket5._10_dynamicprogramming._17_BuySellStocks;
+package DSA.Bucket2._01_arrays._01_basic;
 
-public class _02_BuySellStock_OnlyOnce {
+public class _22_02_BuySellStock_OnlyOnce {
 
 	public static int maxProfit(int[] stockPrices, int i, boolean isBuy) {
 

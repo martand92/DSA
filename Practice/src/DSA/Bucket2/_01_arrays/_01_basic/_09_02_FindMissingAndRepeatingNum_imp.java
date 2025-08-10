@@ -2,23 +2,20 @@ package DSA.Bucket2._01_arrays._01_basic;
 
 //https://www.naukri.com/code360/problems/missing-and-repeating-numbers_6828164
 //https://www.youtube.com/watch?v=2D0D8HE6uak
-public class _09_02_FindMissingAndRepeatingNum {
+public class _09_02_FindMissingAndRepeatingNum_imp {
 
 	public static void missingandRepeatingNum_Opt(int[] arr) {
 
-		// Step 1 : ^ all elements of arr and 1->n.This results in canceling all the
-		// elements except repeating and missing ones
+		// Step 1 : ^ all arr elements results in canceling out unique elements. Then ^
+		// of this result with all elements 1-> n results in missing and repeating num's
+		// ^
 		int xor = 0;
 
-		// xor all arr[i] elements
 		for (int i = 0; i < arr.length; i++) // O(n)
 			xor ^= arr[i];
 
-		// xor all i's from 1 -> n
 		for (int i = 1; i <= arr.length; i++) // O(n)
-			xor ^= i;
-
-		// Now this resulted xor will be xor of repeated and another missing num.
+			xor ^= i; // Now this resulted xor will be xor of repeated num and missing num
 
 		// Step 2 : Now need to identify these 2 nums.
 		// From resulted xor, identify bit's pos thats differing bit. Now create 2

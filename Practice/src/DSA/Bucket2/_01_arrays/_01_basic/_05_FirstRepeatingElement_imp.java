@@ -3,16 +3,16 @@ package DSA.Bucket2._01_arrays._01_basic;
 import java.util.*;
 
 //O(N)
-public class _05_FirstRepeatingElement {
+public class _05_FirstRepeatingElement_imp {
 
 	public static int firstRepeating_Approach2(int[] arr) {
 
 		LinkedHashMap<Integer, Integer> lhm = new LinkedHashMap<Integer, Integer>();
 
-		for (int i = 0; i < arr.length; i++)
-			lhm.put(arr[i], lhm.getOrDefault(arr[i], 0) + 1);
+		for (int i = 0; i < arr.length; i++) // O(n)
+			lhm.put(arr[i], lhm.getOrDefault(arr[i], 0) + 1); // O(logn)
 
-		for (Map.Entry<Integer, Integer> e : lhm.entrySet()) {
+		for (Map.Entry<Integer, Integer> e : lhm.entrySet()) { // O(nlogn)
 			if (e.getValue() > 1)
 				return e.getKey();
 		}
@@ -23,23 +23,30 @@ public class _05_FirstRepeatingElement {
 	}
 
 	public static boolean binarySearch(int ele, int[] temp) {
+
 		int l = 0, r = temp.length - 1, mid = 0;
 
 		while (l <= r) {
+
 			mid = l + (r - l) / 2;
 
 			if (temp[mid] == ele) {
+
 				if (mid - 1 > 0 && temp[mid - 1] == ele)
 					return true;
+				
 				else if (mid + 1 < temp.length && temp[mid + 1] == ele)
 					return true;
 
 				return false;
+
 			} else if (ele < temp[mid])
 				r = mid - 1;
+
 			else
 				l = mid + 1;
 		}
+
 		return false;
 	}
 

@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://www.youtube.com/watch?v=-zSxTJkcdAo
 //https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
-public class _08_LongestSubString_WithoutRepeatingChars {
+public class _08_LongestSubStringWithoutRepeatingChars {
 
 	public static int findLongestSubString_Hash(String s) {
 

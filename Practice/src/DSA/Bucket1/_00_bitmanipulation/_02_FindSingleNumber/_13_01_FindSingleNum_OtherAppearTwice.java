@@ -1,6 +1,6 @@
 package DSA.Bucket1._00_bitmanipulation._02_FindSingleNumber;
 
-public class _13_01_FindSingleNum_AppearingTwice {
+public class _13_01_FindSingleNum_OtherAppearTwice {
 
 	public static int findSingleNum(int[] nums) {
 		int res = 0;
