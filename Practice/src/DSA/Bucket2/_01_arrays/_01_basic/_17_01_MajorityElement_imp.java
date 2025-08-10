@@ -50,6 +50,10 @@ public class _17_01_MajorityElement_imp {
 	}
 
 	// Moore's Voting Algo
+
+	// Key idea : If there’s a majority element, it will survive a process of
+	// pairing off different elements and discarding them
+
 	// Step 1 : Consider 1st element as majority element and start counting its
 	// occurrences. Decrease count if other elements are seen
 
@@ -66,8 +70,8 @@ public class _17_01_MajorityElement_imp {
 	// doesn't guarantee it as majority. It says current tagged majority element
 	// might be a majority and no other elements can be majority
 
-	// Step 5 : To confirm if its majority, loop again and count occurrences of this
-	// tagged majority element. If its > n/2 then it is majority
+	// Step 5 : To confirm if its majority, loop again and count occurrences of
+	// currently tagged majority element. If its > n/2 then it is majority
 
 	public static int majorityElement_Opt(int[] arr) {
 
