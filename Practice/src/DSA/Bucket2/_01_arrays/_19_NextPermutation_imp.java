@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class _19_NextPermutation_imp {
 
-//  Find all permutations using recursion in arrange in ascending order and then check for next of given num from seq
+//  Find all permutations using recursion in asc order, then check for next given num from seq
 //	public static int[] nextPermutationNum_Brute(int[] arr) {
 //
 //	}

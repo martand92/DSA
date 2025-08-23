@@ -91,11 +91,7 @@ public class _17_01_MajorityElement_imp {
 			}
 		}
 
-		// if count for current majority element already exceeds n/2 then just return it
-		if (count > (arr.length / 2))
-			return majorityElement;
-
-		// else check count of currently marked majority element to see if its > n/2
+		// Check count of currently marked majority element if its > n/2
 		count = 0;
 		for (int i = 0; i < arr.length; i++) {// O(n)
 			if (arr[i] == majorityElement)
@@ -112,11 +108,9 @@ public class _17_01_MajorityElement_imp {
 	}
 
 	public static void main(String[] args) {
-
 		int[] arr = { 2, 2, 1, 3, 3, 3, 3 };
 		System.out.println(majorityElement_Brute(arr));
 		System.out.println(majorityElement_Better(arr));
 		System.out.println(majorityElement_Opt(arr));
 	}
-
 }

@@ -34,12 +34,12 @@ public class _07_02_UnionOf2SortedArrays_Imp {
 
 				// so to check if its not present in result, need to only check previous element
 				// of result as its sorted
-				if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != a[i]))
+				if (list.isEmpty() || list.get(list.size() - 1) != a[i])
 					list.add(a[i]);
 				i++;
 
 			} else {
-				if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != b[j]))
+				if (list.isEmpty() || list.get(list.size() - 1) != b[j])
 					list.add(b[j]);
 				j++;
 
@@ -47,13 +47,13 @@ public class _07_02_UnionOf2SortedArrays_Imp {
 		}
 
 		while (i < a.length) {
-			if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != a[i]))
+			if (list.isEmpty() || list.get(list.size() - 1) != a[i])
 				list.add(a[i]);
 			i++;
 		}
 
 		while (j < b.length) {
-			if (list.isEmpty() || (list.size() > 0 && list.get(list.size() - 1) != b[j]))
+			if (list.isEmpty() || list.get(list.size() - 1) != b[j])
 				list.add(b[j]);
 			j++;
 		}

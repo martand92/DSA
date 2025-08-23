@@ -19,12 +19,7 @@ public class _13_01_MoveAllZerosToLast {
 			// find first occurrence of 0 and point j to it
 			// j will henceforth point to only first occurrence of 0
 			if (arr[j] != 0)
-				// i++;
 				j++;
-
-//			else if (arr[i] == 0 && arr[j] == 0) {
-//				i++;
-//			}
 
 			// then check if element is non zero then swap it with first occurrence of 0
 			else if (arr[i] != 0) {

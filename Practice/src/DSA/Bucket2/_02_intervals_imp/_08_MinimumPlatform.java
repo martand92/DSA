@@ -1,4 +1,4 @@
-package DSA.Bucket5._11_greedy;
+package DSA.Bucket2._02_intervals_imp;
 
 import java.util.*;
 

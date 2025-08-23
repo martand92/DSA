@@ -1,11 +1,11 @@
-package DSA.Bucket2._01_arrays;
+package DSA.Bucket2._02_intervals_imp;
 
 //https://www.youtube.com/watch?v=IexN60k62jo
 //https://www.naukri.com/code360/problems/merge-all-overlapping-intervals_6783452
 
 import java.util.*;
 
-public class _20_MergeOverlappingSubIntervals_imp {
+public class _20_MergeOverlappingSubIntervals {
 
 	public static int countOverlappingIntervals(int[][] arr) {
 

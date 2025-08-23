@@ -6,7 +6,7 @@ import java.util.*;
 
 public class _21_Merge2SortedArrays_imp {
 
-	public static int[] mergeArrays_Brute(int[] arr1, int[] arr2) {
+	public static int[] mergeArrays_withExtraSpace(int[] arr1, int[] arr2) {
 
 		int[] arr3 = new int[arr1.length + arr2.length];
 		int l = 0, r = 0, k = 0;
@@ -54,7 +54,7 @@ public class _21_Merge2SortedArrays_imp {
 		arr2[r] = temp;
 	}
 
-	public static void mergeArrays_Opt(int[] arr1, int[] arr2) {
+	public static void mergeArrays_withoutExtraSpace(int[] arr1, int[] arr2) {
 
 		int l = arr1.length - 1, r = 0;
 
@@ -75,7 +75,7 @@ public class _21_Merge2SortedArrays_imp {
 		System.out.println(Arrays.toString(arr1) + Arrays.toString(arr2));
 
 		// TC : O(n + m + nlogn + mlogm)
-		// SC : O(n + m)
+		// SC : O(1)
 
 	}
 
@@ -84,8 +84,8 @@ public class _21_Merge2SortedArrays_imp {
 		int[] arr1 = { 1, 3, 5, 7 };
 		int[] arr2 = { 0, 2, 6, 8, 9 };
 
-		System.out.println(Arrays.toString(mergeArrays_Brute(arr1, arr2)));
-		mergeArrays_Opt(arr1, arr2);
+		System.out.println(Arrays.toString(mergeArrays_withExtraSpace(arr1, arr2)));
+		mergeArrays_withoutExtraSpace(arr1, arr2);
 	}
 
 }

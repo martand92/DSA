@@ -50,16 +50,12 @@ public class _17_02_MajorityElement_veryimp {
 			}
 		}
 
-		// if count for current majority element already exceeds n/3 then just return it
-		if (count1 > (arr.length / 3) && count2 > (arr.length / 3))
-			return "element1 : " + element1 + ", element2 : " + element2;
-
-		// else traverse and check if count of both element1 and element2 is > n/3
+		// Traverse and check if count of both finalized element1 and element2 is > n/3
 		count1 = 0;// reset counters
 		count2 = 0;
 
 		for (int i = 0; i < arr.length; i++) {// O(n)
-			if (element1 != -1 && arr[i] == element1) // if 2 distinct elements exists, then check their counts
+			if (element1 != -1 && arr[i] == element1)
 				count1++;
 
 			if (element2 != -1 && arr[i] == element2)

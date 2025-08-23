@@ -3,7 +3,7 @@ package DSA.Bucket2._01_arrays;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/array-subset-of-another-array2317/1
-public class _06_ArraySubSetOfAnotherArray {
+public class _06_IsArrSubSetOfAnotherArr {
 
 	public static void main(String[] args) {
 

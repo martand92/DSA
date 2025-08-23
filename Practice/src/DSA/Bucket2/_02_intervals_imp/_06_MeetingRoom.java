@@ -1,8 +1,8 @@
-package DSA.Bucket5._11_greedy;
+package DSA.Bucket2._02_intervals_imp;
 
 import java.util.*;
 
-public class _06_MeetingRoom_OverlappingIntrvl {
+public class _06_MeetingRoom {
 
 	public static class Meeting {
 		int start;
