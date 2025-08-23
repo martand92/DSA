@@ -5,11 +5,15 @@ import java.util.Arrays;
 //https://www.youtube.com/watch?v=JDOXKqF60RQ
 //https://www.naukri.com/code360/problems/next-greater-permutation_6929564
 
-//Intuition :
-//Next permutation element will have longest prefix match
+// Intuition :
+// Next permutation will be greater than current.
+// So to 
+//if given is the last permutation in ordered sequence then result will be falling back to first in seq   
+
+// Algo :
 //Find highest element on right (i.e, 5) whose prev is lower than this highest (i.e 1). 
 //Now from prev (i.e, 1) till the end can be considered to find next array in sorted permutation seq  
-//To find next greater element, need to find next greater element of 1 to swap with 
+//To find next greater element, need to find next greater element of 1 to swap with i.e, 3 
 //Above step will result in 2,3,5,4,1,0,0
 //Now to get next permutation, sort all nums after swapped index -> 2,3,0,0,1,4,5
 
