@@ -6,16 +6,19 @@ import java.util.Arrays;
 //https://www.naukri.com/code360/problems/next-greater-permutation_6929564
 
 // Intuition :
-// Next permutation will be greater than current.
-// So to 
-//if given is the last permutation in ordered sequence then result will be falling back to first in seq   
+// Next permutation will be greater than current given permutation. So whole algo is to find greater permutation but closest 
+// Step 1 : How to find greater permutation than current?
+// Finding highest element from right whose prev is less than this highest(ex: 5 in given input array). This breakpoint provides option to find next permutation
+// As next permutation should be greater than current anything right to this breakpoint will not yield in next higher permutation
+// Ex: if we consider element 4, then any combination of elements from 4 -> end of array will all yield permutation lesser and not next/greater permutation
+// So right of prev to breakpoint element(here 1) will result in next greater permutation with shuffling elements from 5 -> end accordingly
 
-// Algo :
-//Find highest element on right (i.e, 5) whose prev is lower than this highest (i.e 1). 
-//Now from prev (i.e, 1) till the end can be considered to find next array in sorted permutation seq  
-//To find next greater element, need to find next greater element of 1 to swap with i.e, 3 
-//Above step will result in 2,3,5,4,1,0,0
-//Now to get next permutation, sort all nums after swapped index -> 2,3,0,0,1,4,5
+// Step 2 : How to find just next greater permutation than current?
+// Now we have left of breakpoint (here 1) and right of it could be shuffled to result in permutation seq greater than current
+// Now we need right next permutation. So need to find element on right which is greater & nearest to 1 i.e, 3
+// Now need to swap 1 with 3 to result in higher permutation -> {2, 3, 5, 4, 1, 0, 0}
+// But we also need just next permutation, hence need to arrange elements on right from break point such that its lowest
+// Hence sort elements to right resulting in {2, 3, 0, 0, 1, 4, 5}
 
 public class _19_NextPermutation_imp {
 
@@ -37,31 +40,39 @@ public class _19_NextPermutation_imp {
 
 		for (int i = arr.length - 1; i > 0; i--) {
 
-			if (arr[i - 1] < arr[i])
+			if (arr[i - 1] < arr[i]) {
 				highestIndex = i;
+				break;
+			}
 		}
 
 		// then given array is itself last occurrence in permutation, then return first
 		// occurrence of this permutation
 		if (highestIndex == -1) {
-			Arrays.sort(arr);
+			Arrays.sort(arr);// first occurrence will be simple ordered array
 			return arr;
 		}
 
-		// Step 2 : find next greater element of previous (1) to swap with
-		int ngeIndex = -1;
-		int minDiff = Integer.MAX_VALUE;
-
-		for (int i = highestIndex; i < arr.length; i++) {
-			if (arr[i] > arr[highestIndex - 1] && Math.abs(arr[i] - arr[highestIndex - 1]) < minDiff) {
-				minDiff = Math.abs(arr[i] - arr[highestIndex - 1]);
-				ngeIndex = i;
+		// Step 2 : find next greater element on right by looping from rightmost
+		for (int i = arr.length - 1; i > highestIndex; i--) {
+			if (arr[i] > arr[highestIndex - 1]) {
+				swap(arr, highestIndex - 1, i);
+				break;
 			}
 		}
-		swap(arr, highestIndex - 1, ngeIndex);
 
-		// Step 3 : sort from highestIndex to end in ascending order
-		Arrays.sort(arr, highestIndex, arr.length);
+		// Step 3 : sort from highestIndex to end in ascending order. But as elements
+		// from breakpoint to right most is already sorted in desc order, you just need
+		// to reverse it
+		// Arrays.sort(arr, highestIndex, arr.length);
+		int l = highestIndex;
+		int r = arr.length - 1;
+		while (l < r) {
+			swap(arr, l, r);
+			l++;
+			r--;
+		}
+
 		return arr;
 
 	}
