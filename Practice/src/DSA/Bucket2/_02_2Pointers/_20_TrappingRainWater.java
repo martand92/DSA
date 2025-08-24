@@ -1,4 +1,4 @@
-package DSA.Bucket3._06_stacks;
+package DSA.Bucket2._02_2Pointers;
 
 //https://www.youtube.com/watch?v=1_5VuquLbXg
 //https://www.geeksforgeeks.org/trapping-rain-water/
@@ -10,7 +10,7 @@ package DSA.Bucket3._06_stacks;
 //If left max is less than the right max, then we can decide for arr[left]. Else we can decide for arr[right]
 //If we decide for arr[left], then the amount of water would be left max – arr[left]
 
-public class _20_02_TrappingRainWater_2Pointer_Opt {
+public class _20_TrappingRainWater {
 
 	public static int maxWaterTrapped(int[] arr) {
 

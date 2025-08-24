@@ -1,4 +1,4 @@
-package DSA.Bucket2._01_arrays;
+package DSA.Bucket2._02_2Pointers;
 
 //https://www.youtube.com/watch?v=tp8JIuCXBaU
 import java.util.Arrays;

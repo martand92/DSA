@@ -1,4 +1,4 @@
-package DSA.Bucket3._06_stacks;
+package DSA.Bucket2._03_prefixsum;
 
 //https://www.youtube.com/watch?v=1_5VuquLbXg
 
