@@ -27,8 +27,10 @@ public class _19_ContainerWithMostWater {
 			if (height[l] < height[r])
 				l++;
 			else
-				r++;
+				r--;
 		}
+
+		System.out.println(maxArea);
 	}
 
 }

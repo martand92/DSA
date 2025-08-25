@@ -3,7 +3,7 @@ package DSA.Bucket2._02_2Pointers;
 //https://www.youtube.com/watch?v=tp8JIuCXBaU
 import java.util.Arrays;
 
-public class _10_Sort0s1s2s_imp {
+public class _03_Sort0s1s2s_imp {
 
 	public static void sort_brute(int[] a) {
 		Arrays.sort(a);

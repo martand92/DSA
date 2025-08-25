@@ -7,28 +7,28 @@ import java.util.*;
 
 public class _20_MergeOverlappingSubIntervals {
 
-	public static int countOverlappingIntervals(int[][] arr) {
+	public static int cntNonOverlappingIntrvls(int[][] arr) {
 
 		int count = 1;
-		// First sort given matrix by first element of each row and if they are equal
-		// then second element of each row so that overlapping can be easily found
 		Arrays.sort(arr, new Comparator<int[]>() {
 
 			public int compare(int[] a, int[] b) {
-				if (a[0] != b[0])
-					return a[0] - b[0];
-				else
-					return a[1] - b[1];
+				return a[0] - b[0];
 			}
 		});
-		// System.out.println(Arrays.deepToString(arr));
 
-		// Check if 2nd element of first row is greater than first element of second row
-		// then second row is overlapping with first row
+		int prevIntervalEndTime = arr[0][1]; // store first intrvl endtime as previntrvlendtime
+
 		for (int i = 1; i < arr.length; i++) {
 
-			if (arr[i - 1][1] < arr[i][0])
+			if (arr[i][0] <= prevIntervalEndTime) {
+				prevIntervalEndTime = Math.max(arr[i][1], prevIntervalEndTime);// as this is overlapping interval,
+																				// consider merged intervals max endtime
+			} else if (arr[i][0] > prevIntervalEndTime) {
 				count++;
+				prevIntervalEndTime = arr[i][1]; // as this is non overlapping interval, consider its endtime as new
+													// prevendtime
+			}
 		}
 
 		return count;
@@ -36,7 +36,7 @@ public class _20_MergeOverlappingSubIntervals {
 
 	public static void main(String[] args) {
 		int[][] arr = { { 1, 3 }, { 2, 6 }, { 8, 9 }, { 9, 11 }, { 8, 10 }, { 2, 4 }, { 15, 18 }, { 16, 17 } };
-		System.out.println(countOverlappingIntervals(arr));
+		System.out.println(cntNonOverlappingIntrvls(arr));
 	}
 
 }

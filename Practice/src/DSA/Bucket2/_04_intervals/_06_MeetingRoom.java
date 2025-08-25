@@ -2,6 +2,7 @@ package DSA.Bucket2._04_intervals;
 
 import java.util.*;
 
+//you need non-overlapping intervals here, so need to sort by end time
 public class _06_MeetingRoom {
 
 	public static class Meeting {
@@ -28,10 +29,10 @@ public class _06_MeetingRoom {
 			}
 		});
 
-		int endTime = 0, count = 0;
+		int prevIntervalEndTime = 0, count = 0;
 		for (int i = 0; i < meetings.length; i++) {
-			if (meetings[i].start > endTime) {
-				endTime = meetings[i].end;
+			if (meetings[i].start >= prevIntervalEndTime) {
+				prevIntervalEndTime = meetings[i].end; // if non-overlapping then consider its endpoint
 				count++;
 			}
 		}

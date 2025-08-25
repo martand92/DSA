@@ -2,7 +2,8 @@ package DSA.Bucket2._04_intervals;
 
 import java.util.*;
 
-public class _07_CntOverlappingIntrvl {
+//https://leetcode.com/problems/non-overlapping-intervals/description/
+public class _07_NonOverlappingIntrvl {
 
 	public static class Interval {
 		int start;
@@ -14,7 +15,7 @@ public class _07_CntOverlappingIntrvl {
 		}
 	}
 
-	public static int countOverlappingIntervals(int[][] interval) {
+	public static int removeOverlappingIntervals(int[][] interval) {
 
 		Interval[] intervals = new Interval[interval.length];
 
@@ -30,10 +31,10 @@ public class _07_CntOverlappingIntrvl {
 		int prevIntervalEndTime = 0, count = 0;
 		for (int i = 0; i < intervals.length; i++) {
 
-			if (intervals[i].start < prevIntervalEndTime)
+			if (intervals[i].start < prevIntervalEndTime)// if overlapping
 				count++;
 			else
-				prevIntervalEndTime = intervals[i].end;
+				prevIntervalEndTime = intervals[i].end;// if non-overlapping then consider its endpoint
 		}
 
 		return count;
@@ -41,10 +42,11 @@ public class _07_CntOverlappingIntrvl {
 
 	public static void main(String[] args) {
 
-//		int[][] interval = { { 1, 2 }, { 2, 3 }, { 3, 4 }, { 1, 3 } };
-		int[][] interval = { { 1, 2 }, { 1, 2 }, { 1, 2 } };
+		// int[][] interval = { { 1, 2 }, { 2, 3 }, { 3, 4 }, { 1, 3 } };
+		// int[][] interval = { { 1, 2 }, { 1, 2 }, { 1, 2 } };
+		int[][] interval = { { 1, 2 }, { 2, 3 } };
 
-		System.out.println(countOverlappingIntervals(interval));
+		System.out.println("Need to remove " + removeOverlappingIntervals(interval) + " overlapping intervals");
 	}
 
 }
