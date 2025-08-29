@@ -1,6 +1,6 @@
 package DSA.Bucket2._02_2Pointers;
 
-public class _19_ContainerWithMostWater {
+public class _19_ContainerWithMostWater_imp {
 
 	public static void main(String[] args) {
 

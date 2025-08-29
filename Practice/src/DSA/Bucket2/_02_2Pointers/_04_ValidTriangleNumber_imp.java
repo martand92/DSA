@@ -14,7 +14,7 @@ import java.util.Arrays;
 //So only need to increase l if arr[l]+arr[r] < arr[i] else decrease r and repeat for all combinations of arr[i]
 // then again repeat by decreasing i. Hence O(n^2)
 
-public class _04_ValidTriangleNumber {
+public class _04_ValidTriangleNumber_imp {
 
 	public static void main(String[] args) {
 

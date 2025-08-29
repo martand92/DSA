@@ -51,6 +51,15 @@ public class _03_Sort0s1s2s_imp {
 	}
 
 	// Dutch national flag
+
+	// 0 to low-1 filled with 0
+	// low to mid-1 filled with 1
+	// mid to high filled with unsorted array
+	// high+1 to n-1 filled with 2
+
+	// So need to sort the unsorted part in mid to high
+	// if found 0 then move to left, if found 1 then keep there, if found 2 then
+	// move to right
 	public static void swap(int[] arr, int i, int j) {
 		int temp = arr[i];
 		arr[i] = arr[j];

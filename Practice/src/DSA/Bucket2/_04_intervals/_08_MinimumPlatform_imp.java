@@ -2,7 +2,7 @@ package DSA.Bucket2._04_intervals;
 
 import java.util.*;
 
-public class _08_MinimumPlatform {
+public class _08_MinimumPlatform_imp {
 
 	public static int numberOfMinPlatforms(int[] arrival, int[] dep) {
 

@@ -3,7 +3,7 @@ package DSA.Bucket2._04_intervals;
 import java.util.*;
 
 //you need non-overlapping intervals here, so need to sort by end time
-public class _06_MeetingRoom {
+public class _06_MeetingRoom_imp {
 
 	public static class Meeting {
 		int start;

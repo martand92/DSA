@@ -3,8 +3,9 @@ package DSA.Bucket2._04_intervals;
 import java.util.*;
 
 //https://leetcode.com/problems/non-overlapping-intervals/description/
-public class _07_NonOverlappingIntrvl {
+public class _07_NonOverlappingIntrvl_imp {
 
+	// here custom class might not be needed, you can sort 2D array
 	public static class Interval {
 		int start;
 		int end;

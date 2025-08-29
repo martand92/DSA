@@ -10,7 +10,7 @@ package DSA.Bucket2._02_2Pointers;
 //If left max is less than the right max, then we can decide for arr[left]. Else we can decide for arr[right]
 //If we decide for arr[left], then the amount of water would be left max – arr[left]
 
-public class _20_TrappingRainWater {
+public class _20_TrappingRainWater_imp {
 
 	public static int maxWaterTrapped(int[] arr) {
 

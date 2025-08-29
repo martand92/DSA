@@ -1,11 +1,13 @@
 package DSA.Bucket2._04_intervals;
 
 //https://www.youtube.com/watch?v=IexN60k62jo
+
 //https://www.naukri.com/code360/problems/merge-all-overlapping-intervals_6783452
 
+//intention is to count overlapping intervals that could be removed
 import java.util.*;
 
-public class _20_MergeOverlappingSubIntervals {
+public class _20_02_CntNonOverlappingIntrvlAfterMerge_imp {
 
 	public static int cntNonOverlappingIntrvls(int[][] arr) {
 
@@ -13,7 +15,7 @@ public class _20_MergeOverlappingSubIntervals {
 		Arrays.sort(arr, new Comparator<int[]>() {
 
 			public int compare(int[] a, int[] b) {
-				return a[0] - b[0];
+				return a[0] - b[0];// sorting by start time
 			}
 		});
 
@@ -35,6 +37,7 @@ public class _20_MergeOverlappingSubIntervals {
 	}
 
 	public static void main(String[] args) {
+		// Need not be sorted by start time
 		int[][] arr = { { 1, 3 }, { 2, 6 }, { 8, 9 }, { 9, 11 }, { 8, 10 }, { 2, 4 }, { 15, 18 }, { 16, 17 } };
 		System.out.println(cntNonOverlappingIntrvls(arr));
 	}
