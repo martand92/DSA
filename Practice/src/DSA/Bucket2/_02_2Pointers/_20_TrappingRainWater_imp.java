@@ -25,7 +25,7 @@ public class _20_TrappingRainWater_imp {
 				if (arr[l] < lmax)
 					total += lmax - arr[l];
 				else // (arr[l] >= lmax)
-					lmax = arr[l];
+					lmax = arr[l]; //any next arr[l] comparison will be with this lmax
 
 				l++;
 

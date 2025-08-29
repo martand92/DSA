@@ -7,7 +7,7 @@ package DSA.Bucket2._04_intervals;
 //intention is to count overlapping intervals that could be removed
 import java.util.*;
 
-public class _20_02_CntNonOverlappingIntrvlAfterMerge_imp {
+public class _20_02_MergeIntrvlAndCntNonOverlapngIntrvls_imp {
 
 	public static int cntNonOverlappingIntrvls(int[][] arr) {
 

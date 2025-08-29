@@ -1,4 +1,4 @@
-package DSA.Bucket2._06_hash;
+package DSA.Bucket2._06_hash.Medium;
 
 
 //https://practice.geeksforgeeks.org/problems/array-pair-sum-divisibility-problem3257/1

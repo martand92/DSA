@@ -1,4 +1,4 @@
-package DSA.Bucket2._03_prefixsum;
+package DSA.Bucket2._02_2Pointers;
 
 public class _02_SumOfSubArray {
 

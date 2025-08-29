@@ -11,24 +11,24 @@ public class _03_FindLargestSubArrWithZeroSum {
 		// int[] arr = { 15, -2, 2, -8, 1, 7 };
 		int[] arr = { -42, 12, 20, 15, 31, -4, 0, 15 };
 		// int[] arr = { -1, 1, -1, 1 };
-		int sum = 0, maxLength = 0, len = 0;
+		int prefixSum = 0, maxLength = 0, len = 0;
 
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>(); // O(n)
 
 		for (int i = 0; i < arr.length; i++) { // O(n)
 
-			sum += arr[i];
+			prefixSum += arr[i];
 
-			if (sum == 0)
+			if (prefixSum == 0)
 				maxLength = i + 1;
 
-			else if (hm.containsKey(sum)) { // if true, found sub array with sum zero. O(logn)
-				len = i - hm.get(sum);
+			else if (hm.containsKey(prefixSum)) { // if true, found sub array with sum zero. O(logn)
+				len = i - hm.get(prefixSum);
 				maxLength = Math.max(len, maxLength);
 			}
 
-			if (!hm.containsKey(sum))
-				hm.put(sum, i); // O(logn)
+			if (!hm.containsKey(prefixSum))
+				hm.put(prefixSum, i); // O(logn)
 		}
 
 		System.out.println(maxLength);

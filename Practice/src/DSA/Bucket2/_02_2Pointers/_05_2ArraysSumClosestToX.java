@@ -1,7 +1,7 @@
-package DSA.Bucket2._06_hash;
+package DSA.Bucket2._02_2Pointers;
 
 //https://practice.geeksforgeeks.org/problems/find-the-closest-pair-from-two-arrays4215/1
-public class _01_03_TwoSumClosestToX_2Arrays {
+public class _05_2ArraysSumClosestToX {
 
 	public static void main(String[] args) {
 //		int[] arr = { 1, 4, 5, 7 };

@@ -8,20 +8,20 @@ public class _02_SubArrayWithZeroSum {
 	public static void main(String[] args) {
 
 		int[] arr = { 4, 2, -3, 1, 6 };
-		int sum = 0;
+		int prefixSum = 0;
 
 		HashSet<Integer> hs = new HashSet<Integer>();
 
 		for (int i = 0; i < arr.length; i++) {
 
-			sum += arr[i]; // prefix sum
+			prefixSum += arr[i]; // prefix sum
 
-			if (arr[i] == 0 || sum == 0 || hs.contains(sum)) {
+			if (arr[i] == 0 || prefixSum == 0 || hs.contains(prefixSum)) {
 				System.out.println("Yes");
 				return;
 			}
 
-			hs.add(sum);
+			hs.add(prefixSum);
 		}
 
 		System.out.println("No");

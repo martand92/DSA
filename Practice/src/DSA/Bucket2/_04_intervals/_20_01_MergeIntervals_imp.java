@@ -19,7 +19,7 @@ public class _20_01_MergeIntervals_imp {
 
 		for (int i = 1; i < interval.length; i++) {
 
-			if (interval[i][0] < prevEndTime) // if start time of current interval is less than prev interval's end time
+			if (interval[i][0] <= prevEndTime) // if start time of current interval is overlapping with prev interval
 				prevEndTime = Math.max(prevEndTime, interval[i][1]);
 
 			else {
