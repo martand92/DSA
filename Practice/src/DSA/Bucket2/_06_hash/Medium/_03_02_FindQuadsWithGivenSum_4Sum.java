@@ -4,7 +4,7 @@ package DSA.Bucket2._06_hash.Medium;
 //https://www.naukri.com/code360/problems/4sum_5713771
 import java.util.*;
 
-public class _05_4Sum_FindQuadsWithKSum {
+public class _03_02_FindQuadsWithGivenSum_4Sum {
 
 	public static List<List<Integer>> fourSum_Better(int[] arr, int target) {
 

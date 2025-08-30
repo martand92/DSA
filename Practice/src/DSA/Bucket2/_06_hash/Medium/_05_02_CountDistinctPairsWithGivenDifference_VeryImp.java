@@ -8,12 +8,12 @@ import java.util.*;
  *  Now only unique pair are needed, remove duplicates by hashing
  *  
  *  Why hashmap? : 
- *  1. to remove duolicates (but we can use hashset as well)
+ *  1. to remove duplicates (but we can use hashset as well)
  *  2. to handle k=0, where you need to check if same element appears more than 1 as its difference results in 0 
  */
 
 //https://practice.geeksforgeeks.org/problems/count-distinct-pairs-with-difference-k1233/1
-public class _09_CountDistinctPairsWithGivenDifference {
+public class _05_02_CountDistinctPairsWithGivenDifference_VeryImp {
 
 	public static void main(String[] args) {
 //		int[] arr = { 1, 5, 4, 1, 2 };

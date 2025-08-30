@@ -3,7 +3,7 @@ package DSA.Bucket2._06_hash.Medium;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public class _06_FindLongestConsecutiveSeq {
+public class _06_FindLongestConsecutiveSeq_Imp {
 
 	public static int longestConsecutiveSeq_Better(int[] arr) {
 
@@ -88,8 +88,8 @@ public class _06_FindLongestConsecutiveSeq {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 102, 4, 100, 1, 101, 3, 2 };
-		// int[] arr = { 100, 102, 100, 101, 101, 4, 3, 2, 3, 2, 1, 1, 1, 2 };
+		//int[] arr = { 102, 4, 100, 1, 101, 3, 2 };
+		 int[] arr = { 100, 102, 100, 101, 101, 4, 3, 2, 3, 2, 1, 1, 1, 2 };
 		// int[] arr = { 15, 6, 2, 1, 16, 4, 2, 29, 9, 12, 8, 5, 14, 21, 8, 12, 17, 16,
 		// 6, 26, 3 };
 		// int[] arr = { 1, 3, 5, 7 };

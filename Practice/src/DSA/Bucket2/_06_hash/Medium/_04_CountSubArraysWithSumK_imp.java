@@ -1,4 +1,4 @@
-package DSA.Bucket2._06_hash;
+package DSA.Bucket2._06_hash.Medium;
 
 import java.util.HashMap;
 

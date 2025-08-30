@@ -8,7 +8,7 @@ package DSA.Bucket2._06_hash.Medium;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/three-sum-closest/1
-public class _03_01_FindTripletsWithGivenSum {
+public class _03_01_FindTripletsWithGivenSum_3Sum_Imp {
 
 	public static void main(String[] args) {
 

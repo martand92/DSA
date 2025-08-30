@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 //https://practice.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/1
-public class _08_FreqOfArrayElements {
+public class _08_FreqOfArrayElements_Imp {
 
 	public static void main(String[] args) {
 

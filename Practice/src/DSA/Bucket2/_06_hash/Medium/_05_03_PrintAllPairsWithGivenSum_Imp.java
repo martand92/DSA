@@ -1,8 +1,8 @@
-package DSA.Bucket2._06_hash;
+package DSA.Bucket2._06_hash.Medium;
 
 import java.util.*;
 
-public class _05_02_PrintAllPairsWithGivenSum_Imp {
+public class _05_03_PrintAllPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
 

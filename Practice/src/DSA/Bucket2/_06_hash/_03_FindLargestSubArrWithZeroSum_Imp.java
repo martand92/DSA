@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://www.geeksforgeeks.org/find-the-largest-subarray-with-0-sum/
 //https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
-public class _03_FindLargestSubArrWithZeroSum {
+public class _03_FindLargestSubArrWithZeroSum_Imp {
 
 	public static void main(String[] args) {
 

@@ -9,7 +9,7 @@ package DSA.Bucket2._06_hash.Medium;
 
 import java.util.*;
 
-public class _04_FindTripletsWithZeroSum {
+public class _04_FindTripletsWithZeroSum_Imp {
 
 	public static List<List<Integer>> findTripletsWithZeroSum_Better(int[] arr) {
 

@@ -3,7 +3,7 @@ package DSA.Bucket2._06_hash;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/positive-negative-pair5209/1
-public class _11_PosNegPair_ON_Hash {
+public class _11_PosNegPair_ON_Hash_Imp {
 
 	public static void main(String[] args) {
 		
