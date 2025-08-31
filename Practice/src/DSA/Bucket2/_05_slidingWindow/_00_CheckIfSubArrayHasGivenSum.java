@@ -42,7 +42,7 @@ public class _00_CheckIfSubArrayHasGivenSum {
 		int[] arr = { 1, 2, 3, 4 };
 		int target = 5;
 		System.out.println(genericSubArrayApproach(arr, target));// O(N^2)
-		System.out.println(slidingWindowApproach(arr, target));// O(2N), only works when elments in array are non neg
+		System.out.println(slidingWindowApproach(arr, target));// O(2N), only works when elements in array are non neg
 	}
 
 }

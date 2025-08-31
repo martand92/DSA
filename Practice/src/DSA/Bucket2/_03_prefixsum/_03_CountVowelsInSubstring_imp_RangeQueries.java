@@ -1,6 +1,6 @@
 package DSA.Bucket2._03_prefixsum;
 
-public class _03_CountVowelsInSubstring_imp {
+public class _03_CountVowelsInSubstring_imp_RangeQueries {
 
 	public static void main(String[] args) {
 
