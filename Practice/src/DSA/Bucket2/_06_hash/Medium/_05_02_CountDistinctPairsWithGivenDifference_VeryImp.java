@@ -8,36 +8,43 @@ import java.util.*;
  *  Now only unique pair are needed, remove duplicates by hashing
  *  
  *  Why hashmap? : 
- *  1. to remove duplicates (but we can use hashset as well)
- *  2. to handle k=0, where you need to check if same element appears more than 1 as its difference results in 0 
+ *  to handle k=0, Without hashmap & with only hashset, as initially you add all elements to hash.
+ *  if arr={1,2,3} then only with hashset when you check if another paired element exists after doing k+arr[i], it results in same arr[i] as k=0
+ *  so even if no pair exists k+arr[i] will find same element from hash.
+ *  
+ *  Hence its important to handle k = 0 differently by check if same element appears more than once to form pair
  */
 
 //https://practice.geeksforgeeks.org/problems/count-distinct-pairs-with-difference-k1233/1
 public class _05_02_CountDistinctPairsWithGivenDifference_VeryImp {
 
 	public static void main(String[] args) {
-//		int[] arr = { 1, 5, 4, 1, 2 };
-//		int diff = 0;
+		int[] nums = { 1, 5, 4, 1, 2 };
+		int k = 0;
 
-		int[] nums = { 12, 9, 10, 13, 1, 8, 11 };
-		int k = 7;
+//		int[] nums = { 1, 5, 3 };
+//		int k = 2;
+
+//		int[] nums = { 12, 9, 10, 13, 1, 8, 11 };
+//		int k = 7;
 
 		HashMap<Integer, Integer> hm = new HashMap<>();
-		HashSet<String> hs = new HashSet<String>();
+		int count = 0;
 
 		for (int i = 0; i < nums.length; i++)
-			hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1); // first remove duplicates and store count of duplicates
+			hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1); // consolidate duplicates
 
-		for (Map.Entry<Integer, Integer> e : hm.entrySet()) {
+		for (int e : hm.keySet()) {
 
-			if (k == 0) { // handling k=0
-				if (e.getValue() > 1)
-					hs.add(String.valueOf(e.getKey() + "," + e.getKey()));
+			if (k == 0) {
+				if (hm.get(e) > 1) // if k == 0 then you need to check if same element is repeating, only
+					// then they make valid pair
+					count++;
 
-			} else if (hm.containsKey(k + e.getKey()))
-				hs.add(e.getKey() + "," + (k + e.getKey())); // only unique pairs should be considered
+			} else if (hm.containsKey(k + e))// if not then check if k+arr[i] exists, then makes valid pair
+				count++;
 		}
 
-		System.out.println(hs.size());
+		System.out.println(count);
 	}
 }

@@ -8,7 +8,7 @@ package DSA.Bucket2._05_slidingWindow;
 //Hence instead of inner while loop to shrink, shrink only once to get back valid window and check for next windows that would either provide larger or same window size satisfying condition
 
 //This optimization is only valid when need to return length but not for returning array
-public class _05_02_LongestSubArrOfSum_Lesser_Equal_K_Opt {
+public class _05_02_LongestSubArrOfSumLesserOrEqualToK_Opt {
 
 	public static int longestSubArrOfSumLesserOrEqualToK(int[] arr, int k) {
 

@@ -1,6 +1,6 @@
 package DSA.Bucket2._05_slidingWindow;
 
-public class _05_01_LongestSubArrOfSum_Lesser_Equal_K {
+public class _05_01_LongestSubArrOfSumLesserOrEqualToK {
 
 	public static int longestSubArrOfSumLesserOrEqualToK(int[] arr, int k) {
 
