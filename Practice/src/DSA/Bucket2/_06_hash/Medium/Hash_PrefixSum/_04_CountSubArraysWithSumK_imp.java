@@ -1,4 +1,4 @@
-package DSA.Bucket2._06_hash.Medium;
+package DSA.Bucket2._06_hash.Medium.Hash_PrefixSum;
 
 import java.util.HashMap;
 

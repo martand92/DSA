@@ -1,24 +1,23 @@
 package DSA.Bucket2._05_slidingWindow;
 
+//you can only pick either from beginning or the end
 public class _07_MaxPointsFromCard {
 
 	public static int findMaxPointsFromCards(int[] cardPoints, int k) {
 
-		int sum = 0, maxSum = 0, l = 0, r = k - 1;
+		int sum = 0, maxSum = 0, i = k - 1, r = cardPoints.length - 1;
 
-		// initially fix window from 0 -> k-1
-		for (int i = 0; i < k; i++)// O(K)
-			maxSum += cardPoints[i];
+		// initially find sum of left k elements
+		for (int l = 0; l < k; l++)// O(K)
+			maxSum += cardPoints[l];
+
 		sum = maxSum;
 
-		// now move window in backward direction so that first and last elements
-		// together can form window of length k till all k last elements of array are
-		// checked
-		while (r >= 0) {// O(K)
-			sum -= cardPoints[r];
-			r--;
-			l--;
-			sum += cardPoints[cardPoints.length + l];
+		// Now from left window sum, start removing left elements, add right elements &
+		// check for window sum
+		while (i >= 0) {// O(K)
+			sum -= cardPoints[i--];
+			sum += cardPoints[r--];
 			maxSum = Math.max(maxSum, sum);
 		}
 
@@ -26,10 +25,8 @@ public class _07_MaxPointsFromCard {
 	}
 
 	public static void main(String[] args) {
-		int[] cardPoints = { 6, 2, 3, 4, 7, 2, 1, 7, 1 };
+		int[] cardPoints = { 6, 2, 3, 4, 7, 2, 1, 7, 1 }; // Expected ans is cards picked -> {2,6,1,7}
 		int k = 4; // Static window size
-
-		// Expected ans is cards picked -> {2,6,1,7}
 
 		System.out.println(findMaxPointsFromCards(cardPoints, k));
 	}

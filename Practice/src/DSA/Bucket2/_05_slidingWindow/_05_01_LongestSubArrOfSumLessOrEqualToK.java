@@ -1,26 +1,21 @@
 package DSA.Bucket2._05_slidingWindow;
 
-public class _05_01_LongestSubArrOfSumLesserOrEqualToK {
+public class _05_01_LongestSubArrOfSumLessOrEqualToK {
 
 	public static int longestSubArrOfSumLesserOrEqualToK(int[] arr, int k) {
 
-		int windowSum = 0;
-		int longestSubArr = 0;
-		int subArrSize = 0;
-		int left = 0;
+		int windowSum = 0, longestSubArr = 0, l = 0;
 
-		for (int right = 0; right < arr.length; right++) {
+		for (int r = 0; r < arr.length; r++) {
 
-			windowSum += arr[right];
-			subArrSize++;
+			windowSum += arr[r];
 
 			while (windowSum > k) {
-				windowSum -= arr[left];
-				left++;
-				subArrSize--;
+				windowSum -= arr[l];
+				l++;
 			}
 
-			longestSubArr = Math.max(longestSubArr, subArrSize);
+			longestSubArr = Math.max(longestSubArr, r - l + 1);
 		}
 
 		return longestSubArr;

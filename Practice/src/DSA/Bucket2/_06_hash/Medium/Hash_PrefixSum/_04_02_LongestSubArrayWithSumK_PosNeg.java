@@ -1,10 +1,8 @@
-package DSA.Bucket2._05_slidingWindow;
+package DSA.Bucket2._06_hash.Medium.Hash_PrefixSum;
 
 import java.util.*;
 
 //Below solution works for both positive and negative nums in array 
-
-//this problem is same as : _03_01_FindLargestSubArrayWithSumZero
 public class _04_02_LongestSubArrayWithSumK_PosNeg {
 
 	public static int longestSubArr(int[] arr, int k) {

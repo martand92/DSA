@@ -5,7 +5,7 @@ package DSA.Bucket2._05_slidingWindow;
 
 //Find the sum of the subarray (including empty subarray) having maximum sum among all subarrays
 //Note : The sum of an empty subarray is 0.
-public class _03_01_MaxSumOfSubArr {
+public class _03_01_MaxSumOfSubArr_Imp {
 
 	public static int maxSumOfSubArr_Brute(int[] arr) {
 

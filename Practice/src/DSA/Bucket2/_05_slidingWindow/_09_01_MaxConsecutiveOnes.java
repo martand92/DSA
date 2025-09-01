@@ -10,8 +10,7 @@ public class _09_01_MaxConsecutiveOnes {
 
 		for (int r = 0; r < arr.length; r++) { // O(N)
 
-			if (arr[r] == 0)// as k zeros can be flipped to 1, consider this 0 as part of consecutive 1s
-							// window
+			if (arr[r] == 0)
 				k--;
 
 			// O(N)

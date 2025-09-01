@@ -7,7 +7,7 @@ package DSA.Bucket2._05_slidingWindow;
 //Above logic works if array elements contains negative elements, but here elements are all positive. 
 //Hence only check if currSum is nearing to givenSum or exactly equal as you go traverse adding elements to sum and if crossed then reduce window. 
 
-public class _02_02_MaxSumOfSubArrayLesserOrEqualToK {
+public class _05_00_MaxSumOfSubArrLessOrEqualToK {
 
 	public static void main(String[] args) {
 

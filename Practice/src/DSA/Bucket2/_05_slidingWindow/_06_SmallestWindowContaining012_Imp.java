@@ -7,10 +7,10 @@ public class _06_SmallestWindowContaining012_Imp {
 
 	public static void main(String[] args) {
 
-		//String s = "112220100000000000000";
+		// String s = "112220100000000000000";
 		String s = "12121";
-		int l = 0;
-		int count = Integer.MAX_VALUE;
+
+		int smallestWindow = Integer.MAX_VALUE, l = 0;
 
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
 
@@ -20,13 +20,12 @@ public class _06_SmallestWindowContaining012_Imp {
 
 			while (hm.size() == 3) {
 
-				count = Math.min(count, (r - l + 1));
+				smallestWindow = Math.min(smallestWindow, (r - l + 1));
 
 				int val = hm.get(s.charAt(l));
 
 				if (val > 1)
 					hm.put(s.charAt(l), val - 1);
-
 				else
 					hm.remove(s.charAt(l));
 
@@ -35,7 +34,7 @@ public class _06_SmallestWindowContaining012_Imp {
 			}
 		}
 
-		System.out.println(count == Integer.MAX_VALUE ? -1 : count);
+		System.out.println(smallestWindow == Integer.MAX_VALUE ? -1 : smallestWindow);
 
 	}
 }
