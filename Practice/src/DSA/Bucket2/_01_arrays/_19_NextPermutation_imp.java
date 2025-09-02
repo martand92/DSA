@@ -53,7 +53,9 @@ public class _19_NextPermutation_imp {
 			return arr;
 		}
 
-		// Step 2 : find next greater element on right by looping from rightmost
+		// Step 2 : find next greater element of element left to breaking point by
+		// looping from rightmost
+		// This works because elements on right are all increasing in nature
 		for (int i = arr.length - 1; i > highestIndex; i--) {
 			if (arr[i] > arr[highestIndex - 1]) {
 				swap(arr, highestIndex - 1, i);
@@ -61,10 +63,9 @@ public class _19_NextPermutation_imp {
 			}
 		}
 
-		// Step 3 : sort from highestIndex to end in ascending order. But as elements
-		// from breakpoint to right most is already sorted in desc order, you just need
-		// to reverse it
-		// Arrays.sort(arr, highestIndex, arr.length);
+		// Step 3 : sort(asc) from breaking point to rightmost. But as elements from
+		// breakpoint to right most is already sorted in desc order, you just need to
+		// reverse it
 		int l = highestIndex;
 		int r = arr.length - 1;
 		while (l < r) {

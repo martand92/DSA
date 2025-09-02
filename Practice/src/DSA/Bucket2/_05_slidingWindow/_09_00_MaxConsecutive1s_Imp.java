@@ -1,6 +1,6 @@
-package DSA.Bucket2._01_arrays;
+package DSA.Bucket2._05_slidingWindow;
 
-public class _06_MaxConsecutive1s {
+public class _09_00_MaxConsecutive1s_Imp {
 
 	public static int maxConsecutive1s(int[] arr) {
 

@@ -2,7 +2,7 @@ package DSA.Bucket2._05_slidingWindow;
 
 //https://www.youtube.com/watch?v=3E4JBHSLpYk
 //https://leetcode.com/problems/max-consecutive-ones-iii/description/
-public class _09_01_MaxConsecutiveOnes {
+public class _09_01_MaxConsecutiveOnes_Imp {
 
 	public static int maxConsecutiveOnes(int[] arr, int k) {
 
