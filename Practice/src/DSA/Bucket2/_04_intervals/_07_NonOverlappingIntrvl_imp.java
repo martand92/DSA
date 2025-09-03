@@ -25,7 +25,7 @@ public class _07_NonOverlappingIntrvl_imp {
 
 		Arrays.sort(intervals, new Comparator<Interval>() {
 			public int compare(Interval a, Interval b) {
-				return a.end - b.end;
+				return a.end - b.end;//This also works if you sort by start time but then pick the interval that ends sooner
 			}
 		});
 

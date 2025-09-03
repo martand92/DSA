@@ -23,7 +23,6 @@ public class _20_01_MergeIntervals_imp {
 				prevEndTime = Math.max(prevEndTime, interval[i][1]);
 
 			else {
-
 				result.add(new ArrayList<>(Arrays.asList(prevStartTime, prevEndTime)));
 				prevStartTime = interval[i][0];
 				prevEndTime = interval[i][1];
@@ -37,7 +36,6 @@ public class _20_01_MergeIntervals_imp {
 	}
 
 	public static void main(String[] args) {
-
 		int[][] interval = { { 3, 5 }, { 1, 4 }, { 7, 9 }, { 6, 8 }, { 10, 11 } };
 		System.out.println(mergeInterval(interval));
 	}

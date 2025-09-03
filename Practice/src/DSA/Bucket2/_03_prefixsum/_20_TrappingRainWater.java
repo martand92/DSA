@@ -8,7 +8,7 @@ package DSA.Bucket2._03_prefixsum;
 //First find max height of left side buildings and right side buildings
 //Then check for min of left max height and right max height as water beyond the min of max heights would over flow
 //Then, water that can be trapped at current building arr[i] = min(maxHeightOfLeft - maxHeightOfRight) - height of curr ith building
-public class _20_01_TrappingRainWater {
+public class _20_TrappingRainWater {
 
 	public static int maxWaterTrapped(int[] arr) {
 
