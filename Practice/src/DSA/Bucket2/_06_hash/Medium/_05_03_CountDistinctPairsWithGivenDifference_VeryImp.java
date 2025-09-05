@@ -16,7 +16,7 @@ import java.util.*;
  */
 
 //https://practice.geeksforgeeks.org/problems/count-distinct-pairs-with-difference-k1233/1
-public class _05_02_CountDistinctPairsWithGivenDifference_VeryImp {
+public class _05_03_CountDistinctPairsWithGivenDifference_VeryImp {
 
 	public static void main(String[] args) {
 		int[] nums = { 1, 5, 4, 1, 2 };

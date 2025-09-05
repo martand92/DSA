@@ -2,7 +2,7 @@ package DSA.Bucket2._06_hash.Medium;
 
 import java.util.*;
 
-public class _05_03_PrintAllPairsWithGivenSum_Imp {
+public class _05_02_PrintAllPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
 
@@ -15,7 +15,7 @@ public class _05_03_PrintAllPairsWithGivenSum_Imp {
 		for (int i = 0; i < arr.length; i++) {
 
 			if (hm.containsKey(sum - arr[i])) {
-				for (int j = 0; j < hm.get(sum - arr[i]); j++)
+				for (int j = 0; j < hm.get(sum - arr[i]); j++)// num of times sum-arr[i] is seen
 					al.add(arr[i] + "," + (sum - arr[i]));
 			}
 

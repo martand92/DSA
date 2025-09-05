@@ -15,14 +15,11 @@ public class _16_CountCharacters_O_S {
 
 		for (int i = 0; i < S.length(); i++) {
 
-			if (i == 0) {
+			if (i == 0)
 				hm.put(S.charAt(i), 1);
-			} else if (S.charAt(i) != S.charAt(i - 1)) {
-				if (hm.containsKey(S.charAt(i)))
-					hm.put(S.charAt(i), hm.get(S.charAt(i)) + 1);
-				else
-					hm.put(S.charAt(i), 1);
-			}
+
+			else if (S.charAt(i) != S.charAt(i - 1))
+				hm.put(S.charAt(i), hm.getOrDefault(S.charAt(i), 0) + 1);
 		}
 
 		for (Map.Entry<Character, Integer> e : hm.entrySet()) {

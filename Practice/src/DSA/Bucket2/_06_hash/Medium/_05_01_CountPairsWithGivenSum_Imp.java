@@ -2,6 +2,8 @@ package DSA.Bucket2._06_hash.Medium;
 
 import java.util.HashMap;
 
+//Logic is same as TwoSUm except array elements here are dup
+
 public class _05_01_CountPairsWithGivenSum_Imp {
 
 	public static void main(String[] args) {
