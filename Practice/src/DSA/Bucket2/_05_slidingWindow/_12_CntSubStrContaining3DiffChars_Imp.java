@@ -6,7 +6,12 @@ import java.util.HashMap;
 
 //first calculate all sub arrays possible with <=3 chars -> x, then all subarrays possible with <=2 chars -> y
 //then to get all subarrays possible with exact 3 chars, do x - y
-public class _11_CountSubStringContaining3DifferentChars {
+
+//Why this cannot be solved using hashmap + prefixsum?
+//property here is “number of distinct elements in a subarray” and is not additive which is prereq for prefixSum
+//Prefix sum works for quantities that can be added.
+
+public class _12_CntSubStrContaining3DiffChars_Imp {
 
 	public static int countNumOfSubStrings(String s, int k) {
 
@@ -34,7 +39,7 @@ public class _11_CountSubStringContaining3DifferentChars {
 	public static void main(String[] args) {
 		// String s = "abc";
 		// String s = "abcabc";
-		String s = "bbacba";
+		String s = "bbac";
 		// Count of SubArrays with all 3 chars : Count of SubArrays with lesser or equal
 		// to 3 chars - Count of SubArrays with lesser or equal to 2 chars
 		System.out.println(countNumOfSubStrings(s, 3) - countNumOfSubStrings(s, 2));

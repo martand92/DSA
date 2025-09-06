@@ -13,11 +13,11 @@ public class _03_01_MaxSumOfSubArr_Imp {
 
 		for (int i = 0; i < arr.length; i++) {
 			sum = 0;
-			
-			for (int j = i; j < arr.length; j++)
-				sum += arr[j];
 
-			maxSum = Math.max(maxSum, sum);
+			for (int j = i; j < arr.length; j++) {
+				sum += arr[j];
+				maxSum = Math.max(maxSum, sum);
+			}
 		}
 
 		return maxSum;
@@ -32,7 +32,7 @@ public class _03_01_MaxSumOfSubArr_Imp {
 		for (int i = 0; i < arr.length; i++) {
 			sum += arr[i];
 			maxSum = Math.max(maxSum, sum);
-			
+
 			if (sum < 0)
 				sum = 0;
 		}

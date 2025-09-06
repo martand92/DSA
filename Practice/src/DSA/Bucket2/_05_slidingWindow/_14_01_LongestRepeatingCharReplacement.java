@@ -18,9 +18,10 @@ public class _14_01_LongestRepeatingCharReplacement {
 			maxFreq = Math.max(maxFreq, hm.get(str.charAt(r)));
 
 			// if there are more chars to be replaced than k then reduce window //O(N)
-			while (((r - l + 1) - maxFreq) > k) {// r-l+1:window size, window size - max freq chars provides no of other
-													// chars to be replaced. If they are <= k then fine but >k then need
-													// to reduce window
+			while (((r - l + 1) - maxFreq) > k) {
+				// (r-l+1) - maxFreq provides no of chars to be replaced. If its <= k then
+				// continue else if >k then need to reduce window
+
 				hm.put(str.charAt(l), hm.get(str.charAt(l)) - 1);
 
 				// update max freq after removing lth char from window

@@ -7,6 +7,11 @@ import java.util.HashMap;
 // find count of all subarrays with <= k-1 different integers -> y
 // Therefore find count of all subarrays with k different integers as x - y
 
+// WHy this problem cannot be solved using hashmap + prefixSum?
+// Cz its not a linear function as count of distinct numbers in a subarray isn’t directly derivable from prefix values.
+// This happens because the set of distinct elements isn’t additive — overlaps between subarrays break the prefix trick.
+// Prefix sum works for quantities that can be added.
+
 public class _13_CountSubArrWithKDifferentIntegers {
 
 	// find all the sub arrays containing k different integers

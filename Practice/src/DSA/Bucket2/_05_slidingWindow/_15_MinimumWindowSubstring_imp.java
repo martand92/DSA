@@ -8,7 +8,7 @@ import java.util.HashMap;
 // Algo : As need to find minimum subString, need to look for all characters in target string to be found in original string.
 // till all the chars are not found, continue to increase r and expan window. Once all char are found then start decreasing l till minimum length is found
 // While decreasing if any of the character goes out of window, then again start increasing r
-public class _15_MinimumWindowSubstring {
+public class _15_MinimumWindowSubstring_imp {
 
 	public static int findMinWindowSubString(String s, String t) {
 

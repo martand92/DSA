@@ -10,14 +10,14 @@ package DSA.Bucket2._05_slidingWindow;
  */
 
 //This can also be solved using hashmap + prefixSum : hash._04_CountSubArraysWithSumK_imp
-public class _12_CountSubArrWithGivenSum {
+public class _11_CountSubArrWithGivenSum {
 
 	// finding all sub arrays with sum = given goal
 	public static int countBinarySubArraysWithSumAsGoal(int[] nums, int goal) {
 
 		int l = 0, count = 0, sum = 0;
 
-		// here you are calcuating all the sub arrays <= goal
+		// here you are calculating all the sub arrays <= goal
 		for (int r = 0; r < nums.length; r++) { // O(N)
 			sum += nums[r];
 
