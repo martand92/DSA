@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/multiply-matrices/1
-public class _11_MatrixMultiply {
+public class _11_MatrixMultiply_VeryImp {
 
 	public static void main(String[] args) {
 

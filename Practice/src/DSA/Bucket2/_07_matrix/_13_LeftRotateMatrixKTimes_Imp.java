@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/left-rotate-matrix-k-times2351/1
-public class _13_Left_Rotate_Matrix_K_Times_Imp {
+public class _13_LeftRotateMatrixKTimes_Imp {
 	static int r = 0;
 
 	public static void main(String[] args) {

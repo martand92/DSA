@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1
-public class _04_Rotate_90_Degree {
+public class _04_Rotate90Deg_Imp {
 
 	public static void main(String[] args) {
 

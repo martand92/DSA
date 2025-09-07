@@ -5,7 +5,7 @@ import java.util.*;
 //https://www.youtube.com/watch?v=3Zv-s9UUrFM
 //https://www.naukri.com/code360/problems/spiral-matrix_6922069
 
-public class _10_02_SpiralTraversal {
+public class _10_02_SpiralTraversal_Imp {
 
 	public static List<Integer> spiralTraversal(int[][] mat) {
 

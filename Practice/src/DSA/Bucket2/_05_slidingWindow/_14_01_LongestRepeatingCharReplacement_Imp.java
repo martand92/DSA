@@ -5,7 +5,7 @@ import java.util.*;
 //https://www.youtube.com/watch?v=_eNhaDCr6P0
 //https://leetcode.com/problems/longest-repeating-character-replacement/description/
 
-public class _14_01_LongestRepeatingCharReplacement {
+public class _14_01_LongestRepeatingCharReplacement_Imp {
 
 	public static int findLongestRepeatingCharReplacement(String str, int k) {
 

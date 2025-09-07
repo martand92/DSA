@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/c-matrix-rotation-by-180-degree0745/1
-public class _03_Rotate_180_Degree {
+public class _03_Rotate180Deg {
 
 	public static void main(String[] args) {
 

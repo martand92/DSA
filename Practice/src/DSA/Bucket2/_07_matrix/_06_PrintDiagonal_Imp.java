@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/print-diagonally4331/1
-public class _06_PrintDiagonal {
+public class _06_PrintDiagonal_Imp {
 
 	public static void main(String[] args) {
 
