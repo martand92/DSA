@@ -1,7 +1,7 @@
 package DSA.Bucket2._07_matrix;
 
 //https://practice.geeksforgeeks.org/problems/maximum-no-of-1s-row3027/1
-public class _15_MaxOnes_O_NLogM_Nice {
+public class _15_01_MaxOnes_NLogM_Imp {
 
 	public static void main(String[] args) {
 

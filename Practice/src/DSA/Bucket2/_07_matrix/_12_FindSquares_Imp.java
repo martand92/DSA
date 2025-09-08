@@ -1,7 +1,7 @@
 package DSA.Bucket2._07_matrix;
 
 //https://practice.geeksforgeeks.org/problems/squares-in-a-matrix5716/1
-public class _12_FindSquares {
+public class _12_FindSquares_Imp {
 	static int r = 0;
 
 	public static void main(String[] args) {

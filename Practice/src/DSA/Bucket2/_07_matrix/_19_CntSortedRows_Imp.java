@@ -1,7 +1,7 @@
 package DSA.Bucket2._07_matrix;
 
 //https://practice.geeksforgeeks.org/problems/count-sorted-rows2702/1
-public class _19_Count_SortedRows_Imp {
+public class _19_CntSortedRows_Imp {
 	static int r = 0;
 
 	public static void main(String[] args) {
