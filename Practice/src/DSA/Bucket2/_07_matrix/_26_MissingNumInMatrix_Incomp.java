@@ -1,6 +1,6 @@
 package DSA.Bucket2._07_matrix;
 
-//https://practice.geeksforgeeks.org/problems/missing-number-in-matrix5316/1?page=2&difficulty[]=0&category[]=Matrix&sortBy=submissions
+//https://practice.geeksforgeeks.org/problems/missing-number-in-matrix5316/1
 public class _26_MissingNumInMatrix_Incomp {
 
 	public static void main(String[] args) throws Exception {

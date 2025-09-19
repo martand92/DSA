@@ -8,19 +8,20 @@ public class _13_LeftRotateMatrixKTimes_Imp {
 
 	public static void main(String[] args) {
 
-		int A[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-		int K = 1; // rotate matrix by 1 time to left
-		int N = A.length, M = A[0].length;
-		int[][] res = new int[N][M];
+		int arr[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int k = 1; // rotate matrix by 1 time to left
 
-		K %= M; // if need to rotate more than no of columns then reduce to no of columns
+		int[][] res = new int[arr.length][arr[0].length];
 
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				int t = (K + j) % M;
-				res[i][j] = A[i][t];
+		k %= arr[0].length; // if need to rotate more than no of columns then reduce to no of columns
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[0].length; j++) {
+				int t = (k + j) % (arr[0].length);
+				res[i][j] = arr[i][t];
 			}
 		}
+
 		System.out.println(Arrays.deepToString(res));
 	}
 }

@@ -1,6 +1,6 @@
 package DSA.Bucket2._07_matrix;
 
-//https://practice.geeksforgeeks.org/problems/determinant-of-a-matrix-1587115620/1?page=1&difficulty[]=0&category[]=Matrix&sortBy=submissions
+//https://practice.geeksforgeeks.org/problems/determinant-of-a-matrix-1587115620/1
 public class _27_DeterminantOfMatrix_Incomp {
 
 	static int ans = 0;
