@@ -15,6 +15,9 @@ public class _26_MissingNumInMatrix {
 
 		int zeroi = 0, zeroj = 0, intendedSum = Integer.MIN_VALUE, sum = 0;
 
+		if (mat.length == 1)
+			return 1;
+
 		for (int i = 0; i < mat.length; i++) {
 			for (int j = 0; j < mat[0].length; j++) {
 				if (mat[i][j] == 0) {
@@ -32,11 +35,10 @@ public class _26_MissingNumInMatrix {
 					sum += mat[i][j];
 			}
 
-			if (intendedSum != Integer.MIN_VALUE && intendedSum != sum)
+			if (intendedSum == Integer.MIN_VALUE)
+				intendedSum = sum;
+			else if (intendedSum != sum && i != zeroi)
 				return -1;
-
-			intendedSum = sum;
-
 		}
 
 		// sum up all cols except for the col with 0 & check if all cols has same sum
@@ -47,45 +49,60 @@ public class _26_MissingNumInMatrix {
 					sum += mat[i][j];
 			}
 
-			if (intendedSum != Integer.MIN_VALUE && intendedSum != sum)
+			if (intendedSum != sum && j != zeroj)
 				return -1;
-
-			intendedSum = sum;
 		}
 
-		// check if diagonal has 0, if yes then no need to check for diagonal sum
-		if (zeroi != zeroj) {
-
-			sum = 0;
-			for (int i = 0; i < mat.length; i++) {
-				if (i != zeroi) {
-					sum += mat[i][i];
-					if (intendedSum != Integer.MIN_VALUE && intendedSum != sum)
-						return -1;
-				}
+		// keep looping through diagonal elements & check if row & col coincide with
+		// zeroi & zeroj, then ignore this sum
+		sum = 0;
+		boolean diagonalZero = false;
+		for (int i = 0; i < mat.length; i++) {
+			if (i == zeroi && i == zeroj) {
+				diagonalZero = true;
+				break;
 			}
-
-			sum = 0;
-			for (int j = mat.length - 1; j >= 0; j--) {
-				if (j != zeroj) {
-					sum += mat[j][j];
-					if (intendedSum != Integer.MIN_VALUE && intendedSum != sum)
-						return -1;
-				}
-			}
+			sum += mat[i][i];
 		}
+		if (!diagonalZero && intendedSum != sum)
+			return -1;
 
+		// keep looping through anti-diagonal elements & check if row & col coincide
+		// with zeroi & zeroj, then ignore this sum
+		sum = 0;
+		diagonalZero = false;
+		for (int j = mat[0].length - 1; j >= 0; j--) {
+			if (mat[0].length - 1 - j == zeroi && j == zeroj) {
+				diagonalZero = true;
+				break;
+			}
+			sum += mat[mat[0].length - 1 - j][j];
+		}
+		if (!diagonalZero && intendedSum != sum)
+			return -1;
+
+		// now loop through zeroith row to calculate intended num
 		sum = 0;
 		for (int j = 0; j < mat[0].length; j++)
 			sum += mat[zeroi][j];
 
-		return intendedSum - sum;
+		int num = intendedSum - sum;
+
+		// now check zerojth col to verify if it sums up to intended num
+		sum = 0;
+		for (int i = 0; i < mat.length; i++)
+			sum += mat[i][zeroj];
+
+		if (sum + num != intendedSum)
+			return -1;
+
+		return num;
 
 	}
 
 	public static void main(String[] args) throws Exception {
-		int[][] mat = { { 4, 0, 2 }, { 3, 5, 7 }, { 8, 1, 6 } };
-		// int[][] mat = { { 5, 5 }, { 5, 0 } };
+		// int[][] mat = { { 4, 0, 2 }, { 3, 5, 7 }, { 8, 1, 6 } };
+		int[][] mat = { { 5, 5 }, { 5, 0 } };
 
 		System.out.println(missingNum(mat));
 
