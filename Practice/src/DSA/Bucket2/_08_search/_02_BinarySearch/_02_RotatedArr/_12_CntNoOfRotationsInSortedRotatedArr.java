@@ -1,17 +1,14 @@
 package DSA.Bucket2._08_search._02_BinarySearch._02_RotatedArr;
 
-public class _11_03_CountNoOfRotations {
+public class _12_CntNoOfRotationsInSortedRotatedArr {
 
-	public static int noOfRotations(int[] arr) {
+	public static int findRotationPoint(int[] arr, int l, int r) {
 
-		int l = 0, r = arr.length - 1;
 		int mid = 0;
 
-		// if not rotated, then no of rotations = 0
-		if (arr[l] < arr[r])
+		if (arr[0] < arr[r])
 			return 0;
 
-		// finding min num in rotated array
 		while (l <= r) {
 
 			mid = (l + r) / 2;
@@ -28,9 +25,17 @@ public class _11_03_CountNoOfRotations {
 		return -1;
 	}
 
+	public static int noOfRotations(int[] arr) {
+
+		int minIndex = findRotationPoint(arr, 0, arr.length - 1);
+		if (minIndex == 0)
+			return 0;
+		else
+			return arr.length - minIndex;
+	}
+
 	public static void main(String[] args) {
 		int[] arr = { 5, 6, 7, 8, 9, 10, 1, 2, 3 };
 		System.out.println(noOfRotations(arr));
 	}
-
 }

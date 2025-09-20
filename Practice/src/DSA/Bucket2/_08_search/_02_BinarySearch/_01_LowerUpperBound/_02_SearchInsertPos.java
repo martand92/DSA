@@ -1,7 +1,7 @@
 package DSA.Bucket2._08_search._02_BinarySearch._01_LowerUpperBound;
 
 //https://leetcode.com/problems/search-insert-position/description/
-public class _03_SearchInsertPos {
+public class _02_SearchInsertPos {
 
 	public static int insertPos(int[] arr, int target, int l, int r) {
 
@@ -21,12 +21,8 @@ public class _03_SearchInsertPos {
 				r = mid - 1;
 		}
 
-		// System.out.println(r + " " + l);
+		return l;
 
-		if (arr[mid] < target)
-			return l;
-		else
-			return r + 1;
 	}
 
 	public static void main(String[] args) {

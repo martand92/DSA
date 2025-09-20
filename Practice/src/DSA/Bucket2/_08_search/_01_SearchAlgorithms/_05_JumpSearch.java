@@ -16,7 +16,7 @@ public class _05_JumpSearch {
 
 		Arrays.sort(arr);
 
-		while (next < arr.length && arr[next] <= KEY ) {
+		while (next < arr.length && arr[next] <= KEY) {
 
 			if (arr[next] == KEY) {
 				found = true;
@@ -27,20 +27,7 @@ public class _05_JumpSearch {
 			next = init + jump;
 		}
 
-//		for (int i = 0; i < arr.length; i = i + jump) {
-//
-//			if (KEY == arr[i])
-//				found = true;
-//
-//			else if (KEY < arr[i]) {
-//				high = i;
-//				break;
-//			}
-//
-//			low = i;// store previous i value of jump window
-//		}
-
-		// then do linear or binary search to find key in this jump window
+// 		then do linear or binary search to find key in this jump window
 //		for (int i = low; i <= high; i++) {
 //			if (KEY == arr[i]) {
 //				found = true;

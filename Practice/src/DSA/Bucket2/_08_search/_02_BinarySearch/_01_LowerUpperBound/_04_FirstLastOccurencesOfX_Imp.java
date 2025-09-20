@@ -1,45 +1,42 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._01_LowerUpperBound;
 
 //https://practice.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1
-public class _08_03_FirstLastOccurencesOfX_logN {
+public class _04_FirstLastOccurencesOfX_Imp {
 
-	public static int binarySearchFirst(int[] arr, int l, int r, int x) {
+	public static int binarySearchLeft(int[] arr, int l, int r, int x) {
+
 		int first = -1;
-		while (l <= r) {
 
+		while (l <= r) {
 			int mid = l + (r - l) / 2;
 
 			if (x < arr[mid])
 				r = mid - 1;
-
 			else if (x > arr[mid])
 				l = mid + 1;
-
 			else {// if x is found
 				first = mid;
-				r = mid - 1;
+				r = mid - 1;// look at the left
 			}
 		}
 
 		return first;
 	}
 
-	public static int binarySearchLast(int[] arr, int l, int r, int x) {
+	public static int binarySearchRight(int[] arr, int l, int r, int x) {
+
 		int last = -1;
 
 		while (l <= r) {
-
 			int mid = l + (r - l) / 2;
 
 			if (x < arr[mid])
 				r = mid - 1;
-
 			else if (x > arr[mid])
 				l = mid + 1;
-
-			else {// if x is found
+			else {
 				last = mid;
-				l = mid + 1;
+				l = mid + 1;// look at the right
 			}
 		}
 
@@ -52,8 +49,8 @@ public class _08_03_FirstLastOccurencesOfX_logN {
 		int[] arr = { 1, 5, 5, 5, 5, 67, 123, 125 };
 		int x = 1;
 
-		int left = binarySearchFirst(arr, 0, arr.length - 1, x);
-		int right = binarySearchLast(arr, 0, arr.length - 1, x);
+		int left = binarySearchLeft(arr, 0, arr.length - 1, x);
+		int right = binarySearchRight(arr, 0, arr.length - 1, x);
 
 		System.out.println("Left:" + left + ", Right:" + right);
 	}

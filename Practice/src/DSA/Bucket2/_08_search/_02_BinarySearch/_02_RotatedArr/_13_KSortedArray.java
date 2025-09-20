@@ -3,7 +3,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._02_RotatedArr;
 import java.util.Arrays;
 
 //https://practice.geeksforgeeks.org/problems/k-sorted-array1610/1
-public class _14_KSortedArray_NLogN {
+public class _13_KSortedArray {
 
 	public static boolean isKsorted(int[] arr, int k) {
 
