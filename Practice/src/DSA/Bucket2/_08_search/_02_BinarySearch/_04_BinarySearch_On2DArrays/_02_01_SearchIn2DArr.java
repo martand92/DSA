@@ -43,5 +43,5 @@ public class _02_01_SearchIn2DArr {
 	}
 
 }
-//TC : O(n) (to loop through all available rows to find probable row) + O(log m) (to BS probable row) 
+//TC : O(n + nlogn) : to loop through all available rows to find probable row + to BS probable row 
 //SC : O(1)

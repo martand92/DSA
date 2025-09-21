@@ -2,18 +2,14 @@ package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
 
 //https://youtu.be/JXU4Akft7yk?list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF&t=381
 
-// Algo : 
-
-// hypothetically flatten 2D array to 1D and binary search for target. After hypothetically flattening, length of 1D arr = n*m
-// Hence TC reduces to : O(log(n*m))
-
-// now binary searching on 1D array by index from 0 -> n-1 should be translated to equivalent 2D array coordinates
-// Range : l = 0, r = (n*m - 1)
-// Now BS on above range for 2D matrix will be finding mid and converting this mid to respective coordinates
+// Algo : Applicable if matrix as a whole is sorted.
+// hypothetically flatten 2D array to 1D and BS for target. Length of 1D arr will now be n*m. Hence TC reduces to : O(log(n*m))
+// now translating 2D matrix indices as l = 0, r = (n*m - 1)
+// Now BS on above range will be finding mid and converting this mid to respective coordinates
 
 // matrix coordinates (row, col) : row -> mid/noOfCol, col -> mid%noOfCol
 
-public class _02_02_SearchIn2DArr {
+public class _02_02_SearchIn2DArr_Imp {
 
 	private static boolean findElement(int[][] mat, int target) {
 

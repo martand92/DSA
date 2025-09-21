@@ -33,7 +33,7 @@ public class _10_FindRotationPoint {
 			if (arr[mid] > arr[r]) // smallest ele is right of mid
 				l = mid + 1;
 			else if (arr[mid] <= arr[r]) // smallest ele is left of mid
-				r = mid;
+				r = mid;// note : r = mid and not mid - 1
 		}
 
 		return l;

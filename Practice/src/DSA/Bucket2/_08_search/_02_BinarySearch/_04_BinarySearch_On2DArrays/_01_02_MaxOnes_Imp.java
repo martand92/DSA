@@ -1,7 +1,9 @@
-package DSA.Bucket2._07_matrix;
+package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
 
 //https://practice.geeksforgeeks.org/problems/maximum-no-of-1s-row3027/1
-public class _15_02_MaxOnes_NplusM_Imp {
+
+//Stair case approach
+public class _01_02_MaxOnes_Imp {
 
 	public static int rowWithMaxOnes(int[][] matrix) {
 
@@ -31,3 +33,4 @@ public class _15_02_MaxOnes_NplusM_Imp {
 		System.out.println(rowWithMaxOnes(matrix));
 	}
 }
+// TC : O(n+m) 
