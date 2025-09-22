@@ -1,10 +1,10 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://www.youtube.com/watch?v=F9c7LpRZWVQ
 //https://www.naukri.com/code360/problems/median-of-two-sorted-arrays_985294
-public class _30_FindKthElementIn2SortedArr_Incomp {
+public class _29_03_FindMedianOf2SortedArr_TimeOpt_Incomp {
 
-	public static int findKthElement(int[] arr1, int[] arr2) {
+	public static int median(int[] arr1, int[] arr2) {
 		return -1;
 	}
 
@@ -15,6 +15,6 @@ public class _30_FindKthElementIn2SortedArr_Incomp {
 //		int[] arr1 = { 2, 3, 4 };
 //		int[] arr2 = { 1, 5 };
 
-		System.out.println(findKthElement(arr1, arr2));
+		System.out.println(median(arr1, arr2));
 	}
 }

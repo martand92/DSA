@@ -1,9 +1,9 @@
-package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://www.youtube.com/watch?v=nGGp5XBzC4g
 //https://www.naukri.com/code360/problems/find-peak-element_7449073
 
-//need to send coordinate of the element in matrix whose left, right, top and bottom are all less than current
+//need to send coordinate of peak element whose left, right, top and bottom are all less than current
 
 //Algo:
 //Have col=0 as left and col=arr.lenght-1 as right for matrix and then do binary search on the columns. 
@@ -13,7 +13,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
 //but if left is larger than current then discard right and binary search on left (0 -> curr col - 1)
 //if right is larger than current then discard left and binary search on right (curr col + 1 -> n)
 
-public class _04_FindPeak {
+public class _04_03_FindPeakElementInMatrix_Imp {
 
 	public static String findPeak(int[][] mat) {
 

@@ -1,10 +1,20 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://www.naukri.com/code360/problems/find-peak-element_1081482
 //https://www.youtube.com/watch?v=cXxmbemS6XM
-public class _18_FindPeak {
+
+public class _04_02_FindPeakElement_Imp {
 
 	public static int findPeak(int[] arr) {
+
+		if (arr.length == 1)
+			return arr[0];
+
+		if (arr[0] > arr[1])
+			return 0;
+
+		if (arr[arr.length - 1] > arr[arr.length - 2])
+			return arr[0];
 
 		int mid = 0, l = 0, r = arr.length - 1;
 
@@ -24,27 +34,19 @@ public class _18_FindPeak {
 			else if ((mid < arr.length - 1) && (mid > 0) && arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid])
 				return mid;
 
-			// When curr element is lesser than both next and prev then this is the bottom
-			// element, hence peak exists on both sides. So either move to left/right
-			else {
-				l = mid + 1; // or r = mid - 1 would also be valid as peak exists on both sides as current
-								// element is bottom
-			}
+			// When curr ele is lesser than both next and prev then as peak exists on both
+			// sides either move to left/right
+			else
+				l = mid + 1; // or r = mid-1
 		}
 
-		// if none of the above cases are valid then the peak should be either arr[0] or
-		// arr[n]
-		if (arr[0] > arr[1])
-			return 0;
-		else
-			return arr.length - 1;
+		return -1;
 	}
 
 	public static void main(String[] args) {
 		// int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 5, 1 }; // ans : 8
 		int[] arr = { 1, 2, 1, 3, 5, 6, 4 }; // ans : 2 or 6, return any
-		// int[] arr = { 1, 2, 3, 4, 5 }; // ans : 1 or 5, as arr[-1]=-infinite &
-		// arr[n]=-infinite, return any
+		// int[] arr = { 1, 2, 3, 4, 5 }; // ans : 1 or 5, as arr[-1] & arr[n]=-infinite
 		// int[] arr = { 5, 4, 2, 3, 1 }; // ans : 5, as arr[-1] = -infinite
 
 		System.out.println(findPeak(arr));

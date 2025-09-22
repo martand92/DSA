@@ -1,4 +1,4 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 public class _29_01_FindMedianOfTwoSortedArrays {
 
@@ -12,12 +12,12 @@ public class _29_01_FindMedianOfTwoSortedArrays {
 			if (arr1[pointer1] < arr2[pointer2]) {
 				arr3[pointer3] = arr1[pointer1];
 				pointer1++;
-				pointer3++;
 			} else {
 				arr3[pointer3] = arr2[pointer2];
 				pointer2++;
-				pointer3++;
 			}
+
+			pointer3++;
 
 		}
 
@@ -44,11 +44,11 @@ public class _29_01_FindMedianOfTwoSortedArrays {
 	}
 
 	public static void main(String[] args) {
-//		int[] arr1 = { 1, 3, 4, 7, 10, 12 };
-//		int[] arr2 = { 2, 3, 6, 15 };
+		int[] arr1 = { 1, 3, 4, 7, 10, 12 };
+		int[] arr2 = { 2, 3, 6, 15 };
 
-		int[] arr1 = { 2, 3, 4 };
-		int[] arr2 = { 1, 3 };
+//		int[] arr1 = { 2, 3, 4 };
+//		int[] arr2 = { 1, 3 };
 
 		System.out.println(median(arr1, arr2));
 	}

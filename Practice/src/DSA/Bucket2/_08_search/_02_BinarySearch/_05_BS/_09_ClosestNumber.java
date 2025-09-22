@@ -1,7 +1,7 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://practice.geeksforgeeks.org/problems/find-the-closest-number5513/1
-public class _09_ClosestNumber_BinarySearch_LogN {
+public class _09_ClosestNumber {
 
 	public static void main(String[] args) {
 
@@ -52,3 +52,5 @@ public class _09_ClosestNumber_BinarySearch_LogN {
 
 	}
 }
+
+//TC : O(logn)

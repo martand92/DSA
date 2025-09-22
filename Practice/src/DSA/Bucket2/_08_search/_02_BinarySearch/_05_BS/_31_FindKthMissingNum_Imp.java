@@ -1,11 +1,11 @@
-package DSA.Bucket2._08_search._02_BinarySearch._05_Imp_BS;
+package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://www.naukri.com/code360/problems/kth-missing-element_893215
 //https://www.youtube.com/watch?v=uZ0N_hZpyps
 
 //in leetcode : https://leetcode.com/problems/kth-missing-positive-number/description/ this problem is tagged as Easy cz length of array is max 1000,
 //so brute force with O(n) will work
-public class _31_FindKthMissingNum_Maths {
+public class _31_FindKthMissingNum_Imp {
 
 	public static int findKthMissingNum_BruteForce(int[] arr, int k) {
 		int l = 0, count = 0;
@@ -35,8 +35,8 @@ public class _31_FindKthMissingNum_Maths {
 	// Hence formula to find missing num at ith position = (arr[i] - (i+1))
 
 	// now need to find between which 2 nums kth missing num is present. so of all
-	// missing nums from 1 -> 6, 5th missing num is present between 3rd and 6th
-	// missing nums or between arr[3]=7 and arr[4]=11.
+	// missing nums from 1 -> 6, 5th missing num is present between 3rd and 6th or
+	// between arr[3]=7 and arr[4]=11.
 
 	// Then till arr[3]=7, we see 3 missing nums but we need 5th missing num. Hence
 	// missing num will be arr[3] + (required missing num which is k - missing num
