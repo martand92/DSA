@@ -63,20 +63,17 @@ public class _09_01_FindMissingNum {
 
 	public static int missingNum_Opt(int[] arr) {
 
-		// using XOR -> (XOR of 1 -> n) ^ (XOR of input i.e, 1 -> n with missing num) ->
-		// missing num
-		int inXOR = 0;
-		int entireXOR = 0;
-
-		for (int i = 0; i < arr.length; i++)
-			inXOR ^= arr[i];
+		int xor = 0;
 
 		for (int i = 1; i <= arr.length + 1; i++) // run it for n elements
-			entireXOR ^= i;
+			xor ^= i;
 
-		return inXOR ^ entireXOR; // this will return missing num
+		for (int i = 0; i < arr.length; i++)
+			xor ^= arr[i];
 
-		// TC : O(n + n). Above 2 for loops can be reduced to 1 for()
+		return xor;
+
+		// TC : O(n + n). Above 2 for() can be reduced to 1
 		// SC : O(1)
 	}
 

@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1
 //Time : O(N), Space : O(N)
-public class _12_AlternatePosAndNegNumbers {
+public class _12_AltPosAndNegNum {
 
 	public static int[] altNums(int[] arr) {
 

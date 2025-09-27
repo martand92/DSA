@@ -1,17 +1,20 @@
 package DSA.Bucket2._01_arrays;
 
-public class _11_01_FindSecondLargestElement {
+//Here k=2 meaning second largest / smallest, no need to use pq if 1st(min / max element) or 2nd largest is asked
+// but if k > 2 then use pq (refer next problem)
+public class _11_01_FindSecondLargestElement_Imp {
+
 	public static void main(String[] args) {
 
 		int[] arr = { 7, 10, 4, 20 };
 		// int[] arr = { 7,2};
-		
+
 		int max = arr[0], secondLargest = -1;
 
 		for (int i = 1; i < arr.length; i++) // O(N)
 		{
-			// if there exist another largest element then first make current largest and
-			// second largest
+			// if another largest ele exists then make curr largest as second largest, then
+			// make curr as first largest
 			if (arr[i] > max) {
 				secondLargest = max;
 				max = arr[i];
@@ -20,7 +23,7 @@ public class _11_01_FindSecondLargestElement {
 				// than second largest then consider it as second largest
 			} else if (arr[i] != max && arr[i] > secondLargest)
 				secondLargest = arr[i];
-			
+
 		}
 
 		System.out.println(secondLargest);

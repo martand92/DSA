@@ -12,7 +12,6 @@ public class _07_03_Merge2SortedArr_imp {
 		int l = 0, r = 0, k = 0;
 
 		while (l < arr1.length && r < arr2.length) {
-
 			if (arr1[l] < arr2[r]) {
 				arr3[k] = arr1[l];
 				l++;
@@ -20,7 +19,6 @@ public class _07_03_Merge2SortedArr_imp {
 				arr3[k] = arr2[r];
 				r++;
 			}
-
 			k++;
 		}
 
@@ -36,17 +34,8 @@ public class _07_03_Merge2SortedArr_imp {
 			k++;
 		}
 
-		return arr3;
-		// TC : O(n + m)
-		// SC : O(n + m)
+		return arr3; // TC:O(n + m), SC:O(n + m)
 	}
-
-	// Without using extra space
-
-	// have 2 pointers, 1 at the end of arr1 and another at starting of arr2. If
-	// left is greater than right then swap and move l left and r right. Repeat and
-	// if arr1[l] < arr2[r] then all elements left to l will be by default lesser
-	// than all elements to right of r
 
 	public static void swap(int[] arr1, int[] arr2, int l, int r) {
 		int temp = arr1[l];
@@ -59,17 +48,14 @@ public class _07_03_Merge2SortedArr_imp {
 		int l = arr1.length - 1, r = 0;
 
 		while (l >= 0 && r < arr2.length) {// O(n + m)
-
 			if (arr1[l] > arr2[r]) {
 				swap(arr1, arr2, l, r);
 				l--;
 				r++;
-			} else // if arr1[l] < arr2[r] then all the elements left of arr1[l] < all elements
-					// right of arr2[r]
+			} else // if arr1[l]<arr2[r], all nxt elements are in right place
 				break;
 		}
 
-		// now sort arr1 and arr2 to get to final state
 		Arrays.sort(arr1);// O(nlogn)
 		Arrays.sort(arr2);// O(mlogm)
 		System.out.println(Arrays.toString(arr1) + Arrays.toString(arr2));
