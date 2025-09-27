@@ -2,7 +2,7 @@ package DSA.Bucket2._01_arrays;
 
 import java.util.*;
 
-public class _07_02_UnionOf2SortedArrays_Imp {
+public class _07_02_UnionOf2SortedArr_Imp {
 
 	public static void main(String[] args) {
 
@@ -17,24 +17,14 @@ public class _07_02_UnionOf2SortedArrays_Imp {
 
 		while (i < a.length && j < b.length) {// TC : O(n + m)
 
-			// if both elements are same then add any 1 of it to the ans
 			if (a[i] == b[j]) {
-
 				if (list.isEmpty() || list.get(list.size() - 1) != a[i])
 					list.add(a[i]);
-
 				i++;
 				j++;
 
-				// as arrays are sorted, utilizing this feature
-			} else if (a[i] < b[j]) {
-
-				// when both are not same, add smaller element to result only if its already not
-				// present in result
-
-				// so to check if its not present in result, need to only check previous element
-				// of result as its sorted
-				if (list.isEmpty() || list.get(list.size() - 1) != a[i])
+			} else if (a[i] < b[j]) {// if both are not same, add smaller element to result only if its not in result
+				if (list.isEmpty() || list.get(list.size() - 1) != a[i])// if last ele in res is not same as curr ele
 					list.add(a[i]);
 				i++;
 

@@ -2,7 +2,7 @@ package DSA.Bucket2._01_arrays;
 
 import java.util.HashSet;
 
-public class _02_RemoveDupInSortedArr {
+public class _02_RemoveDupInSortedArr_imp {
 
 	public static void removeDup_Brute(int[] a) {
 
@@ -30,11 +30,8 @@ public class _02_RemoveDupInSortedArr {
 		int index = 0;
 
 		for (int i = 1; i < a.length; i++) { // O(n)
-
-			if (a[i] != a[i - 1]) {
-				index++;
-				a[index] = a[i];
-			}
+			if (a[i] != a[i - 1])
+				a[++index] = a[i];
 		}
 
 		for (int i = 0; i <= index; i++)// O(n)

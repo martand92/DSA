@@ -4,7 +4,7 @@ package DSA.Bucket2._01_arrays;
 //https://www.naukri.com/code360/problems/merge-two-sorted-arrays-without-extra-space_6898839
 import java.util.*;
 
-public class _07_03_Merge2SortedArrays_imp {
+public class _07_03_Merge2SortedArr_imp {
 
 	public static int[] mergeArrays_withExtraSpace(int[] arr1, int[] arr2) {
 

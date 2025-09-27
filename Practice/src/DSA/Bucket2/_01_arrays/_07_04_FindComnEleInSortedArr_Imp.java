@@ -3,7 +3,7 @@ package DSA.Bucket2._01_arrays;
 import java.util.*;
 
 //https://www.geeksforgeeks.org/problems/common-elements1132/1
-public class _07_04_FindCommonIn3SortedArrays_Intersection {
+public class _07_04_FindComnEleInSortedArr_Imp {
 
 	public static List<Integer> findCommonElements_Brute(int[] a, int[] b, int[] c) {
 

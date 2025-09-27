@@ -5,9 +5,8 @@ import java.util.Map;
 
 public class _05_NonRepeatingElement {
 
-	public static void main(String[] args) {
+	public static int nonRepeatingEle(int[] arr) {
 
-		int[] arr = { -1, 2, -1, 3, 2 };
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 
 		for (int i = 0; i < arr.length; i++)
@@ -15,14 +14,28 @@ public class _05_NonRepeatingElement {
 
 		for (Map.Entry<Integer, Integer> e : hm.entrySet()) {
 
-			if (e.getValue() == 1) {
-				System.out.println(e.getKey());
-				return;
-			}
+			if (e.getValue() == 1)
+				return e.getKey();
 		}
 
-		System.out.println(Integer.MIN_VALUE);
-		//TC : O(2n)
-	}
+		return Integer.MIN_VALUE;
 
+	}// TC : O(2n)
+
+	public static int nonRepeatingEle_Opt(int[] arr) {
+		int num = 0;
+		for (int i = 0; i < arr.length; i++)
+			num ^= arr[i];
+
+		return num;
+	}// TC : O(n)
+
+	public static void main(String[] args) {
+
+		int[] arr = { -1, 2, -1, 3, 2 };
+
+		System.out.println(nonRepeatingEle(arr));
+		System.out.println(nonRepeatingEle_Opt(arr));
+
+	}
 }
