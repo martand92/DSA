@@ -1,14 +1,14 @@
 package DSA.Bucket2._05_slidingWindow;
 
-//Below solution will not work if array contains negative nums
+//Below solution will not work if array contains negative nums, refer prefixSum + hash solution
 public class _04_01_LongestSubArrayWithSumK_OnlyPos_Imp {
 
 	public static int longestSubArr(int[] arr, int k) {
 		int l = 0, maxLength = 0, sum = 0;
-		
+
 		for (int r = 0; r < arr.length; r++) {
 			sum += arr[r];
-			
+
 			while (sum > k) {
 				sum -= arr[l];
 				l++;

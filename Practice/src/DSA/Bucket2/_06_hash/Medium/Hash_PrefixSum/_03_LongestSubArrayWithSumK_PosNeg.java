@@ -3,7 +3,7 @@ package DSA.Bucket2._06_hash.Medium.Hash_PrefixSum;
 import java.util.*;
 
 //Below solution works for both positive and negative nums in array 
-public class _04_02_LongestSubArrayWithSumK_PosNeg {
+public class _03_LongestSubArrayWithSumK_PosNeg {
 
 	public static int longestSubArr(int[] arr, int k) {
 
@@ -17,25 +17,17 @@ public class _04_02_LongestSubArrayWithSumK_PosNeg {
 			if (sum == k)
 				maxLength = i + 1;
 
-			else {
+			else if (hm.containsKey(sum - k))// O(logn)
+				maxLength = Math.max(maxLength, i - hm.get(sum - k));
 
-				if (hm.containsKey(sum - k)) // O(logn)
-					maxLength = Math.max(maxLength, i - hm.get(sum - k));
-
-				else {
-					// if same sum is seen again then don't update its index as longest subarray is
-					// needed
-					if (!hm.containsKey(sum)) // O(logn)
-						hm.put(sum, i);
-				}
-			}
-
+			if (!hm.containsKey(sum)) // O(logn)
+				hm.put(sum, i);
 		}
 
 		return maxLength;
 
 		// TC : O(n * logn)
-		// SC : O(1)
+		// SC : O(n)
 	}
 
 	public static void main(String[] args) {

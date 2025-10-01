@@ -11,7 +11,7 @@ import java.util.Arrays;
 // Finding highest element from right whose prev is less than this highest(ex: 5 in given input array). This breakpoint provides option to find next permutation
 // As next permutation should be greater than current anything right to this breakpoint will not yield in next higher permutation
 // Ex: if we consider element 4, then any combination of elements from 4 -> end of array will all yield permutation lesser and not next/greater permutation
-// So right of prev to breakpoint element(here 1) will result in next greater permutation with shuffling elements from 5 -> end accordingly
+// So entire right of prev to breakpoint element(here 1) will result in next greater permutation with shuffling elements from 5 -> end accordingly
 
 // Step 2 : How to find just next greater permutation than current?
 // Now we have left of breakpoint (here 1) and right of it could be shuffled to result in permutation seq greater than current

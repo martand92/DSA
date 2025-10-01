@@ -7,15 +7,17 @@ public class _05_NonRepeatingElement {
 
 	public static int nonRepeatingEle(int[] arr) {
 
-		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> hm = new HashMap<>();
 
-		for (int i = 0; i < arr.length; i++)
-			hm.put(arr[i], hm.getOrDefault(arr[i], 0) + 1);
+		for (int element : arr) {
+			hm.put(element, hm.getOrDefault(element, 0) + 1);
+		}
 
 		for (Map.Entry<Integer, Integer> e : hm.entrySet()) {
 
-			if (e.getValue() == 1)
+			if (e.getValue() == 1) {
 				return e.getKey();
+			}
 		}
 
 		return Integer.MIN_VALUE;
@@ -24,8 +26,9 @@ public class _05_NonRepeatingElement {
 
 	public static int nonRepeatingEle_Opt(int[] arr) {
 		int num = 0;
-		for (int i = 0; i < arr.length; i++)
-			num ^= arr[i];
+		for (int element : arr) {
+			num ^= element;
+		}
 
 		return num;
 	}// TC : O(n)

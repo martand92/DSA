@@ -4,7 +4,7 @@ import java.util.*;
 
 //Same logic as DSA.Strings._09_Isomorphic
 //https://practice.geeksforgeeks.org/problems/match-specific-pattern/1
-public class _15_MatchSpecificPattern_O_NK_Imp {
+public class _15_MatchSpecificPattern_Imp {
 
 	public static void main(String[] args) {
 		ArrayList<String> dict = new ArrayList<String>();

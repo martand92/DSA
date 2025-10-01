@@ -22,8 +22,8 @@ public class _00_CheckIfSubArrayHasGivenSum {
 
 		int sum = 0, l = 0;
 
-		for (int i = 0; i < arr.length; i++) {
-			sum += arr[i];
+		for (int r = 0; r < arr.length; r++) {
+			sum += arr[r];
 
 			while (sum > target) {
 				sum -= arr[l];

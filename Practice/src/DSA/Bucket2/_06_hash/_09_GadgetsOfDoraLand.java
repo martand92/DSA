@@ -3,7 +3,7 @@ package DSA.Bucket2._06_hash;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/bbd15e2da95880979ce65acc7360e2c5681664e65520/1
-public class _09_GadgetsOfDoraLand_Hash {
+public class _09_GadgetsOfDoraLand {
 
 	public static void main(String[] args) {
 //		int[] a = { 1, 1, 2, 2, 3, 3, 3, 4 };

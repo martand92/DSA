@@ -3,7 +3,7 @@ package DSA.Bucket2._06_hash;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/count-the-elements1529/1
-public class _14_CountElements_O_N_imp {
+public class _14_CntEle_imp {
 
 	public static void main(String[] args) {
 

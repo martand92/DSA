@@ -12,22 +12,19 @@ public class _13_01_MoveAllZerosToLast {
 
 	private static int[] moveZerosToLast_Opt(int[] arr) {
 
-		int i = 0, j = 0;
+		int initZeroIdx = -1;
 
-		while (i < arr.length) {
+		for (int i = 0; i < arr.length; i++) {
 
-			// find first occurrence of 0 and point j to it
-			// j will henceforth point to only first occurrence of 0
-			if (arr[j] != 0)
-				j++;
+			// find first occurrence of 0
+			if (initZeroIdx == -1 && arr[i] == 0)
+				initZeroIdx = i;
 
 			// then check if element is non zero then swap it with first occurrence of 0
-			else if (arr[i] != 0) {
-				swap(arr, i, j);
-				j++;
+			else if (initZeroIdx != -1 && arr[i] != 0) {
+				swap(arr, i, initZeroIdx);
+				initZeroIdx++;
 			}
-
-			i++;
 		}
 
 		return arr;

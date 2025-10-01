@@ -33,33 +33,32 @@ public class _13_02_MoveNegElementsToLast_imp {
 	// zeros are moved right
 	private static int[] moveNegElements_Opt(int[] arr) {
 
-		int i = 0, j = 0;
+		int initNegIdx = -1;
 
-		while (i < arr.length) {
+		for (int i = 0; i < arr.length; i++) {
 
 			// point j to 1st occurrence of neg num
-			if (arr[j] > 0)
-				j++;
+			if (initNegIdx == -1 && arr[i] < 0)
+				initNegIdx = i;
 
-			else if (arr[i] >= 0) {
+			else if (initNegIdx != -1 && arr[i] >= 0) {
 
 				// when element with positive val is found with preceding neg values, then push
 				// this pos val till front of neg values by swapping all preceding neg elements
-				int itrCount = i - j;
+				int itrCount = i - initNegIdx;
 				int swapPointr = i;// have additional pointer at pos val which need to be pushed to the front by
 									// continuously swapping all preceding neg values
 
-				// continue swapping bakward from current pos num till all neg nums are swapped
+				// continue swapping backward from current pos num till all neg nums are swapped
 				// with this
 				while (itrCount > 0) {
 					swap(arr, swapPointr, swapPointr - 1);
 					itrCount--;
 				}
 
-				j++;// continue to point j to 1st occurrence of neg num
+				initNegIdx++;// continue to point j to 1st occurrence of neg num
 			}
 
-			i++;
 		}
 
 		return arr;
