@@ -14,8 +14,7 @@ public class _09_01_MaxConsecutiveOnes_Imp {
 				k--;
 
 			// O(N)
-			while (k == -1) { // When more than allowed zeros form part of window then need to remove extra
-								// zeros from window
+			while (k == -1) { // When more than allowed 0s is part of window, need to remove extra 0s
 				if (arr[l] == 0)
 					k++;
 

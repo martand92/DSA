@@ -3,10 +3,10 @@ package DSA.Bucket2._05_slidingWindow;
 import java.util.*;
 
 // Previously after window condition is broken and while shrinking left is moved with recalculating new max freq
-// Since we are find longest repeating chars, finding new max freq(which will either remain same or reduce) will continue to break window condition but doesnt affect answer
-// ex: if current maxFreqCount was > k which will invalidate window size, so shrinking window by doing l++ will either keep maxFreqCount as same or reduces.
-// Hence if we don't calculate new maxFreq the behaviour will remain same i.e, window condition continue to break till greater maxFreq is found than previous
-// And maxFreqCount doesnt contribute to final ans of longestWindowSize too
+// Since we are finding longest repeating chars, finding new maxFreq that either remains same or reduces will not affect answer
+// Ex: if curr maxFreq Count was > k which will invalidate window size, so shrinking window by doing l++ will either keep maxFreqCount as same or reduces.
+// Hence if we don't calculate new maxFreq the behavior will remain same i.e, window condition continue to break till greater maxFreq is found than previous
+// And maxFreqCount doesn't contribute to final ans of longestWindowSize too
 
 
 //So there is no point to calculate maxFreqCount when window is broken as it will remain as is or decrease

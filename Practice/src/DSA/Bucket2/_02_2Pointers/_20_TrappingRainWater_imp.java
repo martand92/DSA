@@ -15,9 +15,8 @@ public class _20_TrappingRainWater_imp {
 	public static int maxWaterTrapped(int[] arr) {
 
 		int lmax = arr[0], rmax = arr[arr.length - 1];
-		int l = 1, r = arr.length - 2;
-
-		int total = 0;
+		int l = 1, r = arr.length - 2, total = 0;
+		
 		while (l <= r) {
 
 			if (lmax < rmax) {
@@ -25,7 +24,7 @@ public class _20_TrappingRainWater_imp {
 				if (arr[l] < lmax)
 					total += lmax - arr[l];
 				else // (arr[l] >= lmax)
-					lmax = arr[l]; //any next arr[l] comparison will be with this lmax
+					lmax = arr[l]; // any next arr[l] comparison will be with this lmax
 
 				l++;
 
@@ -33,7 +32,6 @@ public class _20_TrappingRainWater_imp {
 
 				if (arr[r] < rmax)
 					total += rmax - arr[r];
-
 				else // arr[r] >= rmax
 					rmax = arr[r];
 

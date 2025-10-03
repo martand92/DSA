@@ -2,9 +2,11 @@ package DSA.Bucket2._05_slidingWindow;
 
 import java.util.*;
 
-//https://www.youtube.com/watch?v=_eNhaDCr6P0
-//https://leetcode.com/problems/longest-repeating-character-replacement/description/
+// https://www.youtube.com/watch?v=_eNhaDCr6P0
+// https://leetcode.com/problems/longest-repeating-character-replacement/description/
 
+// This problem can be considered as extension of _09_01_MaxConsecutiveOnes where instead of binary(0, 1) where outlier was fixed as 0
+// Here we have more generic case involving all characters where outlier can be any character
 public class _14_01_LongestRepeatingCharReplacement_Imp {
 
 	public static int findLongestRepeatingCharReplacement(String str, int k) {
@@ -20,7 +22,7 @@ public class _14_01_LongestRepeatingCharReplacement_Imp {
 			// if there are more chars to be replaced than k then reduce window //O(N)
 			while (((r - l + 1) - maxFreq) > k) {
 				// (r-l+1) - maxFreq provides no of chars to be replaced. If its <= k then
-				// continue else if >k then need to reduce window
+				// continue else need to reduce window
 
 				hm.put(str.charAt(l), hm.get(str.charAt(l)) - 1);
 

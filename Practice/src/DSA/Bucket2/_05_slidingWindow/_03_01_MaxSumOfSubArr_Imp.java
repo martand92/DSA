@@ -24,7 +24,7 @@ public class _03_01_MaxSumOfSubArr_Imp {
 		// TC : O(n^2), SC : O(1)
 	}
 
-	// Kadane's algo
+	// Kadane's algo : https://www.youtube.com/watch?v=GrNSGC8Z2T0
 	public static int maxSumOfSubArr_Opt(int[] arr) {
 
 		int sum = 0, maxSum = Integer.MIN_VALUE;

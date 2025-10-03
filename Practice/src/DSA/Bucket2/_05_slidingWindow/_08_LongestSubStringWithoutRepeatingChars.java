@@ -45,10 +45,8 @@ public class _08_LongestSubStringWithoutRepeatingChars {
 
 		for (int r = 0; r < s.length(); r++) { // O(N)
 
-			// checking if this char is already present in given window by checking through
-			// its ASCII
-			while (hash[s.charAt(r) - 'a'] == 1) { // the result of the subtraction will be an integer representing the
-													// position of that character in the alphabet
+			// this char is already in given window by checking through its ASCII
+			while (hash[s.charAt(r) - 'a'] == 1) {
 				hash[s.charAt(r) - 'a'] = 0; // O(1)
 				l++;
 			}

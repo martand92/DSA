@@ -2,7 +2,7 @@ package DSA.Bucket2._06_hash.Medium.Hash_PrefixSum;
 
 import java.util.HashMap;
 
-//Why Sliding window won't work?
+// Why Sliding window won't work?
 // Sliding window relies on monotonic property where sum should increase or
 // decrease. This happens if array contains only non-neg elements
 

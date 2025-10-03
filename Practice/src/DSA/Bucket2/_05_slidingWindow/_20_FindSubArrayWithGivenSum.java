@@ -1,7 +1,7 @@
 package DSA.Bucket2._05_slidingWindow;
 
 //https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
-public class _20_FindSubArrayWithGivenSum_ON {
+public class _20_FindSubArrayWithGivenSum {
 	public static void main(String[] args) {
 //		 int[] arr = { 1, 2, -3, 4 }; // another tricky test data {8}
 //		 int s = 3;
@@ -38,3 +38,4 @@ public class _20_FindSubArrayWithGivenSum_ON {
 
 	}
 }
+//TC : O(N)

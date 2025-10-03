@@ -2,8 +2,8 @@ package DSA.Bucket2._06_hash.Medium.Hash_PrefixSum;
 
 import java.util.*;
 
-//Below solution works for both positive and negative nums in array 
-public class _03_LongestSubArrayWithSumK_PosNeg {
+//Below solution works for both positive and negative nums in an array, but if arr contains only pos nums then apply sliding window pattern 
+public class _03_LongestSubArrayWithSumK_Imp {
 
 	public static int longestSubArr(int[] arr, int k) {
 
