@@ -10,7 +10,7 @@ public class _06_PrintDiagonal_Imp {
 		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		ArrayList<Integer> al = new ArrayList<Integer>();
 
-		// first traverse through from 1st row through all columns
+		// Traverse through 1st row
 		for (int j = 0; j < a[0].length; j++) {
 
 			int row = 0, col = j;
@@ -22,7 +22,7 @@ public class _06_PrintDiagonal_Imp {
 			}
 		}
 
-		// Once end f column is reached, then from last column traverse through all rows
+		// Once col traversal is completed, then start row traversal
 		for (int i = 1; i < a.length; i++) {
 
 			int row = i, col = a[0].length - 1;

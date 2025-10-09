@@ -3,7 +3,7 @@ package DSA.Bucket2._07_matrix;
 import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/print-matrix-in-diagonal-pattern/1
-public class _28_PrintDiagonalMatrix {
+public class _28_PrintDiagonalMatrix_Imp {
 
 	public static void main(String[] args) throws Exception {
 		// int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };

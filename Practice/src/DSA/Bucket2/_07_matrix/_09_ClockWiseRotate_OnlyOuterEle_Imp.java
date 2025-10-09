@@ -26,9 +26,7 @@ public class _09_ClockWiseRotate_OnlyOuterEle_Imp {
 			curr = nxt;
 		}
 
-		// as j = Mat[0].length, need to reduce by 1 to get back to last index
-		j--;
-
+		j--; // as j = Mat[0].length, need to reduce by 1 to get back to last index
 		for (i = 1; i < Mat.length; i++) {
 			nxt = Mat[i][j];
 			Mat[i][j] = curr;
@@ -36,16 +34,14 @@ public class _09_ClockWiseRotate_OnlyOuterEle_Imp {
 		}
 
 		i--;
-
-		for (j--; j >= 0; j--) { // initially reducing j (j--) as in previous loop it had crossed boundary
+		for (j--; j >= 0; j--) { // initially doing j-- as it crossed boundary
 			nxt = Mat[i][j];
 			Mat[i][j] = curr;
 			curr = nxt;
 		}
 
 		j++;
-
-		for (i--; i >= 0; i--) {// initially reducing i (i--) as in previous loop it had crossed boundary
+		for (i--; i >= 0; i--) { // initially doing i-- as it crossed boundary
 			nxt = Mat[i][j];
 			Mat[i][j] = curr;
 			curr = nxt;

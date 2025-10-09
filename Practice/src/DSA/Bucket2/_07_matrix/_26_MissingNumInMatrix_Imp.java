@@ -1,7 +1,7 @@
 package DSA.Bucket2._07_matrix;
 
 //https://practice.geeksforgeeks.org/problems/missing-number-in-matrix5316/1
-public class _26_MissingNumInMatrix {
+public class _26_MissingNumInMatrix_Imp {
 
 	// Step 1: first check all rows other than row consisting 0 adds up to same
 	// number
@@ -81,14 +81,14 @@ public class _26_MissingNumInMatrix {
 		if (!diagonalZero && intendedSum != sum)
 			return -1;
 
-		// now loop through zeroith row to calculate intended num
+		// now loop through zeroith row to calculate intended sum
 		sum = 0;
 		for (int j = 0; j < mat[0].length; j++)
 			sum += mat[zeroi][j];
 
 		int num = intendedSum - sum;
 
-		// now check zerojth col to verify if it sums up to intended num
+		// now check zerojth col to verify if it sums up to intended sum
 		sum = 0;
 		for (int i = 0; i < mat.length; i++)
 			sum += mat[i][zeroj];

@@ -41,7 +41,7 @@ public class _10_01_ClockWiseRotate_OuterInnerEle_Imp {
 
 			i--;
 
-			for (j--; j >= col; j--) { // initially reducing j (j--) as in previous loop it had crossed boundary
+			for (j--; j >= col; j--) { // initially doing j-- as it had crossed boundary
 				nxt = curr;
 				curr = Mat[i][j];
 				Mat[i][j] = nxt;
@@ -49,7 +49,7 @@ public class _10_01_ClockWiseRotate_OuterInnerEle_Imp {
 
 			j++;
 
-			for (i--; i >= row; i--) {// initially reducing i (i--) as in previous loop it had crossed boundary
+			for (i--; i >= row; i--) {// initially doing i-- as it had crossed boundary
 				nxt = curr;
 				curr = Mat[i][j];
 				Mat[i][j] = nxt;
