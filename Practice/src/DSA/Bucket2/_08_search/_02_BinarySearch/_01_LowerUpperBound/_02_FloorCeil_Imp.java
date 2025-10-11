@@ -4,7 +4,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._01_LowerUpperBound;
  * ceil : lowest number greater than or equal to target */
 
 //https://www.geeksforgeeks.org/problems/floor-in-a-sorted-array-1587115620/1
-public class _02_Floor_Ceil_Imp {
+public class _02_FloorCeil_Imp {
 
 	public static int floor(int[] arr, int target, int l, int r) {
 
@@ -20,7 +20,7 @@ public class _02_Floor_Ceil_Imp {
 
 			else if (arr[mid] < target) {
 				ans = mid;
-				l = mid + 1;
+				l = mid + 1;// move right towards target's floor
 			} else
 				r = mid - 1;
 		}
@@ -41,7 +41,7 @@ public class _02_Floor_Ceil_Imp {
 
 			else if (arr[mid] > target) {
 				ans = mid;
-				r = mid - 1;
+				r = mid - 1;// move left towards target's ceil
 			} else
 				l = mid + 1;
 		}

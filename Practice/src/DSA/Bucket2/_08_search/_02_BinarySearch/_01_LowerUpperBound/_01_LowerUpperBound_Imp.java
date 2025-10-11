@@ -23,7 +23,7 @@ public class _01_LowerUpperBound_Imp {
 			if (arr[mid] >= target) {
 				ans = mid; // possible ans
 				r = mid - 1;// continue to check on left as you need index of first occurrence
-			} else // arr[mid] < target
+			} else
 				l = mid + 1;
 		}
 
