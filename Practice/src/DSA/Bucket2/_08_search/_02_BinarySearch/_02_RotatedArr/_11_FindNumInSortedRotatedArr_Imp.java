@@ -10,7 +10,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._02_RotatedArr;
 public class _11_FindNumInSortedRotatedArr_Imp {
 
 	// Find index of smallest element (rotation point)
-	public static int getPivot(int[] arr, int l, int r) {
+	public static int findRotationPoint(int[] arr, int l, int r) {
 
 		while (l < r) {
 
@@ -46,17 +46,17 @@ public class _11_FindNumInSortedRotatedArr_Imp {
 
 		int l = 0, r = arr.length - 1;
 
-		// Checking if array is rotated
 		if (arr[l] > arr[r]) {
 
-			int pivot = getPivot(arr, l, r); // pivot-1 will be the largest element
+			int pivot = findRotationPoint(arr, l, r);
+			// pivot-1 will be the largest element
 
 			if (key >= arr[0] && key <= arr[pivot - 1]) // find in left half
 				return binarySearch(arr, key, 0, pivot - 1);
 			else
 				return binarySearch(arr, key, pivot, arr.length - 1); // find in right half
 
-		} else // if not rotated then search whole array as is
+		} else // if arr is not rotated then search arr as is
 			return binarySearch(arr, key, 0, r);
 	}
 

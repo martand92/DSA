@@ -1,6 +1,6 @@
 package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
-public class _04_01_FindPeakElement_UnSortedArr {
+public class _04_01_FindPeakElement {
 
 	public static int findPeakElement(int[] arr) {
 

@@ -1,4 +1,4 @@
-package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
+package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_Matrix;
 
 //https://practice.geeksforgeeks.org/problems/maximum-no-of-1s-row3027/1
 
@@ -17,7 +17,7 @@ public class _01_01_MaxOnes {
 		for (i = 0; i < matrix.length; i++) {
 
 			int l = 0, r = matrix[0].length - 1;
-			int mid = ((l + r) / 2);
+			int mid = (l + r) / 2;
 
 			// here l and r converges onto first occurrence of 1 in given row
 			while (l <= r) {

@@ -1,4 +1,4 @@
-package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
+package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_Matrix;
 
 //https://practice.geeksforgeeks.org/problems/maximum-no-of-1s-row3027/1
 
@@ -20,9 +20,7 @@ public class _01_02_MaxOnes_Imp {
 		return rowNo;
 
 		// here worst case you travel all the columns of 1st row and then all the rows
-		// of 1st col
-
-		// O(N+M)
+		// of 1st col : O(N+M)
 	}
 
 	public static void main(String[] args) {

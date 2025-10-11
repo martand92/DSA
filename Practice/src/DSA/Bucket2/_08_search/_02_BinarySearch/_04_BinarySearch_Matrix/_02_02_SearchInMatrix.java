@@ -1,9 +1,8 @@
-package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
+package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_Matrix;
 
 //https://www.youtube.com/watch?v=9ZbB397jU4k
 
-/* Difference between this & prev problem : notice that every row is sorted and every column is sorted
- * but entire matrix is not sorted */
+/* If matrix is sorted by both row and col, but need not be sorted as whole */
 
 /* Algo :  Stair case approach. 
  * 
@@ -17,21 +16,19 @@ package DSA.Bucket2._08_search._02_BinarySearch._04_BinarySearch_On2DArrays;
  * then move down because all elements to the left are smaller
  */
 
-public class _03_SearchIn2DMatrix {
+public class _02_02_SearchInMatrix {
 
 	public static boolean findElement(int[][] mat, int target) {
 
 		// starting position
-		int row = 0, col = mat.length - 1;
+		int row = 0, col = mat[0].length - 1;
 
 		while (row < mat.length && col >= 0) {
 
-			if (mat[row][col] < target)
-				row++;
-
-			else if (mat[row][col] > target)
+			if (target < mat[row][col])
 				col--;
-
+			else if (target > mat[row][col])
+				row++;
 			else
 				return true;
 		}

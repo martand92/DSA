@@ -3,6 +3,8 @@ package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 //https://www.naukri.com/code360/problems/find-peak-element_1081482
 //https://www.youtube.com/watch?v=cXxmbemS6XM
 
+//Note : In this problem even if array is unsorted, we are applying binary search
+//Pattern : binary search on slope
 public class _04_02_FindPeakElement_Imp {
 
 	public static int findPeak(int[] arr) {
@@ -14,7 +16,7 @@ public class _04_02_FindPeakElement_Imp {
 			return 0;
 
 		if (arr[arr.length - 1] > arr[arr.length - 2])
-			return arr[0];
+			return arr[arr.length - 1];
 
 		int mid = 0, l = 0, r = arr.length - 1;
 
@@ -46,7 +48,7 @@ public class _04_02_FindPeakElement_Imp {
 	public static void main(String[] args) {
 		// int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 5, 1 }; // ans : 8
 		int[] arr = { 1, 2, 1, 3, 5, 6, 4 }; // ans : 2 or 6, return any
-		// int[] arr = { 1, 2, 3, 4, 5 }; // ans : 1 or 5, as arr[-1] & arr[n]=-infinite
+		// int[] arr = { 1, 2, 3, 4, 5 }; // ans : 5, as arr[-1] & arr[n]=-infinite
 		// int[] arr = { 5, 4, 2, 3, 1 }; // ans : 5, as arr[-1] = -infinite
 
 		System.out.println(findPeak(arr));
