@@ -1,7 +1,7 @@
 package DSA.Bucket2._07_matrix;
 
 //https://practice.geeksforgeeks.org/problems/exit-point-in-a-matrix0905/1
-public class _25_ExitPoint {
+public class _25_ExitPoint_Imp {
 
 	public static void main(String[] args) {
 		int[][] matrix = { { 0, 1, 0 }, { 1, 1, 1 }, { 0, 0, 0 } };
