@@ -46,3 +46,4 @@ public class _25_ExitPoint_Imp {
 
 	}
 }
+//TC : O(n*m)

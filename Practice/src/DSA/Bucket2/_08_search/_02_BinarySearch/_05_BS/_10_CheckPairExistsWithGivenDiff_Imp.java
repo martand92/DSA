@@ -23,7 +23,7 @@ public class _10_CheckPairExistsWithGivenDiff_Imp {
 		}
 
 		return false;
-	}
+	} // O(n)
 
 	public static boolean doesPairExist_BS(int[] arr, int n) {
 
@@ -49,7 +49,7 @@ public class _10_CheckPairExistsWithGivenDiff_Imp {
 		}
 
 		return false;
-	}
+	} // O(nlogn)
 
 	public static void main(String[] args) {
 

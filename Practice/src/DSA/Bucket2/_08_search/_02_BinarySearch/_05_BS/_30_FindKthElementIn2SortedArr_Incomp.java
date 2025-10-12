@@ -1,7 +1,7 @@
 package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
-//https://www.youtube.com/watch?v=F9c7LpRZWVQ
-//https://www.naukri.com/code360/problems/median-of-two-sorted-arrays_985294
+//https://www.youtube.com/watch?v=D1oDwWCq50g
+//https://www.naukri.com/code360/problems/k-th-element-of-2-sorted-array_1164159
 public class _30_FindKthElementIn2SortedArr_Incomp {
 
 	public static int findKthElement(int[] arr1, int[] arr2) {

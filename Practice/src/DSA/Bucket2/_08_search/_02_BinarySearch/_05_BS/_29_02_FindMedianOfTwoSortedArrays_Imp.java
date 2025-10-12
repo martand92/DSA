@@ -1,6 +1,6 @@
 package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
-public class _29_02_FindMedianOfTwoSortedArrays_SpaceOpt {
+public class _29_02_FindMedianOfTwoSortedArrays_Imp {
 
 	// as interested only in n/2 and n/2-1 indices if n is even, and only in n/2
 	// index if n is odd, keep traversing and stop once required indices are found

@@ -6,12 +6,13 @@ package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 //need to send coordinate of peak element whose left, right, top and bottom are all less than current
 
 //Algo:
-//Have col=0 as left and col=arr.lenght-1 as right for matrix and then do binary search on the columns. 
-//This will confirm that both top and bottom of this element are less, now need to check if left/right are less
+//Have col=0 as left and col=arr.lenght-1 as right & start doing binary search on the columns.
+//First find midcol and then check for peak element in this mid column
+//This will confirm that both top and bottom of this element are less
 
-//After finding max element in that col, check for all its neighbors if they are less. If they are then this element is peak
-//but if left is larger than current then discard right and binary search on left (0 -> curr col - 1)
-//if right is larger than current then discard left and binary search on right (curr col + 1 -> n)
+//Next need to check if left & right are less. If they are, then this element is peak
+//but if left is larger than current then discard right and repeat(BS on columns) on left (0 -> currCol - 1)
+//if right is larger than current then discard left and repeat(BS on columns) on right (currCol + 1 -> n)
 
 public class _04_03_FindPeakElementInMatrix_Imp {
 
@@ -37,12 +38,12 @@ public class _04_03_FindPeakElementInMatrix_Imp {
 			}
 
 			// next check if left col val is greater than current only if current col != 0
-			if (maxCol != 0 && mat[maxRow][maxCol - 1] > mat[maxRow][maxCol])
-				r = midCol - 1; // if left val is greater then reduce BS window to only left
+			if (maxCol > 0 && mat[maxRow][maxCol - 1] > mat[maxRow][maxCol])
+				r = midCol - 1; // if left val is greater then align left
 
 			// next check if right col val is greater than current only if current col != n
-			else if (maxCol != mat[0].length - 1 && mat[maxRow][maxCol + 1] > mat[maxRow][maxCol])
-				l = midCol + 1; // if right val is greater then reduce BS window to only right
+			else if (maxCol < mat[0].length - 1 && mat[maxRow][maxCol + 1] > mat[maxRow][maxCol])
+				l = midCol + 1; // if right val is greater then align right
 
 			else
 				return "row:" + maxRow + " col:" + maxCol;
@@ -56,5 +57,4 @@ public class _04_03_FindPeakElementInMatrix_Imp {
 		int[][] mat = { { 4, 2, 5, 1, 4, 5 }, { 2, 9, 3, 2, 3, 2 }, { 1, 7, 6, 0, 1, 3 }, { 3, 6, 2, 3, 7, 2 } };
 		System.out.println(findPeak(mat));
 	}
-
 }

@@ -1,7 +1,7 @@
 package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://practice.geeksforgeeks.org/problems/balance-with-respect-to-an-array5443/1
-public class _16_BalanceWRTArray_O_LogN {
+public class _16_BalanceWRTArray {
 
 	public static boolean isBalanced(int[] arr, int x, int l, int r) {
 
@@ -23,7 +23,7 @@ public class _16_BalanceWRTArray_O_LogN {
 			return true;
 
 		return false;
-	}
+	}// O(logn)
 
 	public static void main(String[] args) {
 

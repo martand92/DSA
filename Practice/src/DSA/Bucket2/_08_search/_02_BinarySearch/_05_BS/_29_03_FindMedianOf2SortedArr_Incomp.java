@@ -2,7 +2,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._05_BS;
 
 //https://www.youtube.com/watch?v=F9c7LpRZWVQ
 //https://www.naukri.com/code360/problems/median-of-two-sorted-arrays_985294
-public class _29_03_FindMedianOf2SortedArr_TimeOpt_Incomp {
+public class _29_03_FindMedianOf2SortedArr_Incomp {
 
 	public static int median(int[] arr1, int[] arr2) {
 		return -1;
