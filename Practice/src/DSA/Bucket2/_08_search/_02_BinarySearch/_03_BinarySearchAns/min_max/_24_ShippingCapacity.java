@@ -20,7 +20,7 @@ public class _24_ShippingCapacity {
 		return sum;
 	}
 
-	public static int noOfDaysWithCurrMidWt(int[] weights, int maxWeightPerDay) {
+	public static int noOfDays(int[] weights, int maxWeightPerDay) {
 
 		int noOfDays = 0;
 		int currWeight = 0;
@@ -47,28 +47,22 @@ public class _24_ShippingCapacity {
 		// and utmost sum of all weights.
 		// Hence ranges is from max(weights[]) to sum of all weights
 
-		int l = maxOfWeights(weights), r = sumOfAllWeights(weights), mid = 0;
+		int l = maxOfWeights(weights), r = sumOfAllWeights(weights);
 
 		// finding min weight/day that would be needed to ship all items in given days
 		while (l <= r) {
 
 			// here mid indicates max weight/day that ship can hold and if all weights are
 			// transported before given days then reduce weight else increase weight
-			mid = (l + r) / 2;
+			int weightPerDay = (l + r) / 2;
+			int noOfDays = noOfDays(weights, weightPerDay);
 
-			int noOfDays = noOfDaysWithCurrMidWt(weights, mid);
-
-			// if no of days taken with mid weight is less than expected days to ship all
-			// container, then reduce mid weight
-			if (noOfDays < days) {
-				r = mid - 1;
-
-				// if no of days taken with mid weight is greater than expected days to ship all
-				// container, then increase mid weight
-			} else if (noOfDays > days)
-				l = mid + 1;
+			if (noOfDays < days)// If num of days needed to ship all the weights with derived weight/day is
+				r = weightPerDay - 1;
+			else if (noOfDays > days)
+				l = weightPerDay + 1;
 			else
-				return mid;
+				return weightPerDay;
 		}
 		return -1;
 	}

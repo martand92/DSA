@@ -4,8 +4,7 @@ public class _19_FindSqrtOfNum {
 
 	public static int findSqrt(int n) {
 
-		// the range is initially fixed as 1 -> n as n sqrt of n will always be less
-		// than n
+		//ans range is fixed as 1 -> n as sqrt(n) < n
 		int l = 1, r = n, mid = 0;
 
 		while (l <= r) {

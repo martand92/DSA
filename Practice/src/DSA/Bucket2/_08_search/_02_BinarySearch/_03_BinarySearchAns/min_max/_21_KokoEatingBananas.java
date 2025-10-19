@@ -37,21 +37,22 @@ public class _21_KokoEatingBananas {
 	// bananas/hr
 	public static int minNumOfBananasPerHour(int[] arr, int h) {
 
-		// no of bananas to be eaten every hour ranges from 1 -> highest of arr element
+		// no of bananas to be eaten every hour ranges from 1 -> highest element in
+		// arr[]
 		int l = 1, r = maxArrEle(arr), mid = 0;
 
 		while (l <= r) {
 
-			// here mid(m) indicates no of bananas to be consumed/hr
+			// mid = no of bananas consumed/hr
 			mid = (l + r) / 2;
 
 			int time = timeTakenToEatAllBananas(arr, mid);
 
-			// If time taken to consumer all bananas with speed of m(mid)/hr is less than
-			// given hours then need decrease /hr rate(m)
+			// If all bananas are eaten faster then reduce no of bananas consumed /hr
 			if (time < h)
 				r = mid - 1;
 
+			// If all bananas are eaten slower then increase no of bananas consumed /hr
 			else if (time > h)
 				l = mid + 1;
 

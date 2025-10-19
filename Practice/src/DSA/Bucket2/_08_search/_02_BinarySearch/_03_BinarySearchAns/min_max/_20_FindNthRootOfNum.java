@@ -41,7 +41,6 @@ public class _20_FindNthRootOfNum {
 		int m = 16;
 		System.out.println(findNthRoot(m, n));
 	}
-
 }
-//TC : O(log m * n) . log m for binary searching mth root * n for multiplying n times
+//TC : O(log m * n) - log m for binary searching mth root * n for multiplying n times
 //SC : O(1)

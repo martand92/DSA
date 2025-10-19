@@ -20,7 +20,7 @@ public class _22_RoseGarden {
 			return lastBloomDay;
 	}
 
-	public static boolean isPossibleWithCurrBloomDay(int[] arr, int k, int m, int currBloomDay) {
+	public static boolean isPossible(int[] arr, int k, int m, int currBloomDay) {
 
 		int l = 0;
 
@@ -31,19 +31,17 @@ public class _22_RoseGarden {
 			if (arr[r] <= currBloomDay && (r - l + 1) == k) {
 				l = r + 1;
 				m--;
-
-				// if all bouquets can be created with each containing k flowers, then return
-				// true
-				if (m == 0)
-					return true;
 			}
+
+			// if all bouquets can be created with each containing k flowers, then return
+			// true
+			if (m == 0)
+				return true;
 
 			// if current day is higher than current bloom day, then adjacency is broken, so
 			// need to find next k adjacent days from next day
-			if (arr[r] > currBloomDay) {
+			if (arr[r] > currBloomDay)
 				l = r + 1;
-			}
-
 		}
 
 		// if m bouquets are not possible each with k flowers then return false
@@ -73,9 +71,8 @@ public class _22_RoseGarden {
 
 			// if not possible with bloomday=mid, then definitely not possible for lower
 			// bloom days, so look for higher bloom days
-			boolean isPossible = isPossibleWithCurrBloomDay(arr, k, m, mid);// O(N)
 
-			if (isPossible)
+			if (isPossible(arr, k, m, mid))// O(N)
 				r = mid - 1;
 
 			else // if (!isPossible)
