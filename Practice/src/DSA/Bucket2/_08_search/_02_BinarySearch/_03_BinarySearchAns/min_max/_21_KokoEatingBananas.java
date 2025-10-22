@@ -6,7 +6,6 @@ public class _21_KokoEatingBananas {
 
 	// as need to figure out min no of bananas to be eaten every hour, the range of
 	// bananas to be eaten/hr varies from 1 -> max(arr) to finish in given hr
-
 	public static int maxArrEle(int[] arr) {
 		int max = arr[0];
 		for (int i = 1; i < arr.length; i++)
@@ -15,30 +14,30 @@ public class _21_KokoEatingBananas {
 		return max;
 	}
 
-	// Total time taken to completely eat all bananas with m bananas/hr rate
-	public static int timeTakenToEatAllBananas(int[] arr, int m) {
+	// finding if all bananas can be consumed with mid/hr rate
+	public static boolean isPossible(int[] arr, int mid, int h) {
 
 		int hours = 0;
 
+		// Total time taken to completely eat all bananas with m bananas/hr rate
 		for (int i = 0; i < arr.length; i++) {
-
-			if (arr[i] % m == 0)
-				hours += arr[i] / m;
+			if (arr[i] % mid == 0)
+				hours += arr[i] / mid;
 			else
-				hours += arr[i] / m + 1;
+				hours += (arr[i] / mid) + 1;
 		}
 
-		return hours;
+		if (hours <= h)
+			return true;
+
+		return false;
 	}
 
-	// If eating m bananas/hour gets completed before 'h' hours then eat less
-	// bananas/hr
-	// If eating m bananas/hour takes more than 'h' hours, then eat more
-	// bananas/hr
+	// If eating m bananas/hr completes before 'h' hrs then eat less bananas/hr
+	// If eating m bananas/hr takes more than 'h' hrs, then eat more bananas/hr
 	public static int minNumOfBananasPerHour(int[] arr, int h) {
 
-		// no of bananas to be eaten every hour ranges from 1 -> highest element in
-		// arr[]
+		// no of bananas eaten/hr ranges from 1 -> highest element in arr[]
 		int l = 1, r = maxArrEle(arr), mid = 0;
 
 		while (l <= r) {
@@ -46,21 +45,21 @@ public class _21_KokoEatingBananas {
 			// mid = no of bananas consumed/hr
 			mid = (l + r) / 2;
 
-			int time = timeTakenToEatAllBananas(arr, mid);
-
-			// If all bananas are eaten faster then reduce no of bananas consumed /hr
-			if (time < h)
+			// If all bananas are eaten faster then reduce no of bananas consumed/hr
+			if (isPossible(arr, mid, h))
 				r = mid - 1;
 
-			// If all bananas are eaten slower then increase no of bananas consumed /hr
-			else if (time > h)
-				l = mid + 1;
-
+			// If all bananas are eaten slower then increase no of bananas consumed/hr
 			else
-				return mid;
+				l = mid + 1;
 		}
 
-		return -1;
+		return l;
+
+		/*
+		 * In a binary search for the minimum valid value, you always return l. When
+		 * searching for the maximum valid value, you return r.
+		 */
 
 	}
 

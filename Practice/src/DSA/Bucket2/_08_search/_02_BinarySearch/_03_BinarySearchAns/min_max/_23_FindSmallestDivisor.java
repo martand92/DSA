@@ -12,7 +12,8 @@ public class _23_FindSmallestDivisor {
 		return max;
 	}
 
-	public static int findSumOfDivisors(int[] arr, int mid) {
+	// finding sum of divisors derived using mid is in limit
+	public static boolean isPossible(int[] arr, int mid, int limit) {
 		int sum = 0;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] % mid == 0)
@@ -21,7 +22,7 @@ public class _23_FindSmallestDivisor {
 				sum += arr[i] / mid + 1;
 		}
 
-		return sum;
+		return sum <= limit;
 	}
 
 	public static int findSmallestDivisor(int[] arr, int limit) {
@@ -31,23 +32,19 @@ public class _23_FindSmallestDivisor {
 		int l = 1, r = maxElement(arr), mid = 0;
 
 		while (l <= r) {
-			
-			//here mid indicates divisor whose sum after division is lesser than limit then discard right else left
+
+			// here mid indicates divisor whose sum after division is lesser than limit then
+			// discard right else left
 			mid = (l + r) / 2;
 
-			int ans = findSumOfDivisors(arr, mid);
-
-			if (ans == limit)
-				return mid;
-
-			else if (ans < limit)
-				r = mid - 1;
+			if (isPossible(arr, mid, limit))
+				r = mid - 1; // try smaller divisor
 
 			else
-				l = mid + 1;
+				l = mid + 1; // need larger divisor
 		}
 
-		return l;
+		return l; // l will be the smallest valid divisor
 	}
 
 	public static void main(String[] args) {

@@ -2,35 +2,30 @@ package DSA.Bucket3._02_strings;
 
 import java.util.*;
 
-//
 public class _06_ShortestDistance {
-	public static void main(String[] args) {
-		ArrayList<String> s = new ArrayList<String>();
-		s.add("jd");
-		s.add("lzt");
-		s.add("kym");
-		s.add("ky");
-		s.add("gdf");
-		s.add("gdf");
-		s.add("jd");
 
-		String word1 = "kym", word2 = "gdf";
+	public static int findShortestDist(ArrayList<String> list, String word1, String word2) {
 
-		int word1Index = -1, word2Index = -1, diff = Integer.MAX_VALUE;
-		for (int i = 0; i < s.size(); i++) {
+		int idx1 = -1, idx2 = -1, minDiff = Integer.MAX_VALUE;
 
-			if (s.get(i).equals(word1))
-				word1Index = i;
+		for (int i = 0; i < list.size(); i++) {
 
-			if (s.get(i).equals(word2))
-				word2Index = i;
+			if (list.get(i) == word1)
+				idx1 = i;
 
-			if (word1Index != -1 & word2Index != -1)
-				diff = Math.min(diff, Math.abs(word2Index - word1Index));
+			if (list.get(i) == word2)
+				idx2 = i;
+
+			if (idx1 != -1 && idx2 != -1)
+				minDiff = Math.min(minDiff, Math.abs(idx1 - idx2));
 		}
 
-		System.out.println(diff);
-
+		return minDiff;
 	}
-	
+
+	public static void main(String[] args) {
+		ArrayList<String> list = new ArrayList<String>(List.of("jd", "lzt", "kym", "ky", "gdf", "gdf", "jd"));
+		System.out.println(findShortestDist(list, "kym", "gdf"));
+	}
 }
+//TC : O(S)

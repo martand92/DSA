@@ -18,9 +18,8 @@ public class _26_AggressiveCows_maxofmin {
 
 			// check if next cow can be placed at ith stall thats far by minDist
 			if (arr[i] - arr[prev] >= minDist) {
-				cows--;// place cow at ith stall and make this stall as prev and reduce count of cows
-						// to be placed
-				prev = i;
+				prev = i; // place cow at this ith stall and mark it as prev
+				cows--; // reduce no of cows
 			}
 			if (cows == 0)
 				return true;
@@ -33,10 +32,10 @@ public class _26_AggressiveCows_maxofmin {
 
 		// finding range. Say given 2 cows, the min possible distance between cows = 1
 		// the max possible distance between 2 cows = farthest stall from first stall
-		// i.e, distance between 1st and last stall i.e, arr[n] - arr[0]
-		// Hence range will be 1 -> arr[n] - arr[0]
+		// i.e, distance between 1st and last stall i.e, (arr[n] - arr[0])
+		// Hence range will be 1 -> (arr[n] - arr[0])
 
-		int l = 1, r = arr[arr.length - 1] - arr[0], mid = 0;
+		int l = 1, r = (arr[arr.length - 1] - arr[0]), mid = 0;
 
 		while (l <= r) {
 

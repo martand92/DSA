@@ -4,25 +4,27 @@ import java.util.*;
 
 //https://practice.geeksforgeeks.org/problems/anagram-palindrome4720/1
 public class _10_IsAnagram {
-	public static void main(String[] args) {
 
-		String S = "geeksogeeks";
+	public static boolean isAnagram(String str) {
+
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
 		int count = 0;
 
-		for (int i = 0; i < S.length(); i++)
-			hm.put(S.charAt(i), hm.getOrDefault(S.charAt(i), 0) + 1);
+		for (int i = 0; i < str.length(); i++)
+			hm.put(str.charAt(i), hm.getOrDefault(str.charAt(i), 0) + 1);
 
 		for (Map.Entry<Character, Integer> e : hm.entrySet()) {
 			if (e.getValue() % 2 != 0)
 				count++;
 		}
 
-		// Of all characters in given String, not more than 1 char's count should be odd
-		// to make it Anagram
-		if (count > 1)
-			System.out.println(0);
-		else
-			System.out.println(1);
+		// Characters with odd count should not be not more than 1
+		return count <= 1;
+	}
+
+	public static void main(String[] args) {
+
+		String S = "geeksogeeks";
+		System.out.println(isAnagram(S));
 	}
 }

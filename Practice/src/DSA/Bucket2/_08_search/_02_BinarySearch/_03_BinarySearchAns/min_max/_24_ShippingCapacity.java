@@ -4,67 +4,53 @@ package DSA.Bucket2._08_search._02_BinarySearch._03_BinarySearchAns.min_max;
 //https://www.naukri.com/code360/problems/capacity-to-ship-packages-within-d-days_1229379
 public class _24_ShippingCapacity {
 
-	public static int maxOfWeights(int[] weights) {
-		int maxWeight = weights[0];
+	static int maxWeight = 0, sumOfWeights = 0;
+
+	public static void calWeight(int[] weights) {
+
 		for (int i = 0; i < weights.length; i++) {
 			maxWeight = Math.max(maxWeight, weights[i]);
+			sumOfWeights += weights[i];
 		}
-		return maxWeight;
 	}
 
-	public static int sumOfAllWeights(int[] weights) {
-		int sum = 0;
+	public static boolean isPossible(int[] weights, int maxWeightPerDay, int day) {
+
+		int noOfDays = 0, weight = 0;
+
 		for (int i = 0; i < weights.length; i++) {
-			sum += weights[i];
-		}
-		return sum;
-	}
 
-	public static int noOfDays(int[] weights, int maxWeightPerDay) {
+			weight += weights[i];
 
-		int noOfDays = 0;
-		int currWeight = 0;
-
-		for (int r = 0; r < weights.length; r++) {
-
-			// if adding current weight surpass expected weight, then more +1 day is
-			// required to ship this weight
-			if ((currWeight + weights[r]) > maxWeightPerDay) {
+			if (weight > maxWeightPerDay) {
 				noOfDays++;
-				currWeight = weights[r];
-
-			} else
-				currWeight += weights[r];
+				weight = weights[i];
+			}
 		}
 
-		return noOfDays + 1;
+		return (noOfDays + 1) <= day; // this considers last one day with the remaining packages
 	}
 
-	public static int findMinCapacity(int[] weights, int days) {
+	public static int findLeastCapacity(int[] weights, int days) {
 
 		// here need to find min capacity that ship can carry all the items.
-		// capacity of ship should be able to hold atleast max of all available weights
-		// and utmost sum of all weights.
-		// Hence ranges is from max(weights[]) to sum of all weights
+		// Capacity of ship should be atleast max(weights) & utmost sum(weights)
+		// Hence range : l = max(weights[]), r = sum(weights[])
+		calWeight(weights);
+		int l = maxWeight, r = sumOfWeights;
 
-		int l = maxOfWeights(weights), r = sumOfAllWeights(weights);
-
-		// finding min weight/day that would be needed to ship all items in given days
 		while (l <= r) {
 
-			// here mid indicates max weight/day that ship can hold and if all weights are
-			// transported before given days then reduce weight else increase weight
+			// here mid indicates max weight/day that ship can carry
 			int weightPerDay = (l + r) / 2;
-			int noOfDays = noOfDays(weights, weightPerDay);
 
-			if (noOfDays < days)// If num of days needed to ship all the weights with derived weight/day is
+			if (isPossible(weights, weightPerDay, days))
 				r = weightPerDay - 1;
-			else if (noOfDays > days)
-				l = weightPerDay + 1;
 			else
-				return weightPerDay;
+				l = weightPerDay + 1;
 		}
-		return -1;
+
+		return l;
 	}
 
 	public static void main(String[] args) {
@@ -74,7 +60,7 @@ public class _24_ShippingCapacity {
 //		int[] weights = { 5, 4, 5, 2, 3, 4, 5, 6 };
 //		int days = 5;
 
-		System.out.println(findMinCapacity(weights, days));
+		System.out.println(findLeastCapacity(weights, days));
 	}
 
 }

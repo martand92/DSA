@@ -1,6 +1,6 @@
 package DSA.Bucket3._02_strings;
 
-public class _04_ReverseString_recursion {
+public class _04_ReverseStr_Imp {
 
 	public static void main(String[] args) {
 		String str = "martand";

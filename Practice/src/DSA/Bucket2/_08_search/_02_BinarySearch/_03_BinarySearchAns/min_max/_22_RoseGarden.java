@@ -1,25 +1,29 @@
 package DSA.Bucket2._08_search._02_BinarySearch._03_BinarySearchAns.min_max;
 
 //https://www.youtube.com/watch?v=TXAuxeYBTdg
+
 //https://www.naukri.com/code360/problems/rose-garden_2248080
+
+/* Adjacent : Consider roses that are blooming adjacently 
+ * i.e, If 1st rose bloom on 1st day, If 2nd rose bloom on 5th day, If 3rd rose bloom on 3rd day
+ * though they are no blooming on consecutive days they are still blooming adjacently*/
 public class _22_RoseGarden {
 
-	public static int bloomDay(int[] arr, boolean first) {
+	static int firstBloomDay, lastBloomDay;
 
-		int lastBloomDay = arr[0];
-		int firstBloomDay = arr[0];
+	public static void bloomDay(int[] arr) {
 
-		for (int i = 1; i < arr.length; i++) {
+		firstBloomDay = Integer.MAX_VALUE;
+		lastBloomDay = Integer.MIN_VALUE;
+
+		for (int i = 0; i < arr.length; i++) {
 			lastBloomDay = Math.max(lastBloomDay, arr[i]);
 			firstBloomDay = Math.min(firstBloomDay, arr[i]);
 		}
-
-		if (first)
-			return firstBloomDay;
-		else
-			return lastBloomDay;
+		
 	}
-
+	
+	//finding if m bouquets are possible each with k roses within currBloomDay
 	public static boolean isPossible(int[] arr, int k, int m, int currBloomDay) {
 
 		int l = 0;
@@ -27,7 +31,7 @@ public class _22_RoseGarden {
 		for (int r = 0; r < arr.length; r++) { // O(n)
 
 			// if you get consecutive k flowers thats blooming by currBloomDay, then 1
-			// buquote can be constructed
+			// Bouquet can be constructed
 			if (arr[r] <= currBloomDay && (r - l + 1) == k) {
 				l = r + 1;
 				m--;
@@ -50,40 +54,46 @@ public class _22_RoseGarden {
 
 	public static int minNumOfDays(int[] arr, int k, int m) {
 
-		// bloom day possibilities will range from min of bloomday -> max of bloomday
-		// i.e, max bloom day possible is last day that rose takes to bloom
-		int l = bloomDay(arr, true), r = bloomDay(arr, false), mid = 0; // O(2n) as callig fn() twice-> can be reduced
-																		// to O(n)
+		// bloom day ranges from min(bloomday[]) i.e, first day rose bloom to
+		// max(bloomday[]) i.e last day rose blooms
+		bloomDay(arr);
+		int l = firstBloomDay, r = lastBloomDay, mid = 0; // O(n)
 
-		// if no of flowers needed to make m bouquets each with k flowers exceeds total
-		// num of flowers n, then not possible
+		// to make m bouquets each with k roses, atleast m * k roses are needed
 		if (m * k > arr.length)
 			return -1;
 
 		while (l <= r) { // O(log arr(max-min))
 
-			// mid indicates current bloom day
+			// mid indicates min day considered to pluck already bloomed roses to
+			// make m bouquets
 			mid = (l + r) / 2;
 
-			// if possible with bloomday=mid, then creating m bouquets is also possible with
-			// all higher bloomdays. As we need to look for min days, check for lower bloom
-			// day if its possible
-
-			// if not possible with bloomday=mid, then definitely not possible for lower
-			// bloom days, so look for higher bloom days
+			/*
+			 * if possible with bloomday=mid, then creating m bouquets is also possible with
+			 * all higher bloomdays. As we need to look for min days, check for lower bloom
+			 * day
+			 * 
+			 * if not possible with bloomday=mid, then definitely not possible for lower
+			 * bloom days, so look for higher bloom days
+			 */
 
 			if (isPossible(arr, k, m, mid))// O(N)
 				r = mid - 1;
 
-			else // if (!isPossible)
+			else
 				l = mid + 1;
 		}
 
 		return l;
+		/*
+		 * In a binary search for the minimum valid value, you always return l. When
+		 * searching for the maximum valid value, you return r.
+		 */
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 1, 2, 7, 6, 2, 3, 1 };
+		int[] arr = { 1, 2, 1, 2, 7, 2, 2, 3, 1 };
 		int k = 3, m = 2;
 		System.out.println(minNumOfDays(arr, k, m));
 	}

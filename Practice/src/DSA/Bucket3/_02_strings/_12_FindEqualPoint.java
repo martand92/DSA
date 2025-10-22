@@ -6,7 +6,7 @@ package DSA.Bucket3._02_strings;
  * 
  * 
  * To Find index where numOfOpenBracesOnLeft = numberOfClosedBracesOnRight --> eq 1
- * Say initial index = numOfOpenBracesOnLeft + numOfClosedBracesOnLeft
+ * Say initial index(equal point) = numOfOpenBracesOnLeft + numOfClosedBracesOnLeft
  * numOfClosedBracesOnLeft = index - numOfOpenBracesOnLeft --> eq 3
  * 
  * totalClosedBraces  = numOfClosedBracesOnLeft + numOfClosedBracesOnRight
@@ -33,7 +33,7 @@ public class _12_FindEqualPoint {
 			if (strArr[i] == ')')
 				index++;
 		}
-		
+
 		System.out.println(index);
 	}
 

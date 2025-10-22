@@ -9,7 +9,7 @@ package DSA.Bucket2._08_search._02_BinarySearch._01_LowerUpperBound;
  * All elements in arr[ub ... end] are > target
  */
 
-public class _01_LowerUpperBound_Imp {
+public class _01_01_LowerUpperBound_Imp {
 
 	public static int lowerBound(int[] arr, int target, int l, int r) {
 

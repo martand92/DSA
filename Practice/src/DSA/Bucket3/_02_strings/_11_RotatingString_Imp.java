@@ -1,6 +1,6 @@
 package DSA.Bucket3._02_strings;
 
-public class _11_RotatingString {
+public class _11_RotatingString_Imp {
 
 	public static void main(String[] arg) {
 
@@ -9,16 +9,12 @@ public class _11_RotatingString {
 
 		if (str1.substring(2).concat(str1.substring(0, 2)).equals(str2))
 			System.out.println("First : " + true);
-		
-		else if (String.valueOf(str1.charAt(str1.length() - 2)).concat(String.valueOf(str1.charAt(str1.length() - 1))).concat(str1.substring(0, str1.length() - 2)).equals(str2)) {
+
+		else if (String.valueOf(str1.charAt(str1.length() - 2)).concat(String.valueOf(str1.charAt(str1.length() - 1)))
+				.concat(str1.substring(0, str1.length() - 2)).equals(str2)) {
 			System.out.println("Second : " + true);
-			
+
 		} else
 			System.out.println("None : " + false);
-		
-		
-		//System.out.println(str1.substring(0, str1.length() - 2));
-
 	}
-
 }

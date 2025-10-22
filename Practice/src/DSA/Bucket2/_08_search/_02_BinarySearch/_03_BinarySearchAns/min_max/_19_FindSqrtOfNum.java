@@ -4,7 +4,7 @@ public class _19_FindSqrtOfNum {
 
 	public static int findSqrt(int n) {
 
-		//ans range is fixed as 1 -> n as sqrt(n) < n
+		// ans range is fixed as 1 -> n as sqrt(n) < n
 		int l = 1, r = n, mid = 0;
 
 		while (l <= r) {
@@ -16,7 +16,7 @@ public class _19_FindSqrtOfNum {
 			if ((mid * mid) > n)
 				r = mid - 1;
 
-			else if (mid * mid < n)
+			else if ((mid * mid) < n)
 				l = mid + 1;
 
 			else
