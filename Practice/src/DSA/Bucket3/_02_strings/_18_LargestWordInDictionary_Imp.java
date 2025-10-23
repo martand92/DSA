@@ -7,7 +7,7 @@ package DSA.Bucket3._02_strings;
  * Among those that match, return the longest one (and lexicographically smallest in case of tie)
  */
 
-public class _17_LargestWordInDictionary {
+public class _18_LargestWordInDictionary_Imp {
 
 	public static boolean isSubsequence(String word, String s) {
 

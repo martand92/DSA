@@ -2,16 +2,7 @@ package DSA.Bucket3._02_strings;
 
 //https://www.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1
 //Algo : minDeletions = length of string - length of longest palindrome subsequence (LPS)
-public class _16_01_MinDeletionForPalindrome {
-
-	public static void main(String[] args) {
-
-		String s = "aebcbda";
-		// String s = "aba";
-
-		// Find length of Longest Palindromic SubSeq
-		System.out.println(s.length() - lenOfLPS(s, 0, s.length() - 1));
-	}
+public class _17_01_MinDeletionForPalindrome_Imp {
 
 	public static int lenOfLPS(String s, int i, int j) {
 		if (i > j)
@@ -26,5 +17,13 @@ public class _16_01_MinDeletionForPalindrome {
 		else
 			return Math.max(lenOfLPS(s, i + 1, j), lenOfLPS(s, i, j - 1));
 
+	}
+
+	public static void main(String[] args) {
+
+		String s = "aebcbda";
+		// String s = "aba";
+
+		System.out.println(s.length() - lenOfLPS(s, 0, s.length() - 1));
 	}
 }
