@@ -5,6 +5,27 @@ import java.util.HashMap;
 //https://practice.geeksforgeeks.org/problems/check-if-two-strings-are-k-anagrams-or-not/1
 public class _13_CheckKAnagram_Imp {
 
+	public static boolean checkIfKAnagram_(String s1, String s2, int k) {
+
+		if (s1.length() != s2.length())
+			return false;
+
+		StringBuilder str1 = new StringBuilder(s1);// O(n)
+
+		for (int i = 0; i < s2.length(); i++) {
+
+			int index = str1.indexOf(String.valueOf(s2.charAt(i)));// O(n)
+
+			if (index >= 0)
+				str1.deleteCharAt(index);// O(n)
+		}
+
+		if (str1.length() <= k)
+			return true;
+
+		return false;
+	} // TC : O(n^2), SC : O(n)
+
 	public static boolean checkIfKAnagram(String s1, String s2, int k) {
 
 		if (s1.length() != s2.length())
@@ -31,27 +52,6 @@ public class _13_CheckKAnagram_Imp {
 		return true;
 	} // TC : O(n), SC : O(n)
 
-	public static boolean checkIfKAnagram_(String s1, String s2, int k) {
-
-		if (s1.length() != s2.length())
-			return false;
-
-		StringBuilder str1 = new StringBuilder(s1);// O(n)
-
-		for (int i = 0; i < s2.length(); i++) {
-
-			int index = str1.indexOf(String.valueOf(s2.charAt(i)));// O(n)
-
-			if (index >= 0)
-				str1.deleteCharAt(index);// O(n)
-		}
-
-		if (str1.length() <= k)
-			return true;
-
-		return false;
-	} // TC : O(n^2), SC : O(n)
-
 	public static boolean checkIfKAnagram_Opt(String s1, String s2, int k) {
 
 		if (s1.length() != s2.length())
@@ -67,7 +67,8 @@ public class _13_CheckKAnagram_Imp {
 
 		int cnt = 0;
 		for (int i = 0; i < 26; i++) {
-			if (freq[i] > 0)
+			if (freq[i] > 0)// when chars differ, they differ by same length for both s1 and s2. So
+							// either checking freq for > 0 (or < 0) should provide same result
 				cnt += freq[i];
 		}
 
@@ -86,6 +87,7 @@ public class _13_CheckKAnagram_Imp {
 //		int k = 2;
 
 		System.out.println(checkIfKAnagram(s1, s2, k));
+		System.out.println(checkIfKAnagram_(s1, s2, k));
 		System.out.println(checkIfKAnagram_Opt(s1, s2, k));
 
 	}

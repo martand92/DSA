@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://www.youtube.com/watch?v=e7XQLtOQM3I
 //Need to find next greater element on right side of current element
-public class _18_01_NGE_MonotonicStack {
+public class _20_01_NGE_Imp {
 
 	public static int[] nextGreaterElement(int[] arr) {
 

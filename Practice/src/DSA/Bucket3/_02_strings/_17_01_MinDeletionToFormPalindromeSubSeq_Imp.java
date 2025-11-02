@@ -2,7 +2,7 @@ package DSA.Bucket3._02_strings;
 
 //https://www.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1
 //Algo : minDeletions = length of string - length of longest palindrome subsequence (LPS)
-public class _17_01_MinDeletionForPalindrome_Imp {
+public class _17_01_MinDeletionToFormPalindromeSubSeq_Imp {
 
 	public static int lenOfLPS(String s, int i, int j) {
 		if (i > j)
@@ -27,3 +27,5 @@ public class _17_01_MinDeletionForPalindrome_Imp {
 		System.out.println(s.length() - lenOfLPS(s, 0, s.length() - 1));
 	}
 }
+
+//Note: Here end result palindrome is also subSeq and not subString. So check if min deletion question is for subSeq or subString

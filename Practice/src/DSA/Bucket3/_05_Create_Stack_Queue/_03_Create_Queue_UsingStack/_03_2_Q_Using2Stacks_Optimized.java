@@ -27,9 +27,8 @@ public class _03_2_Q_Using2Stacks_Optimized {
 				return s2.pop();
 
 			else {
-				while (!s1.isEmpty()) {
+				while (!s1.isEmpty())
 					s2.push(s1.pop());
-				}
 
 				return s2.pop();
 			}

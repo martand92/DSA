@@ -2,7 +2,6 @@ package DSA.Bucket5._08_recursion.medium;
 
 import java.util.*;
 
-//This could also be solved using pick & not pick : _16_02_PrintAllSubArrays
 public class _09_02_FindAllSubArrays_recursion {
 
 	public static ArrayList<ArrayList<Integer>> findAllSubArrays(int[] arr, int i, ArrayList<Integer> list,

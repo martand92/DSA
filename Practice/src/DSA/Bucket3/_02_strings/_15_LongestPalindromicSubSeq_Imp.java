@@ -14,11 +14,11 @@ public class _15_LongestPalindromicSubSeq_Imp {
 		if (s.charAt(i) == s.charAt(j))
 			return s.charAt(i) + findLPS(s, i + 1, j - 1) + s.charAt(j);// result will be s[i] + further compute + s[j]
 
-		else { // try both options & pick longer subseq
-			String left = findLPS(s, i + 1, j);
-			String right = findLPS(s, i, j - 1);
-			return left.length() > right.length() ? left : right;
-		}
+		// else : try both options & pick longer subseq
+		String left = findLPS(s, i + 1, j);
+		String right = findLPS(s, i, j - 1);
+		return left.length() > right.length() ? left : right;
+
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -26,3 +26,5 @@ public class _15_LongestPalindromicSubSeq_Imp {
 		System.out.println(findLPS(s, 0, s.length() - 1));
 	}
 }
+
+//TC : O(n^2), SC : O()

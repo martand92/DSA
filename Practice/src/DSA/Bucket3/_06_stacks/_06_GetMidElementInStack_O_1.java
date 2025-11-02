@@ -1,8 +1,10 @@
 package DSA.Bucket3._06_stacks;
 
-//Deleting an element from the middle is not O(1)
-//In a singly linked list, moving the middle pointer in both directions is not possible cz for pop the middle pointer would change
-//So will go with Doubly linked list
+/* Deleting an element from the middle is not O(1)
+ * In a singly linked list, moving the middle pointer in both directions is not possible cz for pop the middle pointer would change
+ * So will go with Doubly linked list
+ */
+
 public class _06_GetMidElementInStack_O_1 {
 
 	Node head;
@@ -22,6 +24,7 @@ public class _06_GetMidElementInStack_O_1 {
 	}
 
 	public void push(int data) {
+
 		Node newNode = new Node(data);
 
 		if (head != null)
@@ -29,10 +32,9 @@ public class _06_GetMidElementInStack_O_1 {
 
 		newNode.next = head;
 		head = newNode;
+
 		if (size == 0)
 			mid = newNode;
-
-		// size++;
 
 		if (size % 2 != 0)
 			mid = mid.prev;
@@ -41,9 +43,11 @@ public class _06_GetMidElementInStack_O_1 {
 	}
 
 	public void pop() {
+
 		System.out.println("Popped : " + head.data);
 
 		head = head.next;
+
 		if (head != null)
 			head.prev = null;
 
@@ -88,5 +92,4 @@ public class _06_GetMidElementInStack_O_1 {
 		s.pop();
 		s.getMid();
 	}
-
 }

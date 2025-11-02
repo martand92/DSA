@@ -2,7 +2,7 @@ package DSA.Bucket3._06_stacks;
 
 import java.util.Arrays;
 
-public class _05_ImplementTwoStackInArray {
+public class _05_ImplementTwoStackInArray_Imp {
 
 	int[] arr = new int[10];
 	int stackIndex1 = -1, stackIndex2 = 4;
@@ -80,7 +80,7 @@ public class _05_ImplementTwoStackInArray {
 	}
 
 	public static void main(String[] args) {
-		_05_ImplementTwoStackInArray s = new _05_ImplementTwoStackInArray();
+		_05_ImplementTwoStackInArray_Imp s = new _05_ImplementTwoStackInArray_Imp();
 		s.push(1, 1);
 		s.push(1, 2);
 		s.push(1, 3);

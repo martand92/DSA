@@ -2,6 +2,7 @@ package DSA.Bucket5._08_recursion.medium;
 
 import java.util.*;
 
+//Same as stack->_SumOfSubArrMin
 public class _09_01_FindAllSubArrays_Itr {
 
 	public static List<List<Integer>> findSubArrays(int[] arr) {

@@ -7,7 +7,7 @@ package DSA.Bucket3._06_stacks;
 
 //Algo: 
 
-public class _20_03_TrappingRainWater_Stack_Incomp {
+public class _22_TrappingRainWater_Incomp {
 
 	public static int maxWaterTrapped(int[] arr) {
 		

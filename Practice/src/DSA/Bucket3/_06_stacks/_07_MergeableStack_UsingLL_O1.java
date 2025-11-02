@@ -24,9 +24,10 @@ public class _07_MergeableStack_UsingLL_O1 {
 
 		if (stackNum == 1) {
 
-			if (size1 > MAX) {
+			if (size1 > MAX)
 				System.out.println("Stack 1 Overflow");
-			} else {
+
+			else {
 				Node newNode = new Node(data);
 
 				if (head1 == null)
@@ -36,29 +37,33 @@ public class _07_MergeableStack_UsingLL_O1 {
 				head1 = newNode;
 				size1++;
 			}
+
 		} else {
-			if (size2 > MAX) {
+
+			if (size2 > MAX)
 				System.out.println("Stack 2 Overflow");
-			} else {
+
+			else {
 				Node newNode = new Node(data);
 				newNode.next = head2;
 				head2 = newNode;
 				size2++;
 			}
+
 		}
+
 	}
 
 	public void merge(_07_MergeableStack_UsingLL_O1 s2) {
 		Node n = head1;
-		while (n.next != null) {
+		while (n.next != null)
 			n = n.next;
-		}
+
 		n.next = s2.head2;
 	}
 
 	public void printList() {
 		Node n = head1;
-
 		while (n != null) {
 			System.out.print(n.data + "->");
 			n = n.next;

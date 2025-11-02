@@ -16,7 +16,7 @@ public class _07_DivisibleBy7 {
 
 		String num = "8955795758";
 
-		// do 1st element % 7. Concatenate remainder with next element & repeat.
+		// do ele % 7. Concatenate remainder with next element & repeat.
 		// if final remainder is 0 then its divisible by 7
 		System.out.println(isDivisibleBy7(num));
 	}

@@ -21,20 +21,19 @@ public class _22_SumOfSubArrayRanges {
 		return total;
 	} // TC : O(N^2), SC : O(N)
 
-	// find sum of min & max elements in all possible sub arrays using previous
-	// methods and find final difference
+	// SumOfRanges of all subArrays = (sumOfMaxEle of each subArr) - (sumOfMinEle of
+	// each subArr)
 	public static int sumOfSubArrRanges_Stack(int[] arr) {
 
-		int maxSumOfAllSubArr = _21_02_SumOfSubArrMax.maxElementInSubArrSum_Stack(arr);
-		int minSumOfAllSubArr = _21_01_SumOfSubArrMin.minElementInSubArrSum_Stack(arr);
+		int sumOfMaxEleOfAllSubArr = _23_02_SumOfSubArrOfMaximums.sumOfMaxEleInSubArr_Stack(arr);
+		int sumOfMinEleOfAllSubArr = _23_01_SumOfSubArrOfMinimums.sumOfMinEleInSubArr_Stack(arr);
 
-		return maxSumOfAllSubArr - minSumOfAllSubArr;
+		return sumOfMaxEleOfAllSubArr - sumOfMinEleOfAllSubArr;
 	}
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 4, 3, 2 };
-		System.out.println("sum of sub arr ranges using brute force : " + sumOfSubArrRanges_BruteForce(arr));
+		System.out.println("sum of sub arr ranges using bruteforce : " + sumOfSubArrRanges_BruteForce(arr));
 		System.out.println("sum of sub arr ranges using stack : " + sumOfSubArrRanges_Stack(arr));
 	}
-
 }

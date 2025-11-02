@@ -7,14 +7,12 @@ public class _09_SortStack_Iterative {
 	public static void main(String[] args) {
 
 		Stack<Integer> stack = new Stack<Integer>();
-
 		stack.add(11);
 		stack.add(9);
 		stack.add(12);
 		stack.add(8);
 
 		Stack<Integer> finalStack = sortStack(stack);
-
 		System.out.println(finalStack);
 
 		while (!finalStack.isEmpty())
@@ -33,20 +31,15 @@ public class _09_SortStack_Iterative {
 				stfinal.push(st.pop());
 
 			else {
-
 				while (stfinal.peek() > st.peek())
 					sttemp.push(stfinal.pop());
-
+				
 				stfinal.push(st.pop());
-
+				
 				while (!sttemp.isEmpty())
 					stfinal.push(sttemp.pop());
-
 			}
-
 		}
-
 		return stfinal;
 	}
-
 }

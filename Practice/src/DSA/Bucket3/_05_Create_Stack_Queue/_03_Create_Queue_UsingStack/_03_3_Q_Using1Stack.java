@@ -13,10 +13,10 @@ public class _03_3_Q_Using1Stack {
 		}
 
 		public int dequeue() {
-			if (s.size() == 1) {
-				res = s.pop();
-				return res;
-			}
+
+			if (s.size() == 1)
+				return s.pop();
+
 			int x = s.pop();
 			res = dequeue();
 			s.push(x);

@@ -1,7 +1,7 @@
 package DSA.Bucket3._02_strings;
 
 //https://www.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1
-public class _17_02_MinDeletionForPalindrome_DP {
+public class _17_02_MinDeletionToFormPalindromeSubSeq_DP {
 
 	public static void main(String[] args) {
 

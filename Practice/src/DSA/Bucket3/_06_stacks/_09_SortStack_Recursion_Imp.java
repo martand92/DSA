@@ -5,8 +5,8 @@ import java.util.*;
 public class _09_SortStack_Recursion_Imp {
 
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<Integer>();
 
+		Stack<Integer> stack = new Stack<Integer>();
 		stack.add(11);
 		stack.add(9);
 		stack.add(12);
@@ -38,7 +38,5 @@ public class _09_SortStack_Recursion_Imp {
 		sort(st, temp);
 
 		return st;
-
 	}
-
 }

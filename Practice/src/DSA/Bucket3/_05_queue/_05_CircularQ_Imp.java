@@ -1,7 +1,7 @@
 package DSA.Bucket3._05_queue;
 
 //Using circular Linked list
-public class _05_CircularQ {
+public class _05_CircularQ_Imp {
 
 	Node rear;
 	Node front;
@@ -52,7 +52,7 @@ public class _05_CircularQ {
 	}
 
 	public static void main(String[] args) {
-		_05_CircularQ circlQ = new _05_CircularQ();
+		_05_CircularQ_Imp circlQ = new _05_CircularQ_Imp();
 		circlQ.enqueue(0);
 		circlQ.enqueue(1);
 		circlQ.enqueue(2);

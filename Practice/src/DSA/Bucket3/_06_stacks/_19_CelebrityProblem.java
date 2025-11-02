@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://www.youtube.com/watch?v=cEadsbTeze4
 //https://www.geeksforgeeks.org/problems/the-celebrity-problem/1
-public class _29_CelebrityProblem {
+public class _19_CelebrityProblem {
 
 	public static int findCelebrity(int[][] mat) {
 
@@ -21,7 +21,6 @@ public class _29_CelebrityProblem {
 
 			if (mat[person1][person2] == 1)// if person1 knows person2 then person1 is not celebrity
 				st.push(person2); // hence add person2 back for further checks
-
 			else
 				st.push(person1); // else add person1 back for further checks
 

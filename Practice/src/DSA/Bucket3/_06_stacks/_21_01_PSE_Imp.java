@@ -4,7 +4,7 @@ import java.util.*;
 
 // https://www.youtube.com/watch?v=zMdbdGJNlh4
 // Need to find prev smaller element on left side of current element
-public class _19_01_PSE_MonotonicStack {
+public class _21_01_PSE_Imp {
 
 	public static int[] prevSmallerElement(int[] arr) {
 

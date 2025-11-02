@@ -3,7 +3,7 @@ package DSA.Bucket3._06_stacks;
 //https://youtu.be/Bzat9vgD0fs?list=PLgUwDviBIf0pOd5zvVVSzgpo6BaCpHT9c&t=994
 import java.util.*;
 
-public class _24_02_LargesttRactangleInHistogram_Opt {
+public class _24_02_LargesttRectangleInHistogram_Opt {
 
 	public static int findLongestRectangleArea(int[] arr) {
 

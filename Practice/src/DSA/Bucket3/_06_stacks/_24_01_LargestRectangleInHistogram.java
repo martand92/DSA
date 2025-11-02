@@ -1,14 +1,13 @@
 package DSA.Bucket3._06_stacks;
 
-import java.util.Arrays;
 import java.util.Stack;
 
-public class _24_01_LargestRactangleInHistogram {
+public class _24_01_LargestRectangleInHistogram {
 
-	public static int[] findPrevSmallerEle(int[] arr) {
+	public static int[] findPrevSmallerEleIndex(int[] arr) {
 
 		Stack<Integer> st = new Stack<Integer>(); // SC: O(N)
-		int[] pse = new int[arr.length]; // SC: O(N)
+		int[] psei = new int[arr.length]; // SC: O(N)
 
 		for (int i = 0; i < arr.length; i++) { // O(N)
 
@@ -16,17 +15,17 @@ public class _24_01_LargestRactangleInHistogram {
 				st.pop();
 
 			if (st.isEmpty()) // if no pse is found for given arr[i] then have pse as -1
-				pse[i] = -1;
+				psei[i] = -1;
 			else
-				pse[i] = st.peek();
+				psei[i] = st.peek();
 
 			st.push(i);
 		}
 
-		return pse; // Total TC : O(2N)
+		return psei; // Total TC : O(2N)
 	}
 
-	public static int[] findNxtSmallerEle(int[] arr) {
+	public static int[] findNxtSmallerEleIndex(int[] arr) {
 
 		Stack<Integer> st = new Stack<Integer>(); // SC: O(N)
 		int[] nse = new int[arr.length]; // SC: O(N)
@@ -49,18 +48,16 @@ public class _24_01_LargestRactangleInHistogram {
 
 	public static int findLongestRectangleArea(int[] arr) {
 
-		int[] pse = findPrevSmallerEle(arr); // TC: O(2N), SC: O(2N)
-		int[] nse = findNxtSmallerEle(arr); // TC: O(2N), SC: O(2N)
-		int[] arearec = new int[arr.length];
-		int maxArea = Integer.MIN_VALUE;
-		for (int i = 0; i < arr.length; i++) { // TC : O(N)
-			arearec[i] = arr[i] * (nse[i] - pse[i] - 1);
-			int area = arr[i] * (nse[i] - pse[i] - 1); // from nse to pse calculate area for current indexed rectangle
-			maxArea = Math.max(maxArea, area);
-		}
-		System.out.println(Arrays.toString(arearec));
-		return maxArea; // Total TC : O(5N), SC : O(4N)
+		int[] pse = findPrevSmallerEleIndex(arr); // TC: O(2N), SC: O(2N)
+		int[] nse = findNxtSmallerEleIndex(arr); // TC: O(2N), SC: O(2N)
 
+		int maxArea = Integer.MIN_VALUE;
+
+		for (int i = 0; i < arr.length; i++) // TC : O(N)
+			// from nse to pse calculate area for current indexed rectangle
+			maxArea = Math.max(maxArea, arr[i] * (nse[i] - pse[i] - 1));
+
+		return maxArea; // Total TC : O(5N), SC : O(4N)
 	}
 
 	public static void main(String[] args) {

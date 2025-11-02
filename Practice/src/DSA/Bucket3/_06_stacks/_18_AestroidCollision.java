@@ -4,13 +4,13 @@ import java.util.*;
 
 //https://www.youtube.com/watch?v=_eYGqw_VDR4
 
-//Rules :
-//Positive integer says aestroid with this weight moving in right direction
-//Negative integer says aestroid with this abs weight moving in left direction
-//If positive and negative collide then aestroid with higher weight destroys lower weighted
-//if both have same weight, both gets destroyed
+/*Rules :
+Pos weighted aestroid moves in right direction
+Neg weighted aestroid moves in left direction
+If pos and neg collide then aestroid with higher weight destroys lower weighted
+if both have same weight, both gets destroyed*/
 
-public class _23_AestroidCollision {
+public class _18_AestroidCollision {
 
 	public static ArrayList<Integer> aestroidCollisionState(int[] arr) {
 
@@ -37,9 +37,7 @@ public class _23_AestroidCollision {
 				// if st.peek() & arr[i] are in same neg direction
 				if (st.isEmpty() || st.peek() < 0)
 					st.push(arr[i]);
-
 			}
-
 		}
 
 		while (!st.isEmpty())

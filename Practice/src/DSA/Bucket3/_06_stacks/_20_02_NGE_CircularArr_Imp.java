@@ -10,7 +10,7 @@ import java.util.*;
 // Ex: if arr = {2, 10, 12, 1, 11}, then hypothetically double arr = {2, 10, 12, 1, 11, 2, 10, 12, 1, 11}
 // Now for arr[4], expected NGE as 12 which is on hypothetical index=7 or real index 7 % 5 = 2 (hypothetical index % N)
 
-public class _18_02_NGE_MonotonicStack_CircularArr {
+public class _20_02_NGE_CircularArr_Imp {
 
 	public static int[] nextGreaterElement(int[] arr) {
 

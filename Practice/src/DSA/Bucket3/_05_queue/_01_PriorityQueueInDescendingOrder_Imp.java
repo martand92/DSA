@@ -2,7 +2,7 @@ package DSA.Bucket3._05_queue;
 
 import java.util.*;
 
-public class _01_PriorityQueueInDescendingOrder {
+public class _01_PriorityQueueInDescendingOrder_Imp {
 
 	public static void main(String[] args) {
 

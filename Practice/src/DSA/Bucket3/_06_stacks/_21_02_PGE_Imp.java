@@ -4,7 +4,7 @@ import java.util.*;
 
 // https://www.geeksforgeeks.org/previous-greater-element/
 // Need to find prev greater element on left side of current element
-public class _19_02_PGE_MonotonicStack {
+public class _21_02_PGE_Imp {
 
 	public static int[] prevGreaterElement(int[] arr) {
 
