@@ -2,10 +2,13 @@ package DSA.Bucket5._08_recursion.medium;
 
 import java.util.*;
 
-public class _09_02_FindAllSubArrays_recursion {
+public class _09_02_FindAllSubArrays {
 
 	public static ArrayList<ArrayList<Integer>> findAllSubArrays(int[] arr, int i, ArrayList<Integer> list,
 			ArrayList<ArrayList<Integer>> result) {
+
+		if (i == arr.length)
+			return result;
 
 		for (int j = i; j < arr.length; j++) {
 			list.add(arr[j]);

@@ -43,8 +43,8 @@ public class _04_PermutationsOfArray {
 		swap(arr, i, j);
 		permutation(arr, i + 1, i + 1, result);
 		permutation(arr, i, j + 1, result);
-		swap(arr, i, j);// Need to revert back arr as its pass by ref and is mutable. But if its,
-						// String then reverting back is not needed as its immutable
+		swap(arr, i, j);// Need to revert back arr as its pass by ref and mutable. If String then being
+						// immutable no need to revert
 
 		return result;
 
@@ -54,7 +54,6 @@ public class _04_PermutationsOfArray {
 		int[] arr = { 1, 2, 3 };
 		System.out.println(permutation(arr, 0, 0, new ArrayList<String>()));
 	}
-
 }
 
 //TC : n! * n (as there will be n! permutations generated and add each of size n to result)

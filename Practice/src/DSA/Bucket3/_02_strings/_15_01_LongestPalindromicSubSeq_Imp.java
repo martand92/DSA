@@ -1,7 +1,7 @@
 package DSA.Bucket3._02_strings;
 
 //Note : This is not substring but subsequence, hence resulting palindromic sub seq need not be consecutive
-public class _15_LongestPalindromicSubSeq_Imp {
+public class _15_01_LongestPalindromicSubSeq_Imp {
 
 	public static String findLPS(String s, int i, int j) {
 
@@ -27,4 +27,4 @@ public class _15_LongestPalindromicSubSeq_Imp {
 	}
 }
 
-//TC : O(n^2), SC : O()
+//TC : O(2^n), SC : O(n)

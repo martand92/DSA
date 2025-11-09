@@ -5,8 +5,18 @@ public class _06_SeqOfSeq {
 
 	public static int seqOfSeq(int n, int m, int i, int len) {
 
-		if (i > m && len == n)
-			return 1;
+		// Once length reaches n, keep increasing i until breaches m
+		if (len == n) {
+
+			int count = 0;
+
+			while (i <= m) {
+				count++;
+				i++;
+			}
+
+			return count;
+		}
 
 		if (i > m)
 			return 0;
@@ -18,7 +28,7 @@ public class _06_SeqOfSeq {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(seqOfSeq(4, 10, 1, 0));
+		System.out.println(seqOfSeq(4, 10, 1, 1));
 	}
 }
 //1 2 4 8

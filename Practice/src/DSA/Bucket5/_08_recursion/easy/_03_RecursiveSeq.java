@@ -3,26 +3,25 @@ package DSA.Bucket5._08_recursion.easy;
 //https://practice.geeksforgeeks.org/problems/recursive-sequence1611/1
 public class _03_RecursiveSeq {
 
-	static int mod = (int) 1e9 + 7, num = 1;
+	static int mod = (int) 1e9 + 7;
 
-	public static int seq(int count, int mul) {
+	public static int seq(int n, int counter, int num, int sum) {
 
-		if (count == 0)
-			return mul;
+		if (n < 0)
+			return sum;
 
-		mul *= num % mod;
-		num++;
+		int mul = 1;
+		for (int i = 0; i < counter; i++) {
+			mul = (mul * num) % mod;
+			num++;
+		}
 
-		return seq(count - 1, mul);
+		sum = (sum + mul) % mod;
+		return seq(n - 1, counter + 1, num, sum % mod) % mod;
 	}
 
 	public static void main(String[] args) {
-
-		int n = 5, sum = 0;
-
-		for (int i = 1; i <= n; i++)
-			sum += seq(i, 1) % mod;
-
-		System.out.println(sum);
+		int n = 7;
+		System.out.println(seq(n - 1, 1, 1, 0));
 	}
 }
