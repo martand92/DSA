@@ -3,7 +3,7 @@ package DSA.Bucket3._04_recursion.medium.pickAndNotPick;
 import java.util.*;
 
 //This could also be solved using pick & not pick : _16_02_PrintAllSubArrays
-public class _15_01_PrintAllSubSeq_WithoutPickAndNotPick {
+public class _16_01_PrintAllSubSequences_WithoutPickNotPick {
 
 	public static ArrayList<ArrayList<Integer>> findAllSubArrays(int[] arr, int i, List<Integer> list,
 			ArrayList<ArrayList<Integer>> result) {

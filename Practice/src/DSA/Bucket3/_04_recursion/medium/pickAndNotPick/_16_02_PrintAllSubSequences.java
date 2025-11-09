@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //https://www.geeksforgeeks.org/generating-all-possible-subsequences-using-recursion/
 //https://youtu.be/AxNNVECce8c
-public class _16_01_PrintAllSubSequences {
+public class _16_02_PrintAllSubSequences {
 
 	public static ArrayList<ArrayList<Integer>> getAllSubSequences(int[] arr, int index, ArrayList<Integer> list,
 			ArrayList<ArrayList<Integer>> finalList) {

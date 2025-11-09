@@ -9,7 +9,7 @@ import java.util.*;
 
 //Opt: Below algo prints only unique sub seq though there are duplicate subsequences in result. This works only on sorted input
 
-public class _16_02_PrintAllSubSequences_WithoutDup {
+public class _16_03_PrintAllSubSequences_WithoutDup {
 
 	public static ArrayList<ArrayList<Integer>> findSubSet(int[] arr, int index, ArrayList<Integer> list,
 			ArrayList<ArrayList<Integer>> result) {
